@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_access_rights_group_tree" model="ir.ui.view">
+        <field name="name">access.rights.group.tree</field>
+        <field name="model">access.rights.group</field>
+        <field name="arch" type="xml">
+            <tree string="Rights by Group" create="false" edit="false" delete="false"
+                  decoration-info="via_global and not via_direct and not via_inherited">
+                <field name="group_id"/>
+                <field name="model_name"/>
+                <field name="model_id" optional="hide"/>
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+                <field name="rights_code" optional="show"/>
+                <field name="via_direct" optional="show"/>
+                <field name="via_inherited" optional="show"/>
+                <field name="via_global" optional="hide"/>
+                <field name="source_group_ids" widget="many2many_tags" optional="show"/>
+                <field name="perm_count" optional="hide"/>
+                <field name="is_wizard" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_access_rights_group_form" model="ir.ui.view">
+        <field name="name">access.rights.group.form</field>
+        <field name="model">access.rights.group</field>
+        <field name="arch" type="xml">
+            <form string="Effective Access Rights" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Group and Model">
+                            <field name="group_id"/>
+                            <field name="model_id"/>
+                            <field name="model_name"/>
+                            <field name="is_wizard"/>
+                        </group>
+                        <group string="Effective Permissions">
+                            <field name="perm_read"/>
+                            <field name="perm_write"/>
+                            <field name="perm_create"/>
+                            <field name="perm_unlink"/>
+                            <field name="rights_code"/>
+                        </group>
+                        <group string="Where The Rights Come From">
+                            <field name="via_direct"/>
+                            <field name="via_inherited"/>
+                            <field name="via_global"/>
+                            <field name="source_group_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_access_rights_group_search" model="ir.ui.view">
+        <field name="name">access.rights.group.search</field>
+        <field name="model">access.rights.group</field>
+        <field name="arch" type="xml">
+            <search string="Rights by Group">
+                <field name="group_id"/>
+                <field name="model_name" string="Model"
+                       filter_domain="['|', ('model_name', 'ilike', self), ('model_id', 'ilike', self)]"/>
+                <filter string="Grants Read" name="filter_read"
+                        domain="[('perm_read', '=', True)]"/>
+                <filter string="Grants Write" name="filter_write"
+                        domain="[('perm_write', '=', True)]"/>
+                <filter string="Grants Create" name="filter_create"
+                        domain="[('perm_create', '=', True)]"/>
+                <filter string="Grants Delete" name="filter_delete"
+                        domain="[('perm_unlink', '=', True)]"/>
+                <separator/>
+                <filter string="Full Access" name="filter_full"
+                        domain="[('perm_count', '=', 4)]"/>
+                <filter string="Read Only" name="filter_readonly"
+                        domain="[('perm_read', '=', True), ('perm_write', '=', False),
+                                 ('perm_create', '=', False), ('perm_unlink', '=', False)]"/>
+                <separator/>
+                <filter string="Own Lines" name="filter_direct"
+                        domain="[('via_direct', '=', True)]"/>
+                <filter string="Inherited From Implied Groups" name="filter_inherited"
+                        domain="[('via_inherited', '=', True)]"/>
+                <filter string="From Global Lines" name="filter_global"
+                        domain="[('via_global', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Group" name="group_group"
+                            context="{'group_by': 'group_id'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Delete Access" name="group_delete"
+                            context="{'group_by': 'perm_unlink'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_access_rights_group" model="ir.actions.act_window">
+        <field name="name">Rights by Group</field>
+        <field name="res_model">access.rights.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_access_rights_group_search"/>
+        <field name="context">{'search_default_group_group': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No effective rights match these filters</p>
+            <p>Pick a group in the search bar to see every model its members can
+               reach. Rights inherited from the groups it implies are resolved
+               transitively, and access control lines that carry no group - which
+               Odoo grants to everybody - are included too.</p>
+            <p>Only the models the group can reach are listed: anything absent is
+               denied.</p>
+        </field>
+    </record>
+
+    <!-- Same report reached from Settings / Users and Companies / Groups:
+         select one or more groups and use the Action menu. -->
+    <record id="action_access_rights_group_selected" model="ir.actions.act_window">
+        <field name="name">Effective Access Rights</field>
+        <field name="res_model">access.rights.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_access_rights_group_search"/>
+        <field name="domain">[('group_id', 'in', active_ids)]</field>
+        <field name="binding_model_id" ref="base.model_res_groups"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+</odoo>
