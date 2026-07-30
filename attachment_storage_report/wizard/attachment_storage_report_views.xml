@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="attachment_storage_report_view_form" model="ir.ui.view">
+        <field name="name">attachment.storage.report.form</field>
+        <field name="model">attachment.storage.report</field>
+        <field name="arch" type="xml">
+            <form string="Attachment Storage Report">
+                <header>
+                    <button name="action_run_report" type="object" string="Run Report"
+                            class="btn-primary"/>
+                    <button name="action_delete_selected" type="object"
+                            string="Delete Ticked Attachments" class="btn-secondary"
+                            confirm="This permanently deletes the ticked attachments and the files behind them. It cannot be undone. Continue?"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Attachment Storage Report</h1>
+                    </div>
+                    <group>
+                        <group string="Filters">
+                            <field name="min_size_mb"/>
+                            <field name="top_limit"/>
+                            <field name="include_field_attachments"/>
+                        </group>
+                        <group string="Period">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Totals">
+                            <field name="total_count"/>
+                            <field name="total_size_display"/>
+                            <div colspan="2" class="text-muted" groups="base.group_multi_company">
+                                Counts only the companies currently selected in the company switcher.
+                            </div>
+                        </group>
+                        <group string="Where It Lives">
+                            <field name="filestore_size_display"/>
+                            <field name="db_size_display"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="By Model" name="by_model">
+                            <field name="model_line_ids" nolabel="1" readonly="1">
+                                <tree create="false" delete="false" edit="false">
+                                    <field name="model_name"/>
+                                    <field name="res_model" optional="hide"/>
+                                    <field name="attachment_count" sum="Attachments"/>
+                                    <field name="size_display"/>
+                                    <field name="total_size_mb" sum="Total (MB)"/>
+                                    <field name="percentage" widget="progressbar"/>
+                                    <button name="action_view_attachments" type="object"
+                                            string="Open" icon="fa-external-link"
+                                            title="Open these attachments"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="By User" name="by_user">
+                            <field name="user_line_ids" nolabel="1" readonly="1">
+                                <tree create="false" delete="false" edit="false">
+                                    <field name="user_id"/>
+                                    <field name="attachment_count" sum="Attachments"/>
+                                    <field name="size_display"/>
+                                    <field name="total_size_mb" sum="Total (MB)"/>
+                                    <field name="percentage" widget="progressbar"/>
+                                    <button name="action_view_attachments" type="object"
+                                            string="Open" icon="fa-external-link"
+                                            title="Open these attachments"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Largest Attachments" name="largest">
+                            <div class="alert alert-warning" role="alert">
+                                Tick <strong>Delete</strong> on the files you no longer need, then
+                                use the <strong>Delete Ticked Attachments</strong> button above.
+                                Nothing is ever removed automatically. Rows with a
+                                <strong>Record Field</strong> are the value of a binary field
+                                (a logo, a photo, a stored PDF) and cannot be deleted from here.
+                            </div>
+                            <field name="attachment_line_ids" nolabel="1">
+                                <tree create="false" delete="false" editable="bottom">
+                                    <field name="name" readonly="1"/>
+                                    <field name="model_name" readonly="1"/>
+                                    <field name="user_id" readonly="1"/>
+                                    <field name="upload_date" readonly="1"/>
+                                    <field name="storage" readonly="1"/>
+                                    <field name="res_field" readonly="1"/>
+                                    <field name="size_display" readonly="1"/>
+                                    <field name="file_size_mb" sum="Total (MB)" readonly="1"/>
+                                    <field name="to_delete" widget="boolean_toggle"/>
+                                    <button name="action_open_attachment" type="object"
+                                            string="Open" icon="fa-external-link"
+                                            title="Open this attachment"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_attachment_storage_report" model="ir.actions.server">
+        <field name="name">Attachment Storage Report</field>
+        <field name="model_id" ref="model_attachment_storage_report"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_report()</field>
+    </record>
+
+    <menuitem id="menu_attachment_storage_root"
+              name="Attachment Storage"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="105"/>
+
+    <menuitem id="menu_attachment_storage_report"
+              name="Storage Report"
+              parent="menu_attachment_storage_root"
+              action="action_attachment_storage_report"
+              groups="base.group_system"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="followers_bulk_wizard_view_form" model="ir.ui.view">
+        <field name="name">followers.bulk.wizard.form</field>
+        <field name="model">followers.bulk.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Manage Followers">
+                <field name="res_model" invisible="1"/>
+                <div class="alert alert-info" role="status">
+                    These changes will be applied to <field name="record_count" class="oe_inline"/> selected record(s).
+                </div>
+                <group>
+                    <field name="partner_add_ids" widget="many2many_tags"
+                           options="{'no_create': True}"
+                           placeholder="Who should start following..."/>
+                    <field name="partner_remove_ids" widget="many2many_tags"
+                           options="{'no_create': True}"
+                           placeholder="Who should stop following..."/>
+                    <field name="subtype_ids" widget="many2many_tags"
+                           options="{'no_create': True}"
+                           placeholder="Default subtypes of the model"/>
+                </group>
+                <footer>
+                    <button name="action_apply" string="Apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_followers_bulk_wizard" model="ir.actions.act_window">
+        <field name="name">Manage Followers</field>
+        <field name="res_model">followers.bulk.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

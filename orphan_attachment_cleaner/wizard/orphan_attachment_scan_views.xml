@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="orphan_attachment_scan_view_form" model="ir.ui.view">
+        <field name="name">orphan.attachment.scan.form</field>
+        <field name="model">orphan.attachment.scan</field>
+        <field name="arch" type="xml">
+            <form string="Orphaned Attachments">
+                <div class="alert alert-info" role="status">
+                    <field name="summary_note" class="oe_inline"/>
+                </div>
+                <group>
+                    <group>
+                        <field name="orphan_count"/>
+                        <field name="reclaimable_size_display"/>
+                    </group>
+                    <group>
+                        <field name="inspected_count"/>
+                    </group>
+                </group>
+                <field name="line_ids" nolabel="1">
+                    <tree create="false" delete="false" editable="bottom">
+                        <field name="res_model"/>
+                        <field name="reason"/>
+                        <field name="attachment_count" sum="Attachments"/>
+                        <field name="size_display"/>
+                        <field name="to_clean" widget="boolean_toggle"/>
+                    </tree>
+                </field>
+                <div class="text-muted mt8">
+                    Never listed and never deleted: files with no model at all
+                    (documents users uploaded on their own), web assets and module
+                    data (<code>ir.ui.view</code>, <code>ir.asset</code>,
+                    <code>ir.actions.report</code>, <code>ir.module.module</code>),
+                    and attachments that store the value of a binary field.
+                </div>
+                <div class="mt8" groups="base.group_system">
+                    <field name="confirmed" class="oe_inline"/>
+                    <label for="confirmed" class="oe_inline ms-1"/>
+                </div>
+                <footer>
+                    <button name="action_scan" string="Rescan" type="object" class="btn-secondary"/>
+                    <button name="action_cleanup" string="Delete Selected Attachments"
+                            type="object" class="btn-danger" groups="base.group_system"
+                            confirm="These attachments and their files are deleted permanently. Continue?"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_orphan_attachment_scan" model="ir.actions.act_window">
+        <field name="name">Orphaned Attachments</field>
+        <field name="res_model">orphan.attachment.scan</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_orphan_attachment_scan"
+              name="Orphaned Attachments"
+              parent="base.menu_administration"
+              action="action_orphan_attachment_scan"
+              groups="base.group_erp_manager"
+              sequence="105"/>
+</odoo>
