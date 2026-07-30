@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_access_rights_matrix_list" model="ir.ui.view">
+        <field name="name">access.rights.matrix.list</field>
+        <field name="model">access.rights.matrix</field>
+        <field name="arch" type="xml">
+            <list string="Access Rights Matrix" create="false" edit="false" delete="false"
+                  decoration-muted="no_acl"
+                  decoration-info="is_global">
+                <field name="model_name"/>
+                <field name="model_id" optional="show"/>
+                <field name="group_id" optional="show"/>
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+                <field name="rights_code" optional="show"/>
+                <field name="is_global" optional="hide"/>
+                <field name="no_acl" optional="hide"/>
+                <field name="acl_count" optional="hide"/>
+                <field name="perm_count" optional="hide"/>
+                <field name="is_wizard" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_access_rights_matrix_form" model="ir.ui.view">
+        <field name="name">access.rights.matrix.form</field>
+        <field name="model">access.rights.matrix</field>
+        <field name="arch" type="xml">
+            <form string="Access Rights" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Model">
+                            <field name="model_id"/>
+                            <field name="model_name"/>
+                            <field name="is_wizard"/>
+                            <field name="is_abstract"/>
+                        </group>
+                        <group string="Group">
+                            <field name="group_id"/>
+                            <field name="is_global"/>
+                            <field name="no_acl"/>
+                            <field name="acl_count"/>
+                        </group>
+                        <group string="Permissions">
+                            <field name="perm_read"/>
+                            <field name="perm_write"/>
+                            <field name="perm_create"/>
+                            <field name="perm_unlink"/>
+                        </group>
+                        <group string="Summary">
+                            <field name="rights_code"/>
+                            <field name="perm_count"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_access_rights_matrix_search" model="ir.ui.view">
+        <field name="name">access.rights.matrix.search</field>
+        <field name="model">access.rights.matrix</field>
+        <field name="arch" type="xml">
+            <search string="Access Rights Matrix">
+                <field name="model_name" string="Model"
+                       filter_domain="['|', ('model_name', 'ilike', self), ('model_id', 'ilike', self)]"/>
+                <field name="group_id"/>
+                <filter string="Grants Read" name="filter_read"
+                        domain="[('perm_read', '=', True)]"/>
+                <filter string="Grants Write" name="filter_write"
+                        domain="[('perm_write', '=', True)]"/>
+                <filter string="Grants Create" name="filter_create"
+                        domain="[('perm_create', '=', True)]"/>
+                <filter string="Grants Delete" name="filter_delete"
+                        domain="[('perm_unlink', '=', True)]"/>
+                <separator/>
+                <filter string="Full Access" name="filter_full"
+                        domain="[('perm_count', '=', 4)]"/>
+                <filter string="Read Only" name="filter_readonly"
+                        domain="[('perm_read', '=', True), ('perm_write', '=', False),
+                                 ('perm_create', '=', False), ('perm_unlink', '=', False)]"/>
+                <filter string="Grants Nothing" name="filter_none"
+                        domain="[('perm_count', '=', 0), ('no_acl', '=', False)]"/>
+                <separator/>
+                <filter string="Global Lines (all users)" name="filter_global"
+                        domain="[('is_global', '=', True)]"/>
+                <filter string="No Access Rule" name="filter_no_acl"
+                        domain="[('no_acl', '=', True)]"/>
+                <separator/>
+                <filter string="Stored Models" name="filter_concrete"
+                        domain="[('is_abstract', '=', False)]"/>
+                <filter string="Abstract Models" name="filter_abstract"
+                        domain="[('is_abstract', '=', True)]"/>
+                <filter string="Wizards" name="filter_wizard"
+                        domain="[('is_wizard', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Group" name="group_group"
+                            context="{'group_by': 'group_id'}"/>
+                    <filter string="Delete Access" name="group_delete"
+                            context="{'group_by': 'perm_unlink'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_access_rights_matrix" model="ir.actions.act_window">
+        <field name="name">Access Rights Matrix</field>
+        <field name="res_model">access.rights.matrix</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_access_rights_matrix_search"/>
+        <field name="context">{'search_default_filter_concrete': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No access rights match these filters</p>
+            <p>One line per model and group, with the read, write, create and
+               delete ticks Odoo actually applies. Several access control lines
+               for the same model and group are merged: a permission is granted
+               as soon as one active line grants it.</p>
+            <p>This matrix reports the lines as recorded and does not expand
+               implied groups. Use <b>Rights by Group</b> for the inherited
+               picture. Abstract models are hidden by the default filter.</p>
+        </field>
+    </record>
+
+</odoo>
