@@ -1,0 +1,62 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #123a5e; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Reassign Records in Bulk</h1>
+        <p style="margin: 0; font-size: 18px; color: #4fc3a1;">Someone leaves. Their records move in one click.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">When a salesperson or a project member leaves, every record they own has to be reassigned by hand, one form at a time. This module adds a <strong>Reassign Owner</strong> action: select the records &mdash; or simply pick <em>all records of user X</em> &mdash; choose the new owner, and apply.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Works on any model</strong> &mdash; the responsible field is detected automatically (<code>user_id</code>, <code>user_ids</code> or <code>activity_user_id</code>, whichever the model stores and lets you edit); a model without one gives a clear message instead of an obscure error.</li>
+        <li><strong>Two ways to select</strong> &mdash; the records you ticked, or every record still owned by the person who is leaving, archived records included, with a live counter.</li>
+        <li><strong>Respects access rights</strong> &mdash; the reassignment runs as you, never with elevated privileges; records you may not write are reported as skipped, not silently ignored.</li>
+        <li><strong>Never aborts halfway</strong> &mdash; every record is written in its own savepoint, so one failure does not roll back the rest.</li>
+        <li><strong>Traceable</strong> &mdash; a note is logged in the chatter of each record that changed, and a summary reports reassigned / already assigned / skipped / failed.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-actions-menu.png" alt="Reassign Owner in the Actions menu" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Tick the records, then choose Actions &rarr; Reassign Owner.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-wizard.png" alt="The reassignment wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The wizard names the responsible field it detected and how many records it will touch. Pick the new owner and apply.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-all-records-of-user.png" alt="Reassigning every record of one user" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Switch to "All records of a user" to hand over everything a leaver still owns, without selecting anything by hand.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Reassign Records in Bulk</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None. The action is available immediately on Contacts.</li>
+        <li>To offer it on other models, a technical user opens <strong>Settings &rarr; Technical &rarr; Actions &rarr; Window Actions</strong>, edits <em>Reassign Owner</em> and adds the model to the action bindings.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open a list view and tick the records to hand over.</li>
+        <li>Choose <strong>Actions &rarr; Reassign Owner</strong> in the toolbar.</li>
+        <li>Keep <em>Selected records</em>, or switch to <em>All records of a user</em> and pick the person who is leaving.</li>
+        <li>Choose the new owner, leave <em>Log a note in the chatter</em> ticked, and click <strong>Reassign</strong>.</li>
+        <li>Read the summary: reassigned, already assigned, skipped (no write access) and failed records are counted separately.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). On a many2many responsible field the new owner is added and the previous owner removed, so the remaining collaborators are kept.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
