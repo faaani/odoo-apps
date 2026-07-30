@@ -31,3 +31,7 @@ ISO 27001 / SOC 2 style audits. Free, LGPL-3, supported on Odoo 14.0 – 19.0.
 ## Notes per version
 Identical behavior on all supported series (14.0 – 19.0); only view markup
 differs internally.
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com

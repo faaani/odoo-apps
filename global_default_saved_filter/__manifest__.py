@@ -2,7 +2,7 @@
 # Part of global_default_saved_filter. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Global Default Saved Filter',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.0.1',
     'summary': 'Make one shared saved filter the default view for every user — without duplicating it per user.',
     'description': """
 Odoo's favorites menu makes "Use by default" and "Share with all users"
@@ -18,6 +18,7 @@ no conflicting defaults.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Technical',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['base'],
     'data': [
         'views/ir_filters_views.xml',
