@@ -1,0 +1,493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* database_size_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:10+0000\n"
+"PO-Revision-Date: 2026-07-30 22:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__total_display
+msgid "All Tables + Indexes"
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid ""
+"Attachment metadata. The files themselves live in the filestore on disk "
+"unless they are stored in the database."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid ""
+"Chatter messages: one row per logged note, e-mail and tracked-change "
+"message, on every record of every model."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__create_uid
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__create_date
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__database_name
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Database"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.ui.menu,name:database_size_report.menu_database_size_root
+msgid "Database Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__database_size_bytes
+msgid "Database Size (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#: model:ir.actions.server,name:database_size_report.action_database_size_report
+#: model:ir.model,name:database_size_report.model_database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+#, python-format
+msgid "Database Size Report"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model,name:database_size_report.model_database_size_report_line
+msgid "Database Table Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__database_size_display
+msgid "Database on Disk"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__display_name
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "History/log table: rows accumulate over time."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report__line_limit
+msgid ""
+"How many of the largest tables to list (1-2000). The totals above always "
+"cover every table, whatever this is set to."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__id
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__id
+msgid "ID"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__index_size
+msgid "Index Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__index_bytes
+msgid "Indexes (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__kind
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Kind"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__write_uid
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__write_date
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__is_truncated
+msgid "List Truncated"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__listed_display
+msgid "Listed Tables + Indexes"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__listed_bytes
+msgid "Listed Total (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields.selection,name:database_size_report.selection__database_size_report_line__kind__matview
+msgid "Materialized View"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__measured_on
+msgid "Measured On"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__model_label
+msgid "Model Name"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__row_estimate_missing
+msgid "No Statistics"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "No Statistics Yet"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__note
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_form
+msgid "Note"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__model_name
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Odoo Model"
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "One row per follower of every record."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "One row per login. Odoo keeps only the latest row per user."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid ""
+"One row per recipient of every chatter message, so it grows faster than "
+"mail_message itself."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "Only Settings administrators may run the Database Size Report."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Open As List"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid ""
+"Open the same tables in a full list view, where they can be filtered, "
+"grouped and exported."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Over 10 MB"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Over 100 MB"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields.selection,name:database_size_report.selection__database_size_report_line__kind__partitioned
+msgid "Partitioned Table"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report_line__row_estimate
+msgid ""
+"PostgreSQL's own row estimate (reltuples), refreshed by ANALYZE and "
+"autovacuum. It is not an exact count: reading it is instant even on a huge "
+"table, while COUNT(*) would read the whole table."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "Queued one-off triggers for scheduled actions."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "Real-time notification bus. Odoo empties it on its own."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Refresh"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__name
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__report_id
+msgid "Report"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__row_estimate
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_tree
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Rows (estimate)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__schema_name
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Schema"
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid "Server log lines written into the database by modules."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__percentage
+msgid "Share"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report_line__percentage
+msgid "Share of the total size of all tables in the database."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_form
+msgid "Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.ui.menu,name:database_size_report.menu_database_size_report
+msgid "Size Report"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid ""
+"Sizes come straight from PostgreSQL: <strong>Table Size</strong> is the\n"
+"                        table itself (including its TOAST overflow storage), <strong>Index\n"
+"                        Size</strong> is all of its indexes, and <strong>Total Size</strong>\n"
+"                        is what the table really costs on disk. <strong>Rows</strong> is\n"
+"                        PostgreSQL's own estimate, not an exact count, so the report is\n"
+"                        instant even on a very large database.\n"
+"                        <strong>Database on Disk</strong> is bigger than the total of the\n"
+"                        tables because it also holds the PostgreSQL catalogs and the free\n"
+"                        space left behind by deleted rows.\n"
+"                        This report only reads: none of your records is changed or deleted.\n"
+"                        The report itself is a temporary record that Odoo cleans up on its own."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__table_name
+#: model:ir.model.fields.selection,name:database_size_report.selection__database_size_report_line__kind__table
+msgid "Table"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__table_bytes
+msgid "Table (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__table_size
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_form
+msgid "Table Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.actions.act_window,name:database_size_report.action_database_size_report_line
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_tree
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Table Sizes"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__line_ids
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Tables"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__listed_count
+msgid "Tables Listed"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__total_bytes
+msgid "Tables Total (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__table_count
+msgid "Tables in Database"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report__line_limit
+msgid "Tables to List"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report_line__model_name
+msgid ""
+"The model stored in this table. Empty for tables that belong to no model, "
+"such as the relation tables behind many2many fields."
+msgstr ""
+
+#. module: database_size_report
+#. odoo-python
+#: code:addons/database_size_report/wizard/database_size_report.py:0
+#, python-format
+msgid ""
+"The old/new values behind the \"tracked changes\" lines in the chatter. "
+"Grows with mail_message."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid ""
+"This database holds more tables than the list below shows.\n"
+"                        The totals above still cover every table — raise\n"
+"                        <strong>Tables to List</strong> and press <strong>Refresh</strong>\n"
+"                        to see more of them."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report_line__row_estimate_missing
+msgid ""
+"Ticked when PostgreSQL has never analysed this table, so no row estimate "
+"exists yet and 0 is shown. PostgreSQL 14 and above only: older versions "
+"cannot tell an unanalysed table from an empty one."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report__is_truncated
+msgid "Ticked when the database holds more tables than the list shows."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__total_mb
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_tree
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_view_form
+msgid "Total (MB)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__total_bytes
+msgid "Total (bytes)"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,field_description:database_size_report.field_database_size_report_line__total_size
+msgid "Total Size"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report__total_display
+msgid ""
+"Total size of every table in the database, including its indexes and TOAST "
+"storage."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report__listed_display
+msgid "Total size of the tables shown in the list below."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_form
+msgid "What Is In It"
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report__database_size_display
+msgid ""
+"What PostgreSQL reports for the whole database (pg_database_size): user "
+"tables, system catalogs and the free space left behind by deleted rows. It "
+"is therefore larger than the total of the tables."
+msgstr ""
+
+#. module: database_size_report
+#: model:ir.model.fields,help:database_size_report.field_database_size_report_line__note
+msgid ""
+"What this table usually holds, for the tables that most often explain a "
+"growing database."
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "With an Odoo Model"
+msgstr ""
+
+#. module: database_size_report
+#: model_terms:ir.ui.view,arch_db:database_size_report.database_size_report_line_view_search
+msgid "Without an Odoo Model"
+msgstr ""
