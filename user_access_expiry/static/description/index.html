@@ -1,0 +1,64 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #5b2333; color: #f6eef0; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">User Access Expiry Date</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Contractors lose access on schedule. Automatically.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        Offboarding shouldn't depend on someone remembering. Set an <strong>end date on any user
+        account</strong> — contractors, interns, auditors, temporary staff — and a daily job archives
+        it the moment the date passes. Clean audit trail, admin notification, zero configuration.
+        <strong>Free and open source (LGPL-3), identical behavior on Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Zero config</strong> — setting the date is the whole setup.</li>
+        <li><strong>Safe by design</strong> — administrators, OdooBot and the superuser are never archived, even with a past date.</li>
+        <li><strong>Audit trail</strong> — archived accounts carry a "Deactivated by Expiry" flag and timestamp.</li>
+        <li><strong>No surprises on rehire</strong> — re-activating a user clears the stale date so they are not re-archived the next night.</li>
+        <li><strong>Admin summary email</strong> on every archival run (can be turned off).</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+        <div style="margin: 18px 0;">
+        <img src="01-expiry-date.png" alt="01-expiry-date" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Set the Access Expiry Date on the user form — a contractor end date, an intern’s last day. That is the entire setup.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-archived-audit.png" alt="02-archived-audit" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Once the date passes, the daily job archives the account — audit flag and exact timestamp on the Access Expiry tab.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-settings.png" alt="03-settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Optional: control the administrator email summary in Settings &rarr; Users ("Notify on Access Expiry", on by default).</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-users-filters.png" alt="04-users-filters" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters on Settings &rarr; Users: "Has Expiry Date" and "Deactivated by Expiry".</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>User Access Expiry Date</em>.</li>
+        <li>Click <strong>Install</strong>. Only standard Odoo modules (<code>base_setup</code>, <code>mail</code>) are required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None required — setting a date on a user is the whole configuration.</li>
+        <li>Optional: in <strong>Settings &rarr; General Settings</strong>, Users section, toggle <strong>Notify on Access Expiry</strong> (administrator email summary, on by default).</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open a user (<strong>Settings &rarr; Users</strong>), go to the <strong>Access Expiry</strong> tab and set the <strong>Access Expiry Date</strong> — e.g. the contractor's end date.</li>
+        <li>The daily scheduled action <em>"Users: deactivate expired accounts"</em> archives the account once the date passes; the tab then shows the audit flag and exact timestamp.</li>
+        <li>Filter the users list with <strong>Has Expiry Date</strong> or <strong>Deactivated by Expiry</strong> to review upcoming and past expiries.</li>
+        <li>Re-activating an archived user clears the audit flags and the stale date.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Behavior is identical on every supported series (14.0 – 19.0). Only internal view markup differs per version.</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

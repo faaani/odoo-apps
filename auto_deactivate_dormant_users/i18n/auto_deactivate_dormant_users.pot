@@ -1,0 +1,149 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* auto_deactivate_dormant_users
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 13:00+0000\n"
+"PO-Revision-Date: 2026-07-30 13:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: auto_deactivate_dormant_users
+#. odoo-python
+#: code:addons/auto_deactivate_dormant_users/models/res_users.py:0
+#, python-format
+msgid ""
+"%(count)s user account(s) were automatically archived after %(days)s days "
+"without login:"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_config_settings__dormancy_include_never_logged
+msgid ""
+"Also archive users who never logged in, counting from their creation date."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_config_settings__dormancy_enabled
+msgid "Archive internal users automatically after the dormancy period below."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.view_users_form_dormancy
+msgid "Audit"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_config_settings__dormancy_enabled
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.res_config_settings_view_form_dormancy
+msgid "Auto Deactivate Dormant Users"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.view_users_form_dormancy
+msgid "Automatic Deactivation"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.res_config_settings_view_form_dormancy
+msgid ""
+"Automatically archive internal users who have not logged in for the period "
+"below. Administrators, OdooBot and portal users are never touched."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model,name:auto_deactivate_dormant_users.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_users__deactivated_by_dormancy
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.view_users_search_dormancy
+msgid "Deactivated by Dormancy"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.view_users_form_dormancy
+msgid "Dormancy"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_users__dormancy_deactivation_date
+msgid "Dormancy Deactivation Date"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model_terms:ir.ui.view,arch_db:auto_deactivate_dormant_users.view_users_search_dormancy
+msgid "Dormancy Exempt"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_config_settings__dormancy_days
+msgid "Dormancy Period (days)"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#. odoo-python
+#: code:addons/auto_deactivate_dormant_users/models/res_users.py:0
+#, python-format
+msgid "Dormant users deactivated"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_users__dormancy_exempt
+msgid "Exclude this user from automatic dormancy deactivation."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_config_settings__dormancy_include_never_logged
+msgid "Include Users Who Never Logged In"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_users__dormancy_exempt
+msgid "Never Deactivate Automatically"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,field_description:auto_deactivate_dormant_users.field_res_config_settings__dormancy_notify_admins
+msgid "Notify Administrators"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_config_settings__dormancy_notify_admins
+msgid ""
+"Send Settings administrators an email summary whenever users are archived."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_users__deactivated_by_dormancy
+msgid "Set when this user was archived by the dormant-user cron."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model,name:auto_deactivate_dormant_users.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_config_settings__dormancy_days
+msgid ""
+"Users who have not logged in for this many days are archived. Minimum 7."
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.actions.server,name:auto_deactivate_dormant_users.ir_cron_deactivate_dormant_users_ir_actions_server
+msgid "Users: deactivate dormant accounts"
+msgstr ""
+
+#. module: auto_deactivate_dormant_users
+#: model:ir.model.fields,help:auto_deactivate_dormant_users.field_res_users__dormancy_deactivation_date
+msgid "When the dormant-user cron archived this account."
+msgstr ""
