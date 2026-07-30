@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cron_execution_history_list" model="ir.ui.view">
+        <field name="name">cron.execution.history.list</field>
+        <field name="model">cron.execution.history</field>
+        <field name="arch" type="xml">
+            <list string="Scheduled Action History" create="false" edit="false" delete="false"
+                  default_order="start_time desc"
+                  decoration-danger="state == 'failure'">
+                <field name="start_time"/>
+                <field name="cron_name"/>
+                <field name="duration" avg="Average duration (s)"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'success'"
+                       decoration-danger="state == 'failure'"/>
+                <field name="error_type" optional="show"/>
+                <field name="error_message" optional="hide"/>
+                <field name="end_time" optional="hide"/>
+                <field name="cron_ref" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cron_execution_history_form" model="ir.ui.view">
+        <field name="name">cron.execution.history.form</field>
+        <field name="model">cron.execution.history</field>
+        <field name="arch" type="xml">
+            <form string="Scheduled Action Run" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_open_cron" type="object" class="btn-secondary"
+                            string="Open Scheduled Action" icon="fa-external-link"
+                            invisible="not cron_id"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="cron_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Run">
+                            <field name="state"/>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                            <field name="duration"/>
+                        </group>
+                        <group string="Scheduled Action">
+                            <field name="cron_id"/>
+                            <field name="cron_ref"/>
+                        </group>
+                    </group>
+                    <group string="Failure" invisible="state != 'failure'">
+                        <field name="error_type"/>
+                        <field name="error_message"/>
+                        <field name="error_traceback"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cron_execution_history_pivot" model="ir.ui.view">
+        <field name="name">cron.execution.history.pivot</field>
+        <field name="model">cron.execution.history</field>
+        <field name="arch" type="xml">
+            <pivot string="Scheduled Action History" sample="0">
+                <field name="cron_name" type="row"/>
+                <field name="state" type="col"/>
+                <field name="duration" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_cron_execution_history_graph" model="ir.ui.view">
+        <field name="name">cron.execution.history.graph</field>
+        <field name="model">cron.execution.history</field>
+        <field name="arch" type="xml">
+            <graph string="Scheduled Action History" type="bar" sample="0">
+                <field name="cron_name"/>
+                <field name="duration" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_cron_execution_history_search" model="ir.ui.view">
+        <field name="name">cron.execution.history.search</field>
+        <field name="model">cron.execution.history</field>
+        <field name="arch" type="xml">
+            <search string="Scheduled Action History">
+                <field name="cron_name" string="Scheduled Action"/>
+                <field name="error_message" string="Error"
+                       filter_domain="['|', ('error_message', 'ilike', self), ('error_type', 'ilike', self)]"/>
+                <filter string="Failures" name="filter_failure"
+                        domain="[('state', '=', 'failure')]"/>
+                <filter string="Successful Runs" name="filter_success"
+                        domain="[('state', '=', 'success')]"/>
+                <separator/>
+                <filter string="Last 24 Hours" name="filter_last_day"
+                        domain="[('start_time', '&gt;=', (datetime.datetime.now() - datetime.timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <filter string="Last 7 Days" name="filter_last_week"
+                        domain="[('start_time', '&gt;=', (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <separator/>
+                <filter string="Slower Than 10s" name="filter_slow"
+                        domain="[('duration', '&gt;=', 10)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Scheduled Action" name="group_cron"
+                            context="{'group_by': 'cron_name'}"/>
+                    <filter string="Result" name="group_state"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Error Type" name="group_error_type"
+                            context="{'group_by': 'error_type'}"/>
+                    <filter string="Started On" name="group_start_time"
+                            context="{'group_by': 'start_time:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cron_execution_history" model="ir.actions.act_window">
+        <field name="name">Scheduled Action History</field>
+        <field name="res_model">cron.execution.history</field>
+        <field name="view_mode">list,pivot,graph,form</field>
+        <field name="search_view_id" ref="view_cron_execution_history_search"/>
+        <field name="context">{'create': False,
+            'pivot_measures': ['duration', '__count'],
+            'pivot_row_groupby': ['cron_name'],
+            'pivot_column_groupby': ['state']}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No scheduled action has run yet</p>
+            <p>Every run of every scheduled action is recorded here with its
+               duration, its result and, when it fails, the error message.
+               Rows appear as soon as the scheduler executes a job.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_cron_execution_history"
+              name="Scheduled Action History"
+              parent="base.menu_automation"
+              action="action_cron_execution_history"
+              groups="base.group_system"
+              sequence="15"/>
+
+</odoo>

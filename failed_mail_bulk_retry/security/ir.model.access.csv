@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_failed_mail_retry_wizard_system,failed.mail.retry.wizard.system,model_failed_mail_retry_wizard,base.group_system,1,1,1,1
+access_failed_mail_retry_line_system,failed.mail.retry.line.system,model_failed_mail_retry_line,base.group_system,1,1,1,1
