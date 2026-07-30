@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_filters_view_form_global_default" model="ir.ui.view">
+        <field name="name">ir.filters.form.global.default</field>
+        <field name="model">ir.filters</field>
+        <field name="inherit_id" ref="base.ir_filters_view_form"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="global_default" attrs="{'invisible': [('user_id', '!=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="ir_filters_view_search_global_default" model="ir.ui.view">
+        <field name="name">ir.filters.search.global.default</field>
+        <field name="model">ir.filters</field>
+        <field name="inherit_id" ref="base.ir_filters_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Default for All Users" name="global_default"
+                        domain="[('global_default', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
