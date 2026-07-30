@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_dormancy" model="ir.ui.view">
+        <field name="name">res.users.form.dormancy</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Dormancy" name="dormancy">
+                    <group>
+                        <group string="Automatic Deactivation">
+                            <field name="dormancy_exempt"/>
+                        </group>
+                        <group string="Audit" invisible="not deactivated_by_dormancy">
+                            <field name="deactivated_by_dormancy"/>
+                            <field name="dormancy_deactivation_date"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_search_dormancy" model="ir.ui.view">
+        <field name="name">res.users.search.dormancy</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Deactivated by Dormancy" name="deactivated_by_dormancy"
+                        domain="[('deactivated_by_dormancy', '=', True), ('active', '=', False)]"/>
+                <filter string="Dormancy Exempt" name="dormancy_exempt"
+                        domain="[('dormancy_exempt', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
