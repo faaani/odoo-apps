@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============ Followers by Person ============ -->
+
+    <record id="view_followers_audit_partner_list" model="ir.ui.view">
+        <field name="name">followers.audit.partner.list</field>
+        <field name="model">followers.audit.partner</field>
+        <field name="arch" type="xml">
+            <list string="Followers by Person" create="false" edit="false" delete="false"
+                  decoration-bf="follower_type == 'internal'">
+                <field name="partner_name"/>
+                <field name="follower_type"/>
+                <field name="model_label"/>
+                <field name="follow_count" sum="Records Followed"/>
+                <field name="partner_total"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="user_id" optional="hide"/>
+                <field name="model_id" optional="hide"/>
+                <field name="res_model" optional="hide"/>
+                <button name="action_open_followed_records" type="object"
+                        string="Open Followed Records" icon="fa-external-link"
+                        title="Open these records in their standard view, where the chatter manages followers"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_followers_audit_partner_form" model="ir.ui.view">
+        <field name="name">followers.audit.partner.form</field>
+        <field name="model">followers.audit.partner</field>
+        <field name="arch" type="xml">
+            <form string="Follower" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_open_followed_records" type="object"
+                            string="Open Followed Records" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Follower">
+                            <field name="partner_name"/>
+                            <field name="partner_id"/>
+                            <field name="follower_type"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group string="Subscriptions">
+                            <field name="model_label"/>
+                            <field name="model_id"/>
+                            <field name="res_model"/>
+                            <field name="follow_count"/>
+                            <field name="partner_total"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        This report is read-only. To unsubscribe this follower, open one of
+                        the records above and use the Followers button in its chatter.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_followers_audit_partner_search" model="ir.ui.view">
+        <field name="name">followers.audit.partner.search</field>
+        <field name="model">followers.audit.partner</field>
+        <field name="arch" type="xml">
+            <search string="Followers by Person">
+                <field name="partner_name" string="Follower"
+                       filter_domain="['|', ('partner_name', 'ilike', self), ('res_model', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="model_id"/>
+                <field name="follow_count" string="Records on this document type (at least)"
+                       filter_domain="[('follow_count', '&gt;=', self)]"/>
+                <field name="partner_total" string="Records followed in total (at least)"
+                       filter_domain="[('partner_total', '&gt;=', self)]"/>
+                <filter string="Internal Users" name="type_internal"
+                        domain="[('follower_type', '=', 'internal')]"/>
+                <filter string="Contacts" name="type_contact"
+                        domain="[('follower_type', '=', 'contact')]"/>
+                <separator/>
+                <filter string="At Least 5 Records" name="min_5"
+                        domain="[('follow_count', '&gt;=', 5)]"/>
+                <filter string="At Least 25 Records" name="min_25"
+                        domain="[('follow_count', '&gt;=', 25)]"/>
+                <filter string="At Least 100 Records" name="min_100"
+                        domain="[('follow_count', '&gt;=', 100)]"/>
+                <separator/>
+                <filter string="Heavy Followers (100+ In Total)" name="heavy_total"
+                        domain="[('partner_total', '&gt;=', 100)]"/>
+                <group name="group_by">
+                    <filter string="Follower" name="group_partner"
+                            context="{'group_by': 'partner_id'}"/>
+                    <filter string="Document Type" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Follower Type" name="group_type"
+                            context="{'group_by': 'follower_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_followers_audit_partner" model="ir.actions.server">
+        <field name="name">Followers by Person</field>
+        <field name="model_id" ref="model_followers_audit_partner"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_followers_by_person()</field>
+    </record>
+
+    <!-- ============ Records by Follower Count ============ -->
+
+    <record id="view_followers_audit_record_list" model="ir.ui.view">
+        <field name="name">followers.audit.record.list</field>
+        <field name="model">followers.audit.record</field>
+        <field name="arch" type="xml">
+            <list string="Records by Follower Count" create="false" edit="false" delete="false"
+                  decoration-muted="not record_available">
+                <field name="record_label"/>
+                <field name="model_label"/>
+                <field name="follower_count" sum="Followers"/>
+                <field name="record_available" optional="show"/>
+                <field name="res_id" optional="hide"/>
+                <field name="res_model" optional="hide"/>
+                <field name="model_id" optional="hide"/>
+                <button name="action_open_record" type="object"
+                        string="Open Record" icon="fa-external-link"
+                        title="Open this record, where the chatter manages its followers"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_followers_audit_record_form" model="ir.ui.view">
+        <field name="name">followers.audit.record.form</field>
+        <field name="model">followers.audit.record</field>
+        <field name="arch" type="xml">
+            <form string="Followed Record" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_open_record" type="object"
+                            string="Open Record" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Record">
+                            <field name="record_label"/>
+                            <field name="model_label"/>
+                            <field name="model_id"/>
+                            <field name="res_model"/>
+                            <field name="res_id"/>
+                            <field name="record_available"/>
+                        </group>
+                        <group string="Subscriptions">
+                            <field name="follower_count"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        This report is read-only. To unsubscribe someone, open the record
+                        and use the Followers button in its chatter.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_followers_audit_record_search" model="ir.ui.view">
+        <field name="name">followers.audit.record.search</field>
+        <field name="model">followers.audit.record</field>
+        <field name="arch" type="xml">
+            <search string="Records by Follower Count">
+                <field name="record_label" string="Record"
+                       filter_domain="['|', ('record_label', 'ilike', self), ('res_model', 'ilike', self)]"/>
+                <field name="model_id"/>
+                <field name="follower_count" string="Followers (at least)"
+                       filter_domain="[('follower_count', '&gt;=', self)]"/>
+                <filter string="At Least 5 Followers" name="min_5"
+                        domain="[('follower_count', '&gt;=', 5)]"/>
+                <filter string="At Least 10 Followers" name="min_10"
+                        domain="[('follower_count', '&gt;=', 10)]"/>
+                <filter string="At Least 25 Followers" name="min_25"
+                        domain="[('follower_count', '&gt;=', 25)]"/>
+                <separator/>
+                <filter string="Existing Records" name="only_available"
+                        domain="[('record_available', '=', True)]"/>
+                <filter string="Deleted Or Unreadable Records" name="only_missing"
+                        domain="[('record_available', '=', False)]"/>
+                <group name="group_by">
+                    <filter string="Document Type" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Record Exists" name="group_available"
+                            context="{'group_by': 'record_available'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_followers_audit_record" model="ir.actions.server">
+        <field name="name">Records by Follower Count</field>
+        <field name="model_id" ref="model_followers_audit_record"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_records_by_followers()</field>
+    </record>
+
+    <!-- ============ Menus (Settings, administrators only) ============ -->
+
+    <menuitem id="menu_followers_audit_root"
+              name="Followers Audit"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="105"/>
+
+    <menuitem id="menu_followers_audit_partner"
+              name="Followers by Person"
+              parent="menu_followers_audit_root"
+              action="action_followers_audit_partner"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_followers_audit_record"
+              name="Records by Follower Count"
+              parent="menu_followers_audit_root"
+              action="action_followers_audit_record"
+              groups="base.group_system"
+              sequence="20"/>
+
+</odoo>

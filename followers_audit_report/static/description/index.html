@@ -1,0 +1,82 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #3a33a3; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Followers Audit Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f7b731;">Why does everyone get so many notifications?</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Follower subscriptions pile up quietly on every model in Odoo, and there is no single place to look at them. This module adds two <strong>read-only reports</strong> over <code>mail.followers</code>: <em>who follows the most records, and on which document types</em>, and <em>which records have an unusual number of followers</em>.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Followers by Person</strong> &mdash; one line per contact and document type, with the number of records followed on that type and the total across all types.</li>
+        <li><strong>Records by Follower Count</strong> &mdash; the records with the most followers first, so the document that mails half the company is easy to spot.</li>
+        <li><strong>Internal users vs contacts</strong> &mdash; a filter that separates colleagues with a user account from plain address-book contacts and portal users.</li>
+        <li><strong>Minimum-count filters</strong> &mdash; ready-made thresholds (5 / 25 / 100 records followed, 5 / 10 / 25 followers per record) plus a free &ldquo;at least N&rdquo; input on both reports.</li>
+        <li><strong>Filter and group by document type</strong> &mdash; see how the subscriptions split between contacts, users, channels or any other model.</li>
+        <li><strong>Drill into the real records</strong> &mdash; one click opens the followed records, or the single record, in its own standard view.</li>
+        <li><strong>Pairs with unsubscribing, never replaces it</strong> &mdash; the reports link you to the record, where Odoo&rsquo;s standard chatter <em>Followers</em> button removes a follower. This module deletes nothing.</li>
+        <li><strong>Aggregated, ranked and limited by the database</strong> &mdash; <code>read_group</code> over <code>mail.followers</code> with the ranking and the LIMIT pushed into SQL, so a database with millions of follower rows never builds millions of rows in memory just to show the top of them. Partner names, model labels and record names are resolved in bulk; there is no per-record loop.</li>
+        <li><strong>Administrator only</strong> &mdash; restricted to the Administration / Settings group (<code>base.group_system</code>), because follower data spans every model in the database.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-followers-by-person.png" alt="Followers by Person report" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Followers by Person: the heaviest followers first, with the number of records they follow per document type and in total.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-filters.png" alt="Filters and group-by options" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters: internal users, contacts, at least 5 / 25 / 100 records, heavy followers &mdash; and grouping by follower, document type or follower type.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-grouped-by-follower.png" alt="Grouped by follower" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by follower: one row per person, with the total number of subscriptions summed for you.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-records-by-follower-count.png" alt="Records by Follower Count report" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Records by Follower Count: the documents that notify the most people, with a one-click link to the record itself.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Followers Audit Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required; it is already installed on every Odoo database that has a chatter.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; both reports work as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group. No other user, internal or portal, can read the reports.</li>
+        <li>Optional: each run ranks at most <strong>2 000 followers</strong> (resp. 2 000 records) and stops there &mdash; the limit is applied by the database, not after loading everything. To change it, set the system parameter <code>followers_audit_report.line_limit</code> (Settings &rarr; Technical &rarr; System Parameters) to another number, or to <code>0</code> for no limit at all. When the cap is reached, the report title says so, for example <em>Records by Follower Count (top 2000)</em>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Followers Audit &rarr; Followers by Person</strong>. The list opens with the heaviest followers first.</li>
+        <li>Filter on <em>Internal Users</em> or <em>Contacts</em>, on a document type, or type a number in <em>Records on this document type (at least)</em>.</li>
+        <li>Group by <strong>Follower</strong> for one line per person, or by <strong>Document Type</strong> to see where the subscriptions live.</li>
+        <li>Click <strong>Open Followed Records</strong> on a line to open those records in their own view. Open a record, then use the chatter&rsquo;s <em>Followers</em> button to unsubscribe someone &mdash; that is Odoo&rsquo;s standard, safe way to do it.</li>
+        <li>Go to <strong>Settings &rarr; Followers Audit &rarr; Records by Follower Count</strong> for the other angle: the records with the most followers, with <em>Open Record</em> on every line.</li>
+        <li>Select all and use <strong>Export</strong> to take either report into a spreadsheet.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">What this module does not do</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>It <strong>never writes</strong>: no follower row, no record, no user, no subscription is created, changed or deleted. There is no mass-unsubscribe button here on purpose &mdash; unsubscribing happens in the record&rsquo;s chatter, one record at a time, where you can see what you are doing.</li>
+        <li>Each report is a <strong>snapshot</strong>, rebuilt every time you open the menu. It is not a live view and it is not stored.</li>
+        <li>Follower rows can outlive the record they point at, or point at a model whose module was uninstalled. Those lines are reported honestly with <em>Record Exists</em> unticked and cannot be opened &mdash; they are shown, not cleaned up.</li>
+        <li><em>Internal User</em> means the contact owns a non-portal user account (archived accounts included). Portal and public users are reported as contacts.</li>
+        <li>Counts come from the follower rows, which carry no access rules of their own. A record your own rights hide from you is therefore still counted &mdash; but it is shown as <em>Document #id</em>, flagged with <em>Record Exists</em> unticked, and cannot be opened from the report. Only the count is visible, never the content.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f7b731; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0). Follower rows without a partner (the channel followers that existed in 14.0) are excluded, since they do not notify a person.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
