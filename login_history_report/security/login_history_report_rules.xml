@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Mirror of base.res_users_rule: the report must never show a user that
+         the standard Users list would hide. Global rules are not bypassed by
+         base.group_system, so without this an administrator restricted to one
+         company could read portal users of the other companies. -->
+    <record id="login_history_report_company_rule" model="ir.rule">
+        <field name="name">User Login Report: portal users of allowed companies only</field>
+        <field name="model_id" ref="model_login_history_report"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|', ('share', '=', False), ('company_ids', 'in', company_ids)]</field>
+    </record>
+
+</odoo>
