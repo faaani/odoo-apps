@@ -2,7 +2,7 @@
 # Part of attachment_upload_guard. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Attachment Upload Guard',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1.0.1',
     'summary': 'Block risky file types and oversized attachments — a size and extension policy Odoo does not ship.',
     'description': """
 Odoo lets users attach anything, of any size: executables, scripts and
@@ -17,6 +17,7 @@ never blocked.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Technical',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['base_setup'],
     'data': ['views/res_config_settings_views.xml'],
     'images': ['static/description/banner.png'],

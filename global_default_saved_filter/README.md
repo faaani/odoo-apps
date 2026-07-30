@@ -28,3 +28,7 @@ None. The flag appears on shared filters right after installation.
   database keeps working — this module never overrides it.
 - 19.0 stores filter sharing in `user_ids` (many2many) instead of `user_id`;
   the module handles both automatically.
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com
