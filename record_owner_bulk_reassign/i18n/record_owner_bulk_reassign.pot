@@ -1,0 +1,251 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* record_owner_bulk_reassign
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 19:20+0000\n"
+"PO-Revision-Date: 2026-07-30 19:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid ""
+"\"%(model)s\" has no responsible user field that can be reassigned.\n"
+"This action works on models carrying a stored, editable \"user_id\", \"user_ids\" or \"activity_user_id\" field."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "%(count)s record(s) reassigned to %(user)s."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "%(field)s reassigned from %(old)s to %(new)s."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "%s already assigned"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "%s failed"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "%s skipped (no write access)"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields.selection,name:record_owner_bulk_reassign.selection__record_owner_reassign_wizard__scope__user
+msgid "All records of a user"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__unchanged_count
+msgid "Already Assigned"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__scope
+msgid "Apply To"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "Choose the user whose records must be reassigned."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__old_user_id
+msgid "Current Owner"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__failed_count
+msgid "Failed"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "First error: %s"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__log_note
+msgid "Log a note in the chatter"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,help:record_owner_bulk_reassign.field_record_owner_reassign_wizard__log_note
+msgid "Log a note on every reassigned record, so the change stays traceable."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__res_model
+msgid "Model"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__new_user_id
+msgid "New Owner"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid ""
+"Open this action from the list or form view of the records you want to "
+"reassign."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid "Reassign"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.actions.act_window,name:record_owner_bulk_reassign.action_record_owner_reassign_wizard
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid "Reassign Owner"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model,name:record_owner_bulk_reassign.model_record_owner_reassign_wizard
+msgid "Reassign Records in Bulk"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__reassigned_count
+msgid "Reassigned"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__record_count
+msgid "Records"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "Records reassigned"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__field_label
+msgid "Responsible"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__field_name
+msgid "Responsible Field"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "Select the records to reassign first."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__selected_count
+msgid "Selected"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields.selection,name:record_owner_bulk_reassign.selection__record_owner_reassign_wizard__scope__selection
+msgid "Selected records"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__skipped_count
+msgid "Skipped"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "The responsible field cannot be changed."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "There is no record to reassign."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+#, python-format
+msgid "Unchanged: %s."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid "record(s)."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid "will be set on"
+msgstr ""

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_record_owner_reassign_wizard_user,record.owner.reassign.wizard.user,model_record_owner_reassign_wizard,base.group_user,1,1,1,1
