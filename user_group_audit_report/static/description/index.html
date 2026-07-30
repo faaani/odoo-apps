@@ -1,0 +1,81 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">User Access Audit Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Every user, every group, one screen</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Answering &ldquo;who can do what in this database?&rdquo; today means opening the Users list and clicking through every user, one at a time. This module adds a <strong>read-only report</strong> with one line per user account: the groups on the account, a clear flag for privileged access, the user type, whether the account is archived and whether it has ever been used to log in.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Groups as tags</strong> &mdash; the groups on each account, in one column you can search, filter and group by.</li>
+        <li><strong>Privileged access flagged in red</strong> &mdash; a <em>System Access</em> tick and an <em>Access Level</em> column for Administration / Settings (<code>base.group_system</code>) and Administration / Access Rights (<code>base.group_erp_manager</code>).</li>
+        <li><strong>Implied groups counted honestly</strong> &mdash; the flags use the <em>effective</em> groups: the groups on the account plus every group those imply, transitively. A user whose only group implies Settings is flagged as an administrator, because that is what they are.</li>
+        <li><strong>Archived accounts included</strong> &mdash; deactivated users keep their groups; the report lists them with an <em>Archived</em> flag instead of hiding them.</li>
+        <li><strong>Never Logged In</strong> &mdash; derived from the real login records, not from the non-searchable &ldquo;Latest authentication&rdquo; field, so you can filter and sort on it.</li>
+        <li><strong>User type</strong> &mdash; Internal, Portal, Public, or <em>No User Type Group</em> for accounts that hold none of the three.</li>
+        <li><strong>Filters that answer real questions</strong> &mdash; has system access, internal, portal, public, enabled, archived, never logged in, no group assigned.</li>
+        <li><strong>Group by group</strong> (Odoo 15.0 and later) &mdash; &ldquo;who is in Settings?&rdquo;, &ldquo;who is in Sales / Administrator?&rdquo; &mdash; plus group by access level, user type or company.</li>
+        <li><strong>Export-friendly</strong> &mdash; select all and export the whole picture to a spreadsheet for a security or licence review.</li>
+        <li><strong>Read-only</strong> &mdash; one SQL view, no loop over users, nothing in your database is modified. The effective-group columns are computed across all accounts on every page, so past a few thousand user accounts expect a second or so per page.</li>
+        <li><strong>Admin only, multi-company safe</strong> &mdash; visible to the Administration / Settings group, and it ships the same record rule Odoo applies to users, so no account a record rule hides from you can appear here. Archived accounts, which the standard Users list hides by default, are shown on purpose and flagged.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-report-list.png" alt="User Access Audit Report list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every user with their groups, effective group count, access level, archived and never-logged-in flags. Accounts with administration access are highlighted in red. Nothing is filtered out by default: portal, public and archived accounts are all on the opening screen.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-system-access.png" alt="Has System Access filter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Has System Access</em> filter: everyone who can change access rights, including users who only reach it through an implied group (here, &ldquo;Compliance Auditor&rdquo;).</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters and groupings: system access, user type, enabled / archived, never logged in, no group assigned, groups via implication.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>User Access Audit Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the report works as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group; no other user can read the report, and no user can write to it.</li>
+        <li>Optional: mark the menu as a favourite for one-click access.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; User Access Audit Report</strong>.</li>
+        <li>The list opens on <strong>every</strong> account, sorted by name, with anything holding an administration group highlighted in red. Nothing is filtered out by default &mdash; an audit should not start with accounts hidden.</li>
+        <li>Apply a filter &mdash; <em>Has System Access</em>, <em>Archived Accounts</em>, <em>Never Logged In</em>, <em>Portal Users</em>, <em>No Group Assigned</em> &mdash; or type a group name in the <em>Group</em> search box.</li>
+        <li>Group by <strong>Group</strong> (Odoo 15.0 and later) to see the membership of every group, or by <strong>Access Level</strong> to count your administrators.</li>
+        <li>Select all and use <strong>Export</strong> to hand the whole picture to your auditor in one file.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">What the columns mean, exactly</h2>
+    <p style="font-size: 15px; line-height: 1.7;"><strong>Assigned Groups</strong> is the group list recorded on the user account &mdash; exactly what the Groups page of the user form shows. Odoo 14.0 to 18.0 write implied groups into that list when a user is saved, so on those versions it is already the effective set; Odoo 19.0 keeps only the groups you assigned directly and works out the rest at runtime.</p>
+    <p style="font-size: 15px; line-height: 1.7;"><strong>System Access, Access Level, User Type and Effective Groups always use the effective set</strong>: the assigned groups plus every group they imply, transitively. That is computed from Odoo&rsquo;s own <em>Inherited</em> (implied) groups, so the flags mean the same thing on every supported version. <strong>Groups via Implication</strong> is the difference between the two: on 14.0 to 18.0 it is normally 0 and anything above 0 is worth a look; on 19.0 a positive number is expected and normal.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Limitations, stated up front</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>The report covers <strong>groups</strong>. It does not expand a group into its individual model access rights or record rules &mdash; use the standard Access Rights / Record Rules views for that.</li>
+        <li>The <strong>OdooBot / superuser</strong> account (database id 1) is excluded: it bypasses every access rule by design and would only add noise.</li>
+        <li><strong>Group by Group needs Odoo 15.0 or later.</strong> Odoo 14.0 cannot group a list by a many-to-many field, so that grouping is not offered there &mdash; on 14.0, filter by group with the <em>Group</em> search box instead. Every other filter and column is identical on all six series.</li>
+        <li>On <strong>Odoo 19.0</strong> the <em>Internal User</em> group itself implies <em>Technical Features</em>, so every internal account has a non-zero <em>Groups via Implication</em> count there. The column is informational on 19.0 and the matching filter is not offered; on 14.0 to 18.0 a non-zero count is an exception worth investigating.</li>
+        <li>The <em>Last Login</em> column reads Odoo&rsquo;s login records (<code>res.users.log</code>). If you purge that table, older logins disappear from Odoo as well as from this report.</li>
+        <li>It is a report: it never modifies a user, a group or a membership, and it offers no button that would.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
