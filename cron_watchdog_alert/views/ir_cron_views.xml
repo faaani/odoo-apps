@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_view_form_watchdog" model="ir.ui.view">
+        <field name="name">ir.cron.form.watchdog</field>
+        <field name="model">ir.cron</field>
+        <field name="inherit_id" ref="base.ir_cron_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group string="Watchdog">
+                    <field name="watchdog_exempt"/>
+                    <field name="watchdog_last_alert"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

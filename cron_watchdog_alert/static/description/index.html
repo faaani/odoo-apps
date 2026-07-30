@@ -1,0 +1,56 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #4a1d5f; color: #efe6f5; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Cron Watchdog Alerts</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Know the minute your scheduled actions stop.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        Scheduled actions fail silently — a stuck job, a dead worker, an auto-disabled action — and you
+        find out days later when invoices were never mailed and inventory never synced. This module
+        emails administrators <strong>as soon as any scheduled action is overdue</strong>, with a second
+        safety net on normal page loads that catches even a fully dead cron worker.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Zero config</strong> — works on install: 60-minute lag, one alert per action per 24&nbsp;h.</li>
+        <li><strong>Immediate email</strong> — sent in-process, not queued: the mail queue may be exactly what's down.</li>
+        <li><strong>Dead-worker detection</strong> — a throttled check on backend page loads still fires when no cron runs at all.</li>
+        <li><strong>Per-action control</strong> — exclude noisy or unimportant jobs with one checkbox; last alert time shown on each action.</li>
+        <li><strong>Honest limits documented</strong> — if the worker is dead and nobody opens Odoo, pair with an external uptime check.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+        <div style="margin: 18px 0;">
+        <img src="01-alert-email.png" alt="01-alert-email" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The alert administrators receive: which scheduled actions are overdue and since when. Sent immediately, not queued — the mail queue may be exactly what is down.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-cron-watchdog-fields.png" alt="02-cron-watchdog-fields" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every scheduled action gets a Watchdog section: exclude noisy jobs with one checkbox, and see when the last alert fired.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Cron Watchdog Alerts</em>.</li>
+        <li>Click <strong>Install</strong>. Only standard modules (<code>mail</code>, <code>web</code>) are required — alerting is active immediately.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Nothing required. Optional System Parameters (Settings &rarr; Technical &rarr; System Parameters): <code>cron_watchdog_alert.lag_minutes</code> (default 60, minimum 15) and <code>cron_watchdog_alert.enabled</code>.</li>
+        <li>To ignore a specific job: open the Scheduled Action &rarr; <strong>Watchdog</strong> section &rarr; tick <strong>Exclude from Watchdog</strong>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>The watchdog job runs every 30 minutes; any action overdue beyond the lag triggers one email to all Settings administrators with an address.</li>
+        <li>Backend page loads run a throttled check too (at most every 15 minutes) — so a completely dead scheduler is reported while people keep using Odoo.</li>
+        <li>Each stalled action re-alerts at most once per 24 hours; the <strong>Last Watchdog Alert</strong> timestamp is visible on the action's form.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0).</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
