@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_config_change_audit_list" model="ir.ui.view">
+        <field name="name">config.change.audit.list</field>
+        <field name="model">config.change.audit</field>
+        <field name="arch" type="xml">
+            <list string="System Parameter Audit Trail" create="false" edit="false" delete="false"
+                  decoration-danger="operation == 'unlink'"
+                  decoration-info="operation == 'create'">
+                <field name="change_date"/>
+                <field name="key"/>
+                <field name="operation"/>
+                <field name="old_value_preview"/>
+                <field name="new_value_preview"/>
+                <field name="user_id"/>
+                <field name="is_masked" optional="show"/>
+                <field name="is_truncated" optional="hide"/>
+                <field name="previous_key" optional="hide"/>
+                <field name="old_value" optional="hide"/>
+                <field name="new_value" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_config_change_audit_form" model="ir.ui.view">
+        <field name="name">config.change.audit.form</field>
+        <field name="model">config.change.audit</field>
+        <field name="arch" type="xml">
+            <form string="System Parameter Change" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="alert alert-warning" role="alert" invisible="not is_masked">
+                        This parameter key looks like a credential, so the values below are
+                        stored masked. The real values were never copied into the audit trail.
+                    </div>
+                    <div class="alert alert-info" role="alert" invisible="not is_truncated">
+                        A value was longer than 512 characters and is stored cut down to its
+                        first 512 characters.
+                    </div>
+                    <group>
+                        <group string="Change">
+                            <field name="key"/>
+                            <field name="previous_key" invisible="not previous_key"/>
+                            <field name="operation"/>
+                            <field name="is_masked"/>
+                            <field name="is_truncated"/>
+                        </group>
+                        <group string="Author">
+                            <field name="user_id"/>
+                            <field name="change_date"/>
+                        </group>
+                    </group>
+                    <group string="Old Value">
+                        <field name="old_value" nolabel="1"/>
+                    </group>
+                    <group string="New Value">
+                        <field name="new_value" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_config_change_audit_search" model="ir.ui.view">
+        <field name="name">config.change.audit.search</field>
+        <field name="model">config.change.audit</field>
+        <field name="arch" type="xml">
+            <search string="System Parameter Audit Trail">
+                <field name="key" string="Parameter"
+                       filter_domain="['|', ('key', 'ilike', self), ('previous_key', 'ilike', self)]"/>
+                <field name="user_id"/>
+                <field name="new_value" string="Value"
+                       filter_domain="['|', ('old_value', 'ilike', self), ('new_value', 'ilike', self)]"/>
+                <field name="change_date"/>
+                <filter string="Created" name="filter_create" domain="[('operation', '=', 'create')]"/>
+                <filter string="Updated" name="filter_write" domain="[('operation', '=', 'write')]"/>
+                <filter string="Deleted" name="filter_unlink" domain="[('operation', '=', 'unlink')]"/>
+                <separator/>
+                <filter string="Today" name="filter_today"
+                        domain="[('change_date', '&gt;=', (context_today()).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 7 Days" name="filter_last_7_days"
+                        domain="[('change_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 30 Days" name="filter_last_30_days"
+                        domain="[('change_date', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Masked (Secret) Keys" name="filter_masked"
+                        domain="[('is_masked', '=', True)]"/>
+                <filter string="Renamed Keys" name="filter_renamed"
+                        domain="[('previous_key', '!=', False)]"/>
+                <group name="group_by">
+                    <filter string="Parameter" name="group_key" context="{'group_by': 'key'}"/>
+                    <filter string="Operation" name="group_operation" context="{'group_by': 'operation'}"/>
+                    <filter string="Changed By" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Change Date" name="group_date" context="{'group_by': 'change_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_config_change_audit" model="ir.actions.act_window">
+        <field name="name">System Parameter Audit Trail</field>
+        <field name="res_model">config.change.audit</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_config_change_audit_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No system parameter change recorded yet</p>
+            <p>Every system parameter that is created, changed or deleted is recorded
+               here with its old value, its new value, who did it and when. Values of
+               keys that look like credentials are stored masked, and values longer
+               than 512 characters are stored truncated.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_config_change_audit"
+              name="System Parameter Audit Trail"
+              parent="base.menu_ir_property"
+              action="action_config_change_audit"
+              groups="base.group_system"
+              sequence="15"/>
+
+</odoo>

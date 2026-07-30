@@ -1,0 +1,335 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* config_change_audit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:31+0000\n"
+"PO-Revision-Date: 2026-07-30 22:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_res_config_settings__config_audit_retention_days
+msgid ""
+"A daily scheduled action deletes audit rows older than this. Set 0 to keep "
+"the history for ever."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid ""
+"A value was longer than 512 characters and is stored cut down to its\n"
+"                        first 512 characters."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__is_truncated
+msgid ""
+"At least one of the two values was longer than 512 characters and is stored "
+"cut down to its first 512 characters."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid "Author"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid "Change"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Change Date"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__user_id
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Changed By"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__change_date
+msgid "Changed On"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_res_config_settings__config_audit_secret_patterns
+msgid ""
+"Comma-separated, case-insensitive fragments. A parameter whose key contains "
+"one of them has its values stored as ******** instead of the real content. "
+"Leave empty to mask nothing."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model,name:config_change_audit.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields.selection,name:config_change_audit.selection__config_change_audit__operation__create
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Created"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields.selection,name:config_change_audit.selection__config_change_audit__operation__unlink
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Deleted"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__display_name
+#: model:ir.model.fields,field_description:config_change_audit.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:config_change_audit.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.actions.act_window,help:config_change_audit.action_config_change_audit
+msgid ""
+"Every system parameter that is created, changed or deleted is recorded\n"
+"               here with its old value, its new value, who did it and when. Values of\n"
+"               keys that look like credentials are stored masked, and values longer\n"
+"               than 512 characters are stored truncated."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__previous_key
+msgid "Filled only when the change renamed the parameter key."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__id
+#: model:ir.model.fields,field_description:config_change_audit.field_ir_config_parameter__id
+#: model:ir.model.fields,field_description:config_change_audit.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_res_config_settings__config_audit_retention_days
+msgid "Keep History (days)"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__key
+msgid "Key of the system parameter as it stands after the change."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Last 30 Days"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Last 7 Days"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_res_config_settings__config_audit_secret_patterns
+msgid "Mask Keys Containing"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__is_masked
+msgid "Masked"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Masked (Secret) Keys"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__new_value_preview
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid "New Value"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__new_value
+msgid "New Value (full)"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.actions.act_window,help:config_change_audit.action_config_change_audit
+msgid "No system parameter change recorded yet"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__old_value_preview
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid "Old Value"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__old_value
+msgid "Old Value (full)"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.res_config_settings_view_form_config_audit
+msgid "Open the audit trail"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__operation
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Operation"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__key
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Parameter"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__previous_key
+msgid "Previous Key"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.res_config_settings_view_form_config_audit
+msgid ""
+"Record every system parameter that is created, changed or deleted, with its "
+"old value, its new value and who did it."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_res_config_settings__config_audit_enabled
+msgid "Record every system parameter that is created, changed or deleted."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Renamed Keys"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model,name:config_change_audit.model_ir_config_parameter
+msgid "System Parameter"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.actions.act_window,name:config_change_audit.action_config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_res_config_settings__config_audit_enabled
+#: model:ir.ui.menu,name:config_change_audit.menu_config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.res_config_settings_view_form_config_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_list
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "System Parameter Audit Trail"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.actions.server,name:config_change_audit.ir_cron_config_change_audit_gc_ir_actions_server
+msgid "System Parameter Audit Trail: apply retention"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model,name:config_change_audit.model_config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid "System Parameter Change"
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.res_config_settings_view_form_config_audit
+msgid "System Parameters"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__is_masked
+msgid ""
+"The key looks like a secret (API key, token, password), so the values are "
+"stored as ******** instead of the real content."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__new_value_preview
+msgid ""
+"The new value on a single line, shortened to 80 characters for the list. "
+"Open the row to read it in full."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__old_value_preview
+msgid ""
+"The old value on a single line, shortened to 80 characters for the list. "
+"Open the row to read it in full."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_form
+msgid ""
+"This parameter key looks like a credential, so the values below are\n"
+"                        stored masked. The real values were never copied into the audit trail."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Today"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,field_description:config_change_audit.field_config_change_audit__is_truncated
+msgid "Truncated"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields.selection,name:config_change_audit.selection__config_change_audit__operation__write
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Updated"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__user_id
+msgid ""
+"User who made the change. Changes made by scheduled actions, by the command "
+"line or during a module installation are recorded as OdooBot. Empty only if "
+"the user account was deleted afterwards."
+msgstr ""
+
+#. module: config_change_audit
+#: model_terms:ir.ui.view,arch_db:config_change_audit.view_config_change_audit_search
+msgid "Value"
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__new_value
+msgid "Value after the change. Empty when the parameter was deleted."
+msgstr ""
+
+#. module: config_change_audit
+#: model:ir.model.fields,help:config_change_audit.field_config_change_audit__old_value
+msgid "Value before the change. Empty when the parameter was created."
+msgstr ""
