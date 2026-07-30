@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_dormancy" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.dormancy</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invite_users']//div[@name='users_setting_container']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="dormancy_setting">
+                    <div class="o_setting_left_pane">
+                        <field name="dormancy_enabled"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="dormancy_enabled"/>
+                        <div class="text-muted">
+                            Automatically archive internal users who have not logged in for the period below. Administrators, OdooBot and portal users are never touched.
+                        </div>
+                        <div class="content-group" attrs="{'invisible': [('dormancy_enabled', '=', False)]}">
+                            <div class="row mt16">
+                                <label for="dormancy_days" class="col-lg-4 o_light_label"/>
+                                <field name="dormancy_days" class="col-lg-2"/>
+                            </div>
+                            <div class="row">
+                                <label for="dormancy_include_never_logged" class="col-lg-4 o_light_label"/>
+                                <field name="dormancy_include_never_logged"/>
+                            </div>
+                            <div class="row">
+                                <label for="dormancy_notify_admins" class="col-lg-4 o_light_label"/>
+                                <field name="dormancy_notify_admins"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
