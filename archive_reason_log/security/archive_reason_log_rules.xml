@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The log names records; a record name can itself be confidential. An
+         ordinary user therefore only reads the entries they created, while
+         Settings administrators - who can read the records anyway - see all of
+         them. Both rules carry a group, so they are OR-ed for an administrator
+         (who is also an Employee) instead of restricting them. -->
+    <record id="archive_reason_log_rule_own" model="ir.rule">
+        <field name="name">Archive log: own entries</field>
+        <field name="model_id" ref="model_archive_reason_log"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="archive_reason_log_rule_system" model="ir.rule">
+        <field name="name">Archive log: all entries for administrators</field>
+        <field name="model_id" ref="model_archive_reason_log"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+</odoo>
