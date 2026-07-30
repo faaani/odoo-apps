@@ -1,0 +1,448 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* duplicate_attachment_cleaner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 19:12+0000\n"
+"PO-Revision-Date: 2026-07-30 19:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid ""
+"%(removed)s duplicate copy(ies) removed from %(groups)s group(s), %(freed)s "
+"of redundant data. One copy of every file was kept."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid ""
+"%s group(s) changed during the clean-up and were left alone; run the scan "
+"again."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "%s group(s) were left alone for lack of access rights."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid ""
+"<strong>Anywhere in the database:</strong> only one copy of each file survives for\n"
+"                        the whole database. Records whose own copy is removed keep no link to the file, and\n"
+"                        a link built on an attachment id (an image pasted into an email template, a website\n"
+"                        page or a description) breaks when that copy goes. Prefer\n"
+"                        <em>Same record only</em> unless you know these copies are interchangeable."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid ""
+"<strong>Scanning never deletes anything.</strong> Attachments are grouped by the\n"
+"                        checksum Odoo already stores; the list below is a report. Clean-up is a separate,\n"
+"                        confirmed step that keeps the <strong>oldest</strong> copy of every group.\n"
+"                        <br/>\n"
+"                        Never reported and never deleted: attachments of the framework models\n"
+"                        <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and\n"
+"                        <code>ir.module.module</code> (asset bundles and module plumbing), every attachment\n"
+"                        that holds a binary field of a record — deleting those would empty the record's\n"
+"                        field — and empty files."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Aborted: the copy to keep disappeared for \"%s\"."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields.selection,name:duplicate_attachment_cleaner.selection__duplicate_attachment_scan__scope__global
+msgid "Anywhere in the database"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__location_summary
+msgid "Attached To"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.ui.menu,name:duplicate_attachment_cleaner.menu_duplicate_attachment_root
+msgid "Attachments"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_clean_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__checksum
+msgid "Checksum"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__selected
+msgid "Clean Up"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid "Clean Up Ticked Groups..."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_clean_view_form
+#, python-format
+msgid "Confirm Clean-up"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__copy_count
+msgid "Copies"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__keep_count
+msgid "Copies Kept"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__delete_count
+msgid "Copies To Delete (estimate)"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__keep_attachment_id
+msgid "Copy Kept"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__create_uid
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__create_uid
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__create_date
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__create_date
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_clean_view_form
+msgid "Delete Extra Copies"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__display_name
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__display_name
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model,name:duplicate_attachment_cleaner.model_duplicate_attachment_clean
+msgid "Duplicate Attachment Clean-up Confirmation"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model,name:duplicate_attachment_cleaner.model_duplicate_attachment_group
+msgid "Duplicate Attachment Group"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model,name:duplicate_attachment_cleaner.model_duplicate_attachment_scan
+msgid "Duplicate Attachment Scan"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__line_ids
+msgid "Duplicate Files Found"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__group_count
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid "Duplicate Groups"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__file_name
+msgid "File"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,help:duplicate_attachment_cleaner.field_duplicate_attachment_scan__min_size_kb
+msgid ""
+"Files below this size are skipped. Leave 0 to look at every attachment."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#: model:ir.actions.act_window,name:duplicate_attachment_cleaner.action_duplicate_attachment_scan
+#: model:ir.ui.menu,name:duplicate_attachment_cleaner.menu_duplicate_attachment_scan
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+#, python-format
+msgid "Find Duplicate Attachments"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__listed_count
+msgid "Groups Listed"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__group_count
+msgid "Groups Selected"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__group_limit
+msgid "Groups To List"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,help:duplicate_attachment_cleaner.field_duplicate_attachment_scan__group_limit
+msgid ""
+"How many duplicate groups are listed, biggest wins first (1000 at most). The"
+" totals always cover every group found, listed or not."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__confirm
+msgid "I understand the extra copies will be deleted permanently"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__id
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__id
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__id
+msgid "ID"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__min_size_kb
+msgid "Ignore Files Smaller Than (KB)"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__cleanup_message
+msgid "Last Clean-up"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean____last_update
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group____last_update
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__write_uid
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__write_uid
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__write_date
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__write_date
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__scope
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__scope
+msgid "Look For"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__res_model
+msgid "Model"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid ""
+"No duplicate attachments found with these options. There is nothing to clean"
+" up."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Not linked to a record"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields.selection,name:duplicate_attachment_cleaner.selection__duplicate_attachment_scan__state__draft
+msgid "Not scanned yet"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__keep_date
+msgid "Oldest Copy"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Only Settings administrators may delete duplicate attachments."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__wasted_bytes
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__wasted_bytes
+msgid "Redundant Bytes"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__redundant_count
+msgid "Redundant Copies"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__wasted_display
+msgid "Redundant Space"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__freed_display
+msgid "Redundant Space (estimate)"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid "Result"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Run the scan before cleaning anything up."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields.selection,name:duplicate_attachment_cleaner.selection__duplicate_attachment_scan__scope__record
+msgid "Same record only (recommended)"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,help:duplicate_attachment_cleaner.field_duplicate_attachment_clean__scope
+#: model:ir.model.fields,help:duplicate_attachment_cleaner.field_duplicate_attachment_scan__scope
+msgid ""
+"Same record only: the same file attached several times to the same record. Removing the extra copies leaves every record with its file.\n"
+"Anywhere in the database: identical files wherever they are. Only one copy survives for the whole database, so the other records lose their link to the file."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_clean__scan_id
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__scan_id
+msgid "Scan"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid "Scan Options"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_scan_view_form
+msgid "Scan for Duplicates"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields.selection,name:duplicate_attachment_cleaner.selection__duplicate_attachment_scan__state__done
+msgid "Scanned"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__scan_date
+msgid "Scanned On"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_group__file_size
+msgid "Size Of One Copy"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__wasted_display
+msgid "Space In Redundant Copies"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model:ir.model.fields,field_description:duplicate_attachment_cleaner.field_duplicate_attachment_scan__state
+msgid "Status"
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_clean_view_form
+msgid ""
+"This deletes attachment records permanently. <strong>One copy of every group is\n"
+"                    kept</strong> — the oldest one — and only the extra copies are removed.\n"
+"                    The figures below come from the last scan; the copies to delete are recomputed\n"
+"                    from the database at that moment."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:duplicate_attachment_cleaner.duplicate_attachment_clean_view_form
+msgid ""
+"This scan looked for identical files <strong>anywhere in the database</strong>:\n"
+"                    records whose own copy is removed keep no link to the file."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Tick at least one duplicate group to clean up."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_clean.py:0
+#, python-format
+msgid ""
+"Tick the confirmation box to delete the extra copies. Nothing has been "
+"deleted."
+msgstr ""
+
+#. module: duplicate_attachment_cleaner
+#. odoo-python
+#: code:addons/duplicate_attachment_cleaner/wizard/duplicate_attachment_scan.py:0
+#, python-format
+msgid "Unnamed"
+msgstr ""

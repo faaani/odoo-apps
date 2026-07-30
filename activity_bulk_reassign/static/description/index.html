@@ -1,0 +1,67 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #0e3042; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Reassign Activities in Bulk</h1>
+        <p style="margin: 0; font-size: 18px; color: #ffc759;">One person leaves — their to-dos move in a single click.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">When a colleague resigns, changes team or simply goes on holiday, every open activity stays pinned to their name: to-dos, calls, meetings, scheduled follow-ups. Odoo only lets you move them one record at a time. This module adds a <strong>Reassign Activities</strong> wizard: pick the person leaving, pick the person taking over, see how many activities match, and hand them all over at once.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>One action</strong> — every open activity of a user moves to a colleague in a single click.</li>
+        <li><strong>Precise filters</strong> — narrow the hand-over by activity type and by due-date range.</li>
+        <li><strong>Preview before you commit</strong> — the wizard shows how many activities match while you change the filters.</li>
+        <li><strong>Audit trail</strong> — a note is logged in the chatter of every affected document, listing what moved and between whom.</li>
+        <li><strong>Never touches finished work</strong> — completed and cancelled activities are always left alone.</li>
+        <li><strong>Respects access rights</strong> — only activities the current user is allowed to modify are ever reassigned; no rules are bypassed.</li>
+        <li><strong>Safe no-op</strong> — reassigning someone to themselves changes nothing instead of flooding the chatter.</li>
+        <li><strong>Works after the leaver is archived</strong> — an archived user can still be chosen as the source, which is exactly when a hand-over is needed.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #ffc759; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-wizard.png" alt="Reassign Activities wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick the user leaving and the user taking over, optionally filter by activity type and due date — the wizard counts the matching open activities before anything is moved.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-note.png" alt="Hand-over note logged in the chatter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Each affected document keeps a note of the hand-over, and the activity now shows the new assignee.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #ffc759; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module folder into your Odoo add-ons path.</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, then search for <em>Reassign Activities in Bulk</em>.</li>
+        <li>Click <strong>Install</strong>. Only the standard <code>mail</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffc759; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Nothing to configure — the wizard is ready as soon as the module is installed.</li>
+        <li>The menu is available to every internal user, under <strong>Discuss &rarr; Reassign Activities</strong>.</li>
+        <li>Access is enforced by Odoo itself: a user only ever moves the activities they are allowed to modify, so no extra rights have to be granted.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffc759; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Discuss &rarr; Reassign Activities</strong>.</li>
+        <li>In <strong>From User</strong>, choose the person whose activities have to be handed over; in <strong>To User</strong>, choose the person taking them.</li>
+        <li>Optionally restrict the move with <strong>Activity Types</strong> (leave empty for all types) and with the <strong>Due From</strong> / <strong>Due To</strong> range.</li>
+        <li>The banner at the top of the wizard shows how many open activities currently match; it updates as you change the filters.</li>
+        <li>Leave <strong>Log a Note</strong> ticked to keep a trace in the chatter of every affected document, then click <strong>Reassign</strong>.</li>
+        <li>A confirmation tells you exactly how many activities were moved. Each one now appears in the new assignee's to-do list.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffc759; padding-bottom: 6px;">Version notes</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>From 17.0 on, Odoo keeps completed activities as archived records; the wizard skips them, exactly as it skips the ones older series delete.</li>
+        <li>Up to Odoo 16.0, Odoo itself refuses to assign an activity to someone who cannot open the related document, and it refuses the whole batch. The wizard reports that refusal instead of moving part of the selection; from 17.0 on, Odoo dropped that check.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
