@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_login_history_report_list" model="ir.ui.view">
+        <field name="name">login.history.report.list</field>
+        <field name="model">login.history.report</field>
+        <field name="arch" type="xml">
+            <list string="User Login Report" create="false" edit="false" delete="false"
+                  decoration-danger="never_logged"
+                  decoration-warning="activity_status == 'dormant'"
+                  decoration-muted="not user_active">
+                <field name="user_name"/>
+                <field name="login"/>
+                <field name="user_type"/>
+                <field name="last_login"/>
+                <field name="days_since_login"/>
+                <field name="never_logged"/>
+                <field name="activity_status"/>
+                <field name="user_active" optional="show"/>
+                <field name="user_create_date" optional="hide"/>
+                <field name="reference_date" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_login_history_report_form" model="ir.ui.view">
+        <field name="name">login.history.report.form</field>
+        <field name="model">login.history.report</field>
+        <field name="arch" type="xml">
+            <form string="User Login" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Account">
+                            <field name="user_id"/>
+                            <field name="login"/>
+                            <field name="user_type"/>
+                            <field name="user_active"/>
+                            <field name="company_id"/>
+                            <field name="user_create_date"/>
+                        </group>
+                        <group string="Login Activity">
+                            <field name="last_login"/>
+                            <field name="never_logged"/>
+                            <field name="activity_status"/>
+                            <field name="reference_date"/>
+                            <field name="days_since_login"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_login_history_report_search" model="ir.ui.view">
+        <field name="name">login.history.report.search</field>
+        <field name="model">login.history.report</field>
+        <field name="arch" type="xml">
+            <search string="User Login Report">
+                <field name="user_name" string="User"
+                       filter_domain="['|', ('user_name', 'ilike', self), ('login', 'ilike', self)]"/>
+                <field name="login"/>
+                <field name="days_since_login" string="Days since login (at least)"
+                       filter_domain="[('days_since_login', '&gt;=', self)]"/>
+                <field name="company_id"/>
+                <filter string="Never Logged In" name="never_logged"
+                        domain="[('never_logged', '=', True)]"/>
+                <filter string="Logged In At Least Once" name="ever_logged"
+                        domain="[('never_logged', '=', False)]"/>
+                <separator/>
+                <filter string="Active (last 30 days)" name="active_30"
+                        domain="[('never_logged', '=', False), ('days_since_login', '&lt;=', 30)]"/>
+                <filter string="Dormant 30+ Days" name="dormant_30"
+                        domain="[('never_logged', '=', False), ('days_since_login', '&gt;=', 30)]"/>
+                <filter string="Dormant 60+ Days" name="dormant_60"
+                        domain="[('never_logged', '=', False), ('days_since_login', '&gt;=', 60)]"/>
+                <filter string="Dormant 90+ Days" name="dormant_90"
+                        domain="[('never_logged', '=', False), ('days_since_login', '&gt;=', 90)]"/>
+                <separator/>
+                <filter string="Internal Users" name="filter_internal"
+                        domain="[('share', '=', False)]"/>
+                <filter string="Portal / Public Users" name="filter_portal"
+                        domain="[('share', '=', True)]"/>
+                <separator/>
+                <filter string="Enabled Accounts" name="filter_enabled"
+                        domain="[('user_active', '=', True)]"/>
+                <filter string="Archived Accounts" name="filter_archived"
+                        domain="[('user_active', '=', False)]"/>
+                <group name="group_by">
+                    <filter string="Login Status" name="group_status"
+                            context="{'group_by': 'activity_status'}"/>
+                    <filter string="User Type" name="group_type"
+                            context="{'group_by': 'user_type'}"/>
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"/>
+                    <filter string="Last Login Month" name="group_last_login"
+                            context="{'group_by': 'last_login'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_login_history_report" model="ir.actions.act_window">
+        <field name="name">User Login Report</field>
+        <field name="res_model">login.history.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_login_history_report_search"/>
+        <field name="context">{'search_default_filter_internal': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No user matches these filters</p>
+            <p>This report lists every user account with its real last login, how
+               many days ago that was, and whether the account has ever been used
+               at all. It is read-only: nothing is modified.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_login_history_report"
+              name="User Login Report"
+              parent="base.menu_users"
+              action="action_login_history_report"
+              groups="base.group_system"
+              sequence="25"/>
+
+</odoo>

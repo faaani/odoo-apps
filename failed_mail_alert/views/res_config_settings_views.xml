@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_failed_mail_alert" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.failed.mail.alert</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="mail.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='emails']" position="inside">
+                <setting string="Failed Email Alerts" id="failed_mail_alert_setting"
+                         help="Warn administrators by email when outgoing messages stop being delivered and pile up in the queue.">
+                    <field name="failed_mail_alert_enabled"/>
+                    <div class="content-group" invisible="not failed_mail_alert_enabled">
+                        <div class="row mt16">
+                            <label for="failed_mail_alert_threshold" class="col-lg-8 o_light_label"/>
+                            <field name="failed_mail_alert_threshold" class="col-lg-2"/>
+                        </div>
+                        <div class="row">
+                            <label for="failed_mail_alert_age_minutes" class="col-lg-8 o_light_label"/>
+                            <field name="failed_mail_alert_age_minutes" class="col-lg-2"/>
+                        </div>
+                        <div class="text-muted mt8">
+                            Checked every 4 hours; at most one alert every 24 hours.
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
