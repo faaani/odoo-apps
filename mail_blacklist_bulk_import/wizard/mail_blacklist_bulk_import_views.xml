@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_blacklist_bulk_import_view_form" model="ir.ui.view">
+        <field name="name">mail.blacklist.bulk.import.form</field>
+        <field name="model">mail.blacklist.bulk.import</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Import Email Blacklist">
+                <field name="state" invisible="1"/>
+                <field name="invalid_count" invisible="1"/>
+                <field name="truncated" invisible="1"/>
+                <!-- input -->
+                <div invisible="state != 'draft'">
+                    <group>
+                        <group>
+                            <field name="mode" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="source" widget="radio"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="status">
+                        One address per line, or several per line separated by a comma or a semicolon.
+                        Up to <field name="max_addresses" class="oe_inline"/> addresses per run.
+                    </div>
+                    <div class="alert alert-warning" role="alert" invisible="mode != 'remove'">
+                        Remove mode un-blacklists every listed address: they will receive mailings again.
+                        Blacklist entries are archived, never deleted.
+                    </div>
+                    <group invisible="source != 'text'">
+                        <field name="address_text" nolabel="1" colspan="2"
+                               placeholder="bounced@example.com&#10;complaint@example.org, optout@example.net"/>
+                    </group>
+                    <group invisible="source != 'file'">
+                        <field name="data_file" filename="file_name" string="CSV / TXT File"/>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                </div>
+                <!-- result -->
+                <div invisible="state != 'done'">
+                    <div class="alert alert-warning" role="alert" invisible="not truncated">
+                        The input was longer than the limit: only the first
+                        <field name="max_addresses" class="oe_inline"/> addresses were processed.
+                    </div>
+                    <group>
+                        <group string="Summary">
+                            <field name="found_count"/>
+                            <field name="added_count" invisible="mode != 'add'"/>
+                            <field name="existing_count" invisible="mode != 'add'"/>
+                            <field name="removed_count" invisible="mode != 'remove'"/>
+                            <field name="missing_count" invisible="mode != 'remove'"/>
+                        </group>
+                        <group string="Skipped">
+                            <field name="duplicate_count"/>
+                            <field name="invalid_count" string="Invalid"/>
+                        </group>
+                    </group>
+                    <group string="Report">
+                        <field name="result_text" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="Invalid Addresses" invisible="invalid_count == 0">
+                        <field name="invalid_text" nolabel="1" colspan="2"/>
+                    </group>
+                </div>
+                <footer>
+                    <button name="action_import" string="Add to Blacklist" type="object"
+                            class="btn-primary" invisible="state != 'draft' or mode != 'add'"/>
+                    <button name="action_import" string="Remove from Blacklist" type="object"
+                            class="btn-danger" invisible="state != 'draft' or mode != 'remove'"
+                            confirm="The listed addresses will be un-blacklisted and can receive mailings again. Continue?"/>
+                    <button name="action_view_blacklist" string="View Blacklist" type="object"
+                            class="btn-primary" invisible="state != 'done'"/>
+                    <button name="action_retry_invalid" string="Fix Invalid Addresses" type="object"
+                            class="btn-secondary" invisible="state != 'done' or invalid_count == 0"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="mail_blacklist_bulk_import_action" model="ir.actions.act_window">
+        <field name="name">Bulk Import Email Blacklist</field>
+        <field name="res_model">mail.blacklist.bulk.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="mail.model_mail_blacklist"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <menuitem id="mail_blacklist_bulk_import_menu"
+        name="Blacklist Bulk Import"
+        action="mail_blacklist_bulk_import_action"
+        parent="mail.mail_menu_technical"
+        groups="base.group_system"
+        sequence="23"/>
+</odoo>
