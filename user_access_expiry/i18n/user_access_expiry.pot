@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* user_access_expiry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 13:02+0000\n"
+"PO-Revision-Date: 2026-07-30 13:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: user_access_expiry
+#. odoo-python
+#: code:addons/user_access_expiry/models/res_users.py:0
+#, python-format
+msgid ""
+"%(count)s user account(s) were archived because their access expiry date "
+"passed:"
+msgstr ""
+
+#. module: user_access_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.view_users_form_access_expiry
+msgid "Access Expiry"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,field_description:user_access_expiry.field_res_users__access_expiry_date
+msgid "Access Expiry Date"
+msgstr ""
+
+#. module: user_access_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.view_users_form_access_expiry
+msgid "Audit"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model,name:user_access_expiry.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,field_description:user_access_expiry.field_res_users__deactivated_by_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.view_users_search_access_expiry
+msgid "Deactivated by Expiry"
+msgstr ""
+
+#. module: user_access_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.res_config_settings_view_form_access_expiry
+msgid ""
+"Email Settings administrators a summary whenever user accounts are archived "
+"because their access expiry date passed."
+msgstr ""
+
+#. module: user_access_expiry
+#. odoo-python
+#: code:addons/user_access_expiry/models/res_users.py:0
+#, python-format
+msgid "Expired users deactivated"
+msgstr ""
+
+#. module: user_access_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.view_users_form_access_expiry
+msgid "Expiry"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,field_description:user_access_expiry.field_res_users__expiry_deactivation_date
+msgid "Expiry Deactivation Date"
+msgstr ""
+
+#. module: user_access_expiry
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.view_users_search_access_expiry
+msgid "Has Expiry Date"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,field_description:user_access_expiry.field_res_config_settings__expiry_notify_admins
+#: model_terms:ir.ui.view,arch_db:user_access_expiry.res_config_settings_view_form_access_expiry
+msgid "Notify on Access Expiry"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,help:user_access_expiry.field_res_config_settings__expiry_notify_admins
+msgid ""
+"Send Settings administrators an email summary whenever expired user accounts"
+" are archived."
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,help:user_access_expiry.field_res_users__deactivated_by_expiry
+msgid "Set when this user was archived because the access expiry date passed."
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,help:user_access_expiry.field_res_users__access_expiry_date
+msgid ""
+"The account is archived automatically once this date has passed. Leave empty"
+" for permanent access."
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model,name:user_access_expiry.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.actions.server,name:user_access_expiry.ir_cron_deactivate_expired_users_ir_actions_server
+msgid "Users: deactivate expired accounts"
+msgstr ""
+
+#. module: user_access_expiry
+#: model:ir.model.fields,help:user_access_expiry.field_res_users__expiry_deactivation_date
+msgid "When the expiry cron archived this account."
+msgstr ""
