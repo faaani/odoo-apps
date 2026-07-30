@@ -1,0 +1,66 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #19243f; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Sequence Gap Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f5a524;">Why is invoice 00042 missing? Now you can answer.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo sequences leave holes: a deleted draft, a discarded order, a cancelled entry, and the numbering jumps. Auditors and tax authorities ask about every one of them, and Odoo offers no way to find them. This module adds a read-only wizard that scans any numbered field of any model and lists every missing number, series by series, with the documents that sit just before and just after the hole.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Works on any model</strong> &mdash; invoices and journal entries (<code>account.move</code>), sales orders, purchase orders, transfers, or any other numbered document. Nothing to configure, no dependency on Accounting.</li>
+        <li><strong>Understands any format</strong> &mdash; each number is split into its prefix and its trailing digits (<code>INV/2026/00042</code>), so every numbering series is analysed on its own and never mixed with another.</li>
+        <li><strong>Shows the context</strong> &mdash; every gap comes with the document before and the document after it, so the hole can be explained on the spot.</li>
+        <li><strong>Zero padding preserved</strong> &mdash; missing numbers are shown exactly as they would have been printed.</li>
+        <li><strong>Fast and predictable</strong> &mdash; a single read of one column (up to 200,000 numbered documents per scan), gap detection in memory, a cap on the number of reported gaps, and a clear message when the report is truncated.</li>
+        <li><strong>Honest about its limits</strong> &mdash; only documents you are allowed to read are counted, and the summary says so, because numbers hidden by access rights look exactly like gaps.</li>
+        <li><strong>Strictly read-only</strong> &mdash; nothing is ever created, modified or renumbered, and your access rights still apply.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f5a524; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-wizard.png" alt="01-wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick the model and the numbered field &mdash; invoices and journal entries by default &mdash; and press Scan for Gaps.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-gaps.png" alt="02-gaps" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every missing number, grouped by numbering series, with the documents on both sides of the hole and a one-line summary of the scan.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-list.png" alt="03-list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Open the full list to sort, filter, group and export the gaps for the auditor's file.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a524; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>sequence_gap_report</code> folder into your addons directory.</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Sequence Gap Report</em>.</li>
+        <li>Click <strong>Install</strong>. Only the standard <code>base</code> module is required, so it installs on any database.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a524; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None. The report is available immediately under <strong>Settings &rarr; Sequence Gap Report</strong>.</li>
+        <li>The wizard opens on <code>account.move</code> / <code>name</code>; type any other model and field if you scan something else.</li>
+        <li><strong>Maximum Gaps</strong> (default 500) caps how many gaps are listed; the report tells you when there are more.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a524; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Sequence Gap Report</strong>.</li>
+        <li>Enter the model to scan (<code>account.move</code>, <code>sale.order</code>, <code>purchase.order</code>, <code>stock.picking</code>, &hellip;) and the field holding the number, usually <code>name</code>.</li>
+        <li>Keep <strong>Include Archived</strong> ticked: archived documents still consumed their number, so they are not gaps.</li>
+        <li>Click <strong>Scan for Gaps</strong>. Each line shows the first and last missing number of a hole, how many numbers it covers, and the documents immediately before and after it.</li>
+        <li>Click <strong>Open Full List</strong> to sort, group or export the result; click <strong>New Scan</strong> to check another model.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a524; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0).</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
