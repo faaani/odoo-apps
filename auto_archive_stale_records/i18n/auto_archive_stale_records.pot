@@ -1,0 +1,366 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* auto_archive_stale_records
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:55+0000\n"
+"PO-Revision-Date: 2026-07-30 18:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid "%(count)s %(model)s record(s) archived."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"A rule must wait at least %(min)s days before archiving. Rule \"%(rule)s\" "
+"is set to %(days)s."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__active
+msgid "Active"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__filter_domain
+msgid "Additional Filter"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "Apply this rule now instead of waiting for the daily scheduled action."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__inactivity_days
+msgid "Archive After (days)"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__inactivity_days
+msgid ""
+"Archive records that have not been modified for at least this many days. "
+"Values below the built-in minimum are raised to it."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_search
+msgid "Archived Rules"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__last_run_count
+msgid "Archived on Last Run"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "Archiving Rule"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_list
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_search
+msgid "Archiving Rules"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+#: model:ir.ui.menu,name:auto_archive_stale_records.auto_archive_rule_menu
+msgid "Automatic Archiving"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model,name:auto_archive_stale_records.model_auto_archive_rule
+msgid "Automatic Archiving Rule"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.actions.act_window,name:auto_archive_stale_records.auto_archive_rule_action
+msgid "Automatic Archiving Rules"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.actions.server,name:auto_archive_stale_records.ir_cron_auto_archive_ir_actions_server
+msgid "Automatic Archiving: apply archiving rules"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"Automatic archiving is not allowed on \"%s\". Users, companies and technical"
+" (ir.*) models are protected, because archiving them would lock people out "
+"of Odoo or break the database."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.actions.act_window,help:auto_archive_stale_records.auto_archive_rule_action
+msgid "Create your first archiving rule"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_search
+msgid "Disabled"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__enabled
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_search
+msgid "Enabled"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__name
+msgid "Free label, e.g. \"Leads untouched for a year\"."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__archived_count
+msgid "How many records this rule has archived since it was created."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__last_run
+msgid "Last Run"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__model_id
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_search
+msgid "Model"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__model_name
+msgid "Model Name"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid ""
+"New rules are disabled on purpose. Click <strong>Preview</strong> to\n"
+"                        check exactly which records this rule matches, then switch\n"
+"                        <strong>Enabled</strong> on to let the daily scheduled action apply it.\n"
+"                        Records younger than the built-in minimum age are never archived; users,\n"
+"                        companies and technical models cannot be targeted, and the contacts behind\n"
+"                        a user or a company are always left alone.\n"
+"                        A rule applies to <strong>every company</strong> in the database — add a\n"
+"                        company condition to the filter if you want to limit it — and archives at\n"
+"                        most a few thousand records per run, continuing on the following days."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"Nothing to archive: no %s record is older than %s days and matches the "
+"filter."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__filter_domain
+msgid ""
+"Optional extra condition, combined with AND. Leave empty to match every "
+"record of the model that is old enough."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.actions.act_window,help:auto_archive_stale_records.auto_archive_rule_action
+msgid ""
+"Pick a model, add an optional filter and say how long a record may\n"
+"                stay untouched before it is archived. New rules are disabled until\n"
+"                you turn them on, and Preview always shows what would happen first."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "Preview"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid "Preview: %s"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__name
+msgid "Rule Name"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__enabled
+msgid ""
+"Rules are created disabled on purpose. The scheduled action only applies "
+"rules that are explicitly enabled here."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "Run Now"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid "Select the model whose records should be archived."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid ""
+"Show the records this rule would archive right now. Nothing is changed."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "Status"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The \"Active\" field of model \"%s\" is computed on the fly, so it cannot be"
+" searched or written. Pick a model that stores it."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The additional filter of rule \"%(rule)s\" cannot be applied to %(model)s: "
+"%(error)s"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The additional filter of rule \"%(rule)s\" is not a valid domain: %(error)s"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The additional filter of rule \"%s\" must be a domain list, for example "
+"[(\"stage_id.is_won\", \"=\", False)]."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid "The model \"%s\" does not exist (its module may have been uninstalled)."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The model \"%s\" does not track a last modification date, so \"not modified "
+"for N days\" cannot be evaluated on it."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The model \"%s\" has no \"Active\" field, so its records cannot be archived."
+" Pick a model that supports archiving."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#. odoo-python
+#: code:addons/auto_archive_stale_records/models/auto_archive_rule.py:0
+msgid ""
+"The model \"%s\" has no regular database table, its records cannot be "
+"archived."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__model_id
+msgid ""
+"The model whose records this rule archives. It must have an Active field; "
+"users, companies and technical models are refused."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid ""
+"This archives the matching records immediately. Use Preview first if you are"
+" not sure. Continue?"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,field_description:auto_archive_stale_records.field_auto_archive_rule__archived_count
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_list
+msgid "Total Archived"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model:ir.model.fields,help:auto_archive_stale_records.field_auto_archive_rule__active
+msgid ""
+"Uncheck to hide this rule without deleting it. Archived rules are never "
+"applied."
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "What to archive"
+msgstr ""
+
+#. module: auto_archive_stale_records
+#: model_terms:ir.ui.view,arch_db:auto_archive_stale_records.auto_archive_rule_view_form
+msgid "e.g. Leads untouched for a year"
+msgstr ""
