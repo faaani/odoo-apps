@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mass_activity_wizard_view_form" model="ir.ui.view">
+        <field name="name">mass.activity.wizard.form</field>
+        <field name="model">mass.activity.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Activity">
+                <field name="res_model" invisible="1"/>
+                <div class="alert alert-info" role="status">
+                    This activity will be created on <field name="record_count" class="oe_inline"/> selected record(s).
+                </div>
+                <group>
+                    <group>
+                        <field name="activity_type_id" options="{'no_create': True}"/>
+                        <field name="user_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="date_deadline"/>
+                        <field name="summary" placeholder="e.g. Follow-up call"/>
+                    </group>
+                </group>
+                <field name="note" placeholder="Instructions for the assignee..."/>
+                <footer>
+                    <button name="action_schedule" string="Schedule" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mass_activity_wizard" model="ir.actions.act_window">
+        <field name="name">Schedule Activity</field>
+        <field name="res_model">mass.activity.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

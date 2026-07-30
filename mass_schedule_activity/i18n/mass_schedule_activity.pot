@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mass_schedule_activity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 16:39+0000\n"
+"PO-Revision-Date: 2026-07-30 16:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mass_schedule_activity
+#. odoo-python
+#: code:addons/mass_schedule_activity/wizard/mass_activity_wizard.py:0
+#, python-format
+msgid "%(count)s activity(ies) created for %(user)s."
+msgstr ""
+
+#. module: mass_schedule_activity
+#. odoo-python
+#: code:addons/mass_schedule_activity/wizard/mass_activity_wizard.py:0
+#, python-format
+msgid "Activities cannot be scheduled on %s."
+msgstr ""
+
+#. module: mass_schedule_activity
+#. odoo-python
+#: code:addons/mass_schedule_activity/wizard/mass_activity_wizard.py:0
+#, python-format
+msgid "Activities scheduled"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__activity_type_id
+msgid "Activity Type"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__user_id
+msgid "Assigned To"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__date_deadline
+msgid "Due Date"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "Instructions for the assignee..."
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__res_model
+msgid "Model"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__note
+msgid "Note"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__record_count
+msgid "Records"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "Schedule"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model,name:mass_schedule_activity.model_mass_activity_wizard
+msgid "Schedule Activities in Bulk"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.actions.act_window,name:mass_schedule_activity.action_mass_activity_wizard
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "Schedule Activity"
+msgstr ""
+
+#. module: mass_schedule_activity
+#. odoo-python
+#: code:addons/mass_schedule_activity/wizard/mass_activity_wizard.py:0
+#, python-format
+msgid "Select the records to schedule an activity on first."
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model:ir.model.fields,field_description:mass_schedule_activity.field_mass_activity_wizard__summary
+msgid "Summary"
+msgstr ""
+
+#. module: mass_schedule_activity
+#. odoo-python
+#: code:addons/mass_schedule_activity/wizard/mass_activity_wizard.py:0
+#, python-format
+msgid "The selected records no longer exist."
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "This activity will be created on"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "e.g. Follow-up call"
+msgstr ""
+
+#. module: mass_schedule_activity
+#: model_terms:ir.ui.view,arch_db:mass_schedule_activity.mass_activity_wizard_view_form
+msgid "selected record(s)."
+msgstr ""
