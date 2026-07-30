@@ -2,7 +2,7 @@
 # Part of auto_deactivate_dormant_users. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Auto Deactivate Dormant Users',
-    'version': '15.0.1.0.1',
+    'version': '15.0.1.0.2',
     'summary': 'Automatically archive users who have not logged in for N days — free seats, satisfy dormant-account security controls.',
     'description': """
 Automatically deactivate (archive) internal users who have not logged in for a
@@ -16,6 +16,7 @@ OdooBot, portal users, or users you mark as exempt.
     'website': 'https://github.com/farhanashraf/odoo-gap-modules',
     'category': 'Tools',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['base_setup', 'mail'],
     'data': [
         'views/res_users_views.xml',

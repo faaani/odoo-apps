@@ -2,7 +2,7 @@
 # Part of mail_autofollow_optout. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Stop Auto-Following Records',
-    'version': '15.0.1.0.0',
+    'version': '15.0.1.0.1',
     'summary': 'Let each user opt out of being subscribed automatically to every record they touch — without losing manual Follow.',
     'description': """
 Odoo subscribes you as a follower of every record you comment on or get
@@ -17,6 +17,7 @@ working normally whenever they do want updates.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Productivity/Discuss',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['mail'],
     'data': ['views/res_users_views.xml'],
     'images': ['static/description/banner.png'],

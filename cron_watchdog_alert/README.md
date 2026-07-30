@@ -33,3 +33,7 @@ alert you — pair this with an external uptime check if you need that guarantee
 
 ## Notes per version
 Identical behavior on all supported series (14.0 – 19.0).
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com
