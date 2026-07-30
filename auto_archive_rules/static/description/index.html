@@ -1,0 +1,82 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1a213a; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Automatic Archiving Rules</h1>
+        <p style="margin: 0; font-size: 18px; color: #f5a623;">Old records archive themselves, on a schedule you set.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Lost leads from three years ago, tasks closed last winter, contacts nobody has touched since the import — Odoo keeps every one of them in every list, every dropdown and every report, forever. There is no built-in way to archive them on a schedule, so lists only ever grow.
+        This module lets you define <strong>archiving rules</strong>: pick a model, add an optional filter, say how long a record may stay untouched, and a daily scheduled action does the rest.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Any model that supports archiving</strong> — leads, tasks, contacts, products, your own models: anything with an Active field.</li>
+        <li><strong>Your own filter</strong> — an optional extra domain, combined with the age condition, so a rule can target exactly "lost leads" or "tags with no contacts".</li>
+        <li><strong>Preview before anything happens</strong> — one click opens the exact list of records the next run would archive. It changes nothing.</li>
+        <li><strong>Counters you can trust</strong> — every rule shows when it last ran, how many records it archived then, and how many in total.</li>
+        <li><strong>Daily, unattended</strong> — one scheduled action applies every enabled rule; Run Now is there when you do not want to wait.</li>
+    </ul>
+
+    <div style="margin: 20px 0; padding: 16px 18px; background: #fff8e8; border-left: 4px solid #f5a623; border-radius: 6px;">
+        <p style="margin: 0; font-size: 15px;"><strong>Built to be safe.</strong> Archiving hides records, so this module is deliberately cautious:
+        every new rule is <strong>disabled</strong> until you turn it on; a <strong>minimum age is enforced in code</strong>, so a mistyped 0 can never empty a list;
+        <strong>users, companies and technical (ir.*) models are refused outright</strong> — and so are the contact records behind a user or a company, even on a plain "stale contacts" rule;
+        a model with no Active field is rejected when the rule is saved, as is a filter that does not apply to it;
+        and one record that cannot be archived is logged and skipped instead of aborting the whole run.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-rules-list.png" alt="List of archiving rules" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">All your rules in one list: model, age, when each last ran, and how much it has archived. The Enabled switch is the only thing that lets a rule act.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-rule-form.png" alt="An archiving rule" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A rule: the model, an optional filter built with the standard domain editor, and the number of days a record may stay untouched.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-preview.png" alt="Preview of the records that would be archived" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Preview opens exactly the records the next run would archive — the same set, nothing changed.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-scheduled-action.png" alt="The daily scheduled action" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One daily scheduled action applies every enabled rule. Change its frequency, or disable it, like any other cron.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Automatic Archiving Rules</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required — no other dependency.</li>
+        <li>Installing creates one scheduled action, <em>Automatic Archiving: apply archiving rules</em>. It has nothing to do until you create a rule.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Enable the developer mode, then go to <strong>Settings &rarr; Technical &rarr; Automation &rarr; Automatic Archiving</strong>.</li>
+        <li>Click <strong>New</strong> and name the rule, for example <em>Leads with no activity for 6 months</em>.</li>
+        <li>Choose the <strong>Model</strong>. Models without an Active field, and protected models such as Users, Companies and technical <code>ir.*</code> models, are refused with an explanation.</li>
+        <li>Optionally set an <strong>Additional Filter</strong> with the domain editor to narrow the rule down.</li>
+        <li>Set <strong>Archive After (days)</strong> — how long a record may go without being modified. Values under the built-in minimum are raised to it.</li>
+        <li>Leave <strong>Enabled</strong> off for now. Only administrators (Settings access) can see or edit rules.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>On the rule, click <strong>Preview</strong>. The exact records the rule matches open in a list — nothing is modified.</li>
+        <li>Happy with the list? Switch <strong>Enabled</strong> on. The daily scheduled action will apply the rule from then on.</li>
+        <li>In a hurry, click <strong>Run Now</strong> to archive the matching records immediately.</li>
+        <li>Come back any time: <strong>Last Run</strong>, <strong>Archived on Last Run</strong> and <strong>Total Archived</strong> tell you what the rule has been doing.</li>
+        <li>Archived records are never deleted. Any list shows them again with the standard <em>Archived</em> filter, and they can be restored one by one or in bulk.</li>
+        <li>To pause a rule, switch <strong>Enabled</strong> off; to retire it, archive or delete the rule itself.</li>
+        <li>A rule applies to <strong>every company</strong> in the database — add a company condition to the filter if you want to limit it — and archives at most a few thousand records per run, continuing on the following days until it has caught up.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). The scheduled action is configured per series so it keeps running instead of firing once.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
