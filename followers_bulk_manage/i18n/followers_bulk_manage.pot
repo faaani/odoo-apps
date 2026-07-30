@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* followers_bulk_manage
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:24+0000\n"
+"PO-Revision-Date: 2026-07-30 18:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid ""
+"%(added)s follower(s) added and %(removed)s removed across %(records)s "
+"record(s)."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "%s cannot be added and removed at the same time."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Apply"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "Choose at least one follower to add or to remove."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Default subtypes of the model"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "Followers cannot be managed on %s."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__partner_add_ids
+msgid "Followers to Add"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__partner_remove_ids
+msgid "Followers to Remove"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "Followers updated"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,help:followers_bulk_manage.field_followers_bulk_wizard__subtype_ids
+msgid ""
+"Leave empty to use the default subscription subtypes of the model. Applies "
+"to the followers being added."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.actions.act_window,name:followers_bulk_manage.action_followers_bulk_wizard
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Manage Followers"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model,name:followers_bulk_manage.model_followers_bulk_wizard
+msgid "Manage Followers in Bulk"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__res_model
+msgid "Model"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__record_count
+msgid "Records"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "Select the records whose followers you want to manage first."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model:ir.model.fields,field_description:followers_bulk_manage.field_followers_bulk_wizard__subtype_ids
+msgid "Subscribe To"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: code:addons/followers_bulk_manage/wizard/followers_bulk_wizard.py:0
+#, python-format
+msgid "The selected records no longer exist."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "These changes will be applied to"
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Who should start following..."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "Who should stop following..."
+msgstr ""
+
+#. module: followers_bulk_manage
+#: model_terms:ir.ui.view,arch_db:followers_bulk_manage.followers_bulk_wizard_view_form
+msgid "selected record(s)."
+msgstr ""

@@ -1,0 +1,449 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* attachment_storage_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:53+0000\n"
+"PO-Revision-Date: 2026-07-30 18:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "%(count)s attachment(s) deleted, %(size)s freed."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__model_name
+msgid "Attached To"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__attachment_id
+#, python-format
+msgid "Attachment"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.ui.menu,name:attachment_storage_report.menu_attachment_storage_root
+msgid "Attachment Storage"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#: model:ir.actions.server,name:attachment_storage_report.action_attachment_storage_report
+#: model:ir.model,name:attachment_storage_report.model_attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+#, python-format
+msgid "Attachment Storage Report"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model,name:attachment_storage_report.model_attachment_storage_report_model_line
+msgid "Attachment Storage per Model"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model,name:attachment_storage_report.model_attachment_storage_report_user_line
+msgid "Attachment Storage per User"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__total_count
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__attachment_count
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__attachment_count
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Attachments"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "Attachments deleted"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report__include_field_attachments
+msgid ""
+"Binary field values (company logos, product images, stored report PDFs) are "
+"attachments too. Untick to look at user uploads only."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__model_line_ids
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "By Model"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__user_line_ids
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "By User"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Counts only the companies currently selected in the company switcher."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__create_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__create_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__create_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__create_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__create_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__create_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields.selection,name:attachment_storage_report.selection__attachment_storage_report_attachment_line__storage__db
+msgid "Database"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__to_delete
+msgid "Delete"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Delete Ticked Attachments"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__display_name
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__display_name
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__display_name
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__name
+msgid "File Name"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields.selection,name:attachment_storage_report.selection__attachment_storage_report_attachment_line__storage__filestore
+msgid "Filestore"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report_attachment_line__res_field
+msgid ""
+"Filled when this file is the value of a binary field on a record (a logo, a "
+"photo, a stored PDF) rather than an uploaded document. Those files cannot be"
+" deleted from here."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Filters"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report__top_limit
+msgid "How many of the biggest attachments to list (1-1000)."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__id
+msgid "ID"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__include_field_attachments
+msgid "Include Field Attachments"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model,name:attachment_storage_report.model_attachment_storage_report_attachment_line
+msgid "Largest Attachment"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__attachment_line_ids
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Largest Attachments"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__top_limit
+msgid "Largest Files to List"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__write_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__write_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__write_uid
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__write_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__write_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__write_date
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__min_size_mb
+msgid "Minimum Size (MB)"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__model_name
+msgid "Model"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "Not linked to a record"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "Only Settings administrators may run the Attachment Storage Report."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report__min_size_mb
+msgid ""
+"Only attachments of at least this size are counted. Raise it to ignore the "
+"thousands of tiny files and see what really uses space."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report__date_from
+msgid "Only count attachments created on or after this moment."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report__date_to
+msgid "Only count attachments created on or before this moment."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Open"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Open these attachments"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Open this attachment"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Period"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__res_field
+msgid "Record Field"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__name
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__report_id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__report_id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__report_id
+msgid "Report"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Run Report"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__percentage
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__percentage
+msgid "Share"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__size_display
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__size_display
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__size_display
+msgid "Size"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__file_size_mb
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__total_size_mb
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__total_size_mb
+msgid "Size (MB)"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.ui.menu,name:attachment_storage_report.menu_attachment_storage_report
+msgid "Storage Report"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__storage
+msgid "Stored In"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__db_size_display
+msgid "Stored in Database"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__filestore_size_display
+msgid "Stored on Filestore"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__res_model
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_model_line__res_model
+msgid "Technical Model"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "The ticked attachments no longer exist."
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid ""
+"These files are not uploads: each one is the value of a binary field on a record (a logo, a photo, a stored PDF). Deleting them would silently erase that field:\n"
+"%(rows)s\n"
+"\n"
+"Untick them, or clear the value on the record itself."
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "This attachment no longer exists."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid ""
+"This permanently deletes the ticked attachments and the files behind them. "
+"It cannot be undone. Continue?"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid ""
+"Tick <strong>Delete</strong> on the files you no longer need, then\n"
+"                                use the <strong>Delete Ticked Attachments</strong> button above.\n"
+"                                Nothing is ever removed automatically. Rows with a\n"
+"                                <strong>Record Field</strong> are the value of a binary field\n"
+"                                (a logo, a photo, a stored PDF) and cannot be deleted from here."
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid ""
+"Tick the attachments you want to remove in the \"Largest Attachments\" tab "
+"first. Nothing is ever deleted automatically."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,help:attachment_storage_report.field_attachment_storage_report_attachment_line__to_delete
+msgid ""
+"Tick, then use the \"Delete Ticked Attachments\" button. Nothing is removed "
+"until you confirm."
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Total (MB)"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__total_size_display
+msgid "Total Size"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__total_size_mb
+msgid "Total Size (MB)"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Totals"
+msgstr ""
+
+#. module: attachment_storage_report
+#. odoo-python
+#: code:addons/attachment_storage_report/wizard/attachment_storage_report.py:0
+#, python-format
+msgid "Unnamed"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__user_id
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_user_line__user_id
+msgid "Uploaded By"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__date_from
+msgid "Uploaded From"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report_attachment_line__upload_date
+msgid "Uploaded On"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model:ir.model.fields,field_description:attachment_storage_report.field_attachment_storage_report__date_to
+msgid "Uploaded Until"
+msgstr ""
+
+#. module: attachment_storage_report
+#: model_terms:ir.ui.view,arch_db:attachment_storage_report.attachment_storage_report_view_form
+msgid "Where It Lives"
+msgstr ""
