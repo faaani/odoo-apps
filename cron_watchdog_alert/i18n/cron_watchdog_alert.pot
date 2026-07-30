@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cron_watchdog_alert
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 14:37+0000\n"
+"PO-Revision-Date: 2026-07-30 14:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cron_watchdog_alert
+#. odoo-python
+#: code:addons/cron_watchdog_alert/models/ir_cron.py:0
+#, python-format
+msgid ""
+"%(count)s scheduled action(s) look stalled: they were due more than %(lag)s "
+"minutes ago and have not run. The scheduler may be stopped, stuck on a long "
+"job, or the action may be failing."
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.model.fields,help:cron_watchdog_alert.field_ir_cron__watchdog_exempt
+msgid "Do not alert administrators when this scheduled action is overdue."
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.model.fields,field_description:cron_watchdog_alert.field_ir_cron__watchdog_exempt
+msgid "Exclude from Watchdog"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.model,name:cron_watchdog_alert.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.model.fields,field_description:cron_watchdog_alert.field_ir_cron__watchdog_last_alert
+msgid "Last Watchdog Alert"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#. odoo-python
+#: code:addons/cron_watchdog_alert/models/ir_cron.py:0
+#, python-format
+msgid "Odoo alert: scheduled actions have stopped running"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.model,name:cron_watchdog_alert.model_ir_cron
+msgid "Scheduled Actions"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model_terms:ir.ui.view,arch_db:cron_watchdog_alert.ir_cron_view_form_watchdog
+msgid "Watchdog"
+msgstr ""
+
+#. module: cron_watchdog_alert
+#: model:ir.actions.server,name:cron_watchdog_alert.ir_cron_watchdog_ir_actions_server
+msgid "Watchdog: check for stalled scheduled actions"
+msgstr ""
