@@ -19,3 +19,7 @@ Odoo schedules activities one record at a time. Assigning a follow-up call to fo
 Identical behavior on every supported series (14.0 – 19.0).
 
 Free, LGPL-3, Odoo 14.0 – 19.0.
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com

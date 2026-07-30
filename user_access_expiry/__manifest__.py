@@ -2,7 +2,7 @@
 # Part of user_access_expiry. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'User Access Expiry Date',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     'summary': 'Set an end date on any user — contractors and temporary accounts are archived automatically when it passes.',
     'description': """
 Give any user an access expiry date. A daily job archives accounts whose date
@@ -16,6 +16,7 @@ administrators and OdooBot are never touched.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Tools',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['base_setup', 'mail'],
     'data': [
         'views/res_users_views.xml',

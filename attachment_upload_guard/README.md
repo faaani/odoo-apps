@@ -20,3 +20,7 @@ Odoo lets anyone attach anything, of any size — executables, scripts and half-
 Identical behavior on every supported series (14.0 – 19.0).
 
 Free, LGPL-3, Odoo 14.0 – 19.0.
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com

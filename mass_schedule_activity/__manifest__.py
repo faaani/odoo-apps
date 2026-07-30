@@ -2,7 +2,7 @@
 # Part of mass_schedule_activity. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Schedule Activities in Bulk',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     'summary': 'Select many records and schedule the same activity on all of them in one step.',
     'description': """
 Odoo schedules activities one record at a time. Assigning a follow-up call to
@@ -17,6 +17,7 @@ all of them — with a summary of what was scheduled.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Productivity',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
