@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="failed_mail_retry_wizard_view_form" model="ir.ui.view">
+        <field name="name">failed.mail.retry.wizard.form</field>
+        <field name="model">failed.mail.retry.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Retry Failed Emails" create="false" delete="false" duplicate="false">
+                <header>
+                    <button name="action_retry_selected" type="object" class="btn-primary"
+                            string="Retry Selected"
+                            confirm="The ticked messages will be put back in the sending queue and delivered as soon as the mail server accepts them — even the ones that failed days ago. Their recipients will receive them now, with their original content. Continue?"/>
+                    <button name="action_retry_since" type="object"
+                            string="Retry Since Date" attrs="{'invisible': [('scope', '=', 'selection')]}"
+                            confirm="Every failed message queued on or after the chosen date will be put back in the sending queue, including messages that are not listed on this screen. Their recipients will receive them now. Continue?"/>
+                    <button name="action_cancel_selected" type="object"
+                            string="Cancel Selected"
+                            confirm="The ticked messages will be marked as Cancelled and will never be sent. Continue?"/>
+                    <button name="action_refresh" type="object" string="Refresh List"/>
+                    <field name="state" invisible="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Failed Outgoing Emails</h1>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Retrying an old message delivers it today.</strong>
+                        A message that failed a week ago is sent unchanged, and its
+                        recipient receives it now — with a week-old date, price or
+                        link inside. Check the <em>Age (days)</em> column before you
+                        retry, and cancel whatever should never go out.
+                        Only messages in <em>Delivery Failed</em> state are listed and
+                        touched here: sent, pending and already cancelled messages are
+                        never modified.
+                    </div>
+                    <div class="alert alert-info" role="status" attrs="{'invisible': [('line_notice', '=', False)]}">
+                        <field name="line_notice"/>
+                    </div>
+                    <div class="alert alert-success" role="status" attrs="{'invisible': [('state', '!=', 'done')]}">
+                        <field name="result_summary" nolabel="1"/>
+                    </div>
+                    <group>
+                        <group string="Failed Queue">
+                            <field name="scope"/>
+                            <field name="failed_total"/>
+                            <field name="listed_count"/>
+                            <field name="oldest_age_days"/>
+                        </group>
+                        <group string="Options">
+                            <field name="send_now"/>
+                            <field name="retry_since_date" attrs="{'invisible': [('scope', '=', 'selection')]}"/>
+                        </group>
+                    </group>
+                    <group string="Last Run" attrs="{'invisible': [('state', '!=', 'done')]}">
+                        <group>
+                            <field name="requeued_count"/>
+                            <field name="sent_count"/>
+                            <field name="failed_again_count"/>
+                            <field name="still_queued_count"/>
+                        </group>
+                        <group>
+                            <field name="removed_count"/>
+                            <field name="cancelled_count"/>
+                            <field name="skipped_count"/>
+                            <field name="error_count"/>
+                        </group>
+                    </group>
+                    <separator string="Failed Messages"/>
+                    <div class="mb-2">
+                        <button name="action_select_all" type="object"
+                                string="Tick All Listed" class="btn-secondary btn-sm"/>
+                        <button name="action_select_none" type="object"
+                                string="Untick All" class="btn-secondary btn-sm ms-1"/>
+                    </div>
+                    <field name="line_ids" nolabel="1">
+                        <tree editable="bottom" create="false" delete="false"
+                              decoration-warning="age_days &gt;= 3"
+                              decoration-danger="age_days &gt;= 7">
+                            <field name="selected"/>
+                            <field name="subject"/>
+                            <field name="recipient"/>
+                            <field name="age_days"/>
+                            <field name="failure_reason"/>
+                            <field name="queued_on" optional="hide"/>
+                            <field name="last_attempt" optional="hide"/>
+                            <field name="mail_id" optional="hide" readonly="1"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- The screen is built server-side (see action_open): the browser never
+         has to send the list of failed messages back, it only writes ticks. -->
+    <record id="action_failed_mail_retry_open" model="ir.actions.server">
+        <field name="name">Retry Failed Emails</field>
+        <field name="model_id" ref="model_failed_mail_retry_wizard"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open()</field>
+    </record>
+
+    <record id="action_failed_mail_retry_from_list" model="ir.actions.server">
+        <field name="name">Retry / Cancel Failed Emails</field>
+        <field name="model_id" ref="mail.model_mail_mail"/>
+        <field name="binding_model_id" ref="mail.model_mail_mail"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = env['failed.mail.retry.wizard'].with_context(active_model='mail.mail', active_ids=records.ids).action_open()</field>
+    </record>
+
+    <menuitem id="menu_failed_mail_retry"
+              name="Retry Failed Emails"
+              parent="base.menu_administration"
+              action="action_failed_mail_retry_open"
+              groups="base.group_system"
+              sequence="4"/>
+
+</odoo>

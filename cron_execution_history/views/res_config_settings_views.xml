@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_cron_history" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.cron.history</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Scheduled Actions</h2>
+                <div class="row mt16 o_settings_container" id="cron_history_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="cron_history_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="cron_history_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="cron_history_enabled"/>
+                            <div class="text-muted">
+                                Record the start, duration, result and error of every scheduled action run.
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('cron_history_enabled', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="cron_history_retention_days" class="col-lg-6 o_light_label"/>
+                                    <field name="cron_history_retention_days" class="col-lg-2"/>
+                                </div>
+                                <div class="row">
+                                    <field name="cron_history_log_success" class="col-lg-1"/>
+                                    <label for="cron_history_log_success" class="col-lg-6 o_light_label"/>
+                                </div>
+                                <div class="text-muted mt8">
+                                    A daily cleanup deletes history rows older than the retention above.
+                                    0 days keeps the history forever. Nothing else is ever deleted.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

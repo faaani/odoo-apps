@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ir_cron_view_form_execution_history" model="ir.ui.view">
+        <field name="name">ir.cron.form.execution.history</field>
+        <field name="model">ir.cron</field>
+        <field name="inherit_id" ref="base.ir_cron_view_form"/>
+        <field name="arch" type="xml">
+            <!-- appended at the end of the sheet: the anchor exists and means the
+                 same thing on every series, and the block reads as an add-on
+                 rather than pushing Odoo's own fields down. -->
+            <xpath expr="//sheet" position="inside">
+                <group string="Execution History">
+                    <field name="execution_history_count"/>
+                    <button name="action_open_execution_history" type="object"
+                            string="View Execution History" icon="fa-history"
+                            class="btn-link" colspan="2"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

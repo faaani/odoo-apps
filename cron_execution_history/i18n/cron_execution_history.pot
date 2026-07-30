@@ -1,0 +1,328 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cron_execution_history
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:34+0000\n"
+"PO-Revision-Date: 2026-07-30 22:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.res_config_settings_view_form_cron_history
+msgid ""
+"A daily cleanup deletes history rows older than the retention above.\n"
+"                                    0 days keeps the history forever. Nothing else is ever deleted."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_res_config_settings__cron_history_retention_days
+msgid ""
+"A daily cleanup deletes history rows older than this. Set 0 to keep the "
+"history forever."
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_tree
+msgid "Average duration (s)"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model,name:cron_execution_history.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__cron_ref
+msgid "Database id of the scheduled action this run belongs to."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__duration
+msgid "Duration (s)"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Error"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__error_message
+msgid "Error Message"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__error_type
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Error Type"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.actions.act_window,help:cron_execution_history.action_cron_execution_history
+msgid ""
+"Every run of every scheduled action is recorded here with its\n"
+"               duration, its result and, when it fails, the error message.\n"
+"               Rows appear as soon as the scheduler executes a job."
+msgstr ""
+
+#. module: cron_execution_history
+#. odoo-python
+#: code:addons/cron_execution_history/models/ir_cron.py:0
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.ir_cron_view_form_execution_history
+#, python-format
+msgid "Execution History"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields.selection,name:cron_execution_history.selection__cron_execution_history__state__failure
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_form
+msgid "Failure"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Failures"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__end_time
+msgid "Finished"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Group By"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__id
+msgid "ID"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_res_config_settings__cron_history_retention_days
+msgid "Keep History For (days)"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Last 24 Hours"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Last 7 Days"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__cron_id
+msgid ""
+"Link back to the scheduled action. Empty when the action has been deleted "
+"since the run."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__error_message
+msgid ""
+"Message of the exception that ended the run (truncated when very long)."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__cron_name
+msgid "Name of the scheduled action as it was when the run started."
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.actions.act_window,help:cron_execution_history.action_cron_execution_history
+msgid "No scheduled action has run yet"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_ir_cron__execution_history_count
+msgid "Number of runs of this scheduled action kept in the history."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__cron_id
+msgid "Open Action"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_form
+msgid "Open Scheduled Action"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__error_type
+msgid "Python class of the exception that ended the run."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__error_traceback
+msgid "Python traceback of the failure (truncated when very long)."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_res_config_settings__cron_history_log_success
+msgid "Record Successful Runs"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_res_config_settings__cron_history_enabled
+msgid "Record every run of every scheduled action."
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.res_config_settings_view_form_cron_history
+msgid ""
+"Record the start, duration, result and error of every scheduled action run."
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_ir_cron__execution_history_count
+msgid "Recorded Runs"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__state
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Result"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_form
+msgid "Run"
+msgstr ""
+
+#. module: cron_execution_history
+#. odoo-python
+#: code:addons/cron_execution_history/models/cron_execution_history.py:0
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__cron_name
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_form
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+#, python-format
+msgid "Scheduled Action"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model,name:cron_execution_history.model_cron_execution_history
+msgid "Scheduled Action Execution History"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.actions.act_window,name:cron_execution_history.action_cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_res_config_settings__cron_history_enabled
+#: model:ir.ui.menu,name:cron_execution_history.menu_cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_graph
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_pivot
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_tree
+msgid "Scheduled Action History"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.actions.server,name:cron_execution_history.ir_cron_gc_execution_history_ir_actions_server
+#: model:ir.cron,cron_name:cron_execution_history.ir_cron_gc_execution_history
+msgid "Scheduled Action History: apply retention"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__cron_ref
+msgid "Scheduled Action ID"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_form
+msgid "Scheduled Action Run"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model,name:cron_execution_history.model_ir_cron
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.res_config_settings_view_form_cron_history
+msgid "Scheduled Actions"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Slower Than 10s"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__start_time
+msgid "Started"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Started On"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields.selection,name:cron_execution_history.selection__cron_execution_history__state__success
+msgid "Success"
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.view_cron_execution_history_search
+msgid "Successful Runs"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,field_description:cron_execution_history.field_cron_execution_history__error_traceback
+msgid "Traceback"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_res_config_settings__cron_history_log_success
+msgid "Untick to keep failures only, which makes the history much smaller."
+msgstr ""
+
+#. module: cron_execution_history
+#: model_terms:ir.ui.view,arch_db:cron_execution_history.ir_cron_view_form_execution_history
+msgid "View Execution History"
+msgstr ""
+
+#. module: cron_execution_history
+#: model:ir.model.fields,help:cron_execution_history.field_cron_execution_history__duration
+msgid ""
+"Wall-clock seconds the run took. Aggregated as an average, so the pivot view"
+" shows the average duration per scheduled action."
+msgstr ""
