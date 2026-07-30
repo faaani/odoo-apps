@@ -1,0 +1,46 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #5c3210; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Schedule Activities in Bulk</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">One form, forty records.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo schedules activities one record at a time. Assigning a follow-up call to forty customers, or a review task on every overdue invoice, means opening forty records. This module adds a <strong>Schedule Activity</strong> action: select the records, fill the activity once, and it is created on all of them.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>One step</strong> — activity type, assignee, due date and note applied to the whole selection.</li>
+        <li><strong>Respects access rights</strong> — activities are only created on records the user may act on.</li>
+        <li><strong>Confirmation</strong> — a notification tells you how many activities were created.</li>
+        <li><strong>Safe on stale selections</strong> — records deleted in the meantime are handled with a clear message.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-wizard.png" alt="01-wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Select the records, choose Actions &rarr; Schedule Activity, fill the activity once — it is created on every selected record.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Schedule Activities in Bulk</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None. The action is available immediately on Contacts; a technical user can bind it to other models via <strong>Settings &rarr; Technical &rarr; Actions &rarr; Server Actions</strong> bindings.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open a list view, tick the records you want.</li>
+        <li>Choose <strong>Actions &rarr; Schedule Activity</strong> in the toolbar.</li>
+        <li>Pick the activity type, assignee and due date, add a summary, then click <strong>Schedule</strong>.</li>
+        <li>Each selected record now carries the activity, visible in its chatter and in the assignee's To-Do list.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0).</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

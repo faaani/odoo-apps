@@ -1,0 +1,47 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #3c2a4d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Attachment Upload Guard</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Risky files never reach your database.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo lets anyone attach anything, of any size — executables, scripts and half-gigabyte videos land in your database and every backup you take. This module adds the upload policy Odoo does not ship: a blocked file-type list and a maximum size, enforced wherever users attach files, including the chatter and Discuss.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Covers the real upload paths</strong> — chatter, Discuss and form attachments, not just direct RPC.</li>
+        <li><strong>No back doors</strong> — renaming a file or swapping its contents afterwards is checked too.</li>
+        <li><strong>Never breaks Odoo</strong> — reports, web assets, imports and scheduled jobs are always allowed.</li>
+        <li><strong>Clear message</strong> — users are told which type is blocked, or how large the file may be.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-settings.png" alt="01-settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Settings &rarr; General Settings &rarr; Attachments: choose the blocked file types and the maximum size. Reports, assets and imports are never affected.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Attachment Upload Guard</em> and click <strong>Install</strong>.</li>
+        <li>Only standard <code>base_setup</code> is required. Sensible defaults apply immediately.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings</strong> and find the <strong>Attachments</strong> block.</li>
+        <li>Adjust <strong>Blocked File Types</strong> (comma-separated, e.g. <code>exe,bat,msi</code>) — leave empty to allow every type.</li>
+        <li>Set <strong>Maximum Size (MB)</strong>, or 0 for no size limit, then <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>A user attaching a blocked or oversized file gets a clear error and the upload is refused.</li>
+        <li>Existing attachments are untouched; the policy applies to new uploads and to later edits.</li>
+        <li>To allow a one-off upload, temporarily adjust the policy in Settings.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0).</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
