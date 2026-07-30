@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_followers_audit_partner_system,followers.audit.partner.system,model_followers_audit_partner,base.group_system,1,1,1,1
+access_followers_audit_record_system,followers.audit.record.system,model_followers_audit_record,base.group_system,1,1,1,1
