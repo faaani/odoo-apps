@@ -1,0 +1,599 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* failed_mail_bulk_retry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:31+0000\n"
+"PO-Revision-Date: 2026-07-30 22:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"\"Retry Since Date\" works on the whole failed queue, not on a selection: it"
+" would send messages you did not select. Use \"Retry Selected\" here, or "
+"open Settings > Retry Failed Emails to work on the whole queue."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"%s are waiting in the queue and will be sent by the \"Email Queue Manager\" "
+"scheduled action."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"%s failed again immediately — the mail server is still refusing them. Open "
+"the message to read the new error."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "%s message(s) are waiting in Delivery Failed state."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"%s message(s) could not be processed at all; the rest of the batch was "
+"unaffected. See the server log for the details."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "%s message(s) marked as Cancelled — they will never be sent."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "%s message(s) put back in the sending queue."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"%s message(s) were removed from the queue by Odoo while it processed them, "
+"because they are flagged auto-delete. Odoo does that both when the server "
+"accepted the message and when it refused the address, so they are NOT "
+"counted as delivered — the outcome is recorded on the document each message "
+"came from."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"%s message(s) were skipped because they are no longer in Delivery Failed "
+"state (already sent, cancelled or deleted meanwhile)."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "%s of them were delivered."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "%s selected message(s) are in Delivery Failed state."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid ""
+"<strong>Retrying an old message delivers it today.</strong>\n"
+"                        A message that failed a week ago is sent unchanged, and its\n"
+"                        recipient receives it now — with a week-old date, price or\n"
+"                        link inside. Check the <em>Age (days)</em> column before you\n"
+"                        retry, and cancel whatever should never go out.\n"
+"                        Only messages in <em>Delivery Failed</em> state are listed and\n"
+"                        touched here: sent, pending and already cancelled messages are\n"
+"                        never modified."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__age_days
+msgid "Age (days)"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__oldest_age_days
+msgid ""
+"Age of the oldest listed message, counted from the moment it was queued. "
+"Retrying it delivers it to the recipient today."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Cancel Selected"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__cancelled_count
+msgid "Cancelled"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "Choose the date to retry from first."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__create_uid
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__create_date
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__age_days
+msgid ""
+"Days since the message was queued. Retrying an old message delivers it to "
+"the recipient today."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__sent_count
+msgid "Delivered"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__display_name
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__display_name
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_mail_mail__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields.selection,name:failed_mail_bulk_retry.selection__failed_mail_retry_wizard__state__done
+msgid "Done"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__error_count
+msgid "Errors"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid ""
+"Every failed message queued on or after the chosen date will be put back in "
+"the sending queue, including messages that are not listed on this screen. "
+"Their recipients will receive them now. Continue?"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__failed_again_count
+msgid "Failed Again"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model,name:failed_mail_bulk_retry.model_failed_mail_retry_line
+msgid "Failed Email To Retry"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__failed_total
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__line_ids
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Failed Messages"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+#, python-format
+msgid "Failed Outgoing Emails"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Failed Queue"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__failure_reason
+msgid "Failure Reason"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__failure_reason
+msgid "First line of the error the mail server returned."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__listed_count
+msgid "How many of them are shown below."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__id
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__id
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_mail_mail__id
+msgid "ID"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"Immediate sending is limited to %(cap)s message(s) per run, so %(left)s were"
+" re-queued without being sent here."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__last_attempt
+msgid "Last Change"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line____last_update
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard____last_update
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_mail_mail____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Last Run"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__write_uid
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__write_date
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__still_queued_count
+msgid "Left In Queue"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__listed_count
+msgid "Listed"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__mail_id
+msgid "Message"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__removed_count
+msgid ""
+"Messages Odoo deleted while processing them, because they are flagged auto-"
+"delete. That happens both when the server accepted the message and when it "
+"refused the address, so this screen cannot say which — they are never "
+"counted as delivered. The outcome is recorded on the document the message "
+"came from."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields.selection,name:failed_mail_bulk_retry.selection__failed_mail_retry_wizard__scope__selection
+msgid "Messages selected in the list"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"No message is in Delivery Failed state — the outgoing mail queue is healthy."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"None of the messages you selected is in Delivery Failed state, so there is "
+"nothing to retry here."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"Nothing to do: no message in the selection is in Delivery Failed state."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__line_notice
+msgid "Notice"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__oldest_age_days
+msgid "Oldest Failure (days)"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Options"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model,name:failed_mail_bulk_retry.model_mail_mail
+msgid "Outgoing Mails"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__queued_on
+msgid "Queued On"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__requeued_count
+msgid "Re-queued"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__recipient
+msgid "Recipient"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Refresh List"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__removed_count
+msgid "Removed From Queue"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__result_summary
+msgid "Result"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.actions.server,name:failed_mail_bulk_retry.action_failed_mail_retry_from_list
+msgid "Retry / Cancel Failed Emails"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#: model:ir.actions.server,name:failed_mail_bulk_retry.action_failed_mail_retry_open
+#: model:ir.ui.menu,name:failed_mail_bulk_retry.menu_failed_mail_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+#, python-format
+msgid "Retry Failed Emails"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model,name:failed_mail_bulk_retry.model_failed_mail_retry_wizard
+msgid "Retry Failed Emails in Bulk"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__retry_since_date
+msgid "Retry From Date"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Retry Selected"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Retry Since Date"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__scope
+msgid "Scope"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__name
+msgid "Screen"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__selected
+msgid "Selected"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__scope_mail_ids
+msgid "Selected Ids"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__send_now
+msgid "Send immediately"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"Showing %(listed)s of the %(total)s failed messages you selected. Retry "
+"them, then use \"Refresh List\" to load the next ones."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"Showing the %(listed)s oldest of %(total)s failed messages. Use \"Retry "
+"Since Date\" to cover the ones that are not listed."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__skipped_count
+msgid "Skipped"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_wizard__state
+msgid "Status"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__subject
+msgid "Subject"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__state
+msgid ""
+"Switches to Done once a retry or a cancellation has been run, which is when "
+"the result summary is filled in."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"The %s message limit for one run was reached: run the same retry again to "
+"continue with the next batch."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__recipient
+msgid ""
+"The address the message was sent to, or the recipient partners when Odoo "
+"resolves them itself."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__mail_id
+msgid "The queued email this line reports on."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid ""
+"The ticked messages will be marked as Cancelled and will never be sent. "
+"Continue?"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid ""
+"The ticked messages will be put back in the sending queue and delivered as "
+"soon as the mail server accepts them — even the ones that failed days ago. "
+"Their recipients will receive them now, with their original content. "
+"Continue?"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Tick All Listed"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__selected
+msgid "Tick the messages the buttons at the top should act on."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid "Tick the messages you want to act on first."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields.selection,name:failed_mail_bulk_retry.selection__failed_mail_retry_wizard__state__draft
+msgid "To Do"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__failed_total
+msgid ""
+"Total number of messages in Delivery Failed state in the scope of this "
+"screen, whether or not they all fit on it."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__send_now
+msgid ""
+"Try to deliver the re-queued messages right away and report the result. "
+"Messages are sent one at a time, which costs one connection to your mail "
+"server each, so at most 50 per run are sent inside the request; the rest "
+"wait for the standard mail queue cron, which sends them in a single "
+"connection. Untick for large batches, or while the mail server is still "
+"unreachable — every attempt then has to time out first."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model_terms:ir.ui.view,arch_db:failed_mail_bulk_retry.failed_mail_retry_wizard_view_form
+msgid "Untick All"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__retry_since_date
+msgid ""
+"Used by the \"Retry Since Date\" button, on the whole failed queue only. "
+"Every message in Delivery Failed state queued on or after this date (in your"
+" timezone) is retried, including messages that are not listed below, up to "
+"1000 per run. Odoo does not store the moment a message failed, so the date "
+"it was queued is used."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_line__last_attempt
+msgid ""
+"When Odoo last wrote to this message — normally the last delivery attempt."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields.selection,name:failed_mail_bulk_retry.selection__failed_mail_retry_wizard__scope__queue
+msgid "Whole failed queue"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,help:failed_mail_bulk_retry.field_failed_mail_retry_wizard__scope
+msgid ""
+"Whole failed queue: the screen was opened from the Settings menu and lists "
+"every message in Delivery Failed state. Messages selected in the list: it "
+"was opened from the Emails list with a selection, and only those messages "
+"are listed."
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: model:ir.model.fields,field_description:failed_mail_bulk_retry.field_failed_mail_retry_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: failed_mail_bulk_retry
+#: code:addons/failed_mail_bulk_retry/wizard/failed_mail_retry_wizard.py:0
+#, python-format
+msgid ""
+"Your selection was larger than %(cap)s messages: %(dropped)s of them were "
+"left out. Use Settings > Retry Failed Emails to work through the whole queue"
+" instead."
+msgstr ""

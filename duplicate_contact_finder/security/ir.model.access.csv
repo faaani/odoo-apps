@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_duplicate_contact_finder_system,duplicate.contact.finder.system,model_duplicate_contact_finder,base.group_system,1,1,1,1
+access_duplicate_contact_group_system,duplicate.contact.group.system,model_duplicate_contact_group,base.group_system,1,1,1,1
+access_duplicate_contact_member_system,duplicate.contact.member.system,model_duplicate_contact_member,base.group_system,1,1,1,1
