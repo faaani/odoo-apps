@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_archive_reason_log_tree" model="ir.ui.view">
+        <field name="name">archive.reason.log.tree</field>
+        <field name="model">archive.reason.log</field>
+        <field name="arch" type="xml">
+            <tree string="Archive Log" create="false" edit="false" delete="false"
+                  decoration-muted="state == 'restored'">
+                <field name="archive_date"/>
+                <field name="record_name"/>
+                <field name="model_id"/>
+                <field name="reason_id"/>
+                <field name="note" optional="show"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <field name="restore_date" optional="hide"/>
+                <field name="restore_user_id" optional="hide"/>
+                <field name="res_model" optional="hide"/>
+                <field name="res_id" optional="hide"/>
+                <button name="action_open_record" type="object" string="Open record"
+                        icon="fa-external-link" title="Open the archived record"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_archive_reason_log_form" model="ir.ui.view">
+        <field name="name">archive.reason.log.form</field>
+        <field name="model">archive.reason.log</field>
+        <field name="arch" type="xml">
+            <form string="Archive Log Entry" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_record" type="object"
+                                class="oe_stat_button" icon="fa-external-link"
+                                string="Open record"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="record_name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Archived">
+                            <field name="reason_id"/>
+                            <field name="user_id"/>
+                            <field name="archive_date"/>
+                        </group>
+                        <group string="Record">
+                            <field name="model_id"/>
+                            <field name="res_model"/>
+                            <field name="res_id"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <group string="Restored" attrs="{'invisible': [('state', '!=', 'restored')]}">
+                        <field name="restore_user_id"/>
+                        <field name="restore_date"/>
+                    </group>
+                    <group string="Explanation" attrs="{'invisible': [('note', '=', False)]}">
+                        <field name="note" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_archive_reason_log_search" model="ir.ui.view">
+        <field name="name">archive.reason.log.search</field>
+        <field name="model">archive.reason.log</field>
+        <field name="arch" type="xml">
+            <search string="Archive Log">
+                <field name="record_name" string="Record"
+                       filter_domain="['|', ('record_name', 'ilike', self), ('note', 'ilike', self)]"/>
+                <field name="reason_id"/>
+                <field name="model_id"/>
+                <field name="user_id"/>
+                <filter string="Still Archived" name="filter_archived"
+                        domain="[('state', '=', 'archived')]"/>
+                <filter string="Restored Since" name="filter_restored"
+                        domain="[('state', '=', 'restored')]"/>
+                <separator/>
+                <filter string="Archived by Me" name="filter_mine"
+                        domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Archive Date" name="filter_date" date="archive_date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Reason" name="group_reason"
+                            context="{'group_by': 'reason_id'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Archived by" name="group_user"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter string="Status" name="group_state"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Archive Month" name="group_date"
+                            context="{'group_by': 'archive_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_archive_reason_log" model="ir.actions.act_window">
+        <field name="name">Archive Log</field>
+        <field name="res_model">archive.reason.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_archive_reason_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing has been archived with a reason yet</p>
+            <p>Select records anywhere in Odoo, choose Action &gt; Archive with Reason,
+               and every archive lands here with its reason, its author and its date.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,639 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* archive_reason_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 23:52+0000\n"
+"PO-Revision-Date: 2026-07-30 23:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "\"%s\" does not store real records, so nothing can be archived."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "\"%s\" has no Archived flag, so its records cannot be archived at all."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "\"%s\" has no chatter, so the reason could not be kept with the record."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "%(count)s could not be archived. First error: %(error)s"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "%(count)s record(s) archived with the reason \"%(reason)s\"."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"%(created)s model(s) added, %(total)s model(s) can now be archived with a "
+"reason."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"%s protected record(s) were skipped (a user's or a company's contact is "
+"never archived)."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "%s were already archived."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"%s were archived but no chatter note could be posted on them (see the server"
+" log)."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "Action menus updated"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__active
+msgid "Active"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.actions.act_window,help:archive_reason_log.action_archive_reason
+msgid "Add an archive reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/models/archive_reason.py:0
+#, python-format
+msgid "An archive reason named \"%s\" already exists."
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+msgid "Any Model"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "Archive"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Archive Date"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_blacklist__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_channel__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread_blacklist__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread_cc__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_res_partner__archive_reason_note
+#: model:ir.model.fields,field_description:archive_reason_log.field_res_users__archive_reason_note
+msgid "Archive Explanation"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/models/archive_reason.py:0
+#: model:ir.actions.act_window,name:archive_reason_log.action_archive_reason_log
+#: model:ir.model,name:archive_reason_log.model_archive_reason_log
+#: model:ir.ui.menu,name:archive_reason_log.menu_archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_tree
+#, python-format
+msgid "Archive Log"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+msgid "Archive Log Entry"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Archive Month"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model,name:archive_reason_log.model_archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_blacklist__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_channel__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread_blacklist__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread_cc__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_res_partner__archive_reason
+#: model:ir.model.fields,field_description:archive_reason_log.field_res_users__archive_reason
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+msgid "Archive Reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.actions.act_window,name:archive_reason_log.action_archive_reason
+#: model:ir.ui.menu,name:archive_reason_log.menu_archive_reason
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_tree
+msgid "Archive Reasons"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.actions.act_window,name:archive_reason_log.action_archive_reason_wizard
+#: model:ir.actions.act_window,name:archive_reason_log.binding_mail_blacklist
+#: model:ir.actions.act_window,name:archive_reason_log.binding_mail_channel
+#: model:ir.model,name:archive_reason_log.model_archive_reason_wizard
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "Archive with Reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields.selection,name:archive_reason_log.selection__archive_reason_log__state__archived
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+msgid "Archived"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.ui.menu,name:archive_reason_log.menu_archive_reason_root
+msgid "Archived Records"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__user_id
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Archived by"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Archived by Me"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__archive_date
+msgid "Archived on"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason__active
+msgid ""
+"Archived reasons are no longer proposed, but the log entries that already "
+"use them are kept intact."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "Archived with a reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__log_count
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_tree
+msgid "Archives"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+msgid "Availability"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__create_uid
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__create_uid
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__create_date
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__create_date
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__display_name
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__display_name
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__display_name
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model,name:archive_reason_log.model_mail_thread
+msgid "Email Thread"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__note
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__note
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+msgid "Explanation"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__note_mode
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+msgid "Explanation Policy"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+msgid "Explanation Required"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__note_mode
+msgid "Free-text Explanation"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_mail_blacklist__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_mail_channel__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread_blacklist__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread_cc__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_res_partner__archive_reason_note
+#: model:ir.model.fields,help:archive_reason_log.field_res_users__archive_reason_note
+msgid "Free-text explanation given when this record was archived."
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_search
+msgid "Group By"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__description
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__reason_description
+msgid "Guidance"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+msgid "Hint shown in the dialog"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__id
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__id
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__id
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread__id
+msgid "ID"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason____last_update
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log____last_update
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard____last_update
+#: model:ir.model.fields,field_description:archive_reason_log.field_mail_thread____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__write_uid
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__write_uid
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__write_date
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__write_date
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+msgid "Leave empty to offer this reason on every model"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason__model_ids
+msgid "Leave empty to offer this reason on every model."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__model_ids
+msgid "Limit to Models"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__model_id
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__res_model
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Model"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__model_label
+msgid "Model Label"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__res_model
+msgid "Model Name"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "No records were selected, so there is nothing to archive."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"None of the selected records can be archived: %(protected)s are protected "
+"and %(already)s are archived already."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields.selection,name:archive_reason_log.selection__archive_reason__note_mode__forbidden
+msgid "Not allowed"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.actions.act_window,help:archive_reason_log.action_archive_reason_log
+msgid "Nothing has been archived with a reason yet"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "Only a Settings administrator can refresh the Action menus."
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_tree
+msgid "Open record"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_tree
+msgid "Open the archived record"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields.selection,name:archive_reason_log.selection__archive_reason__note_mode__optional
+msgid "Optional"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason__description
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason_wizard__reason_description
+msgid "Optional hint shown to the user, e.g. \"quote the duplicate record\"."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason__note_mode
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason_wizard__note_mode
+msgid ""
+"Optional: the person archiving may add an explanation.\n"
+"Required: archiving is refused until an explanation is typed.\n"
+"Not allowed: the explanation box is hidden and any text is refused."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__name
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__reason_id
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__reason_id
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+#, python-format
+msgid "Reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_mail_blacklist__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_mail_channel__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread_blacklist__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_mail_thread_cc__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_res_partner__archive_reason
+#: model:ir.model.fields,help:archive_reason_log.field_res_users__archive_reason
+msgid ""
+"Reason given the last time this record was archived. Cleared when the record"
+" is restored; the full history stays in the archive log."
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.actions.act_window,help:archive_reason_log.action_archive_reason
+msgid ""
+"Reasons are what users pick in the \"Archive with Reason\" dialog.\n"
+"               Set the explanation policy to force a free-text justification, and\n"
+"               limit a reason to some models if it only makes sense there."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__record_name
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Record"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "Record archived with a reason"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"Records of \"%s\" are never archived by this tool: archiving a user, a "
+"company or a technical record would break the database."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__record_count
+msgid "Records to archive"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields.selection,name:archive_reason_log.selection__archive_reason__note_mode__required
+msgid "Required"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields.selection,name:archive_reason_log.selection__archive_reason_log__state__restored
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_form
+msgid "Restored"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Restored Since"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__restore_user_id
+msgid "Restored by"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__restore_date
+msgid "Restored on"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.actions.act_window,help:archive_reason_log.action_archive_reason_log
+msgid ""
+"Select records anywhere in Odoo, choose Action &gt; Archive with Reason,\n"
+"               and every archive lands here with its reason, its author and its date."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,help:archive_reason_log.field_archive_reason__name
+msgid "Shown in the \"Archive with Reason\" dialog and in the archive log."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_wizard__excluded_count
+msgid "Skipped records"
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.model.fields,field_description:archive_reason_log.field_archive_reason_log__state
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Status"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_log_search
+msgid "Still Archived"
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/models/archive_reason_log.py:0
+#, python-format
+msgid "That record has been deleted since it was archived."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/models/archive_reason_log.py:0
+#, python-format
+msgid "The model \"%s\" is not installed any more."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "The reason \"%(reason)s\" cannot be used on %(model)s."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"The reason \"%s\" does not accept a free-text explanation. Clear the "
+"Explanation box, or pick another reason."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"The reason \"%s\" requires an explanation. Describe why these records are "
+"archived before continuing."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid "The selected records no longer exist."
+msgstr ""
+
+#. module: archive_reason_log
+#: code:addons/archive_reason_log/wizard/archive_reason_wizard.py:0
+#, python-format
+msgid ""
+"This tool archives at most %(max)s records at a time, and %(count)s were "
+"selected. Narrow the selection and try again - nothing has been archived."
+msgstr ""
+
+#. module: archive_reason_log
+#: model:ir.actions.server,name:archive_reason_log.action_sync_archive_bindings
+#: model:ir.ui.menu,name:archive_reason_log.menu_archive_reason_sync
+msgid "Update Action Menus"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "Why are these records archived?"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.view_archive_reason_form
+msgid "e.g. Duplicate"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "record(s) of"
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid ""
+"selected record(s) are\n"
+"                    skipped: they are archived already, or they are protected (the contact\n"
+"                    of a user or of a company is never archived)."
+msgstr ""
+
+#. module: archive_reason_log
+#: model_terms:ir.ui.view,arch_db:archive_reason_log.archive_reason_wizard_view_form
+msgid "will be archived."
+msgstr ""

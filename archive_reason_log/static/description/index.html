@@ -1,0 +1,104 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1b2a41; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Archive with a Reason</h1>
+        <p style="margin: 0; font-size: 18px; color: #f3a841;">Nobody ever writes down why a record was archived. Now they do.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Archiving hides a record from everyone with one click, and Odoo keeps no trace of <em>why</em>. Six months later, "why is this customer archived?" has no answer anywhere in the database. This module adds <strong>Archive with Reason</strong> to the Action menu: pick the records, choose a reason from a list you configure, add an explanation when the reason asks for one, and the reason is stored on each record, posted once in its chatter and written to a searchable log.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Reasons you control</strong> &mdash; order them, restrict a reason to specific models, and decide per reason whether a written explanation is <em>optional</em>, <em>required</em> or <em>not allowed</em>.</li>
+        <li><strong>One note per record</strong> &mdash; the chatter gets a single note with the reason and the explanation; who and when come from the message itself.</li>
+        <li><strong>A real report</strong> &mdash; Archive Log lists what was archived, by whom, when and why, filterable and groupable by reason, model, author, status and month, and exportable.</li>
+        <li><strong>Restores are tracked</strong> &mdash; unarchiving a record clears the reason from the record and marks its log entry <em>Restored</em>, with the date and the user. The log is the source of truth, so it closes correctly even if the record's own reason column was wiped by an import or a script.</li>
+        <li><strong>Safe by default</strong> &mdash; see "What is never touched" below.</li>
+        <li><strong>Batch safe</strong> &mdash; every record is archived in its own savepoint, so one record that refuses to archive never aborts the rest; the result tells you how many failed and why. Up to 500 records per run, refused with a clear message beyond that rather than timing out halfway through.</li>
+        <li><strong>Tamper-resistant log</strong> &mdash; ordinary users can archive and read back their own entries, but cannot create, edit or delete log rows by any other route.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">What is never touched</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><code>res.users</code>, <code>res.company</code> and every technical <code>ir.*</code> model are refused outright &mdash; the wizard will not even open on them.</li>
+        <li>In a contact selection, the contact of a user and the contact of a company are excluded automatically, so a company can never lose its own partner record. The dialog tells you how many records were skipped.</li>
+        <li>Models without an <em>Archived</em> flag, or without a chatter, are refused with a message that says which of the two is missing.</li>
+        <li>Records that are already archived are skipped, not re-archived.</li>
+        <li>Nothing is ever deleted. The module only sets the standard <code>active</code> flag to false.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-action-menu.png" alt="Archive with Reason in the Action menu" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Select the records, then Action &gt; Archive with Reason &mdash; right next to Odoo&rsquo;s own Archive.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-wizard.png" alt="The Archive with Reason dialog" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One dialog: how many records will really be archived, how many are skipped and why, the reason, its guidance text and the free-text explanation.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="06-chatter.png" alt="The chatter note on an archived contact" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The record keeps its own explanation: one chatter note with the reason and the free text, stamped with the author and the moment.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-archive-log.png" alt="The Archive Log report" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The Archive Log: record, model, reason, explanation, author, date and status &mdash; the greyed line came back from the archive.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-log-grouped.png" alt="Filtering and grouping the Archive Log" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Filter on still archived, restored, archived by me or a date range; group by reason, model, author, status or month.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-reasons.png" alt="Configuring the archive reasons" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Your reason list, with the explanation policy per reason and a live count of how often each one was used.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">How it relates to "Archive Audit Trail"</h2>
+    <p style="font-size: 15px; line-height: 1.7;">My other free module, <strong>Archive Audit Trail</strong>, posts a short chatter note on <em>every</em> archive and restore, wherever it happens &mdash; no reason, no configuration. This module is the richer, deliberate path: it asks for a reason and produces a report, but only for archives done through its own dialog.</p>
+    <p style="font-size: 15px; line-height: 1.7;">They are designed to be installed together. When both are present, an archive made through this wizard posts <strong>one</strong> note &mdash; the detailed one &mdash; and never two: this module suppresses the plain note for that single write. Archives made anywhere else are still logged by Archive Audit Trail exactly as before. Neither module needs the other; install either one alone if you prefer.</p>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path and update the Apps list.</li>
+        <li>Open <strong>Apps</strong>, search for <em>Archive with a Reason</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &gt; Archived Records &gt; Archive Reasons</strong> (visible to Settings administrators).</li>
+        <li>Five reasons are installed to get you started. Edit them, reorder them, or add your own.</li>
+        <li>For each reason, set <strong>Free-text Explanation</strong> to <em>Optional</em>, <em>Required</em> or <em>Not allowed</em>, and optionally a short <strong>Guidance</strong> line shown in the dialog.</li>
+        <li>Use <strong>Limit to Models</strong> if a reason only makes sense on some models; leave it empty to offer it everywhere.</li>
+        <li>At install, the Action-menu entry is added to every installed model that has an <em>Archived</em> flag and a chatter. After you install new apps, run <strong>Settings &gt; Archived Records &gt; Update Action Menus</strong> once so the new models get the entry too.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open any list (Contacts, Products, Employees&hellip;) and tick the records to archive.</li>
+        <li>Choose <strong>Action &gt; Archive with Reason</strong>.</li>
+        <li>Pick a reason, type the explanation if the reason asks for one, and press <strong>Archive</strong>.</li>
+        <li>Read the confirmation: how many were archived, how many were skipped, how many failed.</li>
+        <li>Open <strong>Settings &gt; Archived Records &gt; Archive Log</strong> to search the history, or the record&rsquo;s chatter to read the reason in place.</li>
+        <li>Restore a record the usual way (Action &gt; Unarchive): the reason is cleared from the record and its log entry becomes <em>Restored</em>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Good to know / limitations</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Only archives made <strong>through this dialog</strong> carry a reason and appear in the log. Archiving from the standard Archive button records nothing here, by design &mdash; the module never forces a reason on you.</li>
+        <li>Two <em>plain text</em> columns (<code>archive_reason</code>, <code>archive_reason_note</code>) are added to every model that has a chatter. Text on purpose: a relational field would add a foreign key to each of those tables, and PostgreSQL validates a new foreign key with a full table scan under an exclusive lock &mdash; an unpleasant surprise on a large <code>account_move</code> or <code>sale_order</code>. The columns are not added to any existing form view; add them yourself if you want the reason on a form, or read it in the chatter and in the log, where the relational history lives.</li>
+        <li>The chatter note is best effort. If it cannot be posted &mdash; most often because the user&rsquo;s own account has no email address, which stops any Odoo chatter post &mdash; the record is still archived and logged, and the result tells you how many notes were missed.</li>
+        <li>The Action-menu entry is created per model at install time and removed again on uninstall. Models that arrive later (new apps) need the one-click <em>Update Action Menus</em> described above. The entry is offered to all internal users, but Odoo&rsquo;s own access rights still apply: a record you cannot write is refused, reported individually, and never blocks the rest of the batch.</li>
+        <li>The Archive Log and the reason list are for Settings administrators. Ordinary users can archive with a reason and read their own log entries; they cannot create, edit or delete log rows by any other route. Settings administrators can delete log rows &mdash; the module does not claim to make history immutable.</li>
+        <li>The log stores the record&rsquo;s name as it was at archive time, so the history stays readable even if the record is later renamed or deleted. That also means archiving contacts copies personal names into a second table &mdash; worth knowing if you have a data-retention policy.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f3a841; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0); only the view syntax differs between them.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

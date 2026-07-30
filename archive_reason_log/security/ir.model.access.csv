@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_archive_reason_user,archive.reason.user,model_archive_reason,base.group_user,1,0,0,0
+access_archive_reason_system,archive.reason.system,model_archive_reason,base.group_system,1,1,1,1
+access_archive_reason_log_user,archive.reason.log.user,model_archive_reason_log,base.group_user,1,0,0,0
+access_archive_reason_log_system,archive.reason.log.system,model_archive_reason_log,base.group_system,1,1,1,1
+access_archive_reason_wizard_user,archive.reason.wizard.user,model_archive_reason_wizard,base.group_user,1,1,1,1
