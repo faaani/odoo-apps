@@ -1,0 +1,437 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* followers_audit_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:31+0000\n"
+"PO-Revision-Date: 2026-07-30 22:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "\"%s\" does not store records that can be opened."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "%(document)s followed by %(follower)s"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "At Least 10 Followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "At Least 100 Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "At Least 25 Followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "At Least 25 Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "At Least 5 Followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "At Least 5 Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields.selection,name:followers_audit_report.selection__followers_audit_partner__follower_type__contact
+msgid "Contact"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Contacts"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__create_uid
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__create_date
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Deleted Or Unreadable Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__display_name
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__model_label
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__model_label
+msgid "Document"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__model_id
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__model_id
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Document Type"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__model_id
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_record__model_id
+msgid ""
+"Empty when the follower rows point at a model whose module is no longer "
+"installed."
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Existing Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_form
+msgid "Followed Record"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__partner_id
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_form
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Follower"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__partner_name
+msgid "Follower Name"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__follower_type
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Follower Type"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__follower_count
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_list
+msgid "Followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Followers (at least)"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.ui.menu,name:followers_audit_report.menu_followers_audit_root
+msgid "Followers Audit"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model,name:followers_audit_report.model_followers_audit_partner
+msgid "Followers Audit: Followers by Person"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model,name:followers_audit_report.model_followers_audit_record
+msgid "Followers Audit: Records by Follower Count"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+#: model:ir.actions.server,name:followers_audit_report.action_followers_audit_partner
+#: model:ir.ui.menu,name:followers_audit_report.menu_followers_audit_partner
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_list
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Followers by Person"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Group By"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Heavy Followers (100+ In Total)"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__id
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__id
+msgid "ID"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields.selection,name:followers_audit_report.selection__followers_audit_partner__follower_type__internal
+msgid "Internal User"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__follower_type
+msgid ""
+"Internal User: the contact owns a non-portal user account, so these "
+"subscriptions produce in-app and e-mail notifications for a colleague. "
+"Contact: an address-book contact or a portal user."
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Internal Users"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__write_uid
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__write_date
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__res_model
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__res_model
+msgid "Model"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "No record has followers yet"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "Nobody follows anything yet"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_record__follower_count
+msgid ""
+"Number of contacts subscribed to this record. Counted from the follower rows"
+" themselves, so records you may not read are counted too."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__follow_count
+msgid "Number of records of this document type followed by this contact."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__partner_total
+msgid "Number of records this contact follows across every document type."
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_form
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_list
+msgid "Open Followed Records"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_form
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_list
+msgid "Open Record"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_list
+msgid ""
+"Open these records in their standard view, where the chatter manages "
+"followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_list
+msgid "Open this record, where the chatter manages its followers"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__record_label
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_form
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Record"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__record_available
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Record Exists"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_record__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__follow_count
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_list
+msgid "Records Followed"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+#: model:ir.actions.server,name:followers_audit_report.action_followers_audit_record
+#: model:ir.ui.menu,name:followers_audit_report.menu_followers_audit_record
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_list
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_search
+msgid "Records by Follower Count"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Records followed in total (at least)"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_search
+msgid "Records on this document type (at least)"
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_form
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_form
+msgid "Subscriptions"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__res_model
+msgid "Technical model name stored on the follower row."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_record__res_model
+msgid "Technical model name stored on the follower rows."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__partner_id
+msgid "The contact subscribed to the records counted on this line."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_partner__user_id
+msgid ""
+"The internal user account owned by this contact, when there is one. Empty "
+"for contacts that only exist in the address book."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid ""
+"The model \"%s\" is not installed in this database anymore, so its records "
+"cannot be opened."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid ""
+"The model \"%s\" is not installed in this database anymore, so this record "
+"cannot be opened."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "This line does not point at a document type."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid ""
+"This record no longer exists, or your access rights do not let you read it. "
+"Its follower rows are reported here, never deleted."
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid ""
+"This report counts subscriptions only. To unsubscribe someone, open the "
+"record and use the Followers button in its chatter."
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_record_form
+msgid ""
+"This report is read-only. To unsubscribe someone, open the record\n"
+"                        and use the Followers button in its chatter."
+msgstr ""
+
+#. module: followers_audit_report
+#: model_terms:ir.ui.view,arch_db:followers_audit_report.view_followers_audit_partner_form
+msgid ""
+"This report is read-only. To unsubscribe this follower, open one of\n"
+"                        the records above and use the Followers button in its chatter."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__partner_total
+msgid "Total Records Followed"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "Unknown model"
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,help:followers_audit_report.field_followers_audit_record__record_available
+msgid ""
+"Unticked when the follower rows outlived the record they point at, or when "
+"your access rights do not let you read it. Those rows are reported, never "
+"deleted."
+msgstr ""
+
+#. module: followers_audit_report
+#: model:ir.model.fields,field_description:followers_audit_report.field_followers_audit_partner__user_id
+msgid "User Account"
+msgstr ""
+
+#. module: followers_audit_report
+#. odoo-python
+#: code:addons/followers_audit_report/models/followers_audit.py:0
+msgid "top %s"
+msgstr ""
