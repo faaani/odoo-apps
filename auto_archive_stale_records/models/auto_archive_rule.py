@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of auto_archive_rules. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
+# Part of auto_archive_stale_records. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 import logging
 from datetime import timedelta
 
@@ -284,7 +284,7 @@ class AutoArchiveRule(models.Model):
                 archived = len(records)
             except Exception:  # noqa: BLE001 - fall back to isolate the bad ones
                 _logger.info(
-                    'auto_archive_rules: rule %r could not archive its batch '
+                    'auto_archive_stale_records: rule %r could not archive its batch '
                     'in one go, retrying one record at a time.', self.name)
                 for record in records:
                     try:
@@ -299,20 +299,20 @@ class AutoArchiveRule(models.Model):
                         # here, not a fault: warn, and keep the traceback for
                         # debug so nightly runs cannot flood the error log.
                         _logger.warning(
-                            'auto_archive_rules: rule %r skipped %s(%s): %s',
+                            'auto_archive_stale_records: rule %r skipped %s(%s): %s',
                             self.name, self.model_name, record.id, error)
-                        _logger.debug('auto_archive_rules: skipped record detail',
+                        _logger.debug('auto_archive_stale_records: skipped record detail',
                                       exc_info=True)
                     else:
                         archived += 1
         if skipped:
-            _logger.warning('auto_archive_rules: rule %r skipped %s record(s).',
+            _logger.warning('auto_archive_stale_records: rule %r skipped %s record(s).',
                             self.name, skipped)
         if records and not archived and len(records) == BATCH_LIMIT:
             # Every record of a full batch refused: the rule can never reach
             # the ones behind them, so it would stall silently for ever.
             _logger.warning(
-                'auto_archive_rules: rule %r matched a full batch of %s %s '
+                'auto_archive_stale_records: rule %r matched a full batch of %s %s '
                 'record(s) and archived none of them; it is stuck.',
                 self.name, BATCH_LIMIT, self.model_name)
         self.sudo().write({
@@ -320,7 +320,7 @@ class AutoArchiveRule(models.Model):
             'last_run_count': archived,
             'archived_count': self.archived_count + archived,
         })
-        _logger.info('auto_archive_rules: rule %r archived %s %s record(s).',
+        _logger.info('auto_archive_stale_records: rule %r archived %s %s record(s).',
                      self.name, archived, self.model_name)
         return archived
 
@@ -337,9 +337,9 @@ class AutoArchiveRule(models.Model):
                     total += rule._run_rule()
             except Exception:  # noqa: BLE001 - keep going with the next rule
                 _logger.exception(
-                    'auto_archive_rules: rule %r failed and was skipped.',
+                    'auto_archive_stale_records: rule %r failed and was skipped.',
                     rule.name)
-        _logger.info('auto_archive_rules: %s rule(s) archived %s record(s).',
+        _logger.info('auto_archive_stale_records: %s rule(s) archived %s record(s).',
                      len(rules), total)
         return total
 
