@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_external_id_entry_tree" model="ir.ui.view">
+        <field name="name">external.id.entry.tree</field>
+        <field name="model">external.id.entry</field>
+        <field name="arch" type="xml">
+            <tree string="External IDs" create="false" edit="false" delete="false"
+                  decoration-danger="record_status == 'broken'"
+                  decoration-muted="record_status == 'unknown_model'">
+                <field name="complete_name" widget="CopyClipboardChar"/>
+                <field name="module" optional="show"/>
+                <field name="name" optional="hide"/>
+                <field name="model" optional="show"/>
+                <field name="model_id" optional="hide"/>
+                <field name="res_id" optional="hide"/>
+                <field name="record_name"/>
+                <field name="record_status" widget="badge"
+                       decoration-danger="record_status == 'broken'"
+                       decoration-success="record_status == 'ok'"
+                       decoration-warning="record_status == 'unknown_model'"/>
+                <field name="source_type" optional="show"/>
+                <field name="noupdate" optional="hide"/>
+                <field name="created_on" optional="hide"/>
+                <field name="created_by" optional="hide"/>
+                <button name="action_open_record" type="object" icon="fa-external-link"
+                        title="Open the referenced record"
+                        attrs="{'invisible': [('record_status', '!=', 'ok')]}"/>
+                <button name="action_delete_broken" type="object" icon="fa-trash"
+                        title="Delete this broken external ID"
+                        groups="base.group_system"
+                        confirm="This external ID points to a record that no longer exists, so deleting it removes a dead reference only. Live external IDs are never deleted here: deleting a live one silently breaks module upgrades, because the next upgrade of its module no longer finds the record and creates a duplicate instead of updating it. Delete this broken entry?"
+                        attrs="{'invisible': [('record_status', '!=', 'broken')]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_external_id_entry_form" model="ir.ui.view">
+        <field name="name">external.id.entry.form</field>
+        <field name="model">external.id.entry</field>
+        <field name="arch" type="xml">
+            <form string="External ID" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_open_record" type="object" string="Open Record"
+                            class="btn-primary" attrs="{'invisible': [('record_status', '!=', 'ok')]}"/>
+                    <button name="action_delete_broken" type="object" string="Delete Broken External ID"
+                            class="btn-danger" groups="base.group_system"
+                            confirm="This external ID points to a record that no longer exists, so deleting it removes a dead reference only. Live external IDs are never deleted here: deleting a live one silently breaks module upgrades, because the next upgrade of its module no longer finds the record and creates a duplicate instead of updating it. Delete this broken entry?"
+                            attrs="{'invisible': [('record_status', '!=', 'broken')]}"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-danger" role="alert"
+                         attrs="{'invisible': [('record_status', '!=', 'broken')]}">
+                        This external ID is broken: the record it points to no longer
+                        exists, so <code>env.ref()</code> on it fails and an import
+                        using it will not update anything.
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         attrs="{'invisible': [('record_status', '!=', 'unknown_model')]}">
+                        The model of this external ID is not installed in this
+                        database, so the reference cannot be checked. Nothing can be
+                        deleted from here in that case.
+                    </div>
+                    <group>
+                        <group string="External ID">
+                            <field name="complete_name" widget="CopyClipboardChar"/>
+                            <field name="module"/>
+                            <field name="name"/>
+                            <field name="source_type"/>
+                            <field name="noupdate"/>
+                        </group>
+                        <group string="Referenced Record">
+                            <field name="model"/>
+                            <field name="model_id"/>
+                            <field name="res_id"/>
+                            <field name="record_name"/>
+                            <field name="record_status"/>
+                            <field name="is_broken"/>
+                        </group>
+                    </group>
+                    <group string="Created">
+                        <field name="created_on"/>
+                        <field name="created_by"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_external_id_entry_search" model="ir.ui.view">
+        <field name="name">external.id.entry.search</field>
+        <field name="model">external.id.entry</field>
+        <field name="arch" type="xml">
+            <search string="External IDs">
+                <field name="complete_name" string="External ID"
+                       filter_domain="['|', '|', ('complete_name', 'ilike', self), ('module', 'ilike', self), ('name', 'ilike', self)]"/>
+                <field name="module"/>
+                <field name="model" string="Model"
+                       filter_domain="['|', ('model', 'ilike', self), ('model_id', 'ilike', self)]"/>
+                <field name="record_name" string="Record Name"/>
+                <field name="created_by"/>
+                <filter string="Broken References" name="filter_broken"
+                        domain="[('record_status', '=', 'broken')]"/>
+                <filter string="Working References" name="filter_ok"
+                        domain="[('record_status', '=', 'ok')]"/>
+                <filter string="Model Not Installed" name="filter_unknown_model"
+                        domain="[('record_status', '=', 'unknown_model')]"/>
+                <separator/>
+                <filter string="From Module Data Files" name="filter_data"
+                        domain="[('source_type', '=', 'data')]"/>
+                <filter string="From Imports / Exports" name="filter_import"
+                        domain="[('source_type', '=', 'import')]"/>
+                <separator/>
+                <filter string="Non Updatable" name="filter_noupdate"
+                        domain="[('noupdate', '=', True)]"/>
+                <separator/>
+                <!-- created_on is stored in UTC: convert the user's local midnight
+                     the same way the standard date filters do -->
+                <filter string="Created Today" name="filter_created_today"
+                        domain="[('created_on', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)).to_utc().strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Module" name="group_module"
+                            context="{'group_by': 'module'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model'}"/>
+                    <filter string="Source" name="group_source"
+                            context="{'group_by': 'source_type'}"/>
+                    <filter string="Created On" name="group_created"
+                            context="{'group_by': 'created_on'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_external_id_entry" model="ir.actions.act_window">
+        <field name="name">External IDs</field>
+        <field name="res_model">external.id.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_external_id_entry_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No external ID matches these filters</p>
+            <p>Search external IDs by module, model, identifier or by the name of
+               the record they point to, and open that record in one click.
+               Entries in red are broken: their record no longer exists.</p>
+            <p>This screen is read-only. The only deletion it allows is that of a
+               broken entry, and it always asks for confirmation: deleting a live
+               external ID silently breaks module upgrades, because the next
+               upgrade of its module no longer finds the record and creates a
+               duplicate instead of updating it.</p>
+        </field>
+    </record>
+
+    <record id="action_external_id_entry_broken" model="ir.actions.act_window">
+        <field name="name">Broken References</field>
+        <field name="res_model">external.id.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_external_id_entry_search"/>
+        <field name="context">{'search_default_filter_broken': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No broken external ID</p>
+            <p>Every external ID in this database still points to a record that
+               exists. Broken entries show up here when the record behind an
+               external ID has been deleted.</p>
+        </field>
+    </record>
+
+    <record id="action_external_id_entry_import" model="ir.actions.act_window">
+        <field name="name">From Imports / Exports</field>
+        <field name="res_model">external.id.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_external_id_entry_search"/>
+        <field name="context">{'search_default_filter_import': 1, 'search_default_group_model': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No import or export external ID</p>
+            <p>The spreadsheet importer and exporter store the external IDs they
+               generate under the modules __import__ and __export__. Nothing has
+               been imported or exported with an external ID in this database yet.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_external_id_root"
+              name="External IDs"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="105"/>
+
+    <menuitem id="menu_external_id_entry"
+              name="All External IDs"
+              parent="menu_external_id_root"
+              action="action_external_id_entry"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_external_id_entry_broken"
+              name="Broken References"
+              parent="menu_external_id_root"
+              action="action_external_id_entry_broken"
+              groups="base.group_system"
+              sequence="20"/>
+
+    <menuitem id="menu_external_id_entry_import"
+              name="From Imports / Exports"
+              parent="menu_external_id_root"
+              action="action_external_id_entry_import"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>
