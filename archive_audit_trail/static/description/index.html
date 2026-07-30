@@ -1,0 +1,46 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1d3b2a; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Archive Audit Trail</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Know who archived it, and when.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">"Where did that customer go?" Archiving hides a record from everyone in one click, and Odoo keeps no trace of who did it. This module posts a short note in the record's chatter every time it is archived or restored — the user and the moment, permanently.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Zero configuration</strong> — works on every model with a chatter and an active flag.</li>
+        <li><strong>Only real changes</strong> — re-saving an already archived record logs nothing.</li>
+        <li><strong>Batch safe</strong> — archiving fifty records logs on each of them.</li>
+        <li><strong>Never blocks work</strong> — if logging fails for any reason, archiving still succeeds.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-chatter.png" alt="01-chatter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every archive and restore is written to the record&rsquo;s chatter — who did it and exactly when, kept with the record forever.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Archive Audit Trail</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None. Logging starts immediately.</li>
+        <li>To pause it, set the System Parameter <code>archive_audit_trail.enabled</code> to <code>False</code>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Archive any record (customer, product, employee, pricelist) from the Action menu or its form.</li>
+        <li>Open the record and read its chatter: a note names who archived it and when.</li>
+        <li>Restoring the record logs a matching note, so the full history stays in one place.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0).</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

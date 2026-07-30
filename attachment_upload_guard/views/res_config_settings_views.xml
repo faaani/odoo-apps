@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_upload_guard" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.upload.guard</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="before">
+                <block title="Attachments" name="attachment_guard_block">
+                    <setting string="Attachment Upload Policy" id="attachment_guard_setting"
+                             help="Refuse risky file types and oversized attachments. Reports, assets and imports are never affected.">
+                        <field name="attachment_guard_enabled"/>
+                        <div class="content-group" invisible="not attachment_guard_enabled">
+                            <div class="row mt16">
+                                <label for="attachment_guard_extensions" class="col-lg-4 o_light_label"/>
+                                <field name="attachment_guard_extensions" class="col-lg-6"/>
+                            </div>
+                            <div class="row">
+                                <label for="attachment_guard_max_mb" class="col-lg-4 o_light_label"/>
+                                <field name="attachment_guard_max_mb" class="col-lg-2"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
