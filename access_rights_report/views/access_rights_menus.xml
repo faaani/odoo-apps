@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_access_rights_report_root"
+              name="Access Rights Matrix"
+              parent="base.menu_users"
+              groups="base.group_system"
+              sequence="30"/>
+
+    <menuitem id="menu_access_rights_matrix"
+              name="Access Rights Matrix"
+              parent="menu_access_rights_report_root"
+              action="action_access_rights_matrix"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_access_rights_group"
+              name="Rights by Group"
+              parent="menu_access_rights_report_root"
+              action="action_access_rights_group"
+              groups="base.group_system"
+              sequence="20"/>
+
+    <menuitem id="menu_access_rights_rule"
+              name="Record Rules Report"
+              parent="menu_access_rights_report_root"
+              action="action_access_rights_rule"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>
