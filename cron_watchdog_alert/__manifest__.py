@@ -2,7 +2,7 @@
 # Part of cron_watchdog_alert. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Cron Watchdog Alerts',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'summary': 'Get an email the moment scheduled actions silently stop running — stale crons are found by a watchdog and on normal page loads.',
     'description': """
 Scheduled actions fail silently: the queue stalls, a worker dies, an action
@@ -17,6 +17,7 @@ is dead (as long as someone is using Odoo).
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Technical',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['base', 'mail', 'web'],
     'data': [
         'views/ir_cron_views.xml',

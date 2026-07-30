@@ -30,3 +30,7 @@ Optionally, in **Settings → General Settings → Users** section, toggle
 ## Notes per version
 Identical behavior on all supported series (14.0 – 19.0); only view markup
 differs internally.
+
+## Support
+
+Questions, bugs or feature requests: f.ashraf.dev1@gmail.com

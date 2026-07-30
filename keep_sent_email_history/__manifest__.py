@@ -2,7 +2,7 @@
 # Part of keep_sent_email_history. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Keep Sent Email History',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'summary': 'Stop Odoo from deleting sent emails — keep a full, auditable outgoing email history with configurable retention.',
     'description': """
 Odoo deletes most notification and template emails from the queue right after
@@ -16,6 +16,7 @@ daily cleanup job so your database does not grow forever.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Discuss',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['mail'],
     'data': [
         'views/res_config_settings_views.xml',
