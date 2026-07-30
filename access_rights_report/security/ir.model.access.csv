@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_access_rights_matrix_system,access.rights.matrix.system,model_access_rights_matrix,base.group_system,1,0,0,0
+access_access_rights_group_system,access.rights.group.system,model_access_rights_group,base.group_system,1,0,0,0
+access_access_rights_rule_system,access.rights.rule.system,model_access_rights_rule,base.group_system,1,0,0,0
