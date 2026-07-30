@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="activity_bulk_reassign_view_form" model="ir.ui.view">
+        <field name="name">activity.bulk.reassign.form</field>
+        <field name="model">activity.bulk.reassign</field>
+        <field name="arch" type="xml">
+            <form string="Reassign Activities">
+                <div class="alert alert-info" role="status">
+                    <field name="activity_count" class="oe_inline"/> open activity(ies) match these filters and will be moved.
+                </div>
+                <group>
+                    <group>
+                        <field name="from_user_id" options="{'no_create': True}"/>
+                        <field name="to_user_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="activity_type_ids" widget="many2many_tags" options="{'no_create': True}"
+                           placeholder="All activity types"/>
+                    <field name="log_note"/>
+                </group>
+                <footer>
+                    <button name="action_reassign" string="Reassign" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_activity_bulk_reassign" model="ir.actions.act_window">
+        <field name="name">Reassign Activities</field>
+        <field name="res_model">activity.bulk.reassign</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_activity_bulk_reassign"
+              name="Reassign Activities"
+              parent="mail.menu_root_discuss"
+              action="action_activity_bulk_reassign"
+              groups="base.group_user"
+              sequence="90"/>
+</odoo>
