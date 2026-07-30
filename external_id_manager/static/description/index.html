@@ -1,0 +1,88 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #171f3d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">External ID Manager</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0ad2c;">Find any XML ID &mdash; and every broken one</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">External IDs (<code>ir.model.data</code>) drive imports, data files and <code>env.ref()</code>, but looking one up means switching on developer mode and reading a raw list that shows a model name and a numeric id &mdash; never the record behind it. This module adds an <strong>administrator screen</strong> that resolves the record, shows its name, and flags the references that no longer point anywhere.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Search the way you think</strong> &mdash; by module, by model, by identifier, by the full <code>module.name</code>, or by the <em>display name of the record</em> the external ID points to.</li>
+        <li><strong>See the record, not an id</strong> &mdash; every line shows the referenced record&rsquo;s name, with a button that opens it in its own form.</li>
+        <li><strong>Broken references in red</strong> &mdash; the external ID still exists but its record is gone, so <code>env.ref()</code> on it fails and an import using it updates nothing.</li>
+        <li><strong>Model not installed</strong> &mdash; entries left by an uninstalled module are shown as unverifiable instead of being wrongly called broken.</li>
+        <li><strong>Copy in one click</strong> &mdash; the full <code>module.name</code> string, ready to paste into a data file, a spreadsheet column or <code>env.ref()</code>.</li>
+        <li><strong>Imports versus data files</strong> &mdash; one filter for what your spreadsheets left behind (<code>__import__</code>, <code>__export__</code>) and one for what modules declared, plus a &ldquo;Created On&rdquo; column and grouping by module, model or source.</li>
+        <li><strong>Read-only by design</strong> &mdash; the only write it offers is deleting an entry that is <em>already broken</em>, behind a confirmation dialog and reserved to Settings administrators.</li>
+        <li><strong>No developer mode needed</strong> &mdash; its own menu under Settings, visible to Settings administrators only.</li>
+        <li><strong>Bulk resolution</strong> &mdash; names and existence are resolved per model, one query each, never one query per line.</li>
+    </ul>
+
+    <div style="margin: 24px 0; padding: 16px 18px; background: #fdf3f3; border-left: 4px solid #e85454; border-radius: 6px; font-size: 15px;">
+        <strong>Why live external IDs can never be deleted here.</strong> Deleting a live external ID silently breaks module upgrades: the next upgrade of its module no longer finds the record and creates a duplicate instead of updating it. That is why this screen refuses to delete anything whose record still exists &mdash; and why it also refuses entries whose model is not installed, since nothing can be verified about those.
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0ad2c; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-external-ids.png" alt="External ID list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every external ID with the record it points to, its status and its source. The screenshots are taken on the series they belong to, so this is what your version looks like.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-broken-references.png" alt="Broken references" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Broken references: the external ID survived but its record is gone. Only these lines offer the delete button.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-imports.png" alt="Import and export external IDs" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">What the spreadsheet importer and exporter left behind, grouped by model &mdash; live and broken side by side.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-broken-detail.png" alt="Broken external ID detail" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A broken entry explains itself and offers the confirmed deletion; a live entry shows <em>Open Record</em> instead.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters: broken references, working references, model not installed, module data files versus imports and exports, non updatable, created today.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0ad2c; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>External ID Manager</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad2c; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the screen works as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group: the model is granted read access only, and the deletion additionally re-checks that group before touching anything.</li>
+        <li>Deleting an external ID uses your own rights on <code>ir.model.data</code>; the module never elevates them.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad2c; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; External IDs &rarr; All External IDs</strong>.</li>
+        <li>Type in <em>External ID</em> to search a module, an identifier or the full <code>module.name</code>; use <em>Model</em> for a model; use <em>Record Name</em> to find the external ID of a record you only know by name.</li>
+        <li>Press the arrow button on a line to open the referenced record, or the <strong>Copy</strong> button to put <code>module.name</code> on the clipboard.</li>
+        <li>Open <strong>Broken References</strong> for the entries whose record is gone. Check what each one was for, then delete it with the trash button and confirm.</li>
+        <li>Open <strong>From Imports / Exports</strong> to review what spreadsheet imports and exports created, grouped by model.</li>
+        <li>Group by <strong>Module</strong>, <strong>Model</strong>, <strong>Source</strong> or <strong>Created On</strong>, and export the list to a spreadsheet.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad2c; padding-bottom: 6px;">Good to know</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Deleting a record through the Odoo interface already removes its external ID, so broken references come from cascade deletes, from direct SQL, from failed uninstalls or from partially restored databases &mdash; not from ordinary day-to-day work.</li>
+        <li>The status is computed live from the database, so a very large <code>ir.model.data</code> table makes the <em>Broken References</em> filter take a moment: it runs one query per model, not one per external ID.</li>
+        <li>Searching by <em>Record Name</em> asks each model in turn &mdash; at most 1000 models, keeping at most 200 matches in each &mdash; so it is slower than the other search fields and can miss matches beyond those caps on huge tables. Every other search is a plain indexed query.</li>
+        <li>Entries whose model is not installed cannot be verified, so they are never called broken and never deleted.</li>
+        <li>The one-click copy button is on the form view in every supported series, and also inside the list on Odoo 16.0 and above; on 14.0 and 15.0 the clipboard widget of that era does not render properly inside a list, so the list shows the plain identifier there.</li>
+        <li>Nothing else is ever written: no record is created, renamed, archived or deleted by this module, and live external IDs are never removed.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
