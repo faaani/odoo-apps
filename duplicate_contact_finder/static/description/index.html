@@ -1,0 +1,112 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #3d2b47; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Find Duplicate Contacts</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0ad4e;">The same customer, entered three times</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Every long-lived database ends up with the same customer entered more than once: by the salesperson, by the website, by an import. This module adds an administrator scan that finds those contacts and shows them <strong>grouped</strong>, with everything you need to decide which one to keep.
+        <strong>Read-only, free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <div style="margin: 20px 0; padding: 16px 18px; background: #fdf6e6; border-left: 4px solid #f0ad4e; border-radius: 6px; font-size: 15px;">
+        <strong>This module never merges anything.</strong> Merging rewrites foreign keys and deletes records, and Odoo already ships a wizard for it. Nothing here writes to, archives or deletes a contact &mdash; every group simply has a <em>Merge</em> button that opens Odoo&rsquo;s own <strong>Merge Contacts</strong> wizard with exactly those contacts pre-selected, where you choose the destination contact and confirm.
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">What it matches on</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Same email</strong> &mdash; compared trimmed and lower-cased, so <code>Lily.Mitchell@Example.com&nbsp;</code> and <code>lily.mitchell@example.com</code> are the same address.</li>
+        <li><strong>Same phone number</strong> &mdash; compared on digits only, ignoring spaces, dots, dashes, brackets and country prefixes: <code>+1&nbsp;(555)&nbsp;342-1980</code> and <code>5553421980</code> land in the same group. Phone and mobile are pooled, so one contact&rsquo;s phone can match another contact&rsquo;s mobile.</li>
+        <li><strong>Same name</strong> &mdash; ignoring case, accents, punctuation <em>and word order</em>: &ldquo;Pe&ccedil;anha, Nadia&rdquo;, &ldquo;Nadia Pe&ccedil;anha&rdquo; and &ldquo;nadia pecanha&rdquo; are one group.</li>
+        <li><strong>Each criterion can be switched off independently</strong>, so you can hunt for email duplicates only, or numbers only.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">What each group tells you</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>How many contacts are in the group and what exactly they have in common.</li>
+        <li>Every member with its <strong>creation date</strong>, email, phone, whether it is archived, and whether it is linked to a <strong>login</strong>.</li>
+        <li><strong>How many records point at each contact</strong> &mdash; chatter messages, scheduled activities, child contacts, and, when those apps are installed, invoices and bills, sales orders, purchase orders, CRM leads, transfers and tasks. The busiest contact of the group is flagged, so the one to keep is obvious.</li>
+        <li>The oldest and the newest contact of the group.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Scan options</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Companies and individuals, companies only, or individuals only.</li>
+        <li>Include archived contacts &mdash; off by default.</li>
+        <li>Include the invoice/delivery addresses attached to a company &mdash; off by default, because they legitimately repeat their company&rsquo;s name and phone.</li>
+        <li>A cap on the number of reported groups (200 by default). If more duplicates exist, the biggest groups are shown and the result is <strong>clearly flagged as truncated</strong> instead of silently hiding them.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-scan-criteria.png" alt="Scan criteria" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick the criteria and the contacts to scan, then press <em>Scan for Duplicates</em>.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-results.png" alt="Duplicate groups" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One line per duplicate group: what matched, how many contacts, which one carries the most linked records, and the oldest and newest of the group.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-group-detail.png" alt="Inside a duplicate group" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Inside a group: every member with its creation date, email, phone, login and number of linked records. The busiest one is ticked.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-merge-handover.png" alt="Hand-over to Odoo's merge wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Merge</em> button hands the group over to Odoo&rsquo;s standard <strong>Merge Contacts</strong> wizard, pre-selected. Merging stays entirely in Odoo&rsquo;s hands.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-truncated.png" alt="Truncated result warning" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">When more duplicate groups exist than the cap, the result says so instead of quietly dropping them.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Find Duplicate Contacts</em> and click <strong>Install</strong>.</li>
+        <li>The standard <strong>Contacts</strong> application is the only requirement; it is installed automatically if it is missing.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>There is nothing to configure: the scan works as soon as the module is installed.</li>
+        <li>The menu and the scan are restricted to the <strong>Administration / Settings</strong> group. No other user can run it or read its results.</li>
+        <li>To use the <em>Merge</em> hand-over button, your user also needs Odoo&rsquo;s standard contact-management right (the one the Merge Contacts wizard itself requires). The scan tells you if it is missing.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Contacts &rarr; Configuration &rarr; Find Duplicate Contacts</strong>.</li>
+        <li>Tick the criteria you want (email, phone number, name) and choose which contacts to scan.</li>
+        <li>Press <strong>Scan for Duplicates</strong>. The result appears on the same screen, biggest groups first.</li>
+        <li>Click a group to see its members, their creation dates and how many records are linked to each one.</li>
+        <li>Use <strong>Contacts</strong> to open the group in the standard contact list, or <strong>Merge</strong> to hand it over to Odoo&rsquo;s Merge Contacts wizard.</li>
+        <li>Press <strong>Change Criteria</strong> to adjust the options and scan again.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Good to know (and what it does not do)</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Nothing is ever merged, edited, archived or deleted by this module. It only reads.</li>
+        <li>The whole scan is a handful of grouped SQL statements over normalised expressions &mdash; the contact table is never read record by record.</li>
+        <li>Only contacts of the companies your user is allowed to see are scanned.</li>
+        <li>Names shorter than 3 characters and numbers shorter than 7 digits are ignored: they would group half the database.</li>
+        <li>Numbers are compared on their last 9 digits. Two numbers from different countries that share those digits will land in the same group &mdash; always review a group before merging it.</li>
+        <li>The reported-groups cap cannot be raised above 2000, and a scan that cannot finish within 60 seconds stops with a message asking you to narrow it down instead of leaving the browser to time out.</li>
+        <li>Results are temporary (they are wizard records). If you leave the page open for an hour, run the scan again before using the Merge button.</li>
+        <li>&ldquo;Most Linked Activity&rdquo; compares the contacts listed in the group; on a group too large to list in full, only the listed ones are compared.</li>
+        <li>On Odoo 14.0&ndash;16.0, private addresses (employee home addresses) are included only for users who hold Odoo&rsquo;s own private-address right &mdash; the scan applies the same restriction as the Contacts list.</li>
+        <li>In a multi-company hierarchy the scan stays on the companies your user is assigned to. It never reports a contact the Contacts list would hide from you.</li>
+        <li>Accents are folded using PostgreSQL&rsquo;s <code>unaccent</code> extension when it is installed, and a built-in Latin fold otherwise. Non-Latin scripts are compared as they are (case and punctuation still ignored).</li>
+        <li>The same contacts can appear in more than one group &mdash; once per criterion that matched. The <em>Matched On</em> column tells you which.</li>
+        <li>At most 50 contacts are listed inside one group; the group still reports its real size and the <em>Contacts</em> button opens all of them.</li>
+        <li>Contacts are matched on the Email, Phone/Mobile and Name fields only &mdash; not on VAT, address or reference.</li>
+        <li>Odoo 19.0 merged <em>Mobile</em> into <em>Phone</em>: on 19.0 the single Phone field is used, on 14.0&ndash;18.0 both are pooled.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0ad4e; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Same behaviour on every supported series (14.0 &ndash; 19.0), apart from the single Phone field on 19.0 noted above. No external dependency, no third-party library, no configuration.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

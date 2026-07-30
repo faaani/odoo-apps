@@ -1,0 +1,504 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* duplicate_contact_finder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:31+0000\n"
+"PO-Revision-Date: 2026-07-30 22:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_active
+msgid "Active"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid "At least two contacts are needed to merge."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "Change Criteria"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_finder__contact_kind__company
+msgid "Companies Only"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_finder__contact_kind__all
+msgid "Companies and Individuals"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_id
+#, python-format
+msgid "Contact"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__partner_count
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_tree
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_member_tree
+msgid "Contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__contact_count
+msgid "Contacts Involved"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__contact_kind
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "Contacts to Scan"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_create_date
+msgid "Created On"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__create_uid
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__create_uid
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__create_date
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__create_date
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__display_name
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__display_name
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_finder__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model,name:duplicate_contact_finder.model_duplicate_contact_group
+msgid "Duplicate Contact Group"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model,name:duplicate_contact_finder.model_duplicate_contact_member
+msgid "Duplicate Contact Group Member"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__member_ids
+#, python-format
+msgid "Duplicate Contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_form
+msgid "Duplicate Group"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__group_ids
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_tree
+msgid "Duplicate Groups"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_email
+msgid "Email"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#: model:ir.actions.act_window,name:duplicate_contact_finder.action_duplicate_contact_finder
+#: model:ir.model,name:duplicate_contact_finder.model_duplicate_contact_finder
+#: model:ir.ui.menu,name:duplicate_contact_finder.menu_duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+#, python-format
+msgid "Find Duplicate Contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__group_id
+msgid "Group"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__use_email
+msgid "Group contacts whose email is identical once trimmed and lower-cased."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__use_name
+msgid ""
+"Group contacts whose name is identical once case, accents, punctuation and "
+"word order are ignored."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__use_phone
+msgid ""
+"Group contacts whose numbers match on digits only: spaces, dashes, brackets "
+"and country prefixes are ignored. Every telephone field of the contact is "
+"pooled, so a phone can match another contact's mobile (Odoo 19.0 keeps a "
+"single Phone field)."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__group_count
+msgid "Groups Found"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__is_user
+msgid "Has a Login"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__id
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__id
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__id
+msgid "ID"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__include_archived
+msgid "Include Archived Contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__include_addresses
+msgid "Include Company Addresses"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_finder__contact_kind__person
+msgid "Individuals Only"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__include_addresses
+msgid ""
+"Invoice, delivery and other addresses attached to a company are skipped by "
+"default: they legitimately repeat the phone or name of their parent company."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__is_company
+msgid "Is a Company"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder____last_update
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group____last_update
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__write_uid
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__write_uid
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__write_date
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__write_date
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__top_activity_count
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__activity_count
+msgid "Linked Records"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__listed_count
+msgid "Listed"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_member_tree
+msgid "Login"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "Match Contacts On"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__match_type
+msgid "Matched On"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__match_value
+msgid "Matched Value"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__max_groups
+msgid "Maximum Groups Reported"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__members_truncated
+msgid "Members Truncated"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_tree
+msgid "Merge"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_form
+msgid "Merge in Odoo's Wizard"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_member__activity_count
+msgid ""
+"Messages, activities, child contacts and business documents (invoices, "
+"orders, leads, transfers, tasks) pointing at this contact."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid ""
+"More duplicate groups were found than the cap of %(cap)s. The largest groups"
+" are listed; raise \"Maximum Groups Reported\" or narrow the criteria to see"
+" the rest."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_member_tree
+msgid "Most Activity"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__top_partner_id
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__is_most_active
+msgid "Most Linked Activity"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_name
+msgid "Name"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__last_created
+msgid "Newest Contact"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "No duplicate contact was found with these criteria."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid ""
+"Odoo's Merge Contacts wizard requires the contact management access right. "
+"Ask an administrator to grant it before merging."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__include_archived
+msgid "Off by default: archived contacts are excluded from the scan."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__first_created
+msgid "Oldest Contact"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_form
+msgid ""
+"Only the first contacts of this group are listed. Use \"Open\n"
+"                        Contacts\" to see all of them."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_form
+msgid "Open Contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_tree
+msgid "Open Odoo's Merge Contacts wizard"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_group_tree
+msgid "Open these contacts"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_member_tree
+msgid "Open this contact"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_member__partner_phone
+msgid "Phone"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__truncated
+msgid "Result Truncated"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_finder__max_groups
+msgid ""
+"Safety cap. When more duplicate groups exist than this, the largest ones are"
+" reported and the result is flagged as truncated. It cannot be raised above "
+"2000: everything the scan builds grows with it."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__use_email
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_group__match_type__email
+msgid "Same Email"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__use_name
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_group__match_type__name
+msgid "Same Name"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__use_phone
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_group__match_type__phone
+msgid "Same Phone Number"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_group__finder_id
+msgid "Scan"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "Scan Again"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid "Scan for Duplicates"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields.selection,name:duplicate_contact_finder.selection__duplicate_contact_finder__state__done
+msgid "Scanned"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__scanned_on
+msgid "Scanned On"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid "Select at least one criterion to match contacts on."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__state
+msgid "State"
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_group__top_partner_id
+msgid ""
+"The listed contact of this group with the most linked records - on a group "
+"too large to list in full, only the listed contacts are compared. Empty when"
+" none of them has any linked record."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid ""
+"The maximum number of groups cannot exceed %(cap)s. Narrow the scan down "
+"instead: one criterion at a time, or companies only."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid "The maximum number of groups must be at least 1."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_group__match_value
+msgid "The normalised value the contacts of this group have in common."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: code:addons/duplicate_contact_finder/wizard/duplicate_contact_finder.py:0
+#, python-format
+msgid ""
+"The scan did not finish within %(seconds)s seconds on this database. Narrow "
+"it down: scan one criterion at a time, or restrict it to companies or to "
+"individuals."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,help:duplicate_contact_finder.field_duplicate_contact_member__is_user
+msgid "This contact is linked to a user account."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model_terms:ir.ui.view,arch_db:duplicate_contact_finder.view_duplicate_contact_finder_form
+msgid ""
+"This scan only reads your contacts. It never merges, edits,\n"
+"                        archives or deletes anything. Once you have reviewed a group,\n"
+"                        hand it over to Odoo's own <b>Merge Contacts</b> wizard with the\n"
+"                        Merge button on that group."
+msgstr ""
+
+#. module: duplicate_contact_finder
+#: model:ir.model.fields,field_description:duplicate_contact_finder.field_duplicate_contact_finder__truncation_note
+msgid "Truncation Note"
+msgstr ""
