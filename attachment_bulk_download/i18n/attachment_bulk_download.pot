@@ -1,0 +1,238 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* attachment_bulk_download
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:17+0000\n"
+"PO-Revision-Date: 2026-07-30 22:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.res_config_settings_view_form_bulk_download
+msgid "<span class=\"o_form_label\">Bulk Download Limit</span>"
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid ""
+"A bulk download covers at most %(max)s records at a time, and %(count)s are "
+"selected. Narrow the selection and try again."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.res_config_settings_view_form_bulk_download
+msgid "Attachments"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_res_config_settings__attachment_bulk_download_max_mb
+msgid "Bulk Download Limit (MB)"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model,name:attachment_bulk_download.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.actions.act_window,name:attachment_bulk_download.action_attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid "Download Attachments"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model,name:attachment_bulk_download.model_attachment_bulk_download_wizard
+msgid "Download Attachments in Bulk"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__max_size
+msgid "Download Limit"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid "Download ZIP"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid ""
+"Files are grouped inside the ZIP by record name, so identical file names "
+"never overwrite each other."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__attachment_count
+msgid "Files to Download"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.res_config_settings_view_form_bulk_download
+msgid ""
+"Largest total size one \"Download Attachments\" archive may reach. Set 0 to "
+"allow archives of any size."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,help:attachment_bulk_download.field_res_config_settings__attachment_bulk_download_max_mb
+msgid ""
+"Largest total size one bulk download may reach. Set 0 to allow archives of "
+"any size."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__res_model
+msgid "Model"
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid ""
+"None of the %s selected record(s) has a file attached that you are allowed "
+"to download."
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid ""
+"None of the selected files could be read, so there is nothing to download."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid "None of the selected records has a file you may download."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__over_limit
+msgid "Over the Limit"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__res_model_label
+msgid "Records From"
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid "Select the records whose attachments you want to download first."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__res_ids
+msgid "Selected Record Ids"
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__record_count
+msgid "Selected Records"
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid ""
+"The files are larger than the %s bulk download limit. Select fewer records, "
+"or ask your administrator to raise \"Bulk Download Limit (MB)\" in Settings."
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid ""
+"The selection holds %(count)s file(s) totalling %(total)s, which is more than the %(limit)s bulk download limit.\n"
+"\n"
+"Select fewer records, or ask your administrator to raise \"Bulk Download Limit (MB)\" in Settings > General Settings > Attachments."
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid "This download request belongs to another user."
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid "This download request no longer holds any record."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model_terms:ir.ui.view,arch_db:attachment_bulk_download.attachment_bulk_download_wizard_view_form
+msgid ""
+"This selection is larger than the bulk download limit. Select fewer records,"
+" or ask your administrator to raise the limit in Settings."
+msgstr ""
+
+#. module: attachment_bulk_download
+#: model:ir.model.fields,field_description:attachment_bulk_download.field_attachment_bulk_download_wizard__total_size
+msgid "Total Size"
+msgstr ""
+
+#. module: attachment_bulk_download
+#. odoo-python
+#: code:addons/attachment_bulk_download/wizard/attachment_bulk_download_wizard.py:0
+#, python-format
+msgid "no limit"
+msgstr ""
