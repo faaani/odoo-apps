@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_access_rights_rule_list" model="ir.ui.view">
+        <field name="name">access.rights.rule.list</field>
+        <field name="model">access.rights.rule</field>
+        <field name="arch" type="xml">
+            <list string="Record Rules" create="false" edit="false" delete="false"
+                  decoration-muted="not rule_active"
+                  decoration-info="is_global">
+                <field name="model_name"/>
+                <field name="rule_name"/>
+                <field name="is_global"/>
+                <field name="group_ids" widget="many2many_tags" optional="show"/>
+                <field name="domain_force" optional="show"/>
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+                <field name="rights_code" optional="hide"/>
+                <field name="rule_active" optional="hide"/>
+                <field name="group_count" optional="hide"/>
+                <field name="model_id" optional="hide"/>
+                <field name="is_wizard" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_access_rights_rule_form" model="ir.ui.view">
+        <field name="name">access.rights.rule.form</field>
+        <field name="model">access.rights.rule</field>
+        <field name="arch" type="xml">
+            <form string="Record Rule" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Rule">
+                            <field name="rule_name"/>
+                            <field name="rule_id"/>
+                            <field name="rule_active"/>
+                            <field name="is_global"/>
+                        </group>
+                        <group string="Model">
+                            <field name="model_id"/>
+                            <field name="model_name"/>
+                            <field name="is_wizard"/>
+                        </group>
+                        <group string="Applies To">
+                            <field name="perm_read"/>
+                            <field name="perm_write"/>
+                            <field name="perm_create"/>
+                            <field name="perm_unlink"/>
+                            <field name="rights_code"/>
+                        </group>
+                        <group string="Groups">
+                            <field name="group_count"/>
+                            <field name="group_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group string="Domain">
+                        <field name="domain_force" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_access_rights_rule_search" model="ir.ui.view">
+        <field name="name">access.rights.rule.search</field>
+        <field name="model">access.rights.rule</field>
+        <field name="arch" type="xml">
+            <search string="Record Rules">
+                <field name="model_name" string="Model"
+                       filter_domain="['|', ('model_name', 'ilike', self), ('model_id', 'ilike', self)]"/>
+                <field name="rule_name" string="Rule"/>
+                <field name="group_ids"/>
+                <field name="domain_force"/>
+                <filter string="Applies To Read" name="filter_read"
+                        domain="[('perm_read', '=', True)]"/>
+                <filter string="Applies To Write" name="filter_write"
+                        domain="[('perm_write', '=', True)]"/>
+                <filter string="Applies To Create" name="filter_create"
+                        domain="[('perm_create', '=', True)]"/>
+                <filter string="Applies To Delete" name="filter_delete"
+                        domain="[('perm_unlink', '=', True)]"/>
+                <separator/>
+                <filter string="Global Rules" name="filter_global"
+                        domain="[('is_global', '=', True)]"/>
+                <filter string="Group Rules" name="filter_group_rules"
+                        domain="[('is_global', '=', False)]"/>
+                <separator/>
+                <filter string="Active" name="filter_active"
+                        domain="[('rule_active', '=', True)]"/>
+                <filter string="Disabled" name="filter_inactive"
+                        domain="[('rule_active', '=', False)]"/>
+                <group name="group_by">
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Global" name="group_global"
+                            context="{'group_by': 'is_global'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_access_rights_rule" model="ir.actions.act_window">
+        <field name="name">Record Rules Report</field>
+        <field name="res_model">access.rights.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_access_rights_rule_search"/>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No record rule matches these filters</p>
+            <p>Access rights say which models a group may touch; record rules say
+               which records of those models it sees. Each line shows the domain
+               the rule forces, the operations it applies to and the groups it is
+               attached to.</p>
+            <p>Disabled rules are hidden by the default filter. A model with no
+               rule at all is simply absent here: its records are not filtered.</p>
+        </field>
+    </record>
+
+</odoo>
