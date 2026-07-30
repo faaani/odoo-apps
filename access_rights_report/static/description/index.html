@@ -1,0 +1,85 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #27375c; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Access Rights Matrix</h1>
+        <p style="margin: 0; font-size: 18px; color: #00a09d;">Which groups can delete invoices? One screen, one answer.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">In standard Odoo that question means opening <em>Settings &rarr; Technical &rarr; Access Rights</em> and paging through the list one line at a time. This module turns those lines into a <strong>read-only matrix</strong>: one row per model and group, with a read, write, create and delete tick, plus filters by model, by group and by permission. It also resolves what a group really gets once inherited groups are taken into account, and lists the record rules with their domains.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>One row per model and group</strong> &mdash; when several modules add an access line for the same pair, they are merged the way Odoo merges them: a permission is granted as soon as one active line grants it. The row says how many lines it merged.</li>
+        <li><strong>Filter by permission</strong> &mdash; &ldquo;grants Delete&rdquo;, &ldquo;grants Create&rdquo;, &ldquo;Full Access&rdquo;, &ldquo;Read Only&rdquo;, &ldquo;Grants Nothing&rdquo;. Combine with a model or a group to answer a precise question.</li>
+        <li><strong>Group by model or by group</strong> &mdash; then export either shape to spreadsheet for the auditor.</li>
+        <li><strong>Rights by Group</strong> &mdash; pick a group and see every model its members can reach, <em>including</em> the rights inherited from the groups it implies, resolved transitively, and the rights every user gets from access lines that carry no group at all. Each row says whether the right is direct, inherited or global, and names the group it comes from.</li>
+        <li><strong>Record Rules</strong> &mdash; every <code>ir.rule</code> with its domain, the operations it applies to, whether it is global or attached to groups, and which groups.</li>
+        <li><strong>Global lines and gaps are flagged</strong> &mdash; an access line with no group is granted to everybody and is shown as a <em>Global Line</em>; a model with no active line at all is shown as <em>No Access Rule</em>, because nobody but the superuser can touch it.</li>
+        <li><strong>Read-only by design</strong> &mdash; three SQL views over <code>ir.model.access</code>, <code>res.groups</code> and <code>ir.rule</code>. The module never writes to an access line or a record rule, never uses <code>sudo</code>, and the reports themselves refuse create, write and delete even for administrators.</li>
+        <li><strong>Administrators only</strong> &mdash; every screen is restricted to the Administration / Settings group.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-access-rights-matrix.png" alt="Access Rights Matrix list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The matrix: model, group and the four permission ticks, with a compact <code>RWCD</code> summary column.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-grants-delete.png" alt="Everything that grants delete" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Grants Delete</em> filter: every model and group combination that allows deletion. Add a model to the search bar to narrow it to one document type.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters by permission, by global line, by missing access line and by model kind &mdash; and Group By model or group for the export shape you need.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-rights-by-group.png" alt="Rights by group with inherited rights" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Rights by Group: the effective reach of a group, with <em>Direct</em>, <em>Inherited</em> and <em>Inherited From</em> columns showing exactly where each right comes from.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-record-rules.png" alt="Record rules with domains" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The record rules with their domains, their groups, and the operations they filter.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Access Rights Matrix</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required &mdash; there is nothing else to install.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed: the three reports work as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group. No other user can read the reports; there is no setting to widen that.</li>
+        <li>Developer mode is <strong>not</strong> required &mdash; the menus live under Settings, next to Users &amp; Companies.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; Access Rights Matrix</strong>.</li>
+        <li><strong>Access Rights Matrix</strong> &mdash; type a model in the search bar (for example <code>account.move</code>) and apply the <em>Grants Delete</em> filter to see exactly which groups may delete it.</li>
+        <li>Group by <strong>Model</strong> or by <strong>Group</strong>, then select all and use <strong>Export</strong> to hand the auditor either shape.</li>
+        <li><strong>Rights by Group</strong> &mdash; expand a group, or select groups in <em>Users &amp; Companies &rarr; Groups</em> and use <strong>Action &rarr; Effective Access Rights</strong>, to see every model that group reaches and where each right comes from.</li>
+        <li><strong>Record Rules Report</strong> &mdash; filter by model or group to read the domains that decide which records those groups actually see.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">What it does and does not cover</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Inherited groups:</strong> the matrix is deliberately <em>literal</em> &mdash; it reports the access lines exactly as recorded and does <strong>not</strong> expand implied groups. The <strong>Rights by Group</strong> report is the one that expands them: it walks <code>res.groups.implied_ids</code> transitively (cycles included, without looping) and adds the access lines that carry no group, because Odoo grants those to every user.</li>
+        <li><strong>Active lines only:</strong> an unticked access line is ignored by Odoo, so it is ignored here too. Record rules are shown whether enabled or not, with disabled ones hidden behind the default <em>Active</em> filter.</li>
+        <li><strong>Models with no access line</strong> are listed with a <em>No Access Rule</em> flag rather than hidden: nobody but the superuser can reach them, which is exactly what an audit wants to see. Abstract models (mixins, report templates) store nothing and never need a line, so they are hidden by the default <em>Stored Models</em> filter.</li>
+        <li><strong>Not covered:</strong> field-level access (the <code>groups</code> attribute on a field), menu and view visibility, and rights a user gains from a company or from <code>sudo</code> in custom code.</li>
+        <li><strong>Size:</strong> <em>Rights by Group</em> expands to one row per group per reachable model. On a large database with many apps installed that is in the order of a hundred thousand rows, and a database view carries no index, so the first load and a full export take a few seconds. The matrix itself stays small &mdash; a few thousand rows.</li>
+        <li><strong>Nothing is modified.</strong> The module reads; it never creates, edits, disables or deletes an access line or a record rule.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #00a09d; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0). The reports are database views computed on read, so they are always in step with the access lines and record rules currently installed &mdash; there is no cache to refresh and no scheduled job to run.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
