@@ -1,0 +1,355 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* activity_overdue_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:57+0000\n"
+"PO-Revision-Date: 2026-07-30 22:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid "%s (deleted)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__activity_count
+#: model:ir.ui.menu,name:activity_overdue_report.menu_activity_overdue_root
+msgid "Activities"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_form
+msgid "Activity"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__activity_type_id
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Activity Type"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__activity_count
+msgid "Always 1 - sum it in the pivot or graph view to chart workload."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__user_id
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Assigned To"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Assigned to Me"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_tree
+msgid "Average"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__document_name
+msgid "Current display name of the document the activity is attached to."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__res_id
+msgid "Database id of the document the activity is attached to."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__date_deadline
+msgid "Date the activity is due."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__days_overdue
+msgid "Days Overdue"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_form
+msgid "Deadline"
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid "Deleted record (%s, id %s)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__document_name
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_form
+msgid "Document"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__document_missing
+msgid "Document Deleted"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__res_id
+msgid "Document ID"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__res_model_id
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Document Model"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__res_name
+msgid "Document Name (recorded)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__res_name
+msgid ""
+"Document name as it was stored on the activity when the activity was "
+"created. It is not refreshed when the document is later renamed - the "
+"\"Document\" column always shows the live name."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__date_deadline
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Due Date"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Due This Week (next 7 days)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields.selection,name:activity_overdue_report.selection__activity_overdue_report__urgency__today
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Due Today"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Group By"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__id
+msgid "ID"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__document_ref
+msgid "Link to the document. Empty when the document no longer exists."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__res_model
+msgid "Model"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__res_model_id
+msgid ""
+"Model the activity is attached to. Group by this field to see which part of "
+"the business is late."
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid "No linked document"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.actions.act_window,help:activity_overdue_report.action_activity_overdue_report
+msgid "Nothing is overdue"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_tree
+msgid "Open"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__document_ref
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_form
+msgid "Open Document"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_tree
+msgid "Open the document"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields.selection,name:activity_overdue_report.selection__activity_overdue_report__urgency__overdue
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Overdue"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Overdue 30+ Days"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Overdue 7+ Days"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.actions.act_window,name:activity_overdue_report.action_activity_overdue_report
+#: model:ir.ui.menu,name:activity_overdue_report.menu_activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_graph
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_pivot
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_tree
+msgid "Overdue Activities"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model,name:activity_overdue_report.model_activity_overdue_report
+msgid "Overdue Activities Report"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_form
+msgid "Overdue Activity"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Overdue by at least (days)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields.selection,name:activity_overdue_report.selection__activity_overdue_report__urgency__planned
+msgid "Planned"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__creator_id
+msgid "Scheduled By"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__activity_create_date
+msgid "Scheduled On"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Scheduled by Me"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__document_missing
+msgid ""
+"Set when the document the activity points at no longer exists, or belongs to"
+" a model that is no longer installed."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__urgency
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Status"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,field_description:activity_overdue_report.field_activity_overdue_report__summary
+msgid "Summary"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.ui.view,arch_db:activity_overdue_report.view_activity_overdue_report_search
+msgid "Summary or Document"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__summary
+msgid "Summary typed on the activity, if any."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__res_model
+msgid "Technical name of the model the activity is attached to."
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid ""
+"The document this activity refers to (%s, id %s) is not available: it has "
+"been deleted, or you are not allowed to open it."
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid "This activity is not attached to a document that can be opened."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model_terms:ir.actions.act_window,help:activity_overdue_report.action_activity_overdue_report
+msgid ""
+"This read-only report lists every open activity with the person it\n"
+"               is assigned to, the document it belongs to and how many days late\n"
+"               it is. You see an activity when it is assigned to you, or when you\n"
+"               are allowed to read the document it is attached to."
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid "Unavailable document (%s is not installed)"
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__user_id
+msgid "User the activity is assigned to."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__creator_id
+msgid "User who scheduled the activity."
+msgstr ""
+
+#. module: activity_overdue_report
+#: model:ir.model.fields,help:activity_overdue_report.field_activity_overdue_report__days_overdue
+msgid ""
+"Whole days between the due date and today (UTC). Zero for activities due "
+"today or later. Aggregates as an average."
+msgstr ""
+
+#. module: activity_overdue_report
+#: code:addons/activity_overdue_report/models/activity_overdue_report.py:0
+#, python-format
+msgid ""
+"You are not allowed to read these overdue-activity rows, because you cannot "
+"read the documents they are attached to."
+msgstr ""
