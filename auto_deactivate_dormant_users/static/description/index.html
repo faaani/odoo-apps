@@ -1,0 +1,67 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1f3a5f; color: #e8eef5; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Auto Deactivate Dormant Users</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Free seats. Pass audits. Automatically.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        Archives internal users who have not logged in for a configurable number of days.
+        Companies on per-user plans stop paying for seats nobody uses, and security teams get
+        the dormant-account control that ISO&nbsp;27001 / SOC&nbsp;2 audits ask for — without a
+        single line of custom code. <strong>Free and open source (LGPL-3), identical behavior
+        on Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Safe by default</strong> — disabled until you switch it on; administrators, OdooBot and portal users are never touched.</li>
+        <li><strong>Per-user exemptions</strong> — mark any account "Never Deactivate Automatically".</li>
+        <li><strong>Full audit trail</strong> — archived accounts carry a "Deactivated by Dormancy" flag and timestamp; re-activating clears them.</li>
+        <li><strong>Admin notifications</strong> — an email summary every time accounts are archived.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+        <div style="margin: 18px 0;">
+        <img src="01-settings.png" alt="01-settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Settings &rarr; General Settings &rarr; Users: switch the feature on, set the dormancy period and options. Nothing runs until you enable it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-archived-user-audit.png" alt="02-archived-user-audit" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A dormant account archived by the daily job — the Dormancy tab shows the audit flag and the exact date it happened.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-exempt-user.png" alt="03-exempt-user" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Any user can be excluded: tick "Never Deactivate Automatically" on their Dormancy tab.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-users-filters.png" alt="04-users-filters" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters on Settings &rarr; Users: "Deactivated by Dormancy" and "Dormancy Exempt".</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Auto Deactivate Dormant Users</em>.</li>
+        <li>Click <strong>Install</strong>. Only standard Odoo modules (<code>base_setup</code>, <code>mail</code>) are required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings</strong> and scroll to the <strong>Users</strong> section and find <strong>Auto Deactivate Dormant Users</strong>.</li>
+        <li>Enable <strong>Auto Deactivate Dormant Users</strong> — the module does nothing until you do.</li>
+        <li>Set the <strong>Dormancy Period</strong> in days (default 90, enforced minimum 7).</li>
+        <li>Optionally enable <strong>Include Users Who Never Logged In</strong> (counted from their creation date) and <strong>Notify Administrators</strong>.</li>
+        <li>Click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>A daily scheduled action (<em>Users: deactivate dormant accounts</em>) archives internal users whose latest login is older than the dormancy period.</li>
+        <li>To exempt someone, open their user form &rarr; <strong>Dormancy</strong> tab &rarr; tick <strong>Never Deactivate Automatically</strong>.</li>
+        <li>To review what was archived, open <strong>Settings &rarr; Users</strong>, include archived records, and use the <strong>Deactivated by Dormancy</strong> filter.</li>
+        <li>Re-activating an archived user clears the dormancy flags — the account starts a fresh dormancy period.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Behavior is identical on every supported series (14.0 – 19.0). Only internal view markup differs per version.</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
