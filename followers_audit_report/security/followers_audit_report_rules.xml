@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <!-- The report lines are generated per run. Two administrators auditing at
+         the same time must not see each other's rows mixed into their list. -->
+    <record id="followers_audit_partner_own_rule" model="ir.rule">
+        <field name="name">Followers Audit by Person: own generated lines only</field>
+        <field name="model_id" ref="model_followers_audit_partner"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+    <record id="followers_audit_record_own_rule" model="ir.rule">
+        <field name="name">Followers Audit by Record: own generated lines only</field>
+        <field name="model_id" ref="model_followers_audit_record"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+</odoo>
