@@ -1,0 +1,231 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* activity_bulk_reassign
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 19:14+0000\n"
+"PO-Revision-Date: 2026-07-30 19:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "\"Due From\" must come before \"Due To\"."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "%(count)s activity(ies) moved from %(source)s to %(target)s."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "%(target)s cannot take these activities over: %(reason)s"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "%s already owns these activities, nothing was changed."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "%s document(s) could not be annotated."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid ""
+"%s open activity(ies) match these filters, but you are not allowed to "
+"reassign any of them."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "Activities reassigned from %(source)s to %(target)s:"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid "Activity"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__activity_type_ids
+msgid "Activity Types"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:activity_bulk_reassign.activity_bulk_reassign_view_form
+msgid "All activity types"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:activity_bulk_reassign.activity_bulk_reassign_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid ""
+"Choose both the user to take the activities from and the user to give them "
+"to."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__date_from
+msgid "Due From"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__date_to
+msgid "Due To"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__from_user_id
+msgid "From User"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__id
+msgid "ID"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__log_note
+msgid "Log a Note"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__log_note
+msgid ""
+"Log a note in the chatter of every document whose activity was reassigned."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__activity_count
+msgid "Matching Activities"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#, python-format
+msgid ""
+"No open activity of %s matches these filters, so there is nothing to "
+"reassign."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__date_from
+msgid ""
+"Only activities due on or after this date. Leave empty for no lower bound."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__date_to
+msgid ""
+"Only activities due on or before this date. Leave empty for no upper bound."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__activity_count
+msgid ""
+"Open activities that match the filters and that you are allowed to reassign."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:activity_bulk_reassign.activity_bulk_reassign_view_form
+msgid "Reassign"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: code:addons/activity_bulk_reassign/wizard/activity_bulk_reassign.py:0
+#: model:ir.actions.act_window,name:activity_bulk_reassign.action_activity_bulk_reassign
+#: model:ir.ui.menu,name:activity_bulk_reassign.menu_activity_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:activity_bulk_reassign.activity_bulk_reassign_view_form
+#, python-format
+msgid "Reassign Activities"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model,name:activity_bulk_reassign.model_activity_bulk_reassign
+msgid "Reassign Activities in Bulk"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__reassigned_count
+msgid "Reassigned Activities"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__activity_type_ids
+msgid ""
+"Restrict the move to these activity types. Leave empty to move every type."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__to_user_id
+msgid "The user who will take the activities over."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,help:activity_bulk_reassign.field_activity_bulk_reassign__from_user_id
+msgid "The user whose open activities have to be handed over."
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model:ir.model.fields,field_description:activity_bulk_reassign.field_activity_bulk_reassign__to_user_id
+msgid "To User"
+msgstr ""
+
+#. module: activity_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:activity_bulk_reassign.activity_bulk_reassign_view_form
+msgid "open activity(ies) match these filters and will be moved."
+msgstr ""

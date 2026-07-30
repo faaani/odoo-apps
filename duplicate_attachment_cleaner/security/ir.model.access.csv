@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_duplicate_attachment_scan_system,duplicate.attachment.scan.system,model_duplicate_attachment_scan,base.group_system,1,1,1,1
+access_duplicate_attachment_group_system,duplicate.attachment.group.system,model_duplicate_attachment_group,base.group_system,1,1,1,1
+access_duplicate_attachment_clean_system,duplicate.attachment.clean.system,model_duplicate_attachment_clean,base.group_system,1,1,1,1
