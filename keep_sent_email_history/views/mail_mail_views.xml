@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mail_search_kept_history" model="ir.ui.view">
+        <field name="name">mail.mail.search.kept.history</field>
+        <field name="model">mail.mail</field>
+        <field name="inherit_id" ref="mail.view_mail_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Kept by Email History" name="kept_by_history"
+                        domain="[('kept_by_history', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

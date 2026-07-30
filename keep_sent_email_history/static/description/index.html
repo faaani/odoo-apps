@@ -1,0 +1,63 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #2d5016; color: #f2f6ee; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Keep Sent Email History</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Every sent email, kept and auditable.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        Odoo silently deletes most notification and template emails right after sending them —
+        <strong>Settings &rarr; Technical &rarr; Emails stays empty</strong>, and when a customer says
+        "I never received that", you have nothing to show. This module keeps every sent email with a
+        configurable retention period, turning the Emails screen into a real audit trail.
+        <strong>Free and open source (LGPL-3), identical behavior on Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Works immediately</strong> — active on install with a sensible 365-day retention.</li>
+        <li><strong>Bounded database growth</strong> — a daily job purges kept emails (including failed/cancelled ones) past retention; set 0 to keep forever.</li>
+        <li><strong>Transparent</strong> — a "Kept by Email History" filter shows exactly which emails were preserved.</li>
+        <li><strong>Safe</strong> — emails already configured to be kept are never touched by the cleanup.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+        <div style="margin: 18px 0;">
+        <img src="01-settings.png" alt="01-settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Settings &rarr; General Settings &rarr; Discuss: keeping is on out of the box, with a 365-day retention you can change (0 = keep forever).</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-emails-kept.png" alt="02-emails-kept" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Technical &rarr; Emails is no longer empty: notification and template emails stay listed after sending, with recipients, dates and status.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-emails-filter.png" alt="03-emails-filter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The "Kept by Email History" filter shows exactly which emails this module preserved.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Keep Sent Email History</em>.</li>
+        <li>Click <strong>Install</strong>. Only the standard <code>mail</code> module is required.</li>
+        <li>Keeping is active immediately — no further setup needed for the defaults.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings</strong>, scroll to the <strong>Discuss</strong> section and find <strong>Keep Sent Email History</strong>.</li>
+        <li>Set <strong>Email Retention (days)</strong> — kept emails older than this are deleted by a daily job. Use <strong>0</strong> to keep emails forever.</li>
+        <li>Click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Enable developer mode, open <strong>Settings &rarr; Technical &rarr; Emails</strong> — sent chatter notifications and template emails now stay listed with their recipients, dates and contents.</li>
+        <li>Apply the <strong>Kept by Email History</strong> filter to see what this module preserved.</li>
+        <li>The daily scheduled action <em>"Emails: purge kept history past retention"</em> enforces your retention window automatically.</li>
+        <li>Switching the feature off stops keeping new emails; already-kept emails remain until retention removes them.</li>
+        <li><strong>Password reset and signup invitation emails are never kept</strong> — they contain one-time login links, so Odoo deletes them as usual.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Behavior is identical on every supported series (14.0 – 19.0). Only internal view markup differs per version.</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
