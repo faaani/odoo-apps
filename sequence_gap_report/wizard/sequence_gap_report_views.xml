@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sequence_gap_line_view_tree" model="ir.ui.view">
+        <field name="name">sequence.gap.line.tree</field>
+        <field name="model">sequence.gap.line</field>
+        <field name="arch" type="xml">
+            <list string="Sequence Gaps" create="false" edit="false" delete="false">
+                <field name="prefix"/>
+                <field name="first_missing"/>
+                <field name="last_missing"/>
+                <field name="missing_count" sum="Missing numbers"/>
+                <field name="previous_value"/>
+                <field name="next_value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sequence_gap_line_view_form" model="ir.ui.view">
+        <field name="name">sequence.gap.line.form</field>
+        <field name="model">sequence.gap.line</field>
+        <field name="arch" type="xml">
+            <form string="Sequence Gap" create="false" edit="false">
+                <group>
+                    <group>
+                        <field name="prefix"/>
+                        <field name="first_missing"/>
+                        <field name="last_missing"/>
+                    </group>
+                    <group>
+                        <field name="missing_count"/>
+                        <field name="previous_value"/>
+                        <field name="next_value"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="sequence_gap_report_view_form" model="ir.ui.view">
+        <field name="name">sequence.gap.report.form</field>
+        <field name="model">sequence.gap.report</field>
+        <field name="arch" type="xml">
+            <form string="Sequence Gap Report">
+                <field name="state" invisible="1"/>
+                <field name="truncated" invisible="1"/>
+                <group invisible="state == 'done'">
+                    <group>
+                        <field name="model_name" placeholder="e.g. account.move"/>
+                        <field name="field_name" placeholder="e.g. name"/>
+                    </group>
+                    <group>
+                        <field name="max_gaps"/>
+                        <field name="include_archived"/>
+                    </group>
+                </group>
+                <div class="alert alert-info" role="status" invisible="state == 'done'">
+                    The scan only reads document numbers: nothing is created, modified or renumbered.
+                    Documents you are not allowed to read are not counted, so numbers hidden by access
+                    rights are reported as gaps.
+                    Usual models are <code>account.move</code> (invoices and journal entries),
+                    <code>sale.order</code>, <code>purchase.order</code> and <code>stock.picking</code>.
+                </div>
+                <div class="alert alert-success" role="status" invisible="state == 'draft'">
+                    <field name="summary" nolabel="1"/>
+                </div>
+                <div class="alert alert-warning" role="alert" invisible="not truncated">
+                    <field name="truncation_note" nolabel="1"/>
+                </div>
+                <field name="line_ids" nolabel="1" invisible="state == 'draft'"/>
+                <footer>
+                    <button name="action_scan" string="Scan for Gaps" type="object"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <button name="action_open_lines" string="Open Full List" type="object"
+                            class="btn-primary" invisible="state == 'draft'"/>
+                    <button name="action_reset" string="New Scan" type="object"
+                            class="btn-secondary" invisible="state == 'draft'"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sequence_gap_line" model="ir.actions.act_window">
+        <field name="name">Sequence Gaps</field>
+        <field name="res_model">sequence.gap.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="action_sequence_gap_report" model="ir.actions.act_window">
+        <field name="name">Sequence Gap Report</field>
+        <field name="res_model">sequence.gap.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_sequence_gap_report"
+              name="Sequence Gap Report"
+              parent="base.menu_administration"
+              action="action_sequence_gap_report"
+              sequence="115"/>
+</odoo>

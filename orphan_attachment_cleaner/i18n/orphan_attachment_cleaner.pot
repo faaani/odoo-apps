@@ -1,0 +1,235 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* orphan_attachment_cleaner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:37+0000\n"
+"PO-Revision-Date: 2026-07-30 18:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "%(count)s attachment(s) removed, %(size)s reclaimed."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid ""
+"%(orphans)s orphaned attachment(s) in %(groups)s model(s) — %(size)s can be "
+"reclaimed. Nothing has been deleted yet."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "%s bytes"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__attachment_count
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "Attachments"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__inspected_count
+msgid "Attachments Inspected"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "Close"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__create_uid
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__create_date
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__to_clean
+msgid "Delete"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "Delete Selected Attachments"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__display_name
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__id
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__id
+msgid "ID"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__write_uid
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__write_date
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__res_model
+msgid "Model"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields.selection,name:orphan_attachment_cleaner.selection__orphan_attachment_scan_line__reason__missing_model
+msgid "Model no longer exists"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid ""
+"Never listed and never deleted: files with no model at all\n"
+"                    (documents users uploaded on their own), web assets and module\n"
+"                    data (<code>ir.ui.view</code>, <code>ir.asset</code>,\n"
+"                    <code>ir.actions.report</code>, <code>ir.module.module</code>),\n"
+"                    and attachments that store the value of a binary field."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "No orphaned attachments found — %s attachment(s) inspected."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "Only Settings administrators may delete orphaned attachments."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model,name:orphan_attachment_cleaner.model_orphan_attachment_scan_line
+msgid "Orphaned Attachment Group"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model,name:orphan_attachment_cleaner.model_orphan_attachment_scan
+msgid "Orphaned Attachment Scan"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.actions.act_window,name:orphan_attachment_cleaner.action_orphan_attachment_scan
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__line_ids
+#: model:ir.ui.menu,name:orphan_attachment_cleaner.menu_orphan_attachment_scan
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "Orphaned Attachments"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__attachment_ids
+msgid "Orphaned Files"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "Orphaned attachments deleted"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__orphan_count
+msgid "Orphans Found"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__reason
+msgid "Reason"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__reclaimable_size_display
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__size_display
+msgid "Reclaimable Space"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__reclaimable_size
+msgid "Reclaimable Space (bytes)"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields.selection,name:orphan_attachment_cleaner.selection__orphan_attachment_scan_line__reason__missing_record
+msgid "Record no longer exists"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "Rescan"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__summary_note
+msgid "Result"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__scan_id
+msgid "Scan"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "Select at least one line to delete."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan_line__total_size
+msgid "Space (bytes)"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid "The selected attachments no longer exist."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model_terms:ir.ui.view,arch_db:orphan_attachment_cleaner.orphan_attachment_scan_view_form
+msgid "These attachments and their files are deleted permanently. Continue?"
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#. odoo-python
+#: code:addons/orphan_attachment_cleaner/wizard/orphan_attachment_scan.py:0
+msgid ""
+"Tick the confirmation box first: deleted attachments and their files cannot "
+"be recovered."
+msgstr ""
+
+#. module: orphan_attachment_cleaner
+#: model:ir.model.fields,field_description:orphan_attachment_cleaner.field_orphan_attachment_scan__confirmed
+msgid "Yes, permanently delete the selected files"
+msgstr ""

@@ -1,0 +1,317 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sequence_gap_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:59+0000\n"
+"PO-Revision-Date: 2026-07-30 18:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"\"%(model)s\" holds more than %(cap)s numbered documents. Scan a narrower "
+"model, or a field with fewer values."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid "\"%s\" does not store documents, so it has no numbering to check."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"%(skipped)s hole(s) wider than %(span)s numbers were skipped as implausible."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,help:sequence_gap_report.field_sequence_gap_report__include_archived
+msgid ""
+"Archived documents still consumed a number, so they count as present by "
+"default. Untick to scan active documents only."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "Close"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__create_uid
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__create_date
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__display_name
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__next_value
+msgid "Document After"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__previous_value
+msgid "Document Before"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields.selection,name:sequence_gap_report.selection__sequence_gap_report__state__done
+msgid "Done"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields.selection,name:sequence_gap_report.selection__sequence_gap_report__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__first_number
+msgid "First Missing Number"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__line_ids
+msgid "Gaps"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__id
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__id
+msgid "ID"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__include_archived
+msgid "Include Archived"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__write_uid
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__write_date
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__max_gaps
+msgid "Maximum Gaps"
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"Maximum Gaps was capped at %(cap)s: only the first %(kept)s gaps out of "
+"%(total)s are listed. Scan a narrower model to see the rest."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__first_missing
+msgid "Missing From"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__missing_count
+msgid "Missing Numbers"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__last_missing
+msgid "Missing To"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_line_view_tree
+msgid "Missing numbers"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__model_name
+msgid "Model"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "New Scan"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__field_name
+msgid "Numbered Field"
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"Only documents you are allowed to read are counted, so numbers hidden by "
+"access rights appear here as gaps."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"Only the first %(kept)s gaps out of %(total)s are listed. Raise \"Maximum "
+"Gaps\" (up to %(cap)s) or scan a narrower model to see the rest."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "Open Full List"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__report_id
+msgid "Report"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__summary
+msgid "Result"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,help:sequence_gap_report.field_sequence_gap_report__max_gaps
+msgid ""
+"Safety cap on the number of gaps listed. The report says so when more gaps "
+"than this exist."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "Scan for Gaps"
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"Scanned %(scanned)s document(s) in %(series)s numbering series: %(gaps)s "
+"gap(s) covering %(missing)s missing number(s). %(ignored)s value(s) without "
+"a trailing number were ignored."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model,name:sequence_gap_report.model_sequence_gap_line
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_line_view_form
+msgid "Sequence Gap"
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+#: model:ir.actions.act_window,name:sequence_gap_report.action_sequence_gap_report
+#: model:ir.model,name:sequence_gap_report.model_sequence_gap_report
+#: model:ir.ui.menu,name:sequence_gap_report.menu_sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "Sequence Gap Report"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.actions.act_window,name:sequence_gap_report.action_sequence_gap_line
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_line_view_tree
+msgid "Sequence Gaps"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_line__prefix
+msgid "Series Prefix"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__state
+msgid "State"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,help:sequence_gap_report.field_sequence_gap_report__field_name
+msgid "Stored text field holding the sequence number, usually 'name'."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,help:sequence_gap_report.field_sequence_gap_report__model_name
+msgid ""
+"Technical name of the model to scan, for example account.move (invoices and "
+"journal entries), sale.order, purchase.order or stock.picking."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"The field \"%(field)s\" of \"%(model)s\" is not a stored text field, so it "
+"cannot hold a sequence number."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid ""
+"The scan only reads document numbers: nothing is created, modified or renumbered.\n"
+"                    Documents you are not allowed to read are not counted, so numbers hidden by access\n"
+"                    rights are reported as gaps.\n"
+"                    Usual models are <code>account.move</code> (invoices and journal entries),\n"
+"                    <code>sale.order</code>, <code>purchase.order</code> and <code>stock.picking</code>."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid "There is no field called \"%(field)s\" on \"%(model)s\"."
+msgstr ""
+
+#. module: sequence_gap_report
+#. odoo-python
+#: code:addons/sequence_gap_report/wizard/sequence_gap_report.py:0
+msgid ""
+"There is no model called \"%s\" in this database. Install the application "
+"that provides it, or scan another model such as sale.order, purchase.order "
+"or stock.picking."
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__truncated
+msgid "Truncated"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model:ir.model.fields,field_description:sequence_gap_report.field_sequence_gap_report__truncation_note
+msgid "Truncation Note"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "e.g. account.move"
+msgstr ""
+
+#. module: sequence_gap_report
+#: model_terms:ir.ui.view,arch_db:sequence_gap_report.sequence_gap_report_view_form
+msgid "e.g. name"
+msgstr ""

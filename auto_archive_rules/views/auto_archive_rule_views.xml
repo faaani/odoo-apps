@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="auto_archive_rule_view_list" model="ir.ui.view">
+        <field name="name">auto.archive.rule.list</field>
+        <field name="model">auto.archive.rule</field>
+        <field name="arch" type="xml">
+            <list string="Archiving Rules">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="inactivity_days"/>
+                <field name="last_run"/>
+                <field name="last_run_count"/>
+                <field name="archived_count" sum="Total Archived"/>
+                <field name="enabled" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="auto_archive_rule_view_form" model="ir.ui.view">
+        <field name="name">auto.archive.rule.form</field>
+        <field name="model">auto.archive.rule</field>
+        <field name="arch" type="xml">
+            <form string="Archiving Rule">
+                <header>
+                    <button name="action_preview" type="object" string="Preview"
+                            class="btn-primary"
+                            help="Show the records this rule would archive right now. Nothing is changed."/>
+                    <button name="action_run_now" type="object" string="Run Now"
+                            confirm="This archives the matching records immediately. Use Preview first if you are not sure. Continue?"
+                            help="Apply this rule now instead of waiting for the daily scheduled action."/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Leads untouched for a year"/></h1>
+                    </div>
+                    <group>
+                        <group string="What to archive">
+                            <field name="model_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="filter_domain" widget="domain"
+                                   options="{'model': 'model_name', 'in_dialog': True}"/>
+                            <field name="inactivity_days"/>
+                        </group>
+                        <group string="Status">
+                            <field name="enabled" widget="boolean_toggle"/>
+                            <field name="last_run"/>
+                            <field name="last_run_count"/>
+                            <field name="archived_count"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        New rules are disabled on purpose. Click <strong>Preview</strong> to
+                        check exactly which records this rule matches, then switch
+                        <strong>Enabled</strong> on to let the daily scheduled action apply it.
+                        Records younger than the built-in minimum age are never archived; users,
+                        companies and technical models cannot be targeted, and the contacts behind
+                        a user or a company are always left alone.
+                        A rule applies to <strong>every company</strong> in the database — add a
+                        company condition to the filter if you want to limit it — and archives at
+                        most a few thousand records per run, continuing on the following days.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="auto_archive_rule_view_search" model="ir.ui.view">
+        <field name="name">auto.archive.rule.search</field>
+        <field name="model">auto.archive.rule</field>
+        <field name="arch" type="xml">
+            <search string="Archiving Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter name="enabled" string="Enabled" domain="[('enabled', '=', True)]"/>
+                <filter name="disabled" string="Disabled" domain="[('enabled', '=', False)]"/>
+                <separator/>
+                <filter name="inactive" string="Archived Rules" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="auto_archive_rule_action" model="ir.actions.act_window">
+        <field name="name">Automatic Archiving Rules</field>
+        <field name="res_model">auto.archive.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first archiving rule</p>
+            <p>
+                Pick a model, add an optional filter and say how long a record may
+                stay untouched before it is archived. New rules are disabled until
+                you turn them on, and Preview always shows what would happen first.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="auto_archive_rule_menu"
+              name="Automatic Archiving"
+              parent="base.menu_automation"
+              action="auto_archive_rule_action"
+              sequence="90"
+              groups="base.group_system"/>
+</odoo>

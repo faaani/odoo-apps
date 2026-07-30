@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_attachment_storage_report,attachment.storage.report,model_attachment_storage_report,base.group_system,1,1,1,1
+access_attachment_storage_report_model_line,attachment.storage.report.model.line,model_attachment_storage_report_model_line,base.group_system,1,1,1,1
+access_attachment_storage_report_user_line,attachment.storage.report.user.line,model_attachment_storage_report_user_line,base.group_system,1,1,1,1
+access_attachment_storage_report_attachment_line,attachment.storage.report.attachment.line,model_attachment_storage_report_attachment_line,base.group_system,1,1,1,1
