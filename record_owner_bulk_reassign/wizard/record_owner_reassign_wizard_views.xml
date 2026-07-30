@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="record_owner_reassign_wizard_view_form" model="ir.ui.view">
+        <field name="name">record.owner.reassign.wizard.form</field>
+        <field name="model">record.owner.reassign.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reassign Owner">
+                <field name="res_model" invisible="1"/>
+                <field name="field_name" invisible="1"/>
+                <field name="selected_count" invisible="1"/>
+                <div class="alert alert-info" role="status">
+                    <field name="field_label" class="oe_inline"/> will be set on
+                    <field name="record_count" class="oe_inline"/> record(s).
+                </div>
+                <group>
+                    <group>
+                        <field name="scope" widget="radio"/>
+                        <field name="old_user_id" options="{'no_create': True}"
+                               invisible="scope != 'user'" required="scope == 'user'"/>
+                    </group>
+                    <group>
+                        <field name="new_user_id" options="{'no_create': True}"/>
+                        <field name="log_note"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_reassign" string="Reassign" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_record_owner_reassign_wizard" model="ir.actions.act_window">
+        <field name="name">Reassign Owner</field>
+        <field name="res_model">record.owner.reassign.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>
