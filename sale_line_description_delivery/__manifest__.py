@@ -2,7 +2,7 @@
 # Part of sale_line_description_delivery. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Sale Line Description on Delivery',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'summary': 'Show the description typed on the sale order line on the transfer and the delivery slip — not just the product name.',
     'description': """
 The description you type on a sale order line never reaches the warehouse:
@@ -17,6 +17,7 @@ No configuration. Install and every new confirmed order does the right thing.
     'website': 'https://github.com/faaani/odoo-apps',
     'category': 'Inventory/Inventory',
     'license': 'LGPL-3',
+    'support': 'f.ashraf.dev1@gmail.com',
     'depends': ['sale_stock'],
     'data': [],
     'images': ['static/description/banner.png'],
