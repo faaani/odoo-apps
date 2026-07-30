@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_cron_history" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.cron.history</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="before">
+                <block title="Scheduled Actions" name="cron_history_block">
+                    <setting string="Scheduled Action History" id="cron_history_setting"
+                             help="Record the start, duration, result and error of every scheduled action run.">
+                        <field name="cron_history_enabled"/>
+                        <div class="content-group" invisible="not cron_history_enabled">
+                            <div class="row mt16">
+                                <label for="cron_history_retention_days" class="col-lg-6 o_light_label"/>
+                                <field name="cron_history_retention_days" class="col-lg-2"/>
+                            </div>
+                            <div class="row">
+                                <field name="cron_history_log_success" class="col-lg-1"/>
+                                <label for="cron_history_log_success" class="col-lg-6 o_light_label"/>
+                            </div>
+                            <div class="text-muted mt8">
+                                A daily cleanup deletes history rows older than the retention above.
+                                0 days keeps the history forever. Nothing else is ever deleted.
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
