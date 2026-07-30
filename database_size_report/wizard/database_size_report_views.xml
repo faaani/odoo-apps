@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="database_size_report_line_view_tree" model="ir.ui.view">
+        <field name="name">database.size.report.line.tree</field>
+        <field name="model">database.size.report.line</field>
+        <field name="arch" type="xml">
+            <list string="Table Sizes" create="false" delete="false" edit="false">
+                <field name="table_name"/>
+                <field name="model_name"/>
+                <field name="model_label" optional="hide"/>
+                <field name="row_estimate" sum="Rows (estimate)"/>
+                <field name="table_size"/>
+                <field name="index_size"/>
+                <field name="total_size"/>
+                <field name="total_mb" sum="Total (MB)"/>
+                <field name="percentage" widget="progressbar"/>
+                <field name="note" optional="show"/>
+                <field name="kind" optional="hide"/>
+                <field name="schema_name" optional="hide"/>
+                <field name="row_estimate_missing" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="database_size_report_line_view_form" model="ir.ui.view">
+        <field name="name">database.size.report.line.form</field>
+        <field name="model">database.size.report.line</field>
+        <field name="arch" type="xml">
+            <form string="Table Size" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="table_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="What Is In It">
+                            <field name="model_name"/>
+                            <field name="model_label"/>
+                            <field name="kind"/>
+                            <field name="schema_name"/>
+                            <field name="row_estimate"/>
+                            <field name="row_estimate_missing"/>
+                        </group>
+                        <group string="Size">
+                            <field name="table_size"/>
+                            <field name="index_size"/>
+                            <field name="total_size"/>
+                            <field name="total_mb"/>
+                            <field name="percentage" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <group string="Note">
+                        <field name="note" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="database_size_report_line_view_search" model="ir.ui.view">
+        <field name="name">database.size.report.line.search</field>
+        <field name="model">database.size.report.line</field>
+        <field name="arch" type="xml">
+            <search string="Table Sizes">
+                <field name="table_name"
+                       filter_domain="['|', ('table_name', 'ilike', self), ('model_name', 'ilike', self)]"/>
+                <field name="model_name"/>
+                <filter string="With an Odoo Model" name="with_model"
+                        domain="[('model_name', '!=', False)]"/>
+                <filter string="Without an Odoo Model" name="without_model"
+                        domain="[('model_name', '=', False)]"/>
+                <separator/>
+                <filter string="Over 10 MB" name="over_10mb"
+                        domain="[('total_mb', '&gt;=', 10)]"/>
+                <filter string="Over 100 MB" name="over_100mb"
+                        domain="[('total_mb', '&gt;=', 100)]"/>
+                <separator/>
+                <filter string="No Statistics Yet" name="no_statistics"
+                        domain="[('row_estimate_missing', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Odoo Model" name="group_model"
+                            context="{'group_by': 'model_name'}"/>
+                    <filter string="Kind" name="group_kind"
+                            context="{'group_by': 'kind'}"/>
+                    <filter string="Schema" name="group_schema"
+                            context="{'group_by': 'schema_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_database_size_report_line" model="ir.actions.act_window">
+        <field name="name">Table Sizes</field>
+        <field name="res_model">database.size.report.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="database_size_report_line_view_search"/>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="database_size_report_view_form" model="ir.ui.view">
+        <field name="name">database.size.report.form</field>
+        <field name="model">database.size.report</field>
+        <field name="arch" type="xml">
+            <form string="Database Size Report">
+                <header>
+                    <button name="action_refresh" type="object" string="Refresh"
+                            class="btn-primary"/>
+                    <button name="action_open_lines" type="object"
+                            string="Open As List" class="btn-secondary"
+                            help="Open the same tables in a full list view, where they can be filtered, grouped and exported."/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Database Size Report</h1>
+                    </div>
+                    <field name="is_truncated" invisible="1"/>
+                    <group>
+                        <group string="Database">
+                            <field name="database_name"/>
+                            <field name="database_size_display"/>
+                            <field name="measured_on"/>
+                        </group>
+                        <group string="Tables">
+                            <field name="table_count"/>
+                            <field name="total_display"/>
+                            <field name="listed_count"/>
+                            <field name="listed_display"/>
+                            <field name="line_limit"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert" invisible="not is_truncated">
+                        This database holds more tables than the list below shows.
+                        The totals above still cover every table — raise
+                        <strong>Tables to List</strong> and press <strong>Refresh</strong>
+                        to see more of them.
+                    </div>
+                    <div class="text-muted">
+                        Sizes come straight from PostgreSQL: <strong>Table Size</strong> is the
+                        table itself (including its TOAST overflow storage), <strong>Index
+                        Size</strong> is all of its indexes, and <strong>Total Size</strong>
+                        is what the table really costs on disk. <strong>Rows</strong> is
+                        PostgreSQL's own estimate, not an exact count, so the report is
+                        instant even on a very large database.
+                        <strong>Database on Disk</strong> is bigger than the total of the
+                        tables because it also holds the PostgreSQL catalogs and the free
+                        space left behind by deleted rows.
+                        This report only reads: none of your records is changed or deleted.
+                        The report itself is a temporary record that Odoo cleans up on its own.
+                    </div>
+                    <field name="line_ids" nolabel="1" readonly="1">
+                        <list string="Table Sizes" create="false" delete="false" edit="false">
+                            <field name="table_name"/>
+                            <field name="model_name"/>
+                            <field name="row_estimate" sum="Rows (estimate)"/>
+                            <field name="table_size"/>
+                            <field name="index_size"/>
+                            <field name="total_size"/>
+                            <field name="total_mb" sum="Total (MB)"/>
+                            <field name="percentage" widget="progressbar"/>
+                            <field name="note" optional="show"/>
+                            <field name="model_label" optional="hide"/>
+                            <field name="kind" optional="hide"/>
+                            <field name="schema_name" optional="hide"/>
+                            <field name="row_estimate_missing" optional="hide"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_database_size_report" model="ir.actions.server">
+        <field name="name">Database Size Report</field>
+        <field name="model_id" ref="model_database_size_report"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_report()</field>
+    </record>
+
+    <menuitem id="menu_database_size_root"
+              name="Database Size"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="106"/>
+
+    <menuitem id="menu_database_size_report"
+              name="Size Report"
+              parent="menu_database_size_root"
+              action="action_database_size_report"
+              groups="base.group_system"
+              sequence="10"/>
+
+</odoo>

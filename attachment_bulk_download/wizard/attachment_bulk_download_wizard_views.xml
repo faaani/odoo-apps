@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="attachment_bulk_download_wizard_view_form" model="ir.ui.view">
+        <field name="name">attachment.bulk.download.wizard.form</field>
+        <field name="model">attachment.bulk.download.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Download Attachments">
+                <field name="over_limit" invisible="1"/>
+                <group>
+                    <group>
+                        <field name="res_model_label"/>
+                        <field name="record_count"/>
+                    </group>
+                    <group>
+                        <field name="attachment_count"/>
+                        <field name="total_size"/>
+                        <field name="max_size"/>
+                    </group>
+                </group>
+                <div class="alert alert-warning" role="alert" invisible="attachment_count != 0">
+                    None of the selected records has a file you may download.
+                </div>
+                <div class="alert alert-warning" role="alert" invisible="not over_limit">
+                    This selection is larger than the bulk download limit. Select fewer records, or ask your administrator to raise the limit in Settings.
+                </div>
+                <div class="text-muted" invisible="attachment_count == 0">
+                    Files are grouped inside the ZIP by record name, so identical file names never overwrite each other.
+                </div>
+                <footer>
+                    <button name="action_download" string="Download ZIP" type="object" class="btn-primary"
+                            invisible="attachment_count == 0 or over_limit"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_attachment_bulk_download" model="ir.actions.act_window">
+        <field name="name">Download Attachments</field>
+        <field name="res_model">attachment.bulk.download.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>
