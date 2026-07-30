@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* failed_mail_alert
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 19:03+0000\n"
+"PO-Revision-Date: 2026-07-30 19:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid ""
+"%(count)s outgoing email(s) have been waiting in the Odoo mail queue for "
+"more than %(age)s minutes without being delivered. Outgoing mail is most "
+"likely misconfigured or refused by the mail server."
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "(no recipient)"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "(no subject)"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,field_description:failed_mail_alert.field_res_config_settings__failed_mail_alert_threshold
+msgid "Alert Above (emails)"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,help:failed_mail_alert.field_res_config_settings__failed_mail_alert_threshold
+msgid ""
+"Alert once at least this many messages are stuck in the outgoing queue. "
+"Values below 1 are treated as 1."
+msgstr ""
+
+#. module: failed_mail_alert
+#: model_terms:ir.ui.view,arch_db:failed_mail_alert.res_config_settings_view_form_failed_mail_alert
+msgid "Checked every 4 hours; at most one alert every 24 hours."
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model,name:failed_mail_alert.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,help:failed_mail_alert.field_res_config_settings__failed_mail_alert_enabled
+msgid ""
+"Email Settings administrators when outgoing messages pile up in the queue "
+"instead of being delivered."
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.actions.server,name:failed_mail_alert.ir_cron_failed_mail_alert_ir_actions_server
+msgid "Email: alert on a stuck outgoing queue"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,field_description:failed_mail_alert.field_res_config_settings__failed_mail_alert_enabled
+#: model_terms:ir.ui.view,arch_db:failed_mail_alert.res_config_settings_view_form_failed_mail_alert
+msgid "Failed Email Alerts"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,help:failed_mail_alert.field_res_config_settings__failed_mail_alert_age_minutes
+msgid ""
+"Messages queued more recently than this are still considered normal traffic "
+"and are not counted. Values below 5 are treated as 5."
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,field_description:failed_mail_alert.field_res_config_settings__failed_mail_alert_age_minutes
+msgid "Minimum Age (minutes)"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "Odoo alert: outgoing emails are failing"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid ""
+"Only the %(shown)s oldest of %(count)s stuck messages are listed. Open "
+"Settings > Technical > Email > Emails for the full queue."
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model,name:failed_mail_alert.model_mail_mail
+msgid "Outgoing Mails"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,field_description:failed_mail_alert.field_mail_mail__failed_alert_notice
+msgid "Queue Alert Notice"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "Recipient"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model:ir.model.fields,help:failed_mail_alert.field_mail_mail__failed_alert_notice
+msgid ""
+"Set on the alert messages produced by Failed Email Alerts, so the watchdog "
+"never counts its own (also undeliverable) emails as evidence that the queue "
+"is broken."
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "Still queued, never sent"
+msgstr ""
+
+#. module: failed_mail_alert
+#. odoo-python
+#: code:addons/failed_mail_alert/models/mail_mail.py:0
+#, python-format
+msgid "Subject"
+msgstr ""
+
+#. module: failed_mail_alert
+#: model_terms:ir.ui.view,arch_db:failed_mail_alert.res_config_settings_view_form_failed_mail_alert
+msgid ""
+"Warn administrators by email when outgoing messages stop being delivered and"
+" pile up in the queue."
+msgstr ""

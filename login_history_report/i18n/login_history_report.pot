@@ -1,0 +1,267 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* login_history_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 18:58+0000\n"
+"PO-Revision-Date: 2026-07-30 18:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_form
+msgid "Account"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__user_create_date
+msgid "Account Created"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__activity_status__recent
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Active (last 30 days)"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__company_ids
+msgid "Allowed Companies"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Archived Accounts"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__company_id
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Company"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__last_login
+msgid ""
+"Date of the most recent login record for this user. Empty when the account "
+"has never been used to log in."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__reference_date
+msgid ""
+"Date the \"Days Since Last Login\" figure is counted from: the last login, "
+"or the account creation date when the user never logged in."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__days_since_login
+msgid "Days Since Last Login"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Days since login (at least)"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__activity_status__dormant
+msgid "Dormant (90+ days)"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Dormant 30+ Days"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Dormant 60+ Days"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Dormant 90+ Days"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__user_active
+msgid "Enabled"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Enabled Accounts"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Group By"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__id
+msgid "ID"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__activity_status__idle
+msgid "Idle (30-90 days)"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__user_type__internal
+msgid "Internal User"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Internal Users"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__last_login
+msgid "Last Login"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Last Login Month"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Logged In At Least Once"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__login
+msgid "Login"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_form
+msgid "Login Activity"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__activity_status
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Login Status"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__user_name
+msgid "Name"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__never_logged
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__activity_status__never
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Never Logged In"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.actions.act_window,help:login_history_report.action_login_history_report
+msgid "No user matches these filters"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__share
+msgid "Portal / Public"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields.selection,name:login_history_report.selection__login_history_report__user_type__portal
+msgid "Portal / Public User"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "Portal / Public Users"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__reference_date
+msgid "Reference Date"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__user_id
+msgid "The user account this line reports on."
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.actions.act_window,help:login_history_report.action_login_history_report
+msgid ""
+"This report lists every user account with its real last login, how\n"
+"               many days ago that was, and whether the account has ever been used\n"
+"               at all. It is read-only: nothing is modified."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__share
+msgid ""
+"Ticked for portal and public users, who do not consume an internal seat."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__never_logged
+msgid "Ticked when no login record exists at all for this account."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__user_active
+msgid "Unticked for archived (deactivated) user accounts."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__user_id
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "User"
+msgstr ""
+
+#. module: login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_form
+msgid "User Login"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.actions.act_window,name:login_history_report.action_login_history_report
+#: model:ir.model,name:login_history_report.model_login_history_report
+#: model:ir.ui.menu,name:login_history_report.menu_login_history_report
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_tree
+msgid "User Login Report"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,field_description:login_history_report.field_login_history_report__user_type
+#: model_terms:ir.ui.view,arch_db:login_history_report.view_login_history_report_search
+msgid "User Type"
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__user_create_date
+msgid "When the user account was created."
+msgstr ""
+
+#. module: login_history_report
+#: model:ir.model.fields,help:login_history_report.field_login_history_report__days_since_login
+msgid ""
+"Whole days between the reference date and now. For accounts that never "
+"logged in this is the age of the account."
+msgstr ""
