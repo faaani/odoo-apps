@@ -1,0 +1,134 @@
+<section style="font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c364f; line-height: 1.6;">
+
+  <div style="text-align:center; padding: 28px 16px 8px;">
+    <img src="banner.png" alt="Bulk Import Email Blacklist" style="max-width:100%; height:auto; border-radius:10px;"/>
+  </div>
+
+  <div style="max-width: 920px; margin: 0 auto; padding: 8px 16px 40px;">
+
+    <h2 style="font-size:28px; margin: 28px 0 8px;">Blacklist hundreds of addresses in one run</h2>
+    <p style="font-size:16px;">
+      Odoo's <em>Email Blacklist</em> screen accepts one address at a time. After a bounce
+      report, an abuse complaint export or a GDPR erasure request, that means pasting the
+      same form over and over. This module adds a bulk wizard: paste the list or upload the
+      file, choose whether you are adding or removing, and get a per-address report of what
+      actually happened.
+    </p>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">What it does</h3>
+    <ul style="font-size:16px;">
+      <li><b>Two inputs.</b> Paste addresses (one per line, or several per line separated by
+          a comma or a semicolon), or upload a <code>.csv</code> / <code>.txt</code> file.</li>
+      <li><b>Two modes.</b> <i>Add to the blacklist</i> or <i>Remove from the blacklist</i>.
+          Add is the default; remove asks for confirmation before it runs.</li>
+      <li><b>Real normalization.</b> Stray whitespace, mixed case and
+          <code>Name &lt;address@example.com&gt;</code> forms are handled, and every address
+          goes through Odoo's own <code>mail.blacklist</code> helpers, so the standard chatter
+          entry is logged on each blacklist record exactly as if you had typed it by hand.</li>
+      <li><b>An honest report.</b> Added, already blacklisted, removed, not blacklisted,
+          listed more than once, and invalid <em>with the reason for each one</em>.</li>
+      <li><b>The rejects come back.</b> Invalid entries are handed back as plain text, and one
+          button reloads them into the wizard so you can fix and re-submit just those.</li>
+      <li><b>Nothing can derail a run.</b> Each address is processed inside its own database
+          savepoint: a single failing row is reported and the rest of the list still imports.</li>
+      <li><b>A stated limit.</b> Up to 1,000 addresses per run. If your input is longer, the
+          wizard processes the first 1,000 and tells you on screen that it truncated.</li>
+    </ul>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">What it never does</h3>
+    <ul style="font-size:16px;">
+      <li>It never deletes a blacklist entry. "Remove" archives it, which is Odoo's own
+          un-blacklist behaviour, so the address keeps its history.</li>
+      <li>It never creates a blacklist row for an address you asked to remove that was not
+          blacklisted &mdash; that address is simply reported as "not blacklisted".</li>
+      <li>It never touches contacts, leads, mailing lists or any other record. Only
+          <code>mail.blacklist</code> is written.</li>
+      <li>It never bypasses access rights. The wizard is restricted to Settings
+          administrators, the same group Odoo requires for the blacklist itself.</li>
+    </ul>
+
+    <h3 style="font-size:21px; margin: 28px 0 12px;">Screenshots</h3>
+
+    <p style="font-size:15px; margin-bottom:6px;"><b>1. Paste the addresses and pick the mode.</b></p>
+    <img src="01-wizard.png" alt="The bulk import wizard with a pasted list of addresses"
+         style="max-width:100%; height:auto; border:1px solid #dde1ea; border-radius:8px; margin-bottom:22px;"/>
+
+    <p style="font-size:15px; margin-bottom:6px;"><b>2. Read the per-address result.</b></p>
+    <img src="02-result.png" alt="The result screen with counts, the report and the invalid addresses"
+         style="max-width:100%; height:auto; border:1px solid #dde1ea; border-radius:8px; margin-bottom:22px;"/>
+
+    <p style="font-size:15px; margin-bottom:6px;"><b>3. Also reachable from the blacklist list view.</b></p>
+    <img src="03-menu.png" alt="The wizard in the Actions menu of the Blacklisted Email Addresses list"
+         style="max-width:100%; height:auto; border:1px solid #dde1ea; border-radius:8px; margin-bottom:22px;"/>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">Installation</h3>
+    <ol style="font-size:16px;">
+      <li>Copy the <code>mail_blacklist_bulk_import</code> folder into your Odoo add-ons path.</li>
+      <li>Restart the Odoo service.</li>
+      <li>Open <b>Apps</b>, click <b>Update Apps List</b>, search for
+          <em>Bulk Import Email Blacklist</em> and press <b>Install</b>.</li>
+      <li>The only dependency is <code>mail</code>, which every Odoo database already has.</li>
+    </ol>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">Configuration</h3>
+    <ol style="font-size:16px;">
+      <li>There is nothing to configure &mdash; the module works as soon as it is installed.</li>
+      <li>Access is limited to the <b>Settings</b> administrator group
+          (<code>base.group_system</code>). Grant that group to anyone who should be able to
+          run the wizard; no other setting controls it.</li>
+      <li>The menu sits next to Odoo's own blacklist screen, under
+          <b>Settings &rsaquo; Technical &rsaquo; Discuss &rsaquo; Blacklist Bulk Import</b>.
+          Odoo's whole Technical menu &mdash; including the standard
+          <em>Blacklisted Email Addresses</em> screen &mdash; is only visible with
+          <b>developer mode</b> enabled, so the same applies here.</li>
+      <li>If <b>Email Marketing</b> is installed, no developer mode is needed: open
+          <b>Email Marketing &rsaquo; Configuration &rsaquo; Blacklisted Email Addresses</b>,
+          tick any row and use <b>Actions &rsaquo; Bulk Import Email Blacklist</b>.</li>
+    </ol>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">Usage</h3>
+    <ol style="font-size:16px;">
+      <li>Go to <b>Settings &rsaquo; Technical &rsaquo; Discuss &rsaquo; Blacklist Bulk Import</b>
+          (or open <b>Blacklisted Email Addresses</b>, select any row and use
+          <b>Actions &rsaquo; Bulk Import Email Blacklist</b>).</li>
+      <li>Choose the mode: <b>Add to the blacklist</b> or <b>Remove from the blacklist</b>.</li>
+      <li>Choose the source: paste the addresses in the text box, or switch to
+          <b>Upload a file</b> and pick a <code>.csv</code> or <code>.txt</code> file. In a CSV,
+          the first cell of each row containing an <code>@</code> is used, and a leading header
+          row called <em>email</em>, <em>e-mail</em> or <em>address</em> is ignored.</li>
+      <li>Press <b>Add to Blacklist</b> (or <b>Remove from Blacklist</b>, which asks for
+          confirmation first).</li>
+      <li>Read the summary. If some entries were invalid, press <b>Fix Invalid Addresses</b> to
+          reload only those into the wizard, correct them and run again.</li>
+      <li>Press <b>View Blacklist</b> to check the result in the standard Odoo screen.</li>
+    </ol>
+
+    <h3 style="font-size:21px; margin: 28px 0 8px;">Good to know</h3>
+    <ul style="font-size:16px;">
+      <li>An address is rejected when Odoo cannot normalize it, or when its domain has no dot
+          (<code>user@localhost</code> is refused on purpose). The reason is printed next to
+          the address.</li>
+      <li>Addresses repeated inside one input are counted once and reported as
+          "listed more than once" &mdash; they are not errors.</li>
+      <li>Re-adding an address that was previously un-blacklisted reuses the existing archived
+          record instead of creating a second row.</li>
+      <li>CSV files with several columns are supported, but an address that contains a comma
+          inside a quoted display name is best pasted as plain text instead.</li>
+      <li>A run reads at most 1&nbsp;MB of pasted text or uploaded file; anything larger is
+          refused with a message rather than parsed.</li>
+      <li>Tested on Odoo 14.0, 15.0, 16.0, 17.0, 18.0 and 19.0, Community and Enterprise.</li>
+    </ul>
+
+    <div style="margin-top: 34px; padding: 20px 24px; background: #f4f6fb; border-radius: 10px;">
+      <h3 style="font-size:19px; margin: 0 0 6px;">Support</h3>
+      <p style="font-size:16px; margin: 0;">
+        Questions, bug reports and feature requests are welcome at
+        <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a>.<br/>
+        Author: Farhan Ashraf &mdash; source and issue tracker:
+        <a href="https://github.com/faaani/odoo-apps">github.com/faaani/odoo-apps</a><br/>
+        Licence: LGPL-3. Free and open source, no subscription, no external service.
+      </p>
+    </div>
+
+  </div>
+</section>
