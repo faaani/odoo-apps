@@ -1,0 +1,377 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* user_group_audit_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:19+0000\n"
+"PO-Revision-Date: 2026-07-30 22:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_form
+msgid "Access"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__access_level
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Access Level"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__access_level__access_rights
+msgid "Access Rights"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__is_access_rights_admin
+msgid "Access Rights Admin"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_form
+msgid "Account"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__user_create_date
+msgid "Account Created"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__company_ids
+msgid "Allowed Companies"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__is_archived
+msgid "Archived"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Archived Accounts"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__assigned_group_count
+msgid "Assigned Group Count"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__group_ids
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_form
+msgid "Assigned Groups"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__company_id
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Company"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__user_type
+msgid ""
+"Derived from the effective groups: Internal User (base.group_user), Portal "
+"User (base.group_portal), Public User (base.group_public). \"No User Type "
+"Group\" means the account holds none of the three - usually an "
+"integration/API account, worth a second look in an audit."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__effective_group_count
+msgid "Effective Groups"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__implied_group_count
+msgid ""
+"Effective groups minus assigned groups: access the user holds without it "
+"being ticked on the account. On Odoo 14.0-18.0 this is normally 0, because "
+"Odoo writes implied groups onto the user record, so anything above 0 is "
+"worth a look. On Odoo 19.0, which stores only the directly assigned groups, "
+"a positive number is expected."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__is_access_rights_admin
+msgid ""
+"Effective member of Administration / Access Rights (base.group_erp_manager)."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__is_settings_admin
+msgid "Effective member of Administration / Settings (base.group_system)."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__user_active
+msgid "Enabled"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Enabled Accounts"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Group"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Group By"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__group_ids
+msgid ""
+"Groups recorded on the user account. On Odoo 14.0-18.0 Odoo writes implied "
+"groups into this list when the user is saved, so there it is already the "
+"effective set; on Odoo 19.0 it holds the directly assigned groups only. The "
+"flags and counts on this report always use the effective set (assigned "
+"groups plus everything they imply)."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__implied_group_count
+msgid "Groups via Implication"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Has Groups via Implication"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Has System Access"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__access_level
+msgid "Highest administration group held, through the effective groups."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__id
+msgid "ID"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__user_type__internal
+msgid "Internal User"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Internal Users"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__last_login
+msgid "Last Login"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Logged In At Least Once"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__login
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_form
+msgid "Login"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__last_login
+msgid ""
+"Most recent login record for this account, empty when the account has never "
+"been used to log in."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__user_name
+msgid "Name"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__never_logged_in
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Never Logged In"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "No Group Assigned"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "No System Access"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__user_type__none
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "No User Type Group"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__access_level__standard
+msgid "No administration group"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.actions.act_window,help:user_group_audit_report.action_user_group_audit_report
+msgid "No user matches these filters"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__assigned_group_count
+msgid "Number of groups recorded on the user account."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__effective_group_count
+msgid ""
+"Number of groups the user really holds: the assigned groups plus every group"
+" those imply, transitively."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__share
+msgid "Portal / Public"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__user_type__portal
+msgid "Portal User"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Portal Users"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__user_type__public
+msgid "Public User"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "Public Users"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields.selection,name:user_group_audit_report.selection__user_group_audit_report__access_level__settings
+msgid "Settings (full administrator)"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__is_settings_admin
+msgid "Settings Admin"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__has_system_access
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "System Access"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__user_id
+msgid "The user account this line reports on."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.actions.act_window,help:user_group_audit_report.action_user_group_audit_report
+msgid ""
+"This report lists every user account with its groups, whether it has\n"
+"               administration access, whether it is archived and whether it has ever\n"
+"               been used to log in. It is read-only: nothing is modified."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__share
+msgid ""
+"Ticked for portal and public users, who do not consume an internal seat."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__never_logged_in
+msgid "Ticked when no login record exists at all for this account."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__has_system_access
+msgid ""
+"Ticked when the effective groups include Administration / Settings "
+"(base.group_system) or Administration / Access Rights "
+"(base.group_erp_manager). These users can change access rights."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__is_archived
+msgid ""
+"Ticked when the user account is archived. An archived account cannot log in,"
+" but it keeps every group it was granted."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__user_active
+msgid "Unticked for archived (deactivated) user accounts."
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__user_id
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "User"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_form
+msgid "User Access Audit"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.actions.act_window,name:user_group_audit_report.action_user_group_audit_report
+#: model:ir.model,name:user_group_audit_report.model_user_group_audit_report
+#: model:ir.ui.menu,name:user_group_audit_report.menu_user_group_audit_report
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_tree
+msgid "User Access Audit Report"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,field_description:user_group_audit_report.field_user_group_audit_report__user_type
+#: model_terms:ir.ui.view,arch_db:user_group_audit_report.view_user_group_audit_report_search
+msgid "User Type"
+msgstr ""
+
+#. module: user_group_audit_report
+#: model:ir.model.fields,help:user_group_audit_report.field_user_group_audit_report__user_create_date
+msgid "When the user account was created."
+msgstr ""
