@@ -1,0 +1,81 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">System Parameter Audit Trail</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Who changed which setting, when &mdash; and what it used to be</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">System parameters silently control half of Odoo&rsquo;s behaviour: the base URL, mail size limits, feature switches, integration endpoints. Nothing in Odoo records who changed one, when, or what the value used to be &mdash; the row is simply overwritten and the previous value is gone.
+        This module records every system parameter that is <strong>created, changed or deleted</strong>, with the key, the old value, the new value, the author and the timestamp.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Old value and new value</strong> &mdash; side by side, for every create, update and delete.</li>
+        <li><strong>Author and timestamp</strong> &mdash; who did it and exactly when, including changes made through <code>set_param()</code> by other modules and by the Settings pages.</li>
+        <li><strong>Secrets are masked</strong> &mdash; parameters whose key contains <code>key</code>, <code>secret</code>, <code>token</code> or <code>password</code> (the list is configurable) are stored as <code>********</code> in both the old and the new value. The real value is never copied into the audit table, so the trail never becomes a second place where your API keys are readable.</li>
+        <li><strong>Long values are truncated</strong> &mdash; anything over 512 characters is stored cut down to its first 512 characters and the row is flagged <em>Truncated</em>, so a certificate or a JSON blob is not duplicated into the trail.</li>
+        <li><strong>Filters that answer real questions</strong> &mdash; created / updated / deleted, today / last 7 days / last 30 days, masked keys, renamed keys, or one parameter name; group by parameter, operation, author or date; export to spreadsheet with Odoo&rsquo;s standard export permission.</li>
+        <li><strong>Retention with a daily clean-up</strong> &mdash; keep the history for the number of days you choose (365 by default, 0 keeps it for ever); a scheduled action removes the rest.</li>
+        <li><strong>Auditing can never break a configuration change</strong> &mdash; every hook runs inside a database savepoint and a <code>try/except</code>. If the audit write fails, the failure goes to the server log and the parameter change still succeeds.</li>
+        <li><strong>Tamper-resistant and admin only</strong> &mdash; the access rules grant read access only, so nobody &mdash; administrators included &mdash; can create, edit, back-date or delete an entry; the module writes the rows itself and the retention clean-up is the only thing that removes them. The list is restricted to the Administration / Settings group.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-audit-trail.png" alt="System parameter audit trail list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every change to a system parameter: date, parameter, operation, old value, new value and author &mdash; most recent first.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-masked-secret.png" alt="A masked secret parameter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A key that looks like a credential: the change is recorded and attributed, but both values are stored masked and the row says so.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters and groupings: operation, date window, masked keys, renamed keys, by parameter or by author.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-settings.png" alt="Settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Three settings: switch the trail on or off, how many days of history to keep, and which key fragments mean &ldquo;secret&rdquo;.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>System Parameter Audit Trail</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base_setup</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings &rarr; System Parameters</strong>.</li>
+        <li><strong>System Parameter Audit Trail</strong> &mdash; tick to record changes (on by default).</li>
+        <li><strong>Keep History (days)</strong> &mdash; how long rows are kept; the daily scheduled action removes older ones. Set <code>0</code> to keep them for ever.</li>
+        <li><strong>Mask Keys Containing</strong> &mdash; comma-separated, case-insensitive fragments; default <code>key,secret,token,password</code>. Leave empty to mask nothing.</li>
+        <li>Changes to these three settings are always recorded, even while auditing is switched off, so the trail can not be turned off silently.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open the trail with the <strong>Open the audit trail</strong> button on the Settings page, or from <strong>Settings &rarr; Technical &rarr; Parameters &rarr; System Parameter Audit Trail</strong> (the Technical menu requires developer mode).</li>
+        <li>The list shows the most recent change first, with both values and the author.</li>
+        <li>Filter by <em>Created</em> / <em>Updated</em> / <em>Deleted</em>, by <em>Today</em> / <em>Last 7 Days</em> / <em>Last 30 Days</em>, by <em>Masked (Secret) Keys</em> or <em>Renamed Keys</em>, or type a parameter name in the search box.</li>
+        <li>Group by <strong>Parameter</strong> to read the whole history of one setting, or by <strong>Changed By</strong> to see what one administrator changed.</li>
+        <li>Open a row to read long values in full, or select and <strong>Export</strong> for a security review (exporting needs Odoo&rsquo;s standard &ldquo;Allow Export&rdquo; permission).</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">What is and is not covered</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Only <strong>system parameters</strong> (<code>ir.config_parameter</code>, the <em>System Parameters</em> list) are audited. Company fields, user preferences and other models are not.</li>
+        <li>Changes made <strong>before</strong> the module was installed can not be shown &mdash; nothing recorded them.</li>
+        <li>Masked values are stored as <code>********</code>: the trail proves that a secret changed and who changed it, never what it was changed to.</li>
+        <li>Values longer than 512 characters are stored cut down to their first 512 characters, and the row is flagged <em>Truncated</em>.</li>
+        <li>The author is the user who made the change, including when a module writes the parameter with <code>sudo()</code> on their behalf. Changes made by scheduled actions, by the command line or during a module installation are recorded as OdooBot, since no user is behind them; when code genuinely runs as OdooBot inside a web request, the logged-in user of that request is recorded instead.</li>
+        <li>Identical behaviour on every supported series (14.0 &ndash; 19.0).</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
