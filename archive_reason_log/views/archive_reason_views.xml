@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_archive_reason_list" model="ir.ui.view">
+        <field name="name">archive.reason.list</field>
+        <field name="model">archive.reason</field>
+        <field name="arch" type="xml">
+            <list string="Archive Reasons" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="note_mode"/>
+                <field name="description" optional="show"/>
+                <field name="model_ids" widget="many2many_tags" optional="hide"/>
+                <field name="log_count" string="Archives" optional="show"/>
+                <field name="active" widget="boolean_toggle" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_archive_reason_form" model="ir.ui.view">
+        <field name="name">archive.reason.form</field>
+        <field name="model">archive.reason</field>
+        <field name="arch" type="xml">
+            <form string="Archive Reason">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs" type="object" class="oe_stat_button"
+                                icon="fa-archive">
+                            <field name="log_count" widget="statinfo" string="Archives"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Reason"/>
+                        <h1><field name="name" placeholder="e.g. Duplicate"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="note_mode"/>
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="description" placeholder="Hint shown in the dialog"/>
+                        </group>
+                    </group>
+                    <group string="Availability">
+                        <field name="model_ids" widget="many2many_tags" nolabel="1"
+                               options="{'no_create': True}"
+                               placeholder="Leave empty to offer this reason on every model"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_archive_reason_search" model="ir.ui.view">
+        <field name="name">archive.reason.search</field>
+        <field name="model">archive.reason</field>
+        <field name="arch" type="xml">
+            <search string="Archive Reasons">
+                <field name="name"/>
+                <field name="model_ids"/>
+                <filter string="Explanation Required" name="filter_note_required"
+                        domain="[('note_mode', '=', 'required')]"/>
+                <filter string="Any Model" name="filter_all_models"
+                        domain="[('model_ids', '=', False)]"/>
+                <separator/>
+                <filter string="Archived" name="filter_inactive"
+                        domain="[('active', '=', False)]"/>
+                <group name="group_by">
+                    <filter string="Explanation Policy" name="group_note_mode"
+                            context="{'group_by': 'note_mode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_archive_reason" model="ir.actions.act_window">
+        <field name="name">Archive Reasons</field>
+        <field name="res_model">archive.reason</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_archive_reason_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add an archive reason</p>
+            <p>Reasons are what users pick in the "Archive with Reason" dialog.
+               Set the explanation policy to force a free-text justification, and
+               limit a reason to some models if it only makes sense there.</p>
+        </field>
+    </record>
+
+</odoo>
