@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_simple_modif_autofollow" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.autofollow</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group string="Notifications">
+                    <field name="no_auto_follow"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_form_autofollow" model="ir.ui.view">
+        <field name="name">res.users.form.autofollow</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Following" name="autofollow">
+                    <group>
+                        <field name="no_auto_follow"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
