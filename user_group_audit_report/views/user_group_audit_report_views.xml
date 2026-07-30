@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_user_group_audit_report_list" model="ir.ui.view">
+        <field name="name">user.group.audit.report.list</field>
+        <field name="model">user.group.audit.report</field>
+        <field name="arch" type="xml">
+            <list string="User Access Audit Report" create="false" edit="false" delete="false"
+                  decoration-danger="has_system_access"
+                  decoration-muted="is_archived">
+                <field name="user_name"/>
+                <field name="login"/>
+                <field name="user_type"/>
+                <field name="group_ids" widget="many2many_tags" optional="show"/>
+                <field name="effective_group_count"/>
+                <field name="has_system_access"/>
+                <field name="access_level" optional="show"/>
+                <field name="is_archived"/>
+                <field name="never_logged_in"/>
+                <field name="last_login" optional="show"/>
+                <field name="assigned_group_count" optional="hide"/>
+                <field name="implied_group_count" optional="hide"/>
+                <field name="is_settings_admin" optional="hide"/>
+                <field name="is_access_rights_admin" optional="hide"/>
+                <field name="share" optional="hide"/>
+                <field name="user_create_date" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_user_group_audit_report_form" model="ir.ui.view">
+        <field name="name">user.group.audit.report.form</field>
+        <field name="model">user.group.audit.report</field>
+        <field name="arch" type="xml">
+            <form string="User Access Audit" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Account">
+                            <field name="user_id"/>
+                            <field name="login"/>
+                            <field name="user_type"/>
+                            <field name="is_archived"/>
+                            <field name="share"/>
+                            <field name="company_id"/>
+                            <field name="user_create_date"/>
+                        </group>
+                        <group string="Access">
+                            <field name="has_system_access"/>
+                            <field name="access_level"/>
+                            <field name="is_settings_admin"/>
+                            <field name="is_access_rights_admin"/>
+                            <field name="assigned_group_count"/>
+                            <field name="effective_group_count"/>
+                            <field name="implied_group_count"/>
+                        </group>
+                        <group string="Login">
+                            <field name="never_logged_in"/>
+                            <field name="last_login"/>
+                        </group>
+                    </group>
+                    <group string="Assigned Groups">
+                        <field name="group_ids" nolabel="1" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_user_group_audit_report_search" model="ir.ui.view">
+        <field name="name">user.group.audit.report.search</field>
+        <field name="model">user.group.audit.report</field>
+        <field name="arch" type="xml">
+            <search string="User Access Audit Report">
+                <field name="user_name" string="User"
+                       filter_domain="['|', ('user_name', 'ilike', self), ('login', 'ilike', self)]"/>
+                <field name="login"/>
+                <field name="group_ids" string="Group"/>
+                <field name="company_id"/>
+                <filter string="Has System Access" name="filter_system_access"
+                        domain="[('has_system_access', '=', True)]"/>
+                <filter string="No System Access" name="filter_no_system_access"
+                        domain="[('has_system_access', '=', False)]"/>
+                <separator/>
+                <filter string="Internal Users" name="filter_internal"
+                        domain="[('user_type', '=', 'internal')]"/>
+                <filter string="Portal Users" name="filter_portal"
+                        domain="[('user_type', '=', 'portal')]"/>
+                <filter string="Public Users" name="filter_public"
+                        domain="[('user_type', '=', 'public')]"/>
+                <filter string="No User Type Group" name="filter_no_type"
+                        domain="[('user_type', '=', 'none')]"/>
+                <separator/>
+                <filter string="Enabled Accounts" name="filter_enabled"
+                        domain="[('user_active', '=', True)]"/>
+                <filter string="Archived Accounts" name="filter_archived"
+                        domain="[('is_archived', '=', True)]"/>
+                <separator/>
+                <filter string="Never Logged In" name="filter_never_logged"
+                        domain="[('never_logged_in', '=', True)]"/>
+                <filter string="Logged In At Least Once" name="filter_ever_logged"
+                        domain="[('never_logged_in', '=', False)]"/>
+                <separator/>
+                <filter string="No Group Assigned" name="filter_no_group"
+                        domain="[('assigned_group_count', '=', 0)]"/>
+                <!-- No "Has Groups via Implication" filter on 19.0: there
+                     base.group_user itself implies base.group_no_one, so every
+                     internal user matches and the filter would select everybody.
+                     The Groups via Implication column stays, as information. -->
+                <group name="group_by">
+                    <filter string="Group" name="group_group"
+                            context="{'group_by': 'group_ids'}"/>
+                    <filter string="Access Level" name="group_access_level"
+                            context="{'group_by': 'access_level'}"/>
+                    <filter string="User Type" name="group_user_type"
+                            context="{'group_by': 'user_type'}"/>
+                    <filter string="System Access" name="group_system_access"
+                            context="{'group_by': 'has_system_access'}"/>
+                    <filter string="Never Logged In" name="group_never_logged"
+                            context="{'group_by': 'never_logged_in'}"/>
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_user_group_audit_report" model="ir.actions.act_window">
+        <field name="name">User Access Audit Report</field>
+        <field name="res_model">user.group.audit.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_user_group_audit_report_search"/>
+        <!-- No default filter: an audit report that hides accounts on the
+             screen it opens on is worse than a long list. Accounts with no user
+             type group - and, on 14.0/15.0, an Access Rights administrator, who
+             holds no user type group there - would be filtered out by a default
+             "Internal Users" facet. -->
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No user matches these filters</p>
+            <p>This report lists every user account with its groups, whether it has
+               administration access, whether it is archived and whether it has ever
+               been used to log in. It is read-only: nothing is modified.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_user_group_audit_report"
+              name="User Access Audit Report"
+              parent="base.menu_users"
+              action="action_user_group_audit_report"
+              groups="base.group_system"
+              sequence="26"/>
+
+</odoo>
