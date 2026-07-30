@@ -1,0 +1,91 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #0c3a4a; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Find Duplicate Attachments</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Report first. Delete only what you confirm.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">The same quotation PDF gets emailed, re-attached and re-uploaded dozens of times, and Odoo keeps every copy as its own attachment. This module groups attachments by the <strong>checksum Odoo already stores</strong> and shows every group of identical files: how many copies exist, the space the redundant copies account for, and which records they are attached to. Clean-up is a second, explicitly confirmed step that <strong>keeps the oldest copy</strong> of every group and removes only the extras.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Safe by default</strong> — out of the box a group is the same file attached several times to the <em>same record</em>, so removing the extras can never leave a record without its file.</li>
+        <li><strong>Database-wide when you ask for it</strong> — a second, clearly labelled option looks for identical files anywhere, and warns you that only one copy will survive for the whole database.</li>
+        <li><strong>Grouped by checksum</strong> — an aggregate over the checksum column, not a walk through the attachment table, so it stays fast on large databases.</li>
+        <li><strong>You see the cost</strong> — copies per group, redundant space per group and for the whole database.</li>
+        <li><strong>You see where they live</strong> — each group names the record the copies are attached to, or says they are not linked to any record.</li>
+        <li><strong>Nothing is deleted by the scan</strong> — the report is read-only; the clean-up button is separate and asks for an explicit confirmation.</li>
+        <li><strong>One copy always survives</strong> — the oldest copy of every group is kept, and the group is recomputed from the live table at the moment of deletion.</li>
+        <li><strong>Group by group</strong> — untick any group you want to leave alone before cleaning up.</li>
+        <li><strong>Administrators only</strong> — the whole tool, and the clean-up in particular, is limited to Settings administrators, and deletions still go through Odoo's own attachment access rules.</li>
+    </ul>
+
+    <div style="margin: 24px 0; padding: 18px 20px; background: #fff8e6; border-left: 5px solid #f0a830; border-radius: 6px;">
+        <p style="margin: 0 0 8px; font-size: 15px;"><strong>What is never reported and never deleted</strong></p>
+        <ul style="font-size: 15px; line-height: 1.7; margin: 0;">
+            <li>Attachments that store a binary field of a record (<code>res_field</code> is set) — deleting one would empty that field on the record.</li>
+            <li>Attachments of the framework models <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and <code>ir.module.module</code> — the asset bundles and the module plumbing Odoo keeps for itself.</li>
+            <li>Empty files: there is nothing to reclaim, and a zero-byte row is usually evidence of a failed upload.</li>
+            <li>Unique files. A file is only ever touched when another copy of the exact same bytes exists <em>inside the same group</em>, and only after the oldest copy of that group has been secured.</li>
+            <li>Anything you untick, and everything at all until you tick the confirmation box.</li>
+        </ul>
+        <p style="margin: 10px 0 0; font-size: 15px;">Two things to know before you delete: a copy that was posted in a chatter message disappears from that message as well, and a link built on an attachment id — an image pasted into an email template, a website page or a description — breaks if that particular copy is the one removed. The default same-record scope is the conservative choice for both.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-duplicate-report.png" alt="Duplicate attachment report" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The scan: every group of identical files with its copy count, redundant space, where the copies are attached and the date of the oldest copy. Pick the scope at the top, untick any group you want to leave alone.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-database-wide.png" alt="Database-wide scope with its warning" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The database-wide scope merges copies that live on different records — and says plainly what that means before you clean anything up.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-confirm-cleanup.png" alt="Clean-up confirmation dialog" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The confirmation: how many groups, how many copies are deleted, how many are kept. Nothing happens until the box is ticked.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-cleanup-result.png" alt="Result after the clean-up" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">After the clean-up: what was removed, and a fresh scan confirming there is nothing left to clean.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>duplicate_attachment_cleaner</code> folder into your addons path.</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Find Duplicate Attachments</em> and click <strong>Install</strong>.</li>
+        <li>No dependency beyond the standard <code>base</code> module.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Nothing to configure. Access is granted to the <strong>Settings / Administration</strong> group only.</li>
+        <li>Choose the scope: <strong>Same record only</strong> (the default, and the one that can never leave a record without its file) or <strong>Anywhere in the database</strong>.</li>
+        <li>Optional: raise <strong>Ignore Files Smaller Than (KB)</strong> to skip small icons and signatures.</li>
+        <li>Optional: change <strong>Groups To List</strong> if you want more or fewer groups on screen; the totals always cover the whole database.</li>
+        <li>Take a backup before your first clean-up, as you would for any bulk deletion.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Attachments &rarr; Find Duplicate Attachments</strong>.</li>
+        <li>Leave <strong>Look For</strong> on <em>Same record only</em>, or switch it to <em>Anywhere in the database</em> if you accept that a single copy will survive for the whole database.</li>
+        <li>Click <strong>Scan for Duplicates</strong>. The result is a report: no attachment is modified.</li>
+        <li>Read the groups: file name, number of copies, redundant space, where the copies belong and the date of the oldest copy.</li>
+        <li>Untick any group you want to keep as it is.</li>
+        <li>Click <strong>Clean Up Ticked Groups...</strong>, check the numbers in the dialog, tick the confirmation box and click <strong>Delete Extra Copies</strong>.</li>
+        <li>The oldest copy of every ticked group stays, the extras are deleted, and the scan is refreshed with a summary of what was removed. A group whose records you are not allowed to write, or that changed while the clean-up was running, is left alone and reported as such.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Good to know</h2>
+    <p style="font-size: 15px;">Odoo stores one physical file per checksum in the filestore, so the immediate win of a clean-up is a smaller attachment table, shorter attachment lists and lighter database dumps; disk space is reclaimed for attachments stored in the database and once the filestore garbage collector has run. Deletions go through the standard attachment access rules, and a group whose records the administrator may not write is skipped instead of failing the whole run.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0).</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="duplicate_attachment_scan_view_form" model="ir.ui.view">
+        <field name="name">duplicate.attachment.scan.form</field>
+        <field name="model">duplicate.attachment.scan</field>
+        <field name="arch" type="xml">
+            <form string="Find Duplicate Attachments">
+                <header>
+                    <button name="action_scan" string="Scan for Duplicates" type="object" class="btn-primary"/>
+                    <button name="action_open_cleanup" string="Clean Up Ticked Groups..." type="object"
+                            class="btn-secondary" attrs="{'invisible': ['|', ('state', '!=', 'done'), ('listed_count', '=', 0)]}"
+                            groups="base.group_system"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Find Duplicate Attachments</h1>
+                    </div>
+                    <div class="alert alert-info" role="status">
+                        <strong>Scanning never deletes anything.</strong> Attachments are grouped by the
+                        checksum Odoo already stores; the list below is a report. Clean-up is a separate,
+                        confirmed step that keeps the <strong>oldest</strong> copy of every group.
+                        <br/>
+                        Never reported and never deleted: attachments of the framework models
+                        <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and
+                        <code>ir.module.module</code> (asset bundles and module plumbing), every attachment
+                        that holds a binary field of a record — deleting those would empty the record's
+                        field — and empty files.
+                    </div>
+                    <div class="alert alert-warning" role="alert" attrs="{'invisible': [('scope', '!=', 'global')]}">
+                        <strong>Anywhere in the database:</strong> only one copy of each file survives for
+                        the whole database. Records whose own copy is removed keep no link to the file, and
+                        a link built on an attachment id (an image pasted into an email template, a website
+                        page or a description) breaks when that copy goes. Prefer
+                        <em>Same record only</em> unless you know these copies are interchangeable.
+                    </div>
+                    <div class="alert alert-success" role="status"
+                         attrs="{'invisible': ['|', ('state', '!=', 'done'), ('group_count', '!=', 0)]}">
+                        No duplicate attachments found with these options. There is nothing to clean up.
+                    </div>
+                    <div class="alert alert-warning" role="status" attrs="{'invisible': [('cleanup_message', '=', False)]}">
+                        <field name="cleanup_message" nolabel="1" readonly="1"/>
+                    </div>
+                    <group>
+                        <group string="Scan Options">
+                            <field name="scope" widget="radio"/>
+                            <field name="min_size_kb"/>
+                            <field name="group_limit"/>
+                        </group>
+                        <group string="Result" attrs="{'invisible': [('state', '!=', 'done')]}">
+                            <field name="scan_date"/>
+                            <field name="group_count"/>
+                            <field name="redundant_count"/>
+                            <field name="wasted_display"/>
+                            <field name="listed_count"/>
+                        </group>
+                    </group>
+                    <notebook attrs="{'invisible': ['|', ('state', '!=', 'done'), ('group_count', '=', 0)]}">
+                        <page string="Duplicate Groups" name="groups">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom" create="0" delete="0" default_order="wasted_bytes desc">
+                                    <field name="selected" widget="boolean_toggle"/>
+                                    <field name="file_name" readonly="1"/>
+                                    <field name="copy_count" readonly="1"/>
+                                    <field name="wasted_display" readonly="1"/>
+                                    <field name="location_summary" readonly="1"/>
+                                    <field name="keep_date" readonly="1"/>
+                                    <field name="keep_attachment_id" readonly="1" optional="hide"/>
+                                    <field name="res_model" readonly="1" optional="hide"/>
+                                    <field name="res_id" readonly="1" optional="hide"/>
+                                    <field name="file_size" readonly="1" optional="hide"/>
+                                    <field name="wasted_bytes" readonly="1" optional="hide"/>
+                                    <field name="checksum" readonly="1" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="duplicate_attachment_clean_view_form" model="ir.ui.view">
+        <field name="name">duplicate.attachment.clean.form</field>
+        <field name="model">duplicate.attachment.clean</field>
+        <field name="arch" type="xml">
+            <form string="Confirm Clean-up">
+                <field name="scan_id" invisible="1"/>
+                <field name="scope" invisible="1"/>
+                <div class="alert alert-warning" role="alert">
+                    This deletes attachment records permanently. <strong>One copy of every group is
+                    kept</strong> — the oldest one — and only the extra copies are removed.
+                    The figures below come from the last scan; the copies to delete are recomputed
+                    from the database at that moment.
+                </div>
+                <div class="alert alert-danger" role="alert" attrs="{'invisible': [('scope', '!=', 'global')]}">
+                    This scan looked for identical files <strong>anywhere in the database</strong>:
+                    records whose own copy is removed keep no link to the file.
+                </div>
+                <group>
+                    <field name="group_count"/>
+                    <field name="delete_count"/>
+                    <field name="keep_count"/>
+                    <field name="freed_display"/>
+                </group>
+                <group>
+                    <field name="confirm"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Delete Extra Copies" type="object" class="btn-danger"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_duplicate_attachment_scan" model="ir.actions.act_window">
+        <field name="name">Find Duplicate Attachments</field>
+        <field name="res_model">duplicate.attachment.scan</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_duplicate_attachment_root"
+              name="Attachments"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="75"/>
+    <menuitem id="menu_duplicate_attachment_scan"
+              name="Find Duplicate Attachments"
+              parent="menu_duplicate_attachment_root"
+              action="action_duplicate_attachment_scan"
+              groups="base.group_system"
+              sequence="10"/>
+</odoo>
