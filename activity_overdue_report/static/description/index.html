@@ -1,0 +1,88 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182036; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Overdue Activities Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a020;">Who is late, on which document, and by how many days</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo shows each user their own late activities in the systray, and each document its own activity list. There is no single place where a team leader can see what the <strong>whole team</strong> is late on. This module adds that place: a <strong>read-only report</strong> with one row per open activity, across every model that uses activities.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>One row per open activity</strong> &mdash; assignee, activity type, summary, document model, live document name, due date and days overdue.</li>
+        <li><strong>Days Overdue as a real column</strong> &mdash; sort on it, filter on it, average it per group, export it.</li>
+        <li><strong>An Open button on every row</strong> &mdash; jump straight to the lead, task, invoice or contact the activity belongs to.</li>
+        <li><strong>Filters that answer real questions</strong> &mdash; Overdue, Due Today, Due This Week (next 7 days), Overdue 7+ Days, Overdue 30+ Days, Assigned to Me, Scheduled by Me, plus a free &ldquo;overdue by at least N days&rdquo; input.</li>
+        <li><strong>Group by</strong> assignee, activity type, document model, status or due date.</li>
+        <li><strong>Pivot and graph views</strong> &mdash; two measures, <em>Activities</em> (a count, for charting workload) and <em>Days Overdue</em> (averaged), so you can chart the backlog per person and per type.</li>
+        <li><strong>Respects your access rights</strong> &mdash; the module never runs as superuser and never widens what you can already see. Read <em>How visibility works</em> below for the exact rule.</li>
+        <li><strong>Read-only</strong> &mdash; a database view over open activities. No activity, no document and no user is ever modified.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-overdue-list.png" alt="Overdue activities list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every open activity that is late, most overdue first &mdash; across leads, tasks and contacts in one list, with the live document name and an Open button.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-group-by-user.png" alt="Grouped by assignee" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by assignee &mdash; how many late activities each person carries, and their average days overdue.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-group-by-model.png" alt="Grouped by document model" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by document model &mdash; which part of the business is behind. Overdue, due today and planned activities are colour-coded.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-pivot.png" alt="Pivot view" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The pivot view: assignees in rows, activity types in columns, <em>Activities</em> and <em>Days Overdue</em> as measures.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-filters.png" alt="Filters and group-by menu" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The shipped filters and group-by options.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">How visibility works</h2>
+    <p style="font-size: 15px; line-height: 1.7;">A row is shown to you when <strong>either</strong> the activity is assigned to you, <strong>or</strong> you are allowed to read the document the activity is attached to. The report re-checks the access rights and record rules of every underlying document, with one query per model &mdash; it never runs as superuser and never widens what you can already see.</p>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>That second rule is what lets a manager see the team: if you can read the leads, the invoices or the tickets, you see the late activities on them.</li>
+        <li>The first rule is the same exception Odoo itself applies to activities: one assigned to you is always visible to you, even if you cannot open the document behind it.</li>
+        <li>Access to the report is granted to every internal user (group <em>Employee</em>); what each of them actually sees is decided per row by the rules above.</li>
+        <li>An activity whose document was deleted can no longer be checked against anything, so it stays visible only to the person it is assigned to. It is labelled <em>Deleted record</em>, and its Open button reports a clear error instead of crashing.</li>
+        <li>A row you see only because of the first rule carries no document link, because you are not allowed to open the document behind it &mdash; the Open button says so rather than failing with an access error.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Limits, stated plainly</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Only <strong>open</strong> activities are reported. One that was marked done or cancelled never appears &mdash; Odoo deletes it, or (on the versions that keep done activities) archives it, and the report excludes archived rows. This is not a done-activity history.</li>
+        <li><em>Days Overdue</em> is counted in whole days against the current UTC date, the same reference Odoo uses for activity deadlines.</li>
+        <li>The <em>Document Name (recorded)</em> column is the name Odoo stored on the activity when it was created and is not refreshed on rename; the <em>Document</em> column always shows the live name.</li>
+        <li>The per-document visibility check examines at most 20,000 candidate rows per query. Above that backlog the check is truncated fail-closed: row lists, record counts, group totals and pivot measures can all come out lower than reality &mdash; never higher &mdash; and a warning is written to the server log. Narrow the filter (for example <em>Overdue 7+ Days</em>) to get exact numbers.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, click <em>Update Apps List</em>, search for <em>Overdue Activities Report</em> and click <strong>Install</strong>.</li>
+        <li>The only dependency is the standard <code>mail</code> module, which is already installed on every Odoo database.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; there are no settings and no scheduled action.</li>
+        <li>Access is granted to the <strong>Employee</strong> group on install; the per-document visibility rules above then decide what each user sees.</li>
+        <li>To narrow that further, edit the access line for <code>activity.overdue.report</code> in <strong>Settings &rarr; Technical &rarr; Security &rarr; Access Rights</strong> (developer mode) and point it at your own group.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Activities &rarr; Overdue Activities</strong>.</li>
+        <li>The list opens filtered on <em>Overdue</em> and grouped by <em>Assigned To</em>, so you see immediately who is behind and by how much.</li>
+        <li>Use <em>Document Model</em> in the Group By menu to see which part of the business is late, or the <em>Overdue 30+ Days</em> filter to isolate what has been ignored longest.</li>
+        <li>Click <strong>Open</strong> on a row to jump to the document and deal with the activity there &mdash; the report itself never changes anything.</li>
+        <li>Switch to the <strong>pivot</strong> or <strong>graph</strong> view to chart workload, or select all and <strong>Export</strong> the list to a spreadsheet.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a020; padding-bottom: 6px;">Support</h2>
+    <p style="font-size: 15px; line-height: 1.7;">Questions, bug reports and feature requests are welcome at
+        <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a>.
+        Author: Farhan Ashraf &mdash; <a href="https://github.com/faaani/odoo-apps">github.com/faaani/odoo-apps</a>. Licence: LGPL-3.</p>
+</section>
