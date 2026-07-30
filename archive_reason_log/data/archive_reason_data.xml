@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="reason_duplicate" model="archive.reason">
+            <field name="name">Duplicate</field>
+            <field name="sequence">10</field>
+            <field name="note_mode">optional</field>
+            <field name="description">Mention the record that was kept.</field>
+        </record>
+
+        <record id="reason_obsolete" model="archive.reason">
+            <field name="name">Obsolete / no longer used</field>
+            <field name="sequence">20</field>
+            <field name="note_mode">optional</field>
+        </record>
+
+        <record id="reason_mistake" model="archive.reason">
+            <field name="name">Created by mistake</field>
+            <field name="sequence">30</field>
+            <field name="note_mode">optional</field>
+        </record>
+
+        <record id="reason_inactive_relation" model="archive.reason">
+            <field name="name">Relationship ended</field>
+            <field name="sequence">40</field>
+            <field name="note_mode">optional</field>
+            <field name="description">Former customer, supplier or employee.</field>
+        </record>
+
+        <record id="reason_other" model="archive.reason">
+            <field name="name">Other</field>
+            <field name="sequence">90</field>
+            <field name="note_mode">required</field>
+            <field name="description">An explanation is mandatory for this reason.</field>
+        </record>
+
+    </data>
+</odoo>

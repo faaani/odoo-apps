@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="archive_reason_wizard_view_form" model="ir.ui.view">
+        <field name="name">archive.reason.wizard.form</field>
+        <field name="model">archive.reason.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Archive with Reason">
+                <field name="res_model" invisible="1"/>
+                <field name="note_mode" invisible="1"/>
+                <div class="alert alert-info" role="status">
+                    <field name="record_count" class="oe_inline"/> record(s) of
+                    <field name="model_label" class="oe_inline"/> will be archived.
+                </div>
+                <div class="alert alert-warning" role="alert" attrs="{'invisible': [('excluded_count', '=', 0)]}">
+                    <field name="excluded_count" class="oe_inline"/> selected record(s) are
+                    skipped: they are archived already, or they are protected (the contact
+                    of a user or of a company is never archived).
+                </div>
+                <group>
+                    <field name="reason_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="reason_description" attrs="{'invisible': [('reason_description', '=', False)]}"/>
+                </group>
+                <separator string="Explanation" attrs="{'invisible': [('note_mode', '=', 'forbidden')]}"/>
+                <group attrs="{'invisible': [('note_mode', '=', 'forbidden')]}">
+                    <field name="note" nolabel="1" colspan="2" class="w-100"
+                           attrs="{'required': [('note_mode', '=', 'required')]}"
+                           placeholder="Why are these records archived?"/>
+                </group>
+                <footer>
+                    <button name="action_archive_records" string="Archive" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_archive_reason_wizard" model="ir.actions.act_window">
+        <field name="name">Archive with Reason</field>
+        <field name="res_model">archive.reason.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="action_sync_archive_bindings" model="ir.actions.server">
+        <field name="name">Update Action Menus</field>
+        <field name="model_id" ref="model_archive_reason_wizard"/>
+        <field name="state">code</field>
+        <field name="code">action = model._sync_action_bindings()</field>
+    </record>
+
+</odoo>

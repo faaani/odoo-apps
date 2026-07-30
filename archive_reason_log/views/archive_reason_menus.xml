@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_archive_reason_root"
+              name="Archived Records"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="55"/>
+
+    <menuitem id="menu_archive_reason_log"
+              name="Archive Log"
+              parent="menu_archive_reason_root"
+              action="action_archive_reason_log"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_archive_reason"
+              name="Archive Reasons"
+              parent="menu_archive_reason_root"
+              action="action_archive_reason"
+              groups="base.group_system"
+              sequence="20"/>
+
+    <menuitem id="menu_archive_reason_sync"
+              name="Update Action Menus"
+              parent="menu_archive_reason_root"
+              action="action_sync_archive_bindings"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>
