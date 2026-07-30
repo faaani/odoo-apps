@@ -1,0 +1,71 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">User Login Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Who actually uses this system?</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo shows a &ldquo;Latest authentication&rdquo; date on the user form and nothing else, so answering that question means writing SQL against <code>res_users_log</code>. This module adds a <strong>read-only report</strong> of every user with the real last login, how many days ago it was, and a clear flag for accounts that have <strong>never</strong> logged in.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>The real last login</strong> &mdash; the latest login record per user, not any login record.</li>
+        <li><strong>Days since last login</strong> &mdash; a genuine column you can sort, filter and export on.</li>
+        <li><strong>Never Logged In</strong> &mdash; accounts created and never used are flagged in red.</li>
+        <li><strong>Login status</strong> &mdash; Never / Active (last 30 days) / Idle (30-90 days) / Dormant (90+ days), ready to group by.</li>
+        <li><strong>Filters that answer real questions</strong> &mdash; dormant 30/60/90+ days, internal vs portal, enabled vs archived accounts, or your own &ldquo;days since login at least N&rdquo;.</li>
+        <li><strong>Export-friendly</strong> &mdash; select all and export to spreadsheet for a licence or security review.</li>
+        <li><strong>Read-only and fast</strong> &mdash; one grouped SQL query, no per-user loop, nothing in your database is modified.</li>
+        <li><strong>Admin only, multi-company safe</strong> &mdash; visible to the Administration / Settings group, and it ships the same record rule Odoo applies to users, so it never shows more than the standard Users list.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-report-list.png" alt="User Login Report list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every user with the real last login, days since last login, and login status &mdash; sorted by the longest silence first.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-never-logged-in.png" alt="Never logged in filter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Never Logged In</em> filter: accounts that were created and never used, flagged in red.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-filters.png" alt="Filters" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters: never logged in, dormant 30/60/90+ days, active in the last 30 days, internal vs portal, enabled vs archived.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-group-by-status.png" alt="Grouped by login status" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by login status &mdash; how many accounts are active, idle, dormant or never used, at a glance.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>User Login Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the report works as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group; no other user can read the report.</li>
+        <li>Optional: mark the menu as a favourite for one-click access.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; User Login Report</strong>.</li>
+        <li>The list opens on internal users, longest silence first.</li>
+        <li>Apply a filter &mdash; <em>Never Logged In</em>, <em>Dormant 90+ Days</em>, <em>Active (last 30 days)</em>, <em>Portal / Public Users</em>, <em>Archived Accounts</em> &mdash; or type a number in <em>Days since login (at least)</em>.</li>
+        <li>Group by <strong>Login Status</strong> to count active, idle, dormant and never-used accounts.</li>
+        <li>Select all and use <strong>Export</strong> for your licence review, dormant-account audit or clean-up plan.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). &ldquo;Dormant&rdquo; means the account logged in once and then went quiet &mdash; accounts that were never used have their own filter and status, so the two counts never overlap. The OdooBot / superuser system account is excluded.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
