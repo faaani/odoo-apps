@@ -1,0 +1,53 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #0f5257; color: #eaf4f4; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Global Default Saved Filter</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">One shared filter, default for everyone.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        Odoo's favorites menu makes <strong>Use by default</strong> and <strong>Share with all users</strong>
+        mutually exclusive, so the standard advice is to duplicate the same filter for every single user.
+        This module adds a <strong>Default for All Users</strong> flag on shared filters instead — set it once,
+        and everyone gets the right view on login. <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>No per-user duplication</strong> — one shared filter serves the whole database.</li>
+        <li><strong>Personal choice always wins</strong> — a user's own default filter overrides the global one.</li>
+        <li><strong>No conflicting defaults</strong> — flagging a new filter demotes the previous one automatically.</li>
+        <li><strong>Nothing left behind</strong> — untick the flag and Odoo behaves exactly as before.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-filter-flag.png" alt="01-filter-flag" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Tick "Default for All Users" on any shared filter — the flag only appears on shared filters, never personal ones.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-partners-default-applied.png" alt="02-partners-default-applied" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every user who has not chosen a personal default now opens the view with that filter already applied.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Global Default Saved Filter</em>.</li>
+        <li>Click <strong>Install</strong>. Only standard Odoo <code>base</code> is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None — the flag is available on shared filters immediately after installation.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Save a filter from the favorites menu with <strong>Share with all users</strong> ticked.</li>
+        <li>Enable developer mode, open <strong>Settings &rarr; Technical &rarr; User-defined Filters</strong>, select it and tick <strong>Default for All Users</strong>.</li>
+        <li>Users without a personal default now open that view with the filter applied. Flagging another filter for the same model automatically demotes this one.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Odoo 19.0 stores filter sharing in <code>user_ids</code> (many2many) rather than <code>user_id</code>; the module handles both shapes automatically.</p>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
