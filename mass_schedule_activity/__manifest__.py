@@ -11,7 +11,7 @@ forty records.
 
 This module adds "Schedule Activity" to the Action menu of every model with
 activities: select the records, fill the activity once, and it is created on
-all of them — with a summary of what was scheduled.
+all of them - with a summary of what was scheduled.
 """,
     'author': 'Farhan Ashraf',
     'website': 'https://github.com/faaani/odoo-apps',

@@ -3,7 +3,7 @@
 {
     'name': 'Keep Sent Email History',
     'version': '17.0.1.0.1',
-    'summary': 'Stop Odoo from deleting sent emails — keep a full, auditable outgoing email history with configurable retention.',
+    'summary': 'Stop Odoo from deleting sent emails - keep a full, auditable outgoing email history with configurable retention.',
     'description': """
 Odoo deletes most notification and template emails from the queue right after
 sending, so Settings > Technical > Emails stays empty and you can never audit

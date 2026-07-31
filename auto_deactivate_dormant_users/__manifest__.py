@@ -3,7 +3,7 @@
 {
     'name': 'Auto Deactivate Dormant Users',
     'version': '17.0.1.0.3',
-    'summary': 'Automatically archive users who have not logged in for N days — free seats, satisfy dormant-account security controls.',
+    'summary': 'Automatically archive users who have not logged in for N days - free seats, satisfy dormant-account security controls.',
     'description': """
 Automatically deactivate (archive) internal users who have not logged in for a
 configurable number of days. Frees paid seats and helps with dormant-account

@@ -16,7 +16,7 @@ grouped, so you can decide what to do with each cluster:
   "0033123456789" and "01 23 45 67 89" land in the same group, and a phone is
   compared against other contacts' mobiles too,
 * same **name** - ignoring case, accents, punctuation and word order, so
-  "Ferreira, Jose", "José Ferreira" and "jose  ferreira" match.
+  "Ferreira, Jose", "Jos? Ferreira" and "jose  ferreira" match.
 
 Each criterion can be switched off independently, and you choose whether to
 scan companies, individuals or both, whether to include archived contacts, and

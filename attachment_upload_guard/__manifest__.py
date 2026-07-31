@@ -3,13 +3,13 @@
 {
     'name': 'Attachment Upload Guard',
     'version': '17.0.1.0.1',
-    'summary': 'Block risky file types and oversized attachments — a size and extension policy Odoo does not ship.',
+    'summary': 'Block risky file types and oversized attachments - a size and extension policy Odoo does not ship.',
     'description': """
 Odoo lets users attach anything, of any size: executables, scripts and
 half-gigabyte videos end up in your database and backups.
 
-This module adds a simple upload policy — a blocked extension list and a
-maximum file size — enforced on every attachment a user creates, with a clear
+This module adds a simple upload policy - a blocked extension list and a
+maximum file size - enforced on every attachment a user creates, with a clear
 error message. System-generated attachments (reports, assets, imports) are
 never blocked.
 """,

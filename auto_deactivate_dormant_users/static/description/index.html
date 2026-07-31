@@ -7,16 +7,16 @@
     <p style="font-size: 16px; margin-top: 24px;">
         Archives internal users who have not logged in for a configurable number of days.
         Companies on per-user plans stop paying for seats nobody uses, and security teams get
-        the dormant-account control that ISO&nbsp;27001 / SOC&nbsp;2 audits ask for — without a
+        the dormant-account control that ISO&nbsp;27001 / SOC&nbsp;2 audits ask for &mdash; without a
         single line of custom code. <strong>Free and open source (LGPL-3), identical behavior
         on Odoo 14.0 through 19.0.</strong>
     </p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Safe by default</strong> — disabled until you switch it on; administrators, OdooBot and portal users are never touched.</li>
-        <li><strong>Per-user exemptions</strong> — mark any account "Never Deactivate Automatically".</li>
-        <li><strong>Full audit trail</strong> — archived accounts carry a "Deactivated by Dormancy" flag and timestamp; re-activating clears them.</li>
-        <li><strong>Admin notifications</strong> — an email summary every time accounts are archived.</li>
+        <li><strong>Safe by default</strong> &mdash; disabled until you switch it on; administrators, OdooBot and portal users are never touched.</li>
+        <li><strong>Per-user exemptions</strong> &mdash; mark any account "Never Deactivate Automatically".</li>
+        <li><strong>Full audit trail</strong> &mdash; archived accounts carry a "Deactivated by Dormancy" flag and timestamp; re-activating clears them.</li>
+        <li><strong>Admin notifications</strong> &mdash; an email summary every time accounts are archived.</li>
     </ul>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
@@ -26,7 +26,7 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="02-archived-user-audit.png" alt="02-archived-user-audit" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">A dormant account archived by the daily job — the Dormancy tab shows the audit flag and the exact date it happened.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A dormant account archived by the daily job &mdash; the Dormancy tab shows the audit flag and the exact date it happened.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="03-exempt-user.png" alt="03-exempt-user" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
@@ -46,7 +46,7 @@
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Go to <strong>Settings &rarr; General Settings</strong> and scroll to the <strong>Users</strong> section and find <strong>Auto Deactivate Dormant Users</strong>.</li>
-        <li>Enable <strong>Auto Deactivate Dormant Users</strong> — the module does nothing until you do.</li>
+        <li>Enable <strong>Auto Deactivate Dormant Users</strong> &mdash; the module does nothing until you do.</li>
         <li>Set the <strong>Dormancy Period</strong> in days (default 90, enforced minimum 7).</li>
         <li>Optionally enable <strong>Include Users Who Never Logged In</strong> (counted from their creation date) and <strong>Notify Administrators</strong>.</li>
         <li>Click <strong>Save</strong>.</li>
@@ -57,15 +57,15 @@
         <li>A daily scheduled action (<em>Users: deactivate dormant accounts</em>) archives internal users whose latest login is older than the dormancy period.</li>
         <li>To exempt someone, open their user form &rarr; <strong>Dormancy</strong> tab &rarr; tick <strong>Never Deactivate Automatically</strong>.</li>
         <li>To review what was archived, open <strong>Settings &rarr; Users</strong>, include archived records, and use the <strong>Deactivated by Dormancy</strong> filter.</li>
-        <li>Re-activating an archived user clears the dormancy flags — the account starts a fresh dormancy period.</li>
+        <li>Re-activating an archived user clears the dormancy flags &mdash; the account starts a fresh dormancy period.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
-    <p style="font-size: 15px;">Behavior is identical on every supported series (14.0 – 19.0). Only internal view markup differs per version.</p>
+    <p style="font-size: 15px;">Behavior is identical on every supported series (14.0 &ndash; 19.0). Only internal view markup differs per version.</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

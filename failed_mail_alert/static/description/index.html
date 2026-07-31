@@ -8,19 +8,19 @@
         When SMTP credentials expire, a relay starts rejecting recipients or the mail server goes
         down, Odoo does not complain: it quietly parks every message in the outgoing queue in
         <em>Delivery Failed</em> state. Nobody notices until a customer asks why the invoice never
-        arrived — often days later. This module watches the queue and
+        arrived &mdash; often days later. This module watches the queue and
         <strong>emails your administrators a summary of what is failing</strong>: subjects,
         recipients and the first error the mail server returned.
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong>
     </p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Works on install</strong> — enabled by default: 5 stuck messages, older than 60 minutes, checked every 4 hours.</li>
-        <li><strong>Actionable summary</strong> — the 20 oldest stuck messages with subject, recipient and the exact SMTP error.</li>
-        <li><strong>Force-sent, never queued</strong> — the alert is delivered in-process, because the mail queue is exactly what is broken.</li>
-        <li><strong>No inbox flood</strong> — at most one alert every 24 hours, however long the outage lasts.</li>
-        <li><strong>Per-installation switch</strong> — one checkbox in General Settings, plus a configurable threshold and age window.</li>
-        <li><strong>Never feeds itself</strong> — alert messages are flagged and are never counted as evidence of a broken queue.</li>
+        <li><strong>Works on install</strong> &mdash; enabled by default: 5 stuck messages, older than 60 minutes, checked every 4 hours.</li>
+        <li><strong>Actionable summary</strong> &mdash; the 20 oldest stuck messages with subject, recipient and the exact SMTP error.</li>
+        <li><strong>Force-sent, never queued</strong> &mdash; the alert is delivered in-process, because the mail queue is exactly what is broken.</li>
+        <li><strong>No inbox flood</strong> &mdash; at most one alert every 24 hours, however long the outage lasts.</li>
+        <li><strong>Per-installation switch</strong> &mdash; one checkbox in General Settings, plus a configurable threshold and age window.</li>
+        <li><strong>Never feeds itself</strong> &mdash; alert messages are flagged and are never counted as evidence of a broken queue.</li>
     </ul>
 
     <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Screenshots</h2>
@@ -34,21 +34,21 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="03-stuck-queue.png" alt="03-stuck-queue" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">The queue the alert is about — Settings &rarr; Technical &rarr; Email &rarr; Emails. Without this module nothing tells you it looks like this.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The queue the alert is about &mdash; Settings &rarr; Technical &rarr; Email &rarr; Emails. Without this module nothing tells you it looks like this.</p>
     </div>
 
     <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Installation</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Failed Email Alerts</em>.</li>
-        <li>Click <strong>Install</strong>. Only standard modules (<code>base_setup</code>, <code>mail</code>) are required — watching starts immediately.</li>
+        <li>Click <strong>Install</strong>. Only standard modules (<code>base_setup</code>, <code>mail</code>) are required &mdash; watching starts immediately.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Configuration</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Open <strong>Settings &rarr; General Settings</strong> and scroll to the <strong>Emails</strong> section (called <strong>Discuss</strong> on Odoo 14.0 &ndash; 17.0).</li>
         <li><strong>Failed Email Alerts</strong> is on by default; untick it to silence the watchdog on this database.</li>
-        <li><strong>Alert Above (emails)</strong> — how many stuck messages are needed before an alert goes out (default 5, floor 1).</li>
-        <li><strong>Minimum Age (minutes)</strong> — messages queued more recently than this are normal traffic and are not counted (default 60, floor 5).</li>
+        <li><strong>Alert Above (emails)</strong> &mdash; how many stuck messages are needed before an alert goes out (default 5, floor 1).</li>
+        <li><strong>Minimum Age (minutes)</strong> &mdash; messages queued more recently than this are normal traffic and are not counted (default 60, floor 5).</li>
         <li>Make sure every administrator who should be warned has an email address on their user record.</li>
     </ol>
 
@@ -61,11 +61,11 @@
     </ol>
 
     <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Version notes</h2>
-    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0); only the settings-view markup and the <code>ir.cron</code> fields differ internally.</p>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0); only the settings-view markup and the <code>ir.cron</code> fields differ internally.</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
