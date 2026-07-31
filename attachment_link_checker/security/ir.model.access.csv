@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_attachment_link_check,attachment.link.check,model_attachment_link_check,base.group_system,1,1,1,1
+access_attachment_link_check_line,attachment.link.check.line,model_attachment_link_check_line,base.group_system,1,1,1,1
+access_attachment_link_check_model_line,attachment.link.check.model.line,model_attachment_link_check_model_line,base.group_system,1,1,1,1
