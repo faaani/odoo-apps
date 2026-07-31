@@ -1,0 +1,965 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* menu_access_visibility
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:28+0000\n"
+"PO-Revision-Date: 2026-07-31 00:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid ""
+"%(changing)s menu item(s) will change; the rest already have the groups the "
+"way you asked."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"%s is a Settings administrator, so almost nothing is hidden from them by "
+"model access; only groups placed on the menu items themselves can still hide"
+" something."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"%s is a portal or public user. The back end menu is not shown to them at "
+"all, whatever this screen lists."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "%s item(s) already had the groups you asked for and were left alone."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "%s item(s) could not be updated:"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid ""
+"%s item(s) will be left with no group at all. An item with no group is "
+"visible to every user who can reach its parent menu and read the model its "
+"action opens."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"%s item(s) would be allowed on their own but are not reachable because a "
+"parent menu is hidden from this user. They are listed as hidden, with the "
+"parent named."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "%s menu item(s) updated."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "%s more parent menu(s) restrict it as well."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_level
+msgid ""
+"0 for an application (a top level menu), 1 for its direct children, and so "
+"on."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__ir_ui_menu__mav_visibility__parent
+msgid "A parent menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model,name:menu_access_visibility.model_res_groups
+msgid "Access Groups"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_action_model
+msgid "Action Model"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.actions.act_window,name:menu_access_visibility.action_menu_group_update
+msgid "Add / Remove Groups"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_form
+msgid "Add Or Remove Groups"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model,name:menu_access_visibility.model_menu_visibility_group_update
+msgid "Add Or Remove Groups On Menu Items"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_group_update__mode
+msgid ""
+"Adding a group narrows an item that had none: from then on only that group "
+"sees it. Removing the last group on an item makes it visible to everybody "
+"again."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__include_children
+msgid "Also Apply To Every Item Below"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"Answered from: the groups on the item, the groups on every parent menu, and "
+"the read access lines on the action model - the three inputs Odoo itself "
+"uses in ir.ui.menu._visible_menu_ids(). Use Preview A User Menu to see the "
+"result for one real user."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Applications (Top Level)"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_form
+msgid "Apply"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_group_update__include_children
+msgid ""
+"Apply the same change to the whole sub-tree of the selected items. Off by "
+"default: the count below tells you how many items would be affected before "
+"you commit to it."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_form
+msgid "Cancel"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "Changing menu visibility is reserved to Settings administrators."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_result
+msgid "Close"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"Computed with developer mode OFF. In developer mode Odoo also shows the "
+"items reserved to the technical \"Technical Features\" group, so an "
+"administrator in developer mode sees more than this."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Counts"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__create_uid
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__create_uid
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__create_date
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__create_date
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_level
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__level
+msgid "Depth"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__display_name
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__display_name
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_preview__state__done
+msgid "Done"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.actions.act_window,help:menu_access_visibility.action_menu_access_visibility
+msgid ""
+"Every back end menu item is listed here with the groups that may\n"
+"               see it. Edit the Groups cell to restrict or open an item, or pick\n"
+"               several rows and use the Action menu to add or remove a group in\n"
+"               one go."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_preview__show__all
+msgid "Every menu item, visible or not"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Every user"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__ir_ui_menu__mav_visibility__everyone
+msgid "Everyone"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_visibility
+msgid ""
+"Everyone: no group anywhere on the item or its parents. Otherwise: where the"
+" restriction comes from."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Everyone: no group on this item."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Folders (No Action)"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_group_update__mode__add
+msgid "Give these groups access to the selected items"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Group"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__group_ids
+msgid "Groups"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_own_groups
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__group_names
+msgid "Groups On This Item"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_parent_groups
+msgid "Groups Required By A Parent"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_parent_groups
+msgid ""
+"Groups a parent menu requires. A menu item is only drawn inside its parent, "
+"so a user excluded from the parent never reaches the child either, whatever "
+"the child says."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__ir_ui_menu__mav_visibility__own
+msgid "Groups on this item"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Hidden by the menu visibility computation."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"Hidden, and the read access check on %s could not be made, so the exact "
+"reason is unconfirmed."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"Hidden, and this item's action could not be read from here, so the exact "
+"reason is unconfirmed."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Hidden: it is a folder and no item under it is visible to this user."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Hidden: the action this item points at is no longer in the database."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Hidden: the item is limited to %s and the user is in none of them."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"Hidden: the item itself would be allowed, but the parent menu \"%s\" is "
+"hidden from this user, so the tree never reaches it."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"Hidden: the user has no read access on %s, the model of this item's action."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__id
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__id
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__id
+msgid "ID"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"It is drawn inside the parent menu \"%(menu)s\", which is limited to "
+"%(groups)s. A user outside those groups does not see the parent, and "
+"therefore never reaches this item either - even though nothing on this item "
+"says so."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__hidden_count
+msgid "Items Hidden"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__public_count
+msgid "Items Left With No Group"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__allowed_count
+msgid "Items That Pass Their Own Checks"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__target_count
+msgid "Items That Would Change"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__tree_count
+msgid "Items The User Sees"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview__tree_count
+msgid ""
+"Items that pass their own checks AND whose parents all pass theirs. This is "
+"what the menu really draws for that user."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview__allowed_count
+msgid ""
+"Items whose groups and action model access allow this user. Some of them are"
+" still not reachable because a parent menu is hidden - the difference "
+"between this number and the one above."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Its action could not be read here, so model access was not checked."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Its action no longer exists."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__write_uid
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__write_uid
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__write_date
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__write_date
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__truncated
+msgid "List Truncated"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Members of %s."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model,name:menu_access_visibility.model_ir_ui_menu
+msgid "Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__menu_id
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Menu Item"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__menu_ids
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__line_ids
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_form
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Menu Items"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__total_count
+msgid "Menu Items In The Database"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_path
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__path
+msgid "Menu Path"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.actions.act_window,name:menu_access_visibility.action_menu_access_visibility
+#: model:ir.ui.menu,name:menu_access_visibility.menu_menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_tree
+msgid "Menu Visibility"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_result
+msgid "Menu Visibility Updated"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Menu visibility preview is reserved to Settings administrators."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "No Group (Everyone)"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.actions.act_window,help:menu_access_visibility.action_menu_access_visibility
+msgid "No menu item matches this filter"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "No parent menu adds a group restriction."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Nobody: no access line grants read"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_preview__state__draft
+msgid "Not Run"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__note
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Notes"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid ""
+"Nothing else is touched: no group membership is changed, no access right and"
+" no record rule is edited, and no menu item is created or deleted."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__in_menu_tree
+msgid "On The Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_summary
+msgid ""
+"One line answer to \"who sees this menu?\". The full reasoning is on the "
+"form view of the item."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_preview__show__hidden
+msgid "Only what is hidden from the user"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_preview__show__tree
+msgid "Only what the user really sees"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Opens An Action"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Parent Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__is_allowed
+msgid "Passes Its Own Checks"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid ""
+"Pick a user and see exactly which back end menu\n"
+"                            items they get - and, for every item they do not\n"
+"                            get, the reason. The answer comes from Odoo's own\n"
+"                            menu visibility routine evaluated as that user, not\n"
+"                            from a re-implementation of it."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "Pick at least one menu item and one group."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__preview_id
+msgid "Preview"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.actions.act_window,name:menu_access_visibility.action_menu_visibility_preview
+#: model:ir.ui.menu,name:menu_access_visibility.menu_menu_visibility_preview
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Preview A User Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Preview For"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model,name:menu_access_visibility.model_menu_visibility_preview
+msgid "Preview The Menu Of A User"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model,name:menu_access_visibility.model_menu_visibility_preview_line
+msgid "Previewed Menu Item"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_action_groups
+msgid "Read Access On That Model"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Read access on %s is required too."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_result
+msgid "Reload Interface"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_visibility
+msgid "Restricted By"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_search
+msgid "Restricted To Groups"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__result_message
+msgid "Result"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "Select at least one group."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid "Select at least one menu item."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__show
+msgid "Show"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_visibility_preview_form
+msgid "Show This User's Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__state
+msgid "Status"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__menu_visibility_group_update__mode__remove
+msgid "Take these groups off the selected items"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+msgid "The Action It Opens"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"The action of this item works on no model, so model access does not restrict"
+" it."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"The answer comes from Odoo itself: ir.ui.menu._visible_menu_ids() evaluated "
+"as this user, plus the parent chain rule the web client applies when it "
+"builds the menu tree. Nothing here re-implements the visibility rules."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_action_groups
+msgid ""
+"The groups an access control line grants read on the action model to. When a"
+" menu item carries an action, Odoo hides the item from anybody who cannot "
+"read that model."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview_line__group_names
+msgid ""
+"The groups recorded on the item itself. Empty means the item carries no "
+"restriction of its own."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_own_groups
+msgid ""
+"The groups recorded on this menu item itself. Empty means the item carries "
+"no restriction of its own."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"The item opens an action on the model %(model)s. Odoo hides a menu item from"
+" any user who cannot READ its action model, whatever groups the item "
+"carries. Read on %(model)s is granted to: %(who)s."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_group_update.py:0
+msgid ""
+"The menu caches were cleared, so the change is effective now. Reload the "
+"interface to redraw your own menu bar."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_group_update__menu_ids
+msgid "The menu items to change. Nothing outside this list is touched."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_action_model
+msgid ""
+"The model this item's action opens. Empty for a folder, for a URL action and"
+" for a client action."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "The parent menu \"%(menu)s\" needs %(groups)s."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview__user_id
+msgid ""
+"The user whose menu is being previewed. Nothing is done in their name: the "
+"preview only asks Odoo which menu items they may see."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid ""
+"This is the superuser account: it bypasses access rights entirely, so treat "
+"the answer as \"everything\"."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields.selection,name:menu_access_visibility.selection__ir_ui_menu__mav_visibility__own_parent
+msgid "This item and a parent"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"This item carries an action that could not be read from here, so its model "
+"access could NOT be checked and is not part of the answer above. Open this "
+"screen as a Settings administrator to get the complete picture."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"This item carries no group of its own, so it puts no group restriction on "
+"anybody."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"This item is limited to the group(s) %s. A user in none of them never sees "
+"it."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"This item opens no action: it is a folder. Odoo only shows a folder when at "
+"least one item below it is visible, so an empty-for-this-user folder "
+"disappears on its own."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid ""
+"This item points at an action that is no longer in the database. Odoo skips "
+"such an item when it builds the menu, so nobody sees it until the action is "
+"restored."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "This user is archived and cannot log in."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview_line__is_allowed
+msgid ""
+"Ticked when the groups on the item and the read access on its action model "
+"allow this user."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview_line__in_menu_tree
+msgid ""
+"Ticked when the item is really drawn for this user: it passes its own checks"
+" and so does every menu above it."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview__truncated
+msgid ""
+"Ticked when the menu tree is larger than the display cap and only part of it"
+" is listed. The counters stay exact."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "Unknown: the action could not be read here"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Unnamed menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview__user_id
+msgid "User"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+msgid "Visibility"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_explanation
+msgid "Visibility Explained"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Visible: no group restricts this item."
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "Visible: the user is in %s."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__mode
+msgid "What To Do"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_group_update__preview_message
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_group_update_form
+msgid "What Will Happen"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+msgid "Where It Sits"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_ir_ui_menu__mav_path
+msgid ""
+"Where this item sits in the menu tree, from the application down to the item"
+" itself."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,help:menu_access_visibility.field_menu_visibility_preview__show
+msgid ""
+"Which lines to list. The counters above always cover the whole menu tree, "
+"whatever this is set to."
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_ir_ui_menu__mav_summary
+#: model_terms:ir.ui.view,arch_db:menu_access_visibility.view_menu_access_visibility_form
+msgid "Who Sees This Menu"
+msgstr ""
+
+#. module: menu_access_visibility
+#: model:ir.model.fields,field_description:menu_access_visibility.field_menu_visibility_preview_line__reason
+msgid "Why"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "a group that grants it"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/wizard/menu_visibility_preview.py:0
+msgid "above it"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "every user, through an access line with no group"
+msgstr ""
+
+#. module: menu_access_visibility
+#. odoo-python
+#: code:addons/menu_access_visibility/models/ir_ui_menu.py:0
+msgid "nobody: no access control line grants read on it"
+msgstr ""

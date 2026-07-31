@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_menu_visibility_preview_system,menu.visibility.preview.system,model_menu_visibility_preview,base.group_system,1,1,1,1
+access_menu_visibility_preview_line_system,menu.visibility.preview.line.system,model_menu_visibility_preview_line,base.group_system,1,1,1,1
+access_menu_visibility_group_update_system,menu.visibility.group.update.system,model_menu_visibility_group_update,base.group_system,1,1,1,1

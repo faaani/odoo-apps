@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A high priority keeps these views out of the way: they are bound to
+         this module's action explicitly and never become the default views
+         Odoo picks for ir.ui.menu elsewhere. -->
+    <record id="view_menu_access_visibility_tree" model="ir.ui.view">
+        <field name="name">ir.ui.menu.visibility.tree</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <!-- parent_path is 'id/id/id/', so ordering on it keeps every item
+                 directly under its own parent. Siblings come out in id order,
+                 not in the sequence order the real menu bar uses - show the
+                 optional Sequence column and sort on it to see that. -->
+            <list string="Menu Visibility" create="false" delete="false"
+                  editable="bottom" default_order="parent_path"
+                  decoration-info="mav_visibility == 'everyone'">
+                <field name="mav_path" readonly="1"/>
+                <field name="groups_id" widget="many2many_tags"
+                       options="{'no_create': True}"/>
+                <field name="mav_visibility" readonly="1"/>
+                <field name="mav_summary" readonly="1"/>
+                <field name="mav_parent_groups" readonly="1" optional="hide"/>
+                <field name="mav_action_model" readonly="1" optional="hide"/>
+                <field name="mav_action_groups" readonly="1" optional="hide"/>
+                <field name="mav_level" readonly="1" optional="hide"/>
+                <field name="parent_id" readonly="1" optional="hide"/>
+                <field name="sequence" readonly="1" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_menu_access_visibility_form" model="ir.ui.view">
+        <field name="name">ir.ui.menu.visibility.form</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Menu Visibility" create="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="mav_path" string="Menu Item"/>
+                        <h1><field name="mav_path" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Visibility" name="visibility">
+                            <field name="groups_id" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                            <field name="mav_visibility" readonly="1"/>
+                            <field name="mav_summary" readonly="1"/>
+                        </group>
+                        <group string="Where It Sits" name="position">
+                            <field name="parent_id" readonly="1"/>
+                            <field name="mav_level" readonly="1"/>
+                            <field name="mav_parent_groups" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="The Action It Opens" name="action">
+                        <field name="mav_action_model" readonly="1"/>
+                        <field name="mav_action_groups" readonly="1"/>
+                    </group>
+                    <group string="Who Sees This Menu" name="explanation">
+                        <field name="mav_explanation" nolabel="1" colspan="2"
+                               readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_menu_access_visibility_search" model="ir.ui.view">
+        <field name="name">ir.ui.menu.visibility.search</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <search string="Menu Visibility">
+                <field name="name" string="Menu Item"/>
+                <field name="groups_id" string="Group"/>
+                <field name="parent_id" string="Parent Menu"/>
+                <filter name="restricted" string="Restricted To Groups"
+                        domain="[('groups_id', '!=', False)]"/>
+                <filter name="unrestricted" string="No Group (Everyone)"
+                        domain="[('groups_id', '=', False)]"/>
+                <separator/>
+                <filter name="applications" string="Applications (Top Level)"
+                        domain="[('parent_id', '=', False)]"/>
+                <filter name="with_action" string="Opens An Action"
+                        domain="[('action', '!=', False)]"/>
+                <filter name="folders" string="Folders (No Action)"
+                        domain="[('action', '=', False)]"/>
+                <group name="group_by">
+                    <filter name="group_by_parent" string="Parent Menu"
+                            context="{'group_by': 'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_menu_access_visibility" model="ir.actions.act_window">
+        <field name="name">Menu Visibility</field>
+        <field name="res_model">ir.ui.menu</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_menu_access_visibility_search"/>
+        <!-- switches off the filter Odoo puts on ir.ui.menu.search, so this
+             screen lists the whole tree instead of only what YOU can see -->
+        <field name="context">{'ir.ui.menu.full_list': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No menu item matches this filter</p>
+            <p>Every back end menu item is listed here with the groups that may
+               see it. Edit the Groups cell to restrict or open an item, or pick
+               several rows and use the Action menu to add or remove a group in
+               one go.</p>
+        </field>
+    </record>
+
+    <record id="action_menu_access_visibility_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_menu_access_visibility_tree"/>
+        <field name="act_window_id" ref="action_menu_access_visibility"/>
+    </record>
+
+    <record id="action_menu_access_visibility_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_menu_access_visibility_form"/>
+        <field name="act_window_id" ref="action_menu_access_visibility"/>
+    </record>
+
+    <menuitem id="menu_menu_access_visibility"
+              name="Menu Visibility"
+              parent="base.menu_users"
+              action="action_menu_access_visibility"
+              groups="base.group_system"
+              sequence="45"/>
+
+</odoo>
