@@ -1,0 +1,78 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #3a2894; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Password Expiry Policy</h1>
+        <p style="margin: 0; font-size: 18px; color: #f7b538;">Passwords that rotate on a schedule your auditor can sign off.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">ISO 27001, SOC 2 and most internal security policies ask for a maximum password age. Odoo records no password age at all and has no rotation rule, so there is nothing to show an auditor and nothing to enforce.
+        This module stores the date of every password change on the user, and once the configured period has passed it sends the user to a change-password page before letting them back into the backend.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Ships disabled</strong> &mdash; nothing changes until an administrator switches it on and saves.</li>
+        <li><strong>A typo cannot lock out the company</strong> &mdash; the period is clamped to a minimum of 7 days when you save it and when it is read.</li>
+        <li><strong>Never locks out the administrator</strong> &mdash; the database superuser (OdooBot, uid&nbsp;1) and the <code>base.user_admin</code> account are always exempt, and you can flag any other user as exempt.</li>
+        <li><strong>Portal and public users are never expired</strong> &mdash; the policy applies to internal backend users only.</li>
+        <li><strong>Your integrations keep working</strong> &mdash; XML-RPC and JSON-RPC authentication and calls, <code>/web/session/*</code>, assets, downloads, scheduled jobs, the mail gateway and database initialisation are never intercepted.</li>
+        <li><strong>No dead ends</strong> &mdash; the login page, the logout endpoint, the database manager and the change-password page itself always stay reachable, so an expired user can never be caught in a redirect loop.</li>
+        <li><strong>Installing it expires nobody</strong> &mdash; every existing user is stamped with the installation date, never with a date in the past.</li>
+        <li><strong>The session survives the change</strong> &mdash; after choosing a new password the user goes straight back to work, with no forced re-login.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-settings.png" alt="Password expiry settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Settings &rarr; General Settings &rarr; Users: switch the policy on and set the maximum password age.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-expired-page.png" alt="Change-password page shown to an expired user" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A user whose password has aged out is sent here on the next page load. Logging out is always one click away.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-user-form.png" alt="Password Expiry tab on the user form" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every user gets a Password Expiry tab: when the password was last changed, when it expires, and a per-user exemption flag.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Password Expiry Policy</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base_setup</code> and <code>web</code> modules are required.</li>
+        <li>Installation stamps every existing user with the current date and time. The policy is <strong>off</strong> until you enable it, so nothing changes yet.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings</strong> and find the <strong>Users</strong> block.</li>
+        <li>Tick <strong>Password Expiry Policy</strong>.</li>
+        <li>Set <strong>Maximum Password Age (days)</strong> &mdash; 90 by default. Anything below 7 is raised to 7, and the ceiling is 3650.</li>
+        <li>Click <strong>Save</strong>.</li>
+        <li>Optional: open <strong>Settings &rarr; Users &amp; Companies &rarr; Users</strong>, pick an integration or break-glass account, open the <strong>Password Expiry</strong> tab and tick <strong>Exempt from Password Expiry</strong>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Each user's <strong>Password Expiry</strong> tab shows the last password change and the resulting expiry date.</li>
+        <li>When the expiry date passes, the user's next backend page load lands on the change-password page instead.</li>
+        <li>The user enters their current password and a new one. The clock resets and they continue straight into the backend.</li>
+        <li>An administrator can always reset a password the usual way (<strong>Users</strong> form &rarr; <strong>Change Password</strong>); that also resets the clock.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">What this module deliberately does not do</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>It does <strong>not</strong> block API access. XML-RPC and JSON-RPC keep authenticating and answering for an expired user &mdash; on purpose, so that a rotation policy can never take your integrations down. The redirect only applies to browser page loads (a GET that asks for HTML).</li>
+        <li>A backend tab that is <strong>already open</strong> keeps working from its background requests until the next page load or refresh, when the redirect kicks in.</li>
+        <li>It does not enforce password <em>complexity</em>, a password history, or a reuse ban &mdash; only maximum age. It checks that the new password differs from the current one and that the confirmation matches; everything else is left to Odoo.</li>
+        <li>It does not send reminder emails before expiry.</li>
+        <li>Users with no recorded password change date (an edge case the installation stamp normally prevents) are never expired &mdash; the check deliberately fails open rather than locking anybody out.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f7b538; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0). Each series is installed, upgraded and functionally tested before release.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
