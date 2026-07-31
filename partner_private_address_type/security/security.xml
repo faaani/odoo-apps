@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Core <=16 already ships the record-rule pair for private addresses
+         (base.res_partner_rule_private_employee hides them from group_user,
+         base.res_partner_rule_private_group re-adds them for members of the
+         hidden base.group_private_addresses). This module therefore ships NO
+         rules of its own here: the visible group below simply implies the
+         core group, and core's rules do the filtering. -->
+    <record id="group_private_address" model="res.groups">
+        <field name="name">See Private Addresses</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+        <field name="comment">Members can see and manage contacts whose address type is Private Address. Internal users outside this group cannot read, write or delete them.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_private_addresses'))]"/>
+    </record>
+
+    <!-- Administrators must never lose sight of any record. -->
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_private_address'))]"/>
+    </record>
+</odoo>
