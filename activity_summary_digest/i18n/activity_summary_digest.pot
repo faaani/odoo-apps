@@ -1,0 +1,188 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* activity_summary_digest
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 10:19+0000\n"
+"PO-Revision-Date: 2026-07-31 10:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.res_config_settings_view_form_activity_digest
+msgid "Activities"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Activities due today or overdue: %s"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Activity"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.view_users_form_activity_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.view_users_form_simple_modif_activity_digest
+msgid "Activity Digest"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model,name:activity_summary_digest.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_config_settings.py:0
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_config_settings__activity_digest_enabled
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_users__activity_digest_optin
+#, python-format
+msgid "Daily Activity Digest"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_users__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Due today - %s"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.res_config_settings_view_form_activity_digest
+msgid ""
+"Each user switches the digest on for themselves under\n"
+"                                    Preferences &gt; Activity Digest. The sending time lives in\n"
+"                                    Settings &gt; Technical &gt; Scheduled Actions\n"
+"                                    (\"Send daily activity digest emails\")."
+msgstr ""
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.res_config_settings_view_form_activity_digest
+msgid ""
+"Email each user who opted in a morning summary of the activities they must "
+"deal with. Users with nothing due are not emailed."
+msgstr ""
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.res_config_settings_view_form_activity_digest
+msgid ""
+"Every active internal user will start receiving the daily digest. They can "
+"switch it off again in their own preferences. Continue?"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Hello %s,"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_config_settings__id
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:activity_summary_digest.field_res_users____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model.fields,help:activity_summary_digest.field_res_config_settings__activity_digest_enabled
+msgid ""
+"Master switch for the daily digest email. Turn it off and no digest is sent "
+"to anybody, whatever each user asked for."
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_config_settings.py:0
+#, python-format
+msgid "Only administrators can change this setting."
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Only administrators can run the activity digest."
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Only the first %s activities are listed. Open Odoo to see the rest."
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Overdue - %s"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model.fields,help:activity_summary_digest.field_res_users__activity_digest_optin
+msgid ""
+"Receive one email every morning listing your activities that are due today "
+"or overdue. Nothing is sent on days you have none."
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.actions.server,name:activity_summary_digest.ir_cron_activity_digest_ir_actions_server
+#: model:ir.cron,cron_name:activity_summary_digest.ir_cron_activity_digest
+#: model:ir.cron,name:activity_summary_digest.ir_cron_activity_digest
+msgid "Send daily activity digest emails"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_config_settings.py:0
+#, python-format
+msgid ""
+"The digest is now switched on for %s internal user(s). Each of them can "
+"switch it off again in their own preferences."
+msgstr ""
+
+#. module: activity_summary_digest
+#: model_terms:ir.ui.view,arch_db:activity_summary_digest.res_config_settings_view_form_activity_digest
+msgid "Turn on for all internal users"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Untitled"
+msgstr ""
+
+#. module: activity_summary_digest
+#: model:ir.model,name:activity_summary_digest.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid ""
+"You receive this because \"Daily Activity Digest\" is enabled in your Odoo "
+"preferences. Untick it there to stop these emails."
+msgstr ""
+
+#. module: activity_summary_digest
+#: code:addons/activity_summary_digest/models/res_users.py:0
+#, python-format
+msgid "Your activities for %s"
+msgstr ""

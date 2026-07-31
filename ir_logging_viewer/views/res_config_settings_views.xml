@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_logging_viewer" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.logging.viewer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Server Logs</h2>
+                <div class="row mt16 o_settings_container" id="ir_logging_viewer_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="ir_logging_retention_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="ir_logging_retention_active"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="ir_logging_retention_active"/>
+                            <div class="text-muted">
+                                Delete database log entries older than a chosen number of days, once a day.
+                                Off by default: no log entry is deleted until you switch this on.
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('ir_logging_retention_active', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="ir_logging_retention_days" class="col-lg-6 o_light_label"/>
+                                    <field name="ir_logging_retention_days" class="col-lg-3"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="ir_logging_viewer_open_setting">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Log Entries</span>
+                            <div class="text-muted">
+                                Browse the log entries Odoo stored in the database. This is the ir_logging
+                                table, not the server log file: Odoo fills it only when the server runs
+                                with the log_db option.
+                            </div>
+                            <div class="mt8">
+                                <button name="%(ir_logging_viewer.action_ir_logging_viewer)d"
+                                        type="action" string="Open Server Logs" class="btn-link"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

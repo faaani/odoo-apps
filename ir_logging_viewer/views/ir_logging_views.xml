@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Views carry an explicit low priority and are bound to this module's own
+         action, so the bare Logging screen shipped in the Technical menu keeps
+         behaving exactly as before. -->
+    <record id="view_ir_logging_viewer_tree" model="ir.ui.view">
+        <field name="name">ir.logging.viewer.tree</field>
+        <field name="model">ir.logging</field>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <tree string="Server Log" create="false" edit="false"
+                  decoration-danger="severity == 'error' or severity == 'critical'"
+                  decoration-warning="severity == 'warning'"
+                  decoration-muted="severity == 'debug'">
+                <field name="severity" invisible="1"/>
+                <field name="create_date" string="Date"/>
+                <field name="level"/>
+                <field name="name" string="Logger"/>
+                <field name="message_preview" string="Message"/>
+                <field name="type" optional="show"/>
+                <field name="func" optional="hide"/>
+                <field name="path" optional="hide"/>
+                <field name="line" optional="hide"/>
+                <field name="dbname" optional="hide"/>
+                <field name="create_uid" string="User ID" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ir_logging_viewer_form" model="ir.ui.view">
+        <field name="name">ir.logging.viewer.form</field>
+        <field name="model">ir.logging</field>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <form string="Server Log Entry" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Logger"/>
+                        <h1><field name="name" class="oe_inline"/></h1>
+                    </div>
+                    <group>
+                        <group string="Entry">
+                            <field name="create_date" string="Date"/>
+                            <field name="level"/>
+                            <field name="severity"/>
+                            <field name="type"/>
+                            <field name="dbname"/>
+                        </group>
+                        <group string="Origin">
+                            <field name="path"/>
+                            <field name="func"/>
+                            <field name="line"/>
+                            <field name="create_uid" string="User ID"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Message" name="page_message">
+                            <field name="message" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ir_logging_viewer_search" model="ir.ui.view">
+        <field name="name">ir.logging.viewer.search</field>
+        <field name="model">ir.logging</field>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <search string="Server Log">
+                <field name="message" string="Message"
+                       filter_domain="[('message', 'ilike', self)]"/>
+                <field name="name" string="Logger"
+                       filter_domain="['|', ('name', 'ilike', self), ('func', 'ilike', self)]"/>
+                <field name="level"/>
+                <field name="create_date" string="Date"/>
+                <filter string="Errors" name="level_error"
+                        domain="[('level', 'in', ['ERROR', 'error', 'CRITICAL', 'critical', 'FATAL', 'fatal'])]"/>
+                <filter string="Warnings" name="level_warning"
+                        domain="[('level', 'in', ['WARNING', 'warning', 'WARN', 'warn'])]"/>
+                <filter string="Info" name="level_info"
+                        domain="[('level', 'in', ['INFO', 'info'])]"/>
+                <filter string="Debug" name="level_debug"
+                        domain="[('level', 'in', ['DEBUG', 'debug', 'NOTSET', 'notset'])]"/>
+                <separator/>
+                <filter string="Server" name="type_server" domain="[('type', '=', 'server')]"/>
+                <filter string="Client" name="type_client" domain="[('type', '=', 'client')]"/>
+                <separator/>
+                <filter string="Today" name="date_today"
+                        domain="[('create_date', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 7 Days" name="date_last_7_days"
+                        domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 30 Days" name="date_last_30_days"
+                        domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Date" name="filter_create_date" date="create_date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Level" name="group_level"
+                            context="{'group_by': 'level'}"/>
+                    <filter string="Logger" name="group_logger"
+                            context="{'group_by': 'name'}"/>
+                    <filter string="Type" name="group_type"
+                            context="{'group_by': 'type'}"/>
+                    <filter string="Database" name="group_dbname"
+                            context="{'group_by': 'dbname'}"/>
+                    <filter string="Date" name="group_create_date"
+                            context="{'group_by': 'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ir_logging_viewer" model="ir.actions.act_window">
+        <field name="name">Server Log</field>
+        <field name="res_model">ir.logging</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_ir_logging_viewer_search"/>
+        <field name="context">{'search_default_date_last_7_days': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No log entry stored in the database</p>
+            <p>
+                Odoo saves log records in the database only when the server runs with
+                the <b>log_db</b> option (<code>--log-db=&lt;database&gt;</code> on the
+                command line, or <code>log_db = &lt;database&gt;</code> in the
+                configuration file), plus the entries written by "Execute Python Code"
+                server actions. Without that option this table stays empty.
+            </p>
+            <p>
+                This screen is a viewer for that table. It is not a viewer for the
+                server log <i>file</i>, and it cannot show anything logged before
+                <b>log_db</b> was switched on.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_ir_logging_viewer_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_ir_logging_viewer_tree"/>
+        <field name="act_window_id" ref="action_ir_logging_viewer"/>
+    </record>
+
+    <record id="action_ir_logging_viewer_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_ir_logging_viewer_form"/>
+        <field name="act_window_id" ref="action_ir_logging_viewer"/>
+    </record>
+
+    <menuitem id="menu_ir_logging_viewer_root"
+              name="Server Logs"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="55"/>
+
+    <menuitem id="menu_ir_logging_viewer_entries"
+              name="Log Entries"
+              parent="menu_ir_logging_viewer_root"
+              action="action_ir_logging_viewer"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_ir_logging_viewer_clear"
+              name="Clear Log Entries"
+              parent="menu_ir_logging_viewer_root"
+              action="action_ir_logging_clear_wizard"
+              groups="base.group_system"
+              sequence="20"/>
+
+</odoo>
