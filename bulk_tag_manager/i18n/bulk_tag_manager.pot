@@ -1,0 +1,313 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bulk_tag_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:31+0000\n"
+"PO-Revision-Date: 2026-07-31 00:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid ""
+"\"%(field)s\" is not a tag field of %(model)s, or you are not allowed to use"
+" it."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "%s already had the right tags."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "%s record(s) updated."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "%s refused the change."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "%s skipped (access denied)."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+#: model:ir.actions.act_window,name:bulk_tag_manager.action_bulk_tag_res_partner
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "Add / Remove Tags"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model,name:bulk_tag_manager.model_bulk_tag_wizard
+msgid "Add and Remove Tags in Bulk"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "Apply"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__option_ids
+msgid "Available Tag Fields"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model,name:bulk_tag_manager.model_bulk_tag_field
+msgid "Bulk Tag Manager: Tag Field Choice"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "Changes to apply"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,help:bulk_tag_manager.field_bulk_tag_wizard__add_tag_names
+msgid "Comma-separated tag names. Matching is case-insensitive."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,help:bulk_tag_manager.field_bulk_tag_wizard__remove_tag_names
+msgid ""
+"Comma-separated tag names. Only these tags are removed; every other tag on "
+"the record is left alone."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__create_missing
+msgid "Create Missing Tags"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,help:bulk_tag_manager.field_bulk_tag_wizard__create_missing
+msgid ""
+"Create the tags to add that do not exist yet. Off by default: without it, an"
+" unknown tag name stops the run instead of silently creating a typo."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__create_uid
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__create_date
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__display_name
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "Enter at least one tag to add or one tag to remove."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__existing_tag_hint
+msgid "Existing Tags"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__name
+msgid "Field"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__id
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__write_uid
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__write_date
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__res_model
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__res_model
+msgid "Model"
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "No tag exists yet on this model."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid ""
+"No tag field was found on \"%s\".\n"
+"\n"
+"This wizard needs a many2many field you are allowed to write, pointing at a model that has a name (a tag or category model)."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid ""
+"No tag named %(names)s exists on %(model)s.\n"
+"\n"
+"Check the spelling, or tick \"Create Missing Tags\" to create the tags you want to add."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "Only administrators can rebuild the Tags action menu."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "Select the records you want to tag first."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__record_count
+msgid "Selected Records"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid ""
+"Several tags are named %s. Tags are matched by name, so please make the name"
+" unique first."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__tag_option_id
+msgid "Tag Field"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__comodel
+msgid "Tag Model"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__tag_model_label
+msgid "Tags Taken From"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "Tags that already exist"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__add_tag_names
+msgid "Tags to Add"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_wizard__remove_tag_names
+msgid "Tags to Remove"
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "Tags updated"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,field_description:bulk_tag_manager.field_bulk_tag_field__field_name
+msgid "Technical Name"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model:ir.model.fields,help:bulk_tag_manager.field_bulk_tag_wizard__tag_option_id
+msgid ""
+"The field of the selected model that holds the tags. Only tag fields are "
+"listed: a many2many named like a tag field, or one pointing at a tag or "
+"category model."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "The same tag cannot be added and removed in one run: %s."
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid "The selected records no longer exist."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "These tags will be applied to"
+msgstr ""
+
+#. module: bulk_tag_manager
+#. odoo-python
+#: code:addons/bulk_tag_manager/wizard/bulk_tag_wizard.py:0
+msgid ""
+"You are not allowed to create tags on %(model)s, so \"%(tag)s\" cannot be "
+"created."
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "e.g. Newsletter, VIP"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid "e.g. Prospect"
+msgstr ""
+
+#. module: bulk_tag_manager
+#: model_terms:ir.ui.view,arch_db:bulk_tag_manager.bulk_tag_wizard_view_form
+msgid ""
+"selected record(s).\n"
+"                    Tags already on a record that are not listed below are kept."
+msgstr ""
