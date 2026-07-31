@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_private_address_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 17:24+0000\n"
+"PO-Revision-Date: 2026-07-31 17:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_private_address_type
+#: model:ir.model,name:partner_private_address_type.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: partner_private_address_type
+#: code:addons/partner_private_address_type/models/res_partner.py:0
+#, python-format
+msgid ""
+"Contact \"%s\" is linked to an active user and cannot use the Private "
+"Address type. Hiding a user's own contact record would break their login and"
+" profile."
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_partner__display_name
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_users__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_partner__id
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_partner____last_update
+#: model:ir.model.fields,field_description:partner_private_address_type.field_res_users____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:res.groups,comment:partner_private_address_type.group_private_address
+msgid ""
+"Members can see and manage contacts whose address type is Private Address. "
+"Internal users outside this group cannot read, write or delete them."
+msgstr ""
+
+#. module: partner_private_address_type
+#: model_terms:ir.ui.view,arch_db:partner_private_address_type.view_res_partner_filter_private_address
+msgid "Private Addresses"
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:res.groups,name:partner_private_address_type.group_private_address
+msgid "See Private Addresses"
+msgstr ""
+
+#. module: partner_private_address_type
+#: code:addons/partner_private_address_type/models/res_users.py:0
+#, python-format
+msgid ""
+"User \"%s\" cannot be linked to a contact whose address type is Private "
+"Address. Change the contact's address type first."
+msgstr ""
+
+#. module: partner_private_address_type
+#: model:ir.model,name:partner_private_address_type.model_res_users
+msgid "Users"
+msgstr ""
