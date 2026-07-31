@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Mirror of base.res_partner_rule (17.0 wording). The report must never
+         show a contact that the standard Contacts list would hide. Global rules
+         are not bypassed by base.group_system, so without this an administrator
+         restricted to one company could read the bouncing portal contacts of
+         the other companies. -->
+    <record id="mail_bounce_report_company_rule" model="ir.rule">
+        <field name="name">Email Bounce Report: contacts of allowed companies only</field>
+        <field name="model_id" ref="model_mail_bounce_report"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|', '|', ('partner_share', '=', False), ('company_id', 'parent_of', company_ids), ('company_id', '=', False)]</field>
+    </record>
+
+</odoo>

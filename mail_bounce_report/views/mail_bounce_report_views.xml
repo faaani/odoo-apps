@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mail_bounce_report_tree" model="ir.ui.view">
+        <field name="name">mail.bounce.report.tree</field>
+        <field name="model">mail.bounce.report</field>
+        <field name="arch" type="xml">
+            <tree string="Email Bounce Report" create="false" edit="false" delete="false"
+                  decoration-danger="above_threshold"
+                  decoration-warning="blacklisted and not above_threshold"
+                  decoration-muted="not partner_active">
+                <field name="partner_id"/>
+                <field name="email"/>
+                <field name="bounce_count"/>
+                <field name="above_threshold"/>
+                <field name="last_bounce_message_date"/>
+                <field name="blacklisted"/>
+                <field name="bounced_message_count" optional="show"/>
+                <field name="blacklist_date" optional="hide"/>
+                <field name="country_id" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+                <field name="partner_active" optional="hide"/>
+                <field name="bounce_threshold" optional="hide"/>
+                <field name="email_normalized" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mail_bounce_report_form" model="ir.ui.view">
+        <field name="name">mail.bounce.report.form</field>
+        <field name="model">mail.bounce.report</field>
+        <field name="arch" type="xml">
+            <form string="Email Bounce" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_open_contact" type="object" string="Open Contact"
+                            class="btn-primary"
+                            help="Open the contact record. This report never modifies it."/>
+                    <button name="action_open_blacklist_entry" type="object"
+                            string="Open Blacklist Entry" class="btn-secondary"
+                            invisible="not blacklisted"
+                            help="Open the matching email blacklist entry."/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        This report is read-only. It never changes the contact, its
+                        bounce counter or the email blacklist.
+                    </div>
+                    <group>
+                        <group string="Contact">
+                            <field name="partner_id"/>
+                            <field name="email"/>
+                            <field name="email_normalized"/>
+                            <field name="has_email"/>
+                            <field name="country_id"/>
+                            <field name="company_id"/>
+                            <field name="partner_active"/>
+                            <field name="partner_share" invisible="1"/>
+                            <field name="partner_name" invisible="1"/>
+                        </group>
+                        <group string="Bounces">
+                            <field name="bounce_count"/>
+                            <field name="bounce_threshold"/>
+                            <field name="above_threshold"/>
+                            <field name="bounced_message_count"/>
+                            <field name="last_bounce_message_date"/>
+                        </group>
+                        <group string="Blacklist">
+                            <field name="blacklisted"/>
+                            <field name="blacklist_id" invisible="not blacklisted"/>
+                            <field name="blacklist_date" invisible="not blacklisted"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mail_bounce_report_search" model="ir.ui.view">
+        <field name="name">mail.bounce.report.search</field>
+        <field name="model">mail.bounce.report</field>
+        <field name="arch" type="xml">
+            <search string="Email Bounce Report">
+                <field name="partner_name" string="Contact"
+                       filter_domain="['|', ('partner_name', 'ilike', self), ('email', 'ilike', self)]"/>
+                <field name="email"/>
+                <field name="bounce_count" string="Bounces (at least)"
+                       filter_domain="[('bounce_count', '&gt;=', self)]"/>
+                <field name="country_id"/>
+                <field name="company_id"/>
+                <filter string="Bounced At All" name="filter_bounced"
+                        domain="[('bounce_count', '&gt;', 0)]"/>
+                <filter string="At or Above Threshold" name="filter_above_threshold"
+                        domain="[('above_threshold', '=', True)]"/>
+                <filter string="Below Threshold" name="filter_below_threshold"
+                        domain="[('above_threshold', '=', False), ('bounce_count', '&gt;', 0)]"/>
+                <separator/>
+                <filter string="Blacklisted" name="filter_blacklisted"
+                        domain="[('blacklisted', '=', True)]"/>
+                <filter string="Not Blacklisted" name="filter_not_blacklisted"
+                        domain="[('blacklisted', '=', False)]"/>
+                <separator/>
+                <filter string="Has Email Address" name="filter_has_email"
+                        domain="[('has_email', '=', True)]"/>
+                <filter string="No Email Address" name="filter_no_email"
+                        domain="[('has_email', '=', False)]"/>
+                <separator/>
+                <filter string="Active Contacts" name="filter_active_contacts"
+                        domain="[('partner_active', '=', True)]"/>
+                <filter string="Archived Contacts" name="filter_archived_contacts"
+                        domain="[('partner_active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"/>
+                    <filter string="Country" name="group_country"
+                            context="{'group_by': 'country_id'}"/>
+                    <filter string="Blacklisted" name="group_blacklisted"
+                            context="{'group_by': 'blacklisted'}"/>
+                    <filter string="Above Threshold" name="group_above_threshold"
+                            context="{'group_by': 'above_threshold'}"/>
+                    <filter string="Last Bounced Message" name="group_last_bounce"
+                            context="{'group_by': 'last_bounce_message_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mail_bounce_report" model="ir.actions.act_window">
+        <field name="name">Email Bounce Report</field>
+        <field name="res_model">mail.bounce.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_mail_bounce_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No contact is bouncing or blacklisted</p>
+            <p>This report lists every contact that has a bounce counter above zero
+               or whose address is on the email blacklist. Clean contacts are not
+               listed at all.</p>
+            <p>It is strictly read-only: it never changes a contact, never resets a
+               bounce counter and never adds or removes a blacklist entry.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mail_bounce_report"
+              name="Email Bounce Report"
+              parent="mail.mail_menu_technical"
+              action="action_mail_bounce_report"
+              groups="base.group_system"
+              sequence="23"/>
+
+</odoo>
