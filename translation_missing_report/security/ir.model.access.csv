@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_translation_missing_report_system,translation.missing.report.system,model_translation_missing_report,base.group_system,1,1,1,1
+access_translation_missing_summary_system,translation.missing.summary.system,model_translation_missing_summary,base.group_system,1,1,1,1
+access_translation_missing_line_system,translation.missing.line.system,model_translation_missing_line,base.group_system,1,1,1,1
