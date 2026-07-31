@@ -1,0 +1,86 @@
+<div style="max-width: 900px; margin: 0 auto; padding: 24px; font-family: Arial, Helvetica, sans-serif; color: #333;">
+
+    <div style="text-align: center; padding: 24px 0;">
+        <h1 style="font-size: 30px; margin: 0 0 8px 0;">Sandbox Mode &mdash; Database Neutralize Toggle</h1>
+        <p style="font-size: 17px; color: #666; margin: 0;">
+            One reversible switch that stops a restored database from sending real emails or running live scheduled actions.
+        </p>
+    </div>
+
+    <div style="background: #fdf2f3; border-left: 4px solid #dc3545; padding: 14px 18px; margin: 18px 0;">
+        <p style="margin: 0; font-size: 15px;">
+            Everyone has done it: a production copy is restored for testing, and minutes later it
+            mails a customer or runs a live cron. Odoo's own <em>neutralize</em> is command-line only,
+            exists only on 16.0 and later, and cannot be undone. This module gives you the same
+            safety as a single toggle in General Settings &mdash; and switching it back off restores
+            your exact previous configuration.
+        </p>
+    </div>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">What it does</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><b>Snapshot first:</b> the active flag of every outgoing mail server, incoming mail server and scheduled action is saved before anything is touched.</li>
+        <li><b>Neutralize:</b> all outgoing mail servers, incoming mail servers and scheduled actions are deactivated in one click.</li>
+        <li><b>Warning banner:</b> a fixed red &quot;SANDBOX MODE&quot; banner is rendered server-side on every backend page &mdash; no JavaScript, no assets, pure inline CSS.</li>
+        <li><b>Exact restore:</b> switching the toggle off puts back the exact prior flags &mdash; a cron that was already disabled before stays disabled.</li>
+        <li><b>Safe by design:</b> enabling twice never overwrites the original snapshot; records deleted meanwhile are skipped; records created while sandboxed are left untouched.</li>
+        <li><b>Admin only:</b> everything is restricted to the Administration / Settings group, including direct RPC calls.</li>
+        <li><b>Clean uninstall:</b> uninstalling the module while Sandbox Mode is active automatically restores the saved state and removes the stored parameters &mdash; nothing is left neutralized behind.</li>
+    </ul>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">Screenshots</h2>
+
+    <div style="margin: 18px 0; text-align: center;">
+        <img src="01-settings-off.png" alt="Sandbox Mode toggle in General Settings" style="max-width: 100%; border: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
+        <p style="font-size: 14px; color: #666; margin-top: 8px;">The Sandbox Mode toggle in General Settings, off by default.</p>
+    </div>
+
+    <div style="margin: 18px 0; text-align: center;">
+        <img src="02-banner.png" alt="Warning banner on every backend page" style="max-width: 100%; border: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
+        <p style="font-size: 14px; color: #666; margin-top: 8px;">While sandboxed, every backend page carries the fixed red SANDBOX MODE banner.</p>
+    </div>
+
+    <div style="margin: 18px 0; text-align: center;">
+        <img src="03-settings-on.png" alt="Sandbox Mode enabled" style="max-width: 100%; border: 1px solid #ddd; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
+        <p style="font-size: 14px; color: #666; margin-top: 8px;">Sandbox Mode enabled: the toggle is on and the warning banner is visible.</p>
+    </div>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>Copy the <code>database_neutralize_toggle</code> folder into your addons path.</li>
+        <li>Restart the Odoo server.</li>
+        <li>Activate developer mode, go to <b>Apps</b>, click <b>Update Apps List</b>.</li>
+        <li>Search for &quot;Sandbox Mode&quot; and click <b>Install</b>.</li>
+    </ol>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>Open <b>Settings &rarr; General Settings</b> as an administrator.</li>
+        <li>Find the <b>Sandbox Mode</b> section.</li>
+        <li>There is exactly one switch &mdash; nothing else to configure.</li>
+    </ol>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>After restoring a production copy, turn <b>Sandbox Mode</b> on and save. All mail servers and scheduled actions are snapshotted and deactivated, and the red banner appears.</li>
+        <li>Test freely: no real emails leave through configured mail servers, no scheduled action fires.</li>
+        <li>To leave sandbox, turn the toggle off and save. The exact previous active flags are restored and the banner disappears.</li>
+    </ol>
+
+    <h2 style="font-size: 22px; border-bottom: 2px solid #dc3545; padding-bottom: 6px;">Honest limitations</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>It deactivates <b>all</b> scheduled actions, with no exceptions &mdash; including Odoo's own maintenance crons, for as long as sandbox mode is on.</li>
+        <li>It cannot block mail sent through a local <code>sendmail</code> binary when no outgoing mail server record is used.</li>
+        <li>It does not neutralize payment providers, webhooks or any other outbound integration &mdash; only mail servers and scheduled actions.</li>
+        <li>The banner appears in the backend web client; it is not shown on website/portal pages.</li>
+    </ul>
+
+    <div style="background: #f8f9fa; border: 1px solid #ddd; padding: 18px; margin-top: 28px; text-align: center;">
+        <h3 style="margin: 0 0 6px 0; font-size: 18px;">Support</h3>
+        <p style="margin: 0; font-size: 15px;">
+            Questions, issues or feature requests?<br/>
+            Contact <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a>
+        </p>
+    </div>
+
+</div>
