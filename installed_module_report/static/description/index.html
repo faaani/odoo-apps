@@ -1,0 +1,107 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1a2138; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Installed Modules Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">What is installed &middot; what is third party &middot; what depends on what</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Before an upgrade or an audit somebody always asks the same three questions: what is actually installed on this database, how much of it is third party, and what breaks if we remove this one? The Apps screen answers none of them well. This module adds a <strong>read-only report</strong> over the module list with the version, author, licence, origin and dependencies of every installed module.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Every installed module in one list</strong> &mdash; technical name, module name, installed version, author, licence, category and status. Modules that are not installed never appear.</li>
+        <li><strong>Origin classification</strong> &mdash; Odoo S.A. (core), Odoo S.A. (Enterprise), Odoo Community Association (OCA), other third party, or author not declared. How it is worked out is spelled out below and repeated on the report itself.</li>
+        <li><strong>Direct dependencies and reverse dependencies</strong> &mdash; what this module needs, and which installed modules would break without it, both as counts you can sort on and as clickable lists.</li>
+        <li><strong>Approximate install date</strong> &mdash; Odoo records no install date, so the report shows the creation date of the oldest external ID the module wrote, which is stamped the first time it loads.</li>
+        <li><strong>Three audit filters</strong> &mdash; <em>Third Party Only</em>, <em>Non-standard Licence</em>, and <em>Installed But Not Part Of Any App</em>, plus filters for proprietary licences, applications, auto-installed link modules, modules nothing depends on, and modules queued for upgrade or removal.</li>
+        <li><strong>Group and export</strong> &mdash; group by origin, licence, licence type, author, category, status or install month, then export the list to spreadsheet for the audit file.</li>
+        <li><strong>Read-only, and fast</strong> &mdash; a single SQL view with grouped sub-queries, and one query per page for the dependency lists rather than one per module. The module has <strong>no write, create or delete access at all</strong>: it never installs, upgrades or uninstalls anything, and it never edits the module list.</li>
+        <li><strong>Administrator only</strong> &mdash; visible to the Administration / Settings group; nobody else can read it.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">How modules are classified</h2>
+    <p style="font-size: 15px; line-height: 1.7;">The report reads the module manifest, and a manifest can lie &mdash; so the rules are stated in full rather than hidden:</p>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>An author of <strong>Odoo S.A.</strong> (also <em>Odoo</em>, <em>Odoo SA</em>, <em>Odoo PS</em>, <em>OpenERP</em>) means <strong>Odoo core</strong> &mdash; or <strong>Enterprise</strong> when the licence is OPL-1 or OEEL-1.</li>
+        <li>An author mentioning <strong>Odoo Community Association</strong> or <strong>(OCA)</strong> means <strong>OCA</strong>.</li>
+        <li>Everything else is <strong>other third party</strong>, and an empty author is reported as <strong>author not declared</strong> &mdash; a bucket that only ever fills on Odoo 19, because up to Odoo 18 Odoo itself substitutes &ldquo;Odoo S.A.&rdquo; for a missing author. A module co-authored by Odoo and a partner (&ldquo;Odoo S.A., Vauxoo&rdquo;) is deliberately counted as third party: an inventory that exists to find third-party code should over-report, not under-report.</li>
+        <li><strong>Third Party</strong> is ticked for everything not published by Odoo S.A., which includes OCA modules.</li>
+        <li><strong>Non-standard Licence</strong> is ticked for every module whose licence is not LGPL-3, the licence Odoo Community itself ships under &mdash; stronger copyleft (GPL, AGPL), proprietary (OPL-1, OEEL-1, other), or no licence at all. Odoo Enterprise modules are OEEL-1 and appear here by design.</li>
+        <li><strong>Installed But Not Part Of Any App</strong> means the module is not an application itself, was not auto-installed as a link module, and no installed module lists it as a dependency.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-installed-modules.png" alt="Installed modules list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every installed module with version, author, licence, origin, approximate install date and both dependency counts.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The ready-made filters and groupings, from third-party only to modules queued for upgrade or removal.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-third-party-only.png" alt="Third party only" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Third party only: everything on this database that Odoo S.A. did not publish, OCA included.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-non-standard-licence.png" alt="Non-standard licence filter" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Non-standard licence: everything that is not LGPL-3 &mdash; here a single OEEL-1 module on an otherwise LGPL-3 database.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-not-part-of-any-app.png" alt="Not part of any app" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Installed but not part of any app: not an application, not auto-installed, and nothing depends on it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="06-group-by-origin.png" alt="Grouped by origin" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by origin &mdash; how much of this database is core, Enterprise, OCA or other third party.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="07-dependencies.png" alt="Dependencies of a module" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One module in detail, with its direct dependencies. The classification rules are repeated at the bottom of the form.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="08-required-by.png" alt="Modules that require this one" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The other direction: the installed modules that would break if this one went away.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Installed Modules Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the report works as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group. The module grants read access only: no user, administrator included, can write to the report.</li>
+        <li>Optional: mark the menu as a favourite for one-click access.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Apps &rarr; Installed Modules Report</strong>.</li>
+        <li>The list opens on every installed module, ordered by technical name.</li>
+        <li>Apply a filter &mdash; <em>Third Party Only</em>, <em>Non-standard Licence</em>, <em>Installed But Not Part Of Any App</em>, <em>Proprietary Licence</em>, <em>Nothing Depends On It</em>, <em>Pending Upgrade Or Removal</em> &mdash; or search by module, author or licence.</li>
+        <li>Group by <strong>Origin</strong> to see how much of the database is core, Enterprise, OCA or third party.</li>
+        <li>Open a line to read its direct dependencies and the installed modules that require it, then follow the links to walk the chain.</li>
+        <li>Select all and use <strong>Export</strong> to attach the inventory to your upgrade or audit file.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Limits, stated plainly</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>It reports, it never acts.</strong> The module has read access only. It never installs, upgrades or uninstalls anything, never edits the module list, and adds no button that does.</li>
+        <li><strong>Only direct dependencies.</strong> Dependency and reverse-dependency lists are one level deep; they are not walked transitively, so &ldquo;nothing depends on it&rdquo; is not by itself permission to uninstall. For the same reason a module needed only by another loose non-app module is not listed under <em>Installed But Not Part Of Any App</em>.</li>
+        <li><strong>Declared Dependencies can exceed the Depends On list.</strong> The count is what the manifest declares; the list resolves only the dependencies actually installed. They differ when a declared dependency is missing from the database &mdash; which is itself worth investigating. The reverse direction counts installed modules only, so there the count and the list always agree.</li>
+        <li><strong>Classification is only as good as the manifest.</strong> Up to Odoo 18 a module that declares no author at all is recorded by Odoo as &ldquo;Odoo S.A.&rdquo; and will be reported as core &mdash; so an empty <em>Author Not Declared</em> filter is not proof that every manifest names its author. Localisation modules that ship with Odoo but declare a community author are reported as third party, because that is what their manifest says. Odoo likewise replaces a missing licence with LGPL-3, so there is no &ldquo;licence not declared&rdquo; filter: it could never match.</li>
+        <li><strong>The install date is an approximation</strong> &mdash; the oldest external ID the module created. Modules that create no external ID show an empty date, and a module re-installed later keeps the older date if its external IDs survived.</li>
+        <li><strong>Long dependency lists are shortened</strong> in the one-line summary columns: the first eight names, then &ldquo;+N more&rdquo;. The lists on the form are always complete.</li>
+        <li>The report is a database view, so it is computed on each search rather than read from a stored table &mdash; fine for an audit screen, slower than a plain table. The install-date lookup deliberately probes the external-ID index per module instead of aggregating the whole <code>ir_model_data</code> table, which keeps the cost tied to the number of installed modules rather than to the size of your database.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

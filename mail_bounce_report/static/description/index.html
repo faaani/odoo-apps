@@ -1,0 +1,177 @@
+<section style="padding:32px 0;font-family:Roboto,'Helvetica Neue',Arial,sans-serif;color:#22283d;">
+
+  <div style="text-align:center;margin-bottom:36px;">
+    <h1 style="font-size:34px;margin:0 0 12px;font-weight:700;">Email Bounce Report</h1>
+    <p style="font-size:18px;color:#5a6280;margin:0 auto;max-width:760px;line-height:1.55;">
+      Odoo counts bounces per contact and quietly stops treating a bouncing address as
+      usable &mdash; but it never shows you <em>who</em> is bouncing. This adds the missing
+      screen, and changes nothing at all.
+    </p>
+  </div>
+
+  <div style="background:#f4f6fc;border:1px solid #dde3f2;border-radius:8px;padding:22px 26px;margin-bottom:34px;">
+    <h2 style="font-size:20px;margin:0 0 12px;">The problem</h2>
+    <p style="margin:0 0 10px;line-height:1.6;">
+      Every contact in Odoo carries a <strong>Bounce</strong> counter
+      (<code>res.partner.message_bounce</code>). Odoo increments it when an address bounces
+      and resets it when that address answers again. Odoo's own mail code treats
+      <strong>10</strong> bounces as the point where an address is dead.
+    </p>
+    <p style="margin:0;line-height:1.6;">
+      That counter is buried on the contact form, one contact at a time. There is no list,
+      no filter and no total &mdash; so a mailing list decays invisibly, and nobody finds out
+      until the numbers stop making sense.
+    </p>
+  </div>
+
+  <h2 style="font-size:22px;margin:0 0 14px;">What this module adds</h2>
+  <ul style="line-height:1.75;font-size:16px;padding-left:22px;margin:0 0 34px;">
+    <li>A read-only <strong>Email Bounce Report</strong> listing every contact that has a
+        bounce counter above zero <em>or</em> sits on the email blacklist.</li>
+    <li>The contact, the exact address stored on it, and the normalized address Odoo
+        actually matches against the blacklist.</li>
+    <li>The standard <strong>bounce counter</strong>, plus an <strong>Above Threshold</strong>
+        flag using an inclusive <code>&gt;=</code> test against a threshold you set in Settings
+        (default <strong>10</strong>).</li>
+    <li>The date of the most recent message to that contact that is recorded as bounced,
+        and how many such messages survive.</li>
+    <li>Whether the address is on the <strong>active</strong> email blacklist, and when it was
+        put there &mdash; with a button that opens the blacklist entry.</li>
+    <li>Filters for bounced at all, at or above threshold, below threshold, blacklisted,
+        not blacklisted, with or without an address, active or archived contacts.</li>
+    <li>Group by company, country, blacklist status, threshold status or bounce month,
+        and export to spreadsheet with the standard Odoo export.</li>
+  </ul>
+
+  <div style="background:#eef8f6;border-left:4px solid #2e9e8f;border-radius:6px;padding:18px 22px;margin-bottom:34px;">
+    <h2 style="font-size:20px;margin:0 0 10px;color:#1d6f65;">This module never changes anything</h2>
+    <p style="margin:0 0 8px;line-height:1.6;">
+      It owns no data of its own. The report is a single read-only database view over
+      information Odoo already stores, so:
+    </p>
+    <ul style="margin:0;line-height:1.7;padding-left:22px;">
+      <li>it <strong>never edits a contact</strong> and never resets a bounce counter;</li>
+      <li>it <strong>never adds or removes a blacklist entry</strong>, and never opts anyone
+          in or out of a mailing;</li>
+      <li>it <strong>never sends, retries or cancels</strong> an email;</li>
+      <li>it only links out &mdash; to the contact, and to the blacklist entry.</li>
+    </ul>
+    <p style="margin:10px 0 0;line-height:1.6;">
+      The report model is granted read access only, to Settings / Administration users, so
+      even an administrator cannot write through it.
+    </p>
+  </div>
+
+  <h2 style="font-size:22px;margin:0 0 14px;">Honest limitations</h2>
+  <ul style="line-height:1.75;font-size:16px;padding-left:22px;margin:0 0 34px;">
+    <li><strong>There is no true "bounce timestamp" in Odoo, on any supported series.</strong>
+        Odoo records the bounce on the message notification, and that model
+        (<code>mail.notification</code>) is declared without access logging, so it carries no
+        date at all. The <em>Last Bounced Message</em> column therefore shows the date of the
+        <em>message</em> that bounced &mdash; not the moment the bounce came back. Nothing is
+        invented: when no bounced message survives, the column is simply empty.</li>
+    <li>The <em>Bounced Messages</em> count can be lower than the bounce counter. Odoo
+        garbage-collects old notifications, and the counter is shared by every record that
+        carries the same address.</li>
+    <li>The bounce counter itself is maintained by Odoo, not by this module. It only shows
+        what is already there. If your incoming mail server is not configured to route
+        bounces back into Odoo, the counter stays at zero and so does this report.</li>
+    <li>Contacts with no email address are listed if they carry a bounce counter (an address
+        can be cleared after the fact) and are flagged accordingly. They can never match a
+        blacklist entry.</li>
+    <li>The report mirrors Odoo's own multi-company rule on contacts: it will never show a
+        contact that the standard Contacts list would hide from that user.</li>
+    <li>The report reads live data every time you open it, so it is always current, but on a
+        database with a very large number of contacts the first page can take a moment.
+        There is no cache and no scheduled job to go stale.</li>
+  </ul>
+
+  <h2 style="font-size:22px;margin:0 0 16px;">Screenshots</h2>
+
+  <p style="margin:0 0 8px;color:#5a6280;">The report: bounce counts, threshold flags and
+     blacklist status in one list. Red = at or above the threshold, orange = blacklisted,
+     grey = archived contact.</p>
+  <img src="01-report-list.png" alt="Email Bounce Report list view"
+       style="width:100%;border:1px solid #dde3f2;border-radius:6px;margin-bottom:26px;"/>
+
+  <p style="margin:0 0 8px;color:#5a6280;">Ready-made filters and groupings.</p>
+  <img src="02-filters.png" alt="Filters and Group By menu"
+       style="width:100%;border:1px solid #dde3f2;border-radius:6px;margin-bottom:26px;"/>
+
+  <p style="margin:0 0 8px;color:#5a6280;">Grouped by country &mdash; company, blacklist status
+     and threshold status work the same way.</p>
+  <img src="03-grouped-country.png" alt="Report grouped by country"
+       style="width:100%;border:1px solid #dde3f2;border-radius:6px;margin-bottom:26px;"/>
+
+  <p style="margin:0 0 8px;color:#5a6280;">One contact in detail, with buttons that link out to
+     the contact and to the blacklist entry.</p>
+  <img src="04-detail.png" alt="Bounce detail with links out"
+       style="width:100%;border:1px solid #dde3f2;border-radius:6px;margin-bottom:26px;"/>
+
+  <p style="margin:0 0 8px;color:#5a6280;">The threshold lives in General Settings.</p>
+  <img src="05-settings.png" alt="Bounce threshold setting"
+       style="width:100%;border:1px solid #dde3f2;border-radius:6px;margin-bottom:34px;"/>
+
+  <h2 style="font-size:22px;margin:0 0 12px;">Installation</h2>
+  <ol style="line-height:1.8;font-size:16px;padding-left:22px;margin:0 0 30px;">
+    <li>Copy the <code>mail_bounce_report</code> folder into your Odoo add-ons path.</li>
+    <li>Log in as an administrator and turn on developer mode
+        (<em>Settings &rarr; General Settings &rarr; Developer Tools</em>).</li>
+    <li>Open <em>Apps</em>, click <em>Update Apps List</em>, then search for
+        <strong>Email Bounce Report</strong> and press <em>Install</em>.</li>
+    <li>The only dependency is Odoo's standard <em>Discuss</em> (<code>mail</code>) module,
+        which is installed on virtually every database.</li>
+  </ol>
+
+  <h2 style="font-size:22px;margin:0 0 12px;">Configuration</h2>
+  <ol style="line-height:1.8;font-size:16px;padding-left:22px;margin:0 0 30px;">
+    <li>Go to <em>Settings &rarr; General Settings</em> and find the
+        <strong>Email Bounces</strong> section.</li>
+    <li>Set <strong>Bounce Threshold</strong> to the number of bounces at which you want a
+        contact flagged. The test is <strong>inclusive</strong>: a contact with exactly that
+        many bounces <em>is</em> flagged.</li>
+    <li>The default is <strong>10</strong>, the same limit Odoo's own mail code uses before it
+        considers an address dead. Leave it alone unless you want to be stricter.</li>
+    <li>Press <em>Save</em>. The report picks the new threshold up immediately &mdash; no
+        upgrade, no reload.</li>
+    <li>Changing the threshold changes the report only. It never changes a contact and never
+        changes who Odoo mails.</li>
+  </ol>
+
+  <h2 style="font-size:22px;margin:0 0 12px;">Usage</h2>
+  <ol style="line-height:1.8;font-size:16px;padding-left:22px;margin:0 0 30px;">
+    <li>Open <em>Settings &rarr; Technical &rarr; Discuss &rarr; Email Bounce Report</em>
+        (developer mode shows the Technical menu).</li>
+    <li>The list opens on every contact that is bouncing or blacklisted, worst first. Clean
+        contacts are not listed at all.</li>
+    <li>Apply <strong>At or Above Threshold</strong> to see only the addresses worth acting on,
+        or <strong>Blacklisted</strong> / <strong>Not Blacklisted</strong> to see which dead
+        addresses are still being mailed.</li>
+    <li>Type a number into the <em>Bounces (at least)</em> search field for an ad-hoc cut-off
+        without touching the configured threshold.</li>
+    <li>Group by <strong>Company</strong> or <strong>Country</strong> to find a whole segment
+        that is decaying, and use the standard export to hand the list to whoever cleans it.</li>
+    <li>Open a line and use <em>Open Contact</em> or <em>Open Blacklist Entry</em> to act on
+        it. Any correction you make happens there, on the real record &mdash; deliberately, not
+        as a side effect of running a report.</li>
+  </ol>
+
+  <div style="background:#f4f6fc;border:1px solid #dde3f2;border-radius:8px;padding:22px 26px;">
+    <h2 style="font-size:20px;margin:0 0 10px;">Support</h2>
+    <p style="margin:0 0 6px;line-height:1.6;">
+      Questions, bug reports and feature requests are welcome.
+    </p>
+    <p style="margin:0 0 6px;">
+      Email: <a href="mailto:f.ashraf.dev1@gmail.com" style="color:#2b5fd9;">f.ashraf.dev1@gmail.com</a>
+    </p>
+    <p style="margin:0 0 6px;">
+      Source and issues:
+      <a href="https://github.com/faaani/odoo-apps" style="color:#2b5fd9;">github.com/faaani/odoo-apps</a>
+    </p>
+    <p style="margin:0;color:#5a6280;">
+      Author: Farhan Ashraf &middot; Licence: LGPL-3 &middot; Supported: Odoo 14.0, 15.0, 16.0,
+      17.0, 18.0, 19.0
+    </p>
+  </div>
+
+</section>
