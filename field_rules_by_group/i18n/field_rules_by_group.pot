@@ -1,0 +1,252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* field_rules_by_group
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 17:14+0000\n"
+"PO-Revision-Date: 2026-07-31 17:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: field_rules_by_group
+#. odoo-python
+#: code:addons/field_rules_by_group/models/field_group_rule.py:0
+msgid ""
+"A field rule must set at least one of Read-Only, Invisible or Required."
+msgstr ""
+
+#. module: field_rules_by_group
+#. odoo-python
+#: code:addons/field_rules_by_group/models/field_group_rule.py:0
+msgid ""
+"A rule cannot make a field both invisible and required: the form could never"
+" be saved."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__active
+msgid "Active"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid "Applies To"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__apply_to_admin
+msgid "Apply to System Administrators"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Archived"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model,name:field_rules_by_group.model_base
+msgid "Base"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.actions.act_window,help:field_rules_by_group.action_field_group_rule
+msgid "Create your first field rule"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid "Every user"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__field_id
+msgid "Field"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__field_name
+msgid "Field Name"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid "Field Rule"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model,name:field_rules_by_group.model_field_group_rule
+msgid "Field Rule by Group"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.actions.act_window,name:field_rules_by_group.action_field_group_rule
+#: model:ir.ui.menu,name:field_rules_by_group.menu_field_group_rule
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_list
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Field Rules"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__invisible
+msgid ""
+"Hides the field on form views only. The value remains readable via API "
+"calls, exports, list/kanban views and embedded subviews. It is a UI "
+"convenience, not an access control."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__invisible
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Invisible"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__model_id
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Model"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__model_name
+msgid "Model Name"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__apply_to_admin
+msgid ""
+"Off by default: administrators stay exempt so they can always repair data. "
+"Tick to apply this rule to them as well."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.actions.act_window,help:field_rules_by_group.action_field_group_rule
+msgid ""
+"Pick a model and a field, choose the user groups, and make the\n"
+"               field read-only, invisible or required on its form views.\n"
+"               Read-only rules are also enforced server-side."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__readonly
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Read-Only"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid ""
+"Read-only rules are also enforced on the server, so they\n"
+"                        cannot be bypassed through RPC. Invisible and required\n"
+"                        act on form views only."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__required
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_search
+msgid "Required"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid "Restriction"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__name
+msgid "Rule"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model_terms:ir.ui.view,arch_db:field_rules_by_group.view_field_group_rule_form
+msgid "Target Field"
+msgstr ""
+
+#. module: field_rules_by_group
+#. odoo-python
+#: code:addons/field_rules_by_group/models/field_group_rule.py:0
+msgid "The field \"%(field)s\" does not belong to the model \"%(model)s\"."
+msgstr ""
+
+#. module: field_rules_by_group
+#. odoo-python
+#: code:addons/field_rules_by_group/models/base_override.py:0
+msgid ""
+"The field \"%(field)s\" on %(model)s is read-only for you (field rule: "
+"%(rule)s). Ask an administrator to change it or to adjust the rule."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__readonly
+msgid ""
+"The field cannot be edited on the form, and writes by the restricted users "
+"are also blocked server-side on create and write. Writes performed by "
+"system/sudo flows (for example a user editing their own preferences) are not"
+" blocked."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__field_id
+msgid "The field to restrict on the selected model."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__required
+msgid ""
+"The form cannot be saved while the field is empty. Enforced by the form "
+"only, not server-side."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__model_id
+msgid "The rule applies to every form view of this model."
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,field_description:field_rules_by_group.field_field_group_rule__group_ids
+msgid "User Groups"
+msgstr ""
+
+#. module: field_rules_by_group
+#: model:ir.model.fields,help:field_rules_by_group.field_field_group_rule__group_ids
+msgid ""
+"Users belonging to ANY of these groups are affected. Leave empty to apply "
+"the rule to every user."
+msgstr ""
