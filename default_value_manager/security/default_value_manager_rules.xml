@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A default value that belongs to one company is configuration of that
+         company. Global rules are not bypassed by base.group_system, so an
+         administrator restricted to a subset of companies sees the defaults of
+         those companies plus every default that applies to all companies, and
+         can delete nothing else. -->
+    <record id="default_value_entry_company_rule" model="ir.rule">
+        <field name="name">Default Values: own companies only</field>
+        <field name="model_id" ref="model_default_value_entry"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>
