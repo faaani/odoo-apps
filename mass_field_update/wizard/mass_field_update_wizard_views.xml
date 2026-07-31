@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mass_field_update_wizard_view_form" model="ir.ui.view">
+        <field name="name">mass.field.update.wizard.form</field>
+        <field name="model">mass.field.update.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update a Field">
+                <field name="state" invisible="1"/>
+                <field name="res_model" invisible="1"/>
+                <field name="available_field_ids" invisible="1"/>
+                <field name="input_widget" invisible="1"/>
+                <field name="comodel_id" invisible="1"/>
+                <field name="field_type" invisible="1"/>
+                <field name="too_many" invisible="1"/>
+
+                <!-- ============ step 1: field + value ============ -->
+                <div invisible="state != 'choose'">
+                    <div class="alert alert-info" role="status">
+                        <field name="selected_count" class="oe_inline"/> record(s) selected.
+                        Choose the field to update and the value to write.
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="not too_many">
+                        Too many records selected. This action updates at most 10 000 records
+                        at a time - narrow the selection, or use an import for a bigger change.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="field_id" options="{'no_create': True, 'no_open': True}"
+                                   placeholder="e.g. Job Position"/>
+                        </group>
+                        <group>
+                            <field name="clear_value"/>
+                            <field name="log_note"/>
+                        </group>
+                    </group>
+                    <group invisible="not field_id or clear_value" string="New value">
+                        <field name="value_char" string="New value" invisible="input_widget != 'char'"/>
+                        <field name="value_text" string="New value" invisible="input_widget != 'text'"/>
+                        <field name="value_html" string="New value" invisible="input_widget != 'html'"/>
+                        <field name="value_integer" string="New value" invisible="input_widget != 'integer'"/>
+                        <field name="value_float" string="New value" invisible="input_widget != 'float'"/>
+                        <field name="value_boolean" string="New value" invisible="input_widget != 'boolean'"/>
+                        <field name="value_date" string="New value" invisible="input_widget != 'date'"/>
+                        <field name="value_datetime" string="New value" invisible="input_widget != 'datetime'"/>
+                        <field name="value_selection_id" string="New value" options="{'no_create': True, 'no_open': True}"
+                               invisible="input_widget != 'selection'"/>
+                        <field name="value_selection_free" string="New value"
+                               invisible="input_widget != 'selection_free'"
+                               placeholder="Type one of the values listed below"/>
+                        <field name="value_reference" string="New value"
+                               options="{'model_field': 'comodel_id', 'hide_model': True, 'no_create': True}"
+                               invisible="input_widget != 'reference'"/>
+                        <field name="value_hint" invisible="not value_hint"/>
+                    </group>
+                    <div class="alert alert-warning" role="status" invisible="not field_id">
+                        <field name="match_count" class="oe_inline"/> record(s) will change,
+                        <field name="unchanged_count" class="oe_inline"/> already have this value.
+                        <span invisible="not hidden_count">
+                            <field name="hidden_count" class="oe_inline"/> are not visible to you
+                            and will be skipped.
+                        </span>
+                        <span invisible="not missing_count">
+                            <field name="missing_count" class="oe_inline"/> no longer exist.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ============ step 2: confirmation ============ -->
+                <div invisible="state != 'confirm'">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Confirm this mass update.</strong> It is applied immediately and
+                        cannot be undone from here.
+                    </div>
+                    <group>
+                        <field name="model_label" string="Model"/>
+                        <field name="field_label" string="Field"/>
+                        <field name="field_name" string="Technical name"/>
+                        <field name="value_display" string="New value"/>
+                        <field name="preview_count" string="Records that will change"/>
+                    </group>
+                </div>
+
+                <!-- ============ step 3: result ============ -->
+                <div invisible="state != 'done'">
+                    <div class="alert alert-info" role="status">
+                        <field name="updated_count" class="oe_inline"/> record(s) updated,
+                        <field name="skipped_count" class="oe_inline"/> skipped,
+                        <field name="failed_count" class="oe_inline"/> failed.
+                    </div>
+                    <field name="result_details" nolabel="1" readonly="1"/>
+                </div>
+
+                <footer>
+                    <button name="action_preview" string="Preview" type="object"
+                            class="btn-primary" invisible="state != 'choose'"/>
+                    <button name="action_apply" string="Apply" type="object"
+                            class="btn-danger" invisible="state != 'confirm'"
+                            confirm="This will write the new value on the listed records. Continue?"/>
+                    <button name="action_back" string="Back" type="object"
+                            class="btn-secondary" invisible="state != 'confirm'"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"
+                            invisible="state == 'done'"/>
+                    <button string="Close" class="btn-primary" special="cancel"
+                            invisible="state != 'done'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mass_field_update_wizard" model="ir.actions.act_window">
+        <field name="name">Update a Field</field>
+        <field name="res_model">mass.field.update.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+</odoo>
