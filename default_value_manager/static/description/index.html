@@ -1,0 +1,82 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Manage Default Values</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Why does this field keep pre-filling itself?</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Somebody once used <strong>&ldquo;Set Default&rdquo;</strong> in developer mode. Odoo wrote a row in <code>ir.default</code> and never showed it again. Months later a field arrives pre-filled with a value nobody recognises, and there is no screen to look it up. This module adds that screen: <strong>every default value in your database, in readable form, with its scope &mdash; and a confirmed delete for the ones that are obsolete.</strong>
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Every default, listed</strong> &mdash; model, field, technical name and label, all in one list.</li>
+        <li><strong>The value, readable</strong> &mdash; <code>ir.default</code> stores raw JSON. Many2one ids are resolved to the record name, booleans become Yes/No, selections show their label, long values are shortened.</li>
+        <li><strong>The scope, spelled out</strong> &mdash; all users or one named user, all companies or one named company, plus the optional condition the default is restricted to.</li>
+        <li><strong>Obsolete entries flagged, never crashed on</strong> &mdash; a default whose model or field no longer exists is marked <em>Orphaned</em>; one pointing at a deleted record is marked <em>Target record deleted</em>; a value that is not readable JSON is marked and shown raw. The list keeps working in every case.</li>
+        <li><strong>Search, filter and group</strong> &mdash; filter by status or scope, search on the model, the field or even the readable value itself, group by model, field, user or company. Export to spreadsheet.</li>
+        <li><strong>Delete, on purpose</strong> &mdash; one row at a time with a confirmation, or several at once through the Action menu with a preview of exactly what goes. Deleting a default only stops that field from pre-filling: no record, no field and no other setting is touched, and records already created keep the value they were given.</li>
+        <li><strong>Add a default without developer mode</strong> &mdash; pick a model and a field, type the value (a record name or id for many2one, a key or a label for a selection) and it is validated and written through Odoo&rsquo;s own <code>ir.default.set()</code>.</li>
+        <li><strong>Administrators only, multi-company aware</strong> &mdash; the screen is restricted to the Administration / Settings group, and an administrator restricted to some companies sees and deletes only the defaults of those companies, plus the ones that apply to every company.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-default-values-list.png" alt="List of default values" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every default value: model, field, the value in readable form, the user and the company it applies to. An empty User means &ldquo;all users&rdquo;; an empty Company means &ldquo;all companies&rdquo;.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-obsolete-defaults.png" alt="Obsolete defaults" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Obsolete Defaults</em> list: orphaned entries whose model or field is gone, and defaults pointing at a record that has been deleted.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-default-value-form.png" alt="Default value detail" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The detail of one default: what it applies to, the readable value next to the raw JSON, its scope, and who set it when.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-set-a-default.png" alt="Set a default value" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Adding a default: the expected value is explained per field type, an existing entry for the same scope is announced before it is replaced, and the value is validated before anything is written.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-delete-selected.png" alt="Delete selected defaults" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Cleaning up: select the obsolete entries and use <em>Delete Default Values</em> in the Action menu. A confirmation screen lists exactly what will be removed.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Manage Default Values</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the screen works as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group; no other user can read or delete a default value from here.</li>
+        <li>Multi-company: switch to the company whose defaults you want to manage. Defaults that apply to every company are always visible.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Default Values &rarr; All Default Values</strong>.</li>
+        <li>Find the culprit: type the model or field in the search bar, or search directly on the readable <em>Value</em>.</li>
+        <li>Open <strong>Obsolete Defaults</strong> for the entries that can no longer work: orphaned model or field, deleted target record, unreadable value.</li>
+        <li>Delete one entry with the bin icon on its row, or tick several and choose <strong>Delete Default Values</strong> in the &#9881; Action menu. Both ask for confirmation first.</li>
+        <li>To create a default, use <strong>Settings &rarr; Default Values &rarr; Set a Default Value</strong>: choose the model and field, type the value, choose whether it applies to all users or one, to all companies or one.</li>
+        <li>Group by <strong>Model</strong>, <strong>Field</strong>, <strong>User</strong> or <strong>Company</strong> &mdash; status is offered as a filter rather than a grouping &mdash; or export the list, for a configuration review.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Good to know</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Deleting a default value <strong>only removes the pre-fill</strong>. Records created earlier keep the value they were given; no record, no field and no other setting is modified.</li>
+        <li>The screen covers what Odoo stores in <code>ir.default</code>. Defaults written in Python code (a field&rsquo;s <code>default=</code>) live in the source, not in the database, so no screen can list or remove them &mdash; those are not shown here.</li>
+        <li>A default is <em>orphaned</em> when its model or its field no longer exists in the database. The entry survives because it is attached to a leftover field definition; it can never apply again and is safe to delete.</li>
+        <li>The <em>Set a Default Value</em> screen accepts text, numbers, dates, booleans, selections and many2one fields. Defaults on many2many, one2many, binary or reference fields are <strong>listed and can be deleted</strong>, but cannot be typed in from that screen.</li>
+        <li>Rendered values longer than 200 characters are shortened with an ellipsis; the raw JSON is always available in its own column.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

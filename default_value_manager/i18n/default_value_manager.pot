@@ -1,0 +1,1033 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* default_value_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 23:42+0000\n"
+"PO-Revision-Date: 2026-07-30 23:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "\"%s\" is not a date and time. Use the YYYY-MM-DD HH:MM:SS format (UTC)."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "\"%s\" is not a date. Use the YYYY-MM-DD format."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "\"%s\" is not a number. Use a dot as decimal separator."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "\"%s\" is not a whole number."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__scope_company
+msgid ""
+"\"All companies\" writes a default valid in every company; \"One company\" "
+"restricts it to the company you pick."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__scope_user
+msgid ""
+"\"All users\" writes a default everybody gets; \"One user\" writes a "
+"personal default for the user you pick."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "\"Orphaned\" can only be searched with = or !=."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__entry_status
+msgid ""
+"\"Orphaned\" entries survive in the database while the model or the field "
+"they were set on no longer exists, so they can never apply again. \"Target "
+"record deleted\" is a default pointing at a record that has been removed. "
+"\"Unreadable value\" is a stored value that is not valid JSON."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "\"Status\" can only be searched with =, !=, in or not in."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "#%s (no access to the name)"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "%(model)s #%(id)s (model not installed)"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "%(model)s / %(field)s will now be pre-filled."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "%s default value(s) removed. Nothing else was changed."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "(binary data)"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "... and %s more"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "A date and time in UTC as YYYY-MM-DD HH:MM:SS."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "A date as YYYY-MM-DD, e.g. 2024-12-31."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid ""
+"A default already exists for this field and this scope (current value: %s). "
+"Saving replaces it."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "A default value cannot be typed in for a %s field from this screen."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "A number, e.g. 12.5 (use a dot as decimal separator)."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "A whole number, e.g. 3."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__preview
+msgid "About To Be Deleted"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "Advanced"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "All Companies"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.ui.menu,name:default_value_manager.menu_default_value_entry
+msgid "All Default Values"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "All Users"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_add_wizard__scope_company__all
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__company_scope__all
+msgid "All companies"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_add_wizard__scope_user__all
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__user_scope__all
+msgid "All users"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "An amount, e.g. 12.5 (use a dot as decimal separator)."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__entry_status__ok
+msgid "Applies"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__scope_user
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid "Applies To"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_delete_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "Companies"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__company_id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__company_id
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Company"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__scope_company
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__company_scope
+msgid "Company Scope"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__condition
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__condition
+msgid "Condition"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__create_uid
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__create_date
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__complete_name
+msgid "Default On"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model,name:default_value_manager.model_default_value_entry
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid "Default Value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.actions.act_window,name:default_value_manager.action_default_value_entry
+#: model:ir.ui.menu,name:default_value_manager.menu_default_value_root
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_tree
+msgid "Default Values"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Default value set"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "Default values deleted"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.actions.act_window,name:default_value_manager.action_default_value_delete_wizard
+#: model:ir.model,name:default_value_manager.model_default_value_delete_wizard
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_delete_wizard_form
+msgid "Delete Default Values"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_delete_wizard_form
+msgid "Delete Permanently"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid "Delete This Default"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_tree
+msgid "Delete this default value"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_tree
+msgid ""
+"Delete this default value? The field simply stops pre-filling. No record, no"
+" field and no other setting is modified, and records already created keep "
+"the value they were given."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__display_name
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__display_name
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.actions.act_window,help:default_value_manager.action_default_value_entry_attention
+msgid "Every default value in this database still applies"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.actions.act_window,help:default_value_manager.action_default_value_entry
+msgid ""
+"Every value ever saved with \"Set Default\" is listed here: the model\n"
+"               and field it pre-fills, the value in readable form, and its scope.\n"
+"               An empty User means the default applies to every user; an empty\n"
+"               Company means it applies to every company."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__existing_warning
+msgid "Existing Entry"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__value_hint
+msgid "Expected Value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__field_id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__field_name
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Field"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__field_id
+msgid "Field Definition"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__field_label
+msgid "Field Description"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__field_ttype
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__field_type
+msgid "Field Type"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__field_relation
+msgid ""
+"For a relational field, the model of the record(s) the default points to."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__field_relation
+msgid "For relationship fields, the technical name of the target model"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Free text."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Group By"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid "History"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__id
+msgid "ID"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__field_label
+msgid "Label of the field the default pre-fills."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__write_date
+msgid "Last Updated"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__write_uid
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__write_date
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__model_id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__model_name
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Model"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Model / Field"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__model_id
+msgid "Model Description"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "My Own Defaults"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Needs Attention"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "No"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid ""
+"No %(model)s record is named \"%(value)s\". Type an exact name, or the "
+"database id of the record."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.actions.act_window,help:default_value_manager.action_default_value_entry
+msgid "No default value matches these filters"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "No value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.actions.act_window,name:default_value_manager.action_default_value_entry_attention
+#: model:ir.ui.menu,name:default_value_manager.menu_default_value_entry_attention
+msgid "Obsolete Defaults"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "One Company Only"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "One User Only"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_add_wizard__scope_company__company
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__company_scope__company
+msgid "One company"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "One of the values this selection accepts."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "One of: %s"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_add_wizard__scope_user__user
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__user_scope__user
+msgid "One user"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "Only Settings administrators may delete default values."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__condition
+msgid ""
+"Optional condition the default is restricted to, in the form "
+"\"other_field=value\". Empty for an unconditional default."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__condition
+msgid ""
+"Optional, advanced: restricts the default to a context of the form "
+"\"other_field=value\", exactly as Odoo stores it. Leave empty for a default "
+"that always applies."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__is_orphaned
+msgid "Orphaned"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Orphaned (model or field gone)"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__entry_status__orphan_field
+msgid "Orphaned - field gone"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__entry_status__orphan_model
+msgid "Orphaned - model gone"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Pick the company this default applies to."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Pick the user this default applies to."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid "Scope"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "Select at least one default value to delete."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_delete_wizard__entry_count
+msgid "Selected Defaults"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__create_uid
+msgid "Set By"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "Set Default"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__create_date
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Set On"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.actions.act_window,name:default_value_manager.action_default_value_add_wizard
+#: model:ir.model,name:default_value_manager.model_default_value_add_wizard
+#: model:ir.ui.menu,name:default_value_manager.menu_default_value_add_wizard
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "Set a Default Value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__existing_warning
+msgid ""
+"Set when a default already exists for the same field and the same scope: "
+"writing this one replaces it."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid ""
+"Several %(model)s records match \"%(value)s\": %(candidates)s.\n"
+"Type the exact name, or the database id of the one you want."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__entry_status
+msgid "Status"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Still Applies"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__json_value
+msgid "Stored Value (JSON)"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__field_relation
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__field_relation
+msgid "Target Model"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Target Record Deleted"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__entry_status__missing_target
+msgid "Target record deleted"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__field_name
+msgid "Technical name of the field that gets pre-filled."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__model_name
+msgid "Technical name of the model the default applies to."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__complete_name
+msgid "The \"model.field\" the default applies to."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_delete_wizard__preview
+msgid ""
+"The default values that will be removed, with their scope and their current "
+"value."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "The field %(field)s does not belong to the model %(model)s."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid ""
+"The field %(field)s no longer exists on %(model)s in this database, so no "
+"default can be set on it."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__field_id
+msgid ""
+"The field definition the default is attached to. It still exists even for an"
+" orphaned entry, which is exactly why the entry survives."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid ""
+"The field this default was set on no longer exists on the\n"
+"                        model, so the default can never apply again. It is safe to\n"
+"                        delete."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__field_id
+msgid ""
+"The field to pre-fill. Only stored, writable fields of a type a value can be"
+" typed in for are listed."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__model_id
+msgid ""
+"The model as registered in the database. Empty when the model is no longer "
+"installed."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid ""
+"The model this default was set on is not installed in this\n"
+"                        database any more, so the default can never apply again.\n"
+"                        It is safe to delete."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__model_id
+msgid "The model whose field should be pre-filled."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "The name or the database id of a %s record."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__company_id
+msgid ""
+"The only company this default applies to. Empty means it applies to every "
+"company."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__company_id
+msgid "The only company this default will apply to."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__user_id
+msgid ""
+"The only user this default applies to. Empty means it applies to every user."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__user_id
+msgid "The only user this default will apply to."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__json_value
+msgid "The raw value exactly as ir.default stores it, in JSON."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid ""
+"The readable value can only be searched with a text operator (=, !=, like, "
+"ilike)."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "The selected default values no longer exist."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__value_display
+msgid ""
+"The stored value in readable form: the name of the target record for a "
+"many2one, Yes/No for a boolean, the label of a selection. Values longer than"
+" 200 characters are shortened."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid ""
+"The stored value is not readable JSON, so Odoo cannot apply\n"
+"                        it. The raw content is shown below."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "The target model %s is not installed."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid ""
+"The value \"%(value)s\" is not one of the values %(field)s accepts.\n"
+"Accepted values: %(accepted)s"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__value_boolean
+msgid "The value a boolean field is pre-filled with."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__value_text
+msgid ""
+"The value to pre-fill. For a many2one, type the name of the target record or"
+" its database id. For a selection, type the label or the stored key."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "There is no %(model)s record with id %(id)s."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+msgid ""
+"This default points at a record that has been deleted, so\n"
+"                        the field is pre-filled with a reference that leads nowhere."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.actions.act_window,help:default_value_manager.action_default_value_entry_attention
+msgid ""
+"This list gathers the defaults that cannot do their job any more:\n"
+"               their model or field no longer exists (orphaned), the record they\n"
+"               point at has been deleted, or their stored value is not readable."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "This screen only deletes default values."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__value_boolean
+msgid "Ticked"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__is_orphaned
+msgid ""
+"Ticked when the model or the field this default was set on no longer exists "
+"in this database."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_entry__field_type
+msgid "Type of the field, as recorded for it in the database."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Type the value the field should be pre-filled with."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "Unknown default value status: %s"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Unreadable Value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields.selection,name:default_value_manager.selection__default_value_entry__entry_status__invalid_value
+msgid "Unreadable value"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "Use the \"Ticked\" checkbox below."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.actions.act_window,help:default_value_manager.action_default_value_entry
+msgid ""
+"Use the ⚙ Action menu on the rows you select to delete obsolete\n"
+"               entries. Deleting a default only stops the field from pre-filling:\n"
+"               no record and no other setting is changed."
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__user_id
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__user_id
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "User"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__user_scope
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "User Scope"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "Users"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_add_wizard__value_text
+#: model:ir.model.fields,field_description:default_value_manager.field_default_value_entry__value_display
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_form
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "Value"
+msgstr ""
+
+#. module: default_value_manager
+#: model:ir.model.fields,help:default_value_manager.field_default_value_add_wizard__value_hint
+msgid "What this field accepts as a default value."
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_entry_search
+msgid "With A Condition"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "Yes"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "all companies"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_delete_wizard.py:0
+#, python-format
+msgid "all users"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "and %s more"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_delete_wizard_form
+msgid ""
+"default value(s)\n"
+"                    will be deleted permanently. The fields they pre-fill simply stop\n"
+"                    pre-filling; no record, no field and no other setting is modified,\n"
+"                    and records already created keep the value they were given."
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/models/default_value_entry.py:0
+#, python-format
+msgid "deleted record #%s"
+msgstr ""
+
+#. module: default_value_manager
+#: model_terms:ir.ui.view,arch_db:default_value_manager.view_default_value_add_wizard_form
+msgid "e.g. type=invoice (leave empty to always apply)"
+msgstr ""
+
+#. module: default_value_manager
+#. odoo-python
+#: code:addons/default_value_manager/wizard/default_value_add_wizard.py:0
+#, python-format
+msgid "none"
+msgstr ""
