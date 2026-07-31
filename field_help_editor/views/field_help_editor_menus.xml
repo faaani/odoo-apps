@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_fhe_root"
+              name="Field Labels"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="80"/>
+
+    <menuitem id="menu_fhe_fields"
+              name="Edit Field Labels"
+              parent="menu_fhe_root"
+              action="action_fhe_fields"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_fhe_customizations"
+              name="Customized Labels"
+              parent="menu_fhe_root"
+              action="action_fhe_customizations"
+              groups="base.group_system"
+              sequence="20"/>
+
+</odoo>

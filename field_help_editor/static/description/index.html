@@ -1,0 +1,158 @@
+<section style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b; line-height: 1.6;">
+
+  <div style="text-align: center; padding: 32px 16px 8px;">
+    <h1 style="font-size: 34px; margin: 0 0 12px; color: #1e293b;">Edit Field Labels and Tooltips</h1>
+    <p style="font-size: 18px; color: #64748b; margin: 0 auto; max-width: 780px;">
+      Rename any field and write your own tooltip from a simple Settings screen -
+      no developer mode, no hunting through thousands of technical rows.
+      One click puts the original back.
+    </p>
+  </div>
+
+  <div style="max-width: 900px; margin: 24px auto; padding: 0 16px;">
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">The problem</h2>
+    <p>
+      Every implementation reaches the moment where "Reference" should read "Customer Code",
+      or where a field needs a sentence explaining what your company actually puts in it.
+      Odoo can do it - but only through developer mode, Settings / Technical / Fields, in a
+      list of thousands of rows where a wrong click renames the wrong thing and nothing
+      records what you changed.
+    </p>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">What this module does</h2>
+    <ul>
+      <li><b>Pick a model, see its fields.</b> Search the model in the search bar and the list shows
+          its user-facing fields with the label and the tooltip users see today.</li>
+      <li><b>Edit in the list.</b> Type a new label, type a tooltip, save. The change applies
+          to every user, on every form, list and report that shows that field - they see it on
+          their next page load.</li>
+      <li><b>Add a tooltip where there was none.</b> Not only overriding an existing help text:
+          fields that ship with no help at all can get one.</li>
+      <li><b>Reset to the original, exactly.</b> The first time a field is customized, the module
+          stores the label and the tooltip Odoo shipped. Reset writes those exact values back
+          and forgets the entry.</li>
+      <li><b>Review everything you changed.</b> A dedicated <i>Customized Labels</i> screen lists
+          every field you touched, with the original next to your value. Select rows and revert
+          them all from the Actions menu.</li>
+      <li><b>Re-apply after an upgrade.</b> Upgrading the Odoo module that owns a field restores its
+          built-in label; one click puts your version back, because your value is stored too.</li>
+      <li><b>No technical noise.</b> Bookkeeping columns (<code>create_uid</code>, <code>write_uid</code>,
+          <code>create_date</code>, <code>write_date</code>, <code>display_name</code>, <code>id</code>
+          and anything starting with an underscore) are hidden by default; removing one filter shows them.</li>
+    </ul>
+
+    <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 16px 20px; margin: 24px 0;">
+      <b>Read this before you rename anything</b>
+      <ul style="margin: 8px 0 0;">
+        <li>A label is <b>shared by every user of the database</b>. There is no per-user labelling.</li>
+        <li>Labels and tooltips are <b>translatable</b>. You always edit the language of your own
+            user session - the screen shows which one - and the other languages keep their own values.
+            To change a French label, switch your own user to French and edit it there.</li>
+        <li>The screen is restricted to <b>Settings administrators</b> (<code>base.group_system</code>).</li>
+        <li>Some views override a label in their own XML (<code>&lt;field name="x" string="..."/&gt;</code>).
+            That view wins over the field label, here as everywhere else in Odoo.</li>
+      </ul>
+    </div>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">What is never touched</h2>
+    <p>
+      Only two things are ever written: the <b>label</b> and the <b>help text</b> of a field.
+      No field is created, renamed, retyped, moved or deleted, and no record of your business data
+      is read or modified.
+    </p>
+    <p>
+      Uninstalling removes the module's own table, but the labels you already applied stay applied -
+      uninstalling is not an undo. Reset what you want back to normal <i>before</i> uninstalling.
+    </p>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Screenshots</h2>
+
+    <p><b>1. The editor - fields of one model, with their label and tooltip</b><br/>
+       Bookkeeping columns are hidden; the customized row is highlighted and offers Reset.</p>
+    <img src="01-field-editor.png" style="width: 100%; border: 1px solid #e2e8f0; border-radius: 6px;"
+         alt="List of Contact fields with editable label and tooltip columns"/>
+
+    <p style="margin-top: 28px;"><b>2. Everything you customized, with the originals</b><br/>
+       Reset or re-apply one row, or select many and use the Actions menu.</p>
+    <img src="02-customized-labels.png" style="width: 100%; border: 1px solid #e2e8f0; border-radius: 6px;"
+         alt="Customized Labels screen listing original and custom labels per language"/>
+
+    <p style="margin-top: 28px;"><b>3. One field in detail</b><br/>
+       The language you are editing, the original values, and the Reset / Re-apply buttons.</p>
+    <img src="03-field-detail.png" style="width: 100%; border: 1px solid #e2e8f0; border-radius: 6px;"
+         alt="Field detail form showing label, tooltip and the stored original values"/>
+
+    <p style="margin-top: 28px;"><b>4. The result, for every user</b><br/>
+       "Job Position" renamed to "Job Title" shows up on the contact form itself.</p>
+    <img src="04-contact-form.png" style="width: 100%; border: 1px solid #e2e8f0; border-radius: 6px;"
+         alt="Contact form showing the renamed Job Title label"/>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Installation</h2>
+    <ol>
+      <li>Copy the <code>field_help_editor</code> folder into your Odoo addons path.</li>
+      <li>In Odoo, open <b>Apps</b> and click <b>Update Apps List</b>.</li>
+      <li>Search for <b>Edit Field Labels and Tooltips</b> and click <b>Install</b>.</li>
+    </ol>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Configuration</h2>
+    <ol>
+      <li>There is nothing to configure.</li>
+      <li>Make sure the people who should use it have the <b>Settings</b> access right
+          (Settings / Users &amp; Companies / Users / Administration = Settings).</li>
+      <li>The menu lives in <b>Settings / Field Labels</b>. Developer mode is not needed.</li>
+    </ol>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Usage</h2>
+    <ol>
+      <li>Go to <b>Settings / Field Labels / Edit Field Labels</b>.</li>
+      <li>Type the model you are looking for in the search bar (for example <i>Contact</i>) and
+          pick the <b>Model</b> suggestion.</li>
+      <li>Click the <b>Label</b> cell of the field you want to rename and type the new label.
+          Click the <b>Tooltip</b> cell to write the explanation users will see when they hover
+          the field. Save.</li>
+      <li>Reload a form that shows the field: the new label and tooltip are there for everyone.</li>
+      <li>To undo, click <b>Reset</b> on the row (or open the row and use <b>Reset to Original</b>).
+          The exact original label and tooltip come back.</li>
+      <li>Go to <b>Settings / Field Labels / Customized Labels</b> to see everything that was changed,
+          revert several rows at once from the <b>Actions</b> menu, or <b>Re-apply</b> your labels
+          after an Odoo module upgrade restored the built-in ones.</li>
+      <li>To see the bookkeeping columns, remove the <b>Hide Bookkeeping Fields</b> filter in the
+          search bar.</li>
+    </ol>
+
+    <h2 style="font-size: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Good to know / limitations</h2>
+    <ul>
+      <li>Upgrading the Odoo module that <i>defines</i> a field rewrites that field's label and help
+          from its source code, which undoes your change. Nothing is lost: the customization stays
+          listed and <b>Re-apply</b> puts it back.</li>
+      <li>Emptying a tooltip removes your override for the language you are editing; the field then
+          shows the tooltip Odoo ships with it. The other languages are never touched.</li>
+      <li>Abstract models and models your user cannot read are refused with a clear message
+          rather than silently ignored.</li>
+      <li>On <b>Odoo 14 and 15</b>, the properties of a built-in field cannot be written at all, so
+          the module stores your label and tooltip as a translation entry of the language you are
+          editing - the way Settings / Translations does it. Two consequences on those two versions:
+          a customization applies strictly to the language you edited, and emptying a tooltip brings
+          back the field's built-in help text.</li>
+      <li>Saving a label clears the label caches - and, on recent versions, reloads the field
+          registry - so a save takes a moment on very large databases. It is an administrator
+          action, not something users do all day.</li>
+      <li>The module changes how a field's help text is resolved (<code>Field._description_help</code>),
+          so that a tooltip can be added to a field that has none. On a server hosting several
+          databases in one process, the change applies only to the databases where this module is
+          installed. For any field you never customize, the text shown stays exactly the one Odoo
+          ships.</li>
+    </ul>
+
+    <div style="background: #f1f5f9; border-radius: 8px; padding: 20px; margin-top: 32px; text-align: center;">
+      <h3 style="margin: 0 0 8px;">Support</h3>
+      <p style="margin: 0;">
+        Questions, bug reports or ideas:
+        <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a><br/>
+        <span style="color: #64748b;">Author: Farhan Ashraf &middot; License: LGPL-3 &middot;
+        <a href="https://github.com/faaani/odoo-apps">github.com/faaani/odoo-apps</a></span>
+      </p>
+    </div>
+
+  </div>
+</section>
