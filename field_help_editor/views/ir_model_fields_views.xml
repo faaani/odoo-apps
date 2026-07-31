@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fhe_field_tree" model="ir.ui.view">
+        <field name="name">ir.model.fields.label.editor.tree</field>
+        <field name="model">ir.model.fields</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <tree string="Field Labels" editable="bottom" create="false" delete="false"
+                  decoration-info="fhe_customized">
+                <field name="model_id" readonly="1" optional="show"/>
+                <field name="name" readonly="1" string="Technical Name"/>
+                <field name="ttype" readonly="1" string="Type" optional="hide"/>
+                <field name="field_description" string="Label"/>
+                <field name="help" string="Tooltip"/>
+                <field name="fhe_lang_name" readonly="1" optional="show"/>
+                <field name="fhe_customized" readonly="1" optional="show"/>
+                <button name="action_fhe_open" type="object"
+                        icon="fa-expand" title="Open this field"/>
+                <button name="action_fhe_reset" type="object" string="Reset"
+                        icon="fa-undo" invisible="not fhe_customized"
+                        confirm="Restore the original label and tooltip of this field?"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fhe_field_form" model="ir.ui.view">
+        <field name="name">ir.model.fields.label.editor.form</field>
+        <field name="model">ir.model.fields</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Field Label" create="false" delete="false">
+                <header>
+                    <button name="action_fhe_reset" type="object" string="Reset to Original"
+                            class="btn-secondary" invisible="not fhe_customized"
+                            confirm="Restore the original label and tooltip of this field?"/>
+                    <button name="action_fhe_reapply" type="object" string="Re-apply Customization"
+                            class="btn-secondary" invisible="not fhe_customized"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-warning" role="alert">
+                        A label is shared by every user of this database. You are editing the
+                        <field name="fhe_lang_name" readonly="1" class="oe_inline"/>
+                        values; the other languages keep their own.
+                    </div>
+                    <group>
+                        <group string="Field">
+                            <field name="model_id" readonly="1"/>
+                            <field name="name" readonly="1" string="Technical Name"/>
+                            <field name="ttype" readonly="1" string="Type"/>
+                        </group>
+                        <group string="Status">
+                            <field name="fhe_customized" readonly="1"/>
+                            <field name="fhe_is_technical" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="What Users See">
+                        <field name="field_description" string="Label"/>
+                        <field name="help" string="Tooltip" placeholder="Explain what this field means in your company..."/>
+                    </group>
+                    <separator string="Original Values" invisible="not fhe_customized"/>
+                    <field name="fhe_customization_ids" nolabel="1" readonly="1"
+                           invisible="not fhe_customized">
+                        <tree create="false" delete="false" edit="false">
+                            <field name="lang_name"/>
+                            <field name="original_description"/>
+                            <field name="original_help"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fhe_field_search" model="ir.ui.view">
+        <field name="name">ir.model.fields.label.editor.search</field>
+        <field name="model">ir.model.fields</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <search string="Field Labels">
+                <field name="model_id" string="Model"/>
+                <field name="field_description" string="Label"/>
+                <field name="name" string="Technical Name"/>
+                <filter name="fhe_hide_technical" string="Hide Bookkeeping Fields"
+                        domain="[('fhe_is_technical', '=', False)]"/>
+                <separator/>
+                <filter name="fhe_customized" string="Customized"
+                        domain="[('fhe_customized', '=', True)]"/>
+                <filter name="fhe_untouched" string="Not Customized"
+                        domain="[('fhe_customized', '=', False)]"/>
+                <separator/>
+                <filter name="fhe_stored" string="Stored Fields" domain="[('store', '=', True)]"/>
+                <filter name="fhe_required" string="Required Fields" domain="[('required', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="fhe_group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="fhe_group_type" string="Field Type" context="{'group_by': 'ttype'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fhe_fields" model="ir.actions.act_window">
+        <field name="name">Edit Field Labels</field>
+        <field name="res_model">ir.model.fields</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_fhe_field_search"/>
+        <field name="context">{'search_default_fhe_hide_technical': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No field matches these filters</p>
+            <p>Search a model, then edit the Label and the Tooltip directly in the list.
+               A label is shared by every user of this database, and you are editing the
+               language of your own user session - other languages keep their own values.</p>
+        </field>
+    </record>
+
+    <record id="action_fhe_fields_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_fhe_field_tree"/>
+        <field name="act_window_id" ref="action_fhe_fields"/>
+    </record>
+
+    <record id="action_fhe_fields_view_form" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_fhe_field_form"/>
+        <field name="act_window_id" ref="action_fhe_fields"/>
+    </record>
+
+</odoo>
