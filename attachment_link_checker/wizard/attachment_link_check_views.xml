@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="attachment_link_check_view_form" model="ir.ui.view">
+        <field name="name">attachment.link.check.form</field>
+        <field name="model">attachment.link.check</field>
+        <field name="arch" type="xml">
+            <form string="Check Attachment Files">
+                <header>
+                    <button name="action_run_check" type="object" string="Check Files"
+                            class="btn-primary"/>
+                    <button name="action_delete_ticked" type="object"
+                            string="Delete Ticked Records" class="btn-secondary"
+                            confirm="This permanently deletes the ticked attachment records from the database. Their files are already gone, but a filestore restore could still bring them back and this cannot be undone. Continue?"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Check Attachment Files</h1>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <field name="scan_note" nolabel="1"/>
+                    </div>
+                    <group>
+                        <group string="What to Check">
+                            <field name="res_model_id" options="{'no_create': True}"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="include_field_attachments"/>
+                        </group>
+                        <group string="How to Check">
+                            <field name="check_size"/>
+                            <field name="check_checksum"/>
+                            <field name="batch_size"/>
+                            <field name="max_scan"/>
+                            <field name="max_results"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Attachments Examined">
+                            <field name="scanned_count"/>
+                            <field name="hidden_count"/>
+                            <field name="filestore_count"/>
+                            <field name="database_count"/>
+                            <field name="url_count"/>
+                            <field name="no_content_count"/>
+                            <field name="batch_count"/>
+                            <div colspan="2" class="text-muted" groups="base.group_multi_company">
+                                Only the companies currently selected in the company
+                                switcher are examined.
+                            </div>
+                        </group>
+                        <group string="Result">
+                            <field name="ok_count"/>
+                            <field name="broken_count"/>
+                            <field name="missing_count"/>
+                            <field name="size_mismatch_count"/>
+                            <field name="checksum_mismatch_count"/>
+                            <field name="unreadable_count"/>
+                            <field name="no_checksum_count"/>
+                            <field name="lost_size_display"/>
+                        </group>
+                    </group>
+                    <group string="Filestore">
+                        <field name="storage_backend"/>
+                        <field name="filestore_path"/>
+                        <field name="scan_date"/>
+                        <field name="truncated"/>
+                        <field name="stopped_early"/>
+                    </group>
+                    <notebook>
+                        <page string="Broken Attachments" name="broken">
+                            <div class="alert alert-warning" role="alert">
+                                This list is a <strong>report</strong>. Nothing here has been
+                                deleted and nothing ever will be unless you ask for it: if the
+                                filestore is restored, these files come back on their own.
+                                Only rows whose problem is <strong>File missing</strong> can be
+                                ticked for the optional cleanup, and every ticked row is checked
+                                against the disk again before it is removed.
+                            </div>
+                            <field name="line_ids" nolabel="1">
+                                <list create="false" delete="false" editable="bottom">
+                                    <field name="model_name" readonly="1"/>
+                                    <field name="record_name" readonly="1"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="problem" readonly="1"/>
+                                    <field name="problem_detail" readonly="1" optional="show"/>
+                                    <field name="user_id" readonly="1"/>
+                                    <field name="upload_date" readonly="1"/>
+                                    <field name="size_display" readonly="1"/>
+                                    <field name="res_field" readonly="1" optional="hide"/>
+                                    <field name="res_id" readonly="1" optional="hide"/>
+                                    <field name="store_fname" readonly="1" optional="hide"/>
+                                    <field name="full_path" readonly="1" optional="show"/>
+                                    <field name="to_delete" widget="boolean_toggle"/>
+                                    <button name="action_open_attachment" type="object"
+                                            string="Attachment" icon="fa-paperclip"
+                                            title="Open this attachment"/>
+                                    <button name="action_open_record" type="object"
+                                            string="Record" icon="fa-external-link"
+                                            title="Open the record this file belonged to"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="By Model" name="by_model">
+                            <field name="model_line_ids" nolabel="1" readonly="1">
+                                <list create="false" delete="false" edit="false">
+                                    <field name="model_name"/>
+                                    <field name="res_model" optional="hide"/>
+                                    <field name="broken_count" sum="Broken Attachments"/>
+                                    <field name="size_display"/>
+                                    <field name="lost_size" sum="Lost (bytes)"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_attachment_link_check" model="ir.actions.server">
+        <field name="name">Check Attachment Files</field>
+        <field name="model_id" ref="model_attachment_link_check"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_check()</field>
+    </record>
+
+    <menuitem id="menu_attachment_files_root"
+              name="Attachment Files"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="106"/>
+
+    <menuitem id="menu_attachment_link_check"
+              name="Check Attachment Files"
+              parent="menu_attachment_files_root"
+              action="action_attachment_link_check"
+              groups="base.group_system"
+              sequence="10"/>
+</odoo>
