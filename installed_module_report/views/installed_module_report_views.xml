@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_installed_module_report_list" model="ir.ui.view">
+        <field name="name">installed.module.report.list</field>
+        <field name="model">installed.module.report</field>
+        <field name="arch" type="xml">
+            <list string="Installed Modules" create="false" edit="false" delete="false"
+                  decoration-info="is_third_party"
+                  decoration-warning="module_state != 'installed'">
+                <field name="technical_name"/>
+                <field name="module_name"/>
+                <field name="installed_version"/>
+                <field name="author" optional="show"/>
+                <field name="license" optional="show"/>
+                <field name="origin"/>
+                <field name="is_third_party" optional="hide"/>
+                <field name="license_kind" optional="hide"/>
+                <field name="nonstandard_license" optional="hide"/>
+                <field name="install_date" optional="show"/>
+                <field name="dependency_count" optional="show"/>
+                <field name="reverse_dependency_count" optional="show"/>
+                <field name="dependency_names" optional="hide"/>
+                <field name="reverse_dependency_names" optional="hide"/>
+                <field name="module_state" optional="hide"/>
+                <field name="category_id" optional="hide"/>
+                <field name="application" optional="hide"/>
+                <field name="auto_install" optional="hide"/>
+                <field name="standalone" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_installed_module_report_form" model="ir.ui.view">
+        <field name="name">installed.module.report.form</field>
+        <field name="model">installed.module.report</field>
+        <field name="arch" type="xml">
+            <form string="Installed Module" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="module_name" readonly="1"/></h1>
+                        <h2><field name="technical_name" readonly="1"/></h2>
+                    </div>
+                    <group>
+                        <group string="Identity">
+                            <field name="module_id"/>
+                            <field name="installed_version"/>
+                            <field name="author"/>
+                            <field name="category_id"/>
+                            <field name="module_state"/>
+                            <field name="install_date"/>
+                        </group>
+                        <group string="Origin &amp; Licence">
+                            <field name="origin"/>
+                            <field name="is_third_party"/>
+                            <field name="license"/>
+                            <field name="license_kind"/>
+                            <field name="nonstandard_license"/>
+                            <field name="application"/>
+                            <field name="auto_install"/>
+                            <field name="standalone"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Depends On" name="dependencies">
+                            <group>
+                                <field name="dependency_count"/>
+                            </group>
+                            <field name="dependency_ids" nolabel="1">
+                                <list create="false" edit="false" delete="false">
+                                    <field name="technical_name"/>
+                                    <field name="module_name"/>
+                                    <field name="installed_version"/>
+                                    <field name="origin"/>
+                                    <field name="license"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Required By" name="reverse_dependencies">
+                            <group>
+                                <field name="reverse_dependency_count"/>
+                            </group>
+                            <field name="reverse_dependency_ids" nolabel="1">
+                                <list create="false" edit="false" delete="false">
+                                    <field name="technical_name"/>
+                                    <field name="module_name"/>
+                                    <field name="installed_version"/>
+                                    <field name="origin"/>
+                                    <field name="license"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="text-muted">
+                        Origin is read from the module manifest: an author of
+                        Odoo S.A. means core (Enterprise when the licence is
+                        OPL-1 or OEEL-1), an author mentioning the Odoo Community
+                        Association means OCA, anything else counts as third
+                        party, and up to Odoo 18 a module with no declared
+                        author is recorded by Odoo itself as Odoo S.A., so it
+                        lands in core. Only direct dependencies are listed, and
+                        "Declared Dependencies" also counts dependencies that are
+                        not installed. This report never installs, upgrades or
+                        uninstalls anything.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_installed_module_report_search" model="ir.ui.view">
+        <field name="name">installed.module.report.search</field>
+        <field name="model">installed.module.report</field>
+        <field name="arch" type="xml">
+            <search string="Installed Modules">
+                <field name="technical_name" string="Module"
+                       filter_domain="['|', ('technical_name', 'ilike', self), ('module_name', 'ilike', self)]"/>
+                <field name="author"/>
+                <field name="license"/>
+                <field name="category_id"/>
+                <filter string="Third Party Only" name="third_party"
+                        domain="[('is_third_party', '=', True)]"/>
+                <filter string="Odoo S.A. (core)" name="origin_odoo"
+                        domain="[('origin', '=', 'odoo')]"/>
+                <filter string="Odoo S.A. (Enterprise)" name="origin_enterprise"
+                        domain="[('origin', '=', 'enterprise')]"/>
+                <filter string="OCA" name="origin_oca"
+                        domain="[('origin', '=', 'oca')]"/>
+                <filter string="Author Not Declared" name="origin_unknown"
+                        domain="[('origin', '=', 'unknown')]"/>
+                <separator/>
+                <filter string="Non-standard Licence" name="nonstandard_license"
+                        domain="[('nonstandard_license', '=', True)]"/>
+                <filter string="Proprietary Licence" name="license_proprietary"
+                        domain="[('license_kind', '=', 'proprietary')]"/>
+                <separator/>
+                <filter string="Installed But Not Part Of Any App" name="standalone"
+                        domain="[('standalone', '=', True)]"/>
+                <filter string="Applications" name="applications"
+                        domain="[('application', '=', True)]"/>
+                <filter string="Auto Installed" name="auto_installed"
+                        domain="[('auto_install', '=', True)]"/>
+                <separator/>
+                <filter string="Nothing Depends On It" name="no_dependents"
+                        domain="[('reverse_dependency_count', '=', 0)]"/>
+                <filter string="Pending Upgrade Or Removal" name="pending"
+                        domain="[('module_state', '!=', 'installed')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Origin" name="group_origin"
+                            context="{'group_by': 'origin'}"/>
+                    <filter string="Licence" name="group_license"
+                            context="{'group_by': 'license'}"/>
+                    <filter string="Licence Type" name="group_license_kind"
+                            context="{'group_by': 'license_kind'}"/>
+                    <filter string="Author" name="group_author"
+                            context="{'group_by': 'author'}"/>
+                    <filter string="Category" name="group_category"
+                            context="{'group_by': 'category_id'}"/>
+                    <filter string="Status" name="group_state"
+                            context="{'group_by': 'module_state'}"/>
+                    <filter string="Installed On" name="group_install_date"
+                            context="{'group_by': 'install_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_installed_module_report" model="ir.actions.act_window">
+        <field name="name">Installed Modules Report</field>
+        <field name="res_model">installed.module.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_installed_module_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No module matches these filters</p>
+            <p>Every module installed on this database, with its version, author,
+               licence, origin and dependencies. The report is read-only: it never
+               installs, upgrades or uninstalls anything.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_installed_module_report"
+              name="Installed Modules Report"
+              parent="base.menu_management"
+              action="action_installed_module_report"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>
