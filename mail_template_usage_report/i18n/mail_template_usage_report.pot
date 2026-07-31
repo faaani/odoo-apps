@@ -1,0 +1,470 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mail_template_usage_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 10:16+0000\n"
+"PO-Revision-Date: 2026-07-31 10:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mail_template_usage_report
+#: model_terms:ir.actions.act_window,help:mail_template_usage_report.action_mail_template_usage_report
+msgid ""
+"<b>Careful:</b> a template with no recorded use is not automatically\n"
+"               safe to delete. Templates are also called from Python code and from the\n"
+"               settings of other apps, which this report cannot see. Counting also only\n"
+"               starts when this module is installed."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+msgid ""
+"<strong>\"Never used\" is not a permission to delete.</strong>\n"
+"                        Email templates are also called from Python code and from\n"
+"                        configuration fields of other apps. This report only detects\n"
+"                        sends recorded since it was installed, plus server actions,\n"
+"                        automated actions and activity types pointing at the template.\n"
+"                        Always check a template before removing it."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__activity_type_count
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Activity Types"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__activity_type_count
+msgid "Activity types offering this template when an activity is scheduled."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__model_id
+msgid "Applies To"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Archived Templates"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__auto_delete
+msgid "Auto Delete"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__template_create_date
+msgid "Created On"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields.selection,name:mail_template_usage_report.selection__mail_template_usage_report__source__database
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Created in this Database"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__customized
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Customized"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.actions.act_window,name:mail_template_usage_report.action_mail_template_usage_report
+#: model:ir.ui.menu,name:mail_template_usage_report.menu_mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Email Template Usage"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model,name:mail_template_usage_report.model_mail_template_usage_report
+msgid "Email Template Usage Report"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model,name:mail_template_usage_report.model_mail_template
+msgid "Email Templates"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model,name:mail_template_usage_report.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_message__mail_template_id
+msgid ""
+"Email template this message was produced from. Filled in by the Email "
+"Template Usage Report module; empty for messages that were not built from a "
+"template, and for messages created before that module was installed."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_mail__mail_template_id
+msgid ""
+"Email template this outgoing mail was produced from. Filled in by the Email "
+"Template Usage Report module; empty for mails that were not built from a "
+"template, and for mails created before that module was installed."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template__mtur_send_count
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__send_count
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Emails Produced"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__mail_count
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Emails Stored"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__send_count
+msgid ""
+"Emails/messages produced from this template since this module was installed."
+" Sends from before the installation cannot be counted: Odoo stores no link "
+"between an email and its template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__template_active
+msgid "Enabled"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Enabled Templates"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template__mtur_first_used
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__first_used
+msgid "First Used"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template__mtur_first_used
+msgid ""
+"First send recorded for this template, i.e. when usage tracking actually "
+"started to see it."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__first_used
+msgid ""
+"First send recorded here, i.e. when tracking started to see this template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template__mtur_send_count
+msgid ""
+"How many emails/messages were produced from this template since the Email "
+"Template Usage Report module was installed. Sends that happened before that "
+"cannot be counted: Odoo keeps no record of which template an email came "
+"from."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__id
+msgid "ID"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__in_use
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "In Use"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__lang
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Language"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__lang
+msgid ""
+"Language expression the template renders in. Empty means the recipient / "
+"record language is used."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__template_write_date
+msgid "Last Modified On"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template__mtur_last_used
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__last_used
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Last Used"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model,name:mail_template_usage_report.model_mail_message
+msgid "Message"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__message_count
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Messages Stored"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__message_count
+msgid ""
+"Messages produced from this template that are still stored in the database "
+"(chatter history)."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__model_name
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Model"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__model_id
+msgid "Model the template renders on."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__module
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Module"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__module
+msgid ""
+"Module that shipped this template. Empty when the template was created in "
+"this database."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__last_used
+msgid ""
+"Most recent evidence of use: the last recorded send, or the most recent "
+"mail/message still stored for this template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template__mtur_last_used
+msgid "Most recent send recorded for this template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__never_used
+#: model:ir.model.fields.selection,name:mail_template_usage_report.selection__mail_template_usage_report__usage_status__never
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Never Used"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.actions.act_window,help:mail_template_usage_report.action_mail_template_usage_report
+msgid "No email template matches these filters"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__never_used
+msgid ""
+"No send was recorded and no mail or message produced from this template is "
+"stored. This is NOT a permission to delete it: templates are also called "
+"from Python code and from settings of other apps, which this report cannot "
+"see."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields.selection,name:mail_template_usage_report.selection__mail_template_usage_report__usage_status__stale
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Not Used in 90+ Days"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+msgid "Origin"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model,name:mail_template_usage_report.model_mail_mail
+msgid "Outgoing Mails"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__mail_count
+msgid ""
+"Outgoing mails produced from this template that are still stored (queued, "
+"failed, or kept because Auto Delete is off)."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__referenced
+msgid "Referenced"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Referenced by an Action"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__reference_count
+msgid "References"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__server_action_count
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_tree
+msgid "Server Actions"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__server_action_count
+msgid "Server actions and automated actions configured to send this template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields.selection,name:mail_template_usage_report.selection__mail_template_usage_report__source__module
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Shipped by a Module"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__source
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Source"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_mail__mail_template_id
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_message__mail_template_id
+msgid "Source Email Template"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Standard (As Installed)"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+msgid "Still Stored / Referenced"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+msgid "Stored Emails"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+msgid "Stored Messages"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__subject
+msgid "Subject"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__subject
+msgid "Subject (placeholders may be used here)"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__template_id
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Template"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__name
+msgid "Template Name"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__template_id
+msgid "The email template this line reports on."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.actions.act_window,help:mail_template_usage_report.action_mail_template_usage_report
+msgid ""
+"This read-only report lists every email template with its model, its\n"
+"               origin, whether it was customized after installation, how often it was\n"
+"               used and when it was last used."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__referenced
+msgid ""
+"Ticked when a server action, an automated action or an activity type points "
+"at this template."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__customized
+msgid ""
+"Ticked when the template was created in this database, or when it was "
+"modified after the module shipping it was last installed or upgraded. "
+"Upgrading that module re-applies its own version of the template, which "
+"clears this flag again."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__in_use
+msgid ""
+"Ticked when the template was used at least once, or when a server action / "
+"automated action / activity type points at it."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__template_active
+msgid "Unticked for archived templates."
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Unused and Unreferenced"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,field_description:mail_template_usage_report.field_mail_template_usage_report__usage_status
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_form
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Usage"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields.selection,name:mail_template_usage_report.selection__mail_template_usage_report__usage_status__recent
+#: model_terms:ir.ui.view,arch_db:mail_template_usage_report.view_mail_template_usage_report_search
+msgid "Used in the Last 90 Days"
+msgstr ""
+
+#. module: mail_template_usage_report
+#: model:ir.model.fields,help:mail_template_usage_report.field_mail_template_usage_report__auto_delete
+msgid ""
+"When ticked, Odoo deletes the email (and its chatter message) right after "
+"sending it. Such templates leave no stored mail behind, which is why this "
+"report keeps its own counter."
+msgstr ""

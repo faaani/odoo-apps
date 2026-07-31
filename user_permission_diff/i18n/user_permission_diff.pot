@@ -1,0 +1,681 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* user_permission_diff
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 10:22+0000\n"
+"PO-Revision-Date: 2026-07-31 10:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid "%(count)s group(s) granted, copied from %(source)s by %(actor)s:"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid "%(count)s group(s) will be ADDED to %(target)s."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"%(only_a)s group(s) only %(a)s has, %(only_b)s only %(b)s has, %(shared)s "
+"shared."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"%(target)s already has every group %(source)s is assigned: there is nothing "
+"to copy."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "%s only"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "A"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__line_ids
+msgid "All Groups"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__category_name
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Application"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_a__assigned
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_b__assigned
+msgid "Assigned"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff__compare_mode__assigned
+msgid "Assigned groups only"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_line__source_a
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_line__source_b
+msgid ""
+"Assigned: the group is ticked on the user form.\n"
+"Implied: the user is a member because another of their groups implies this one.\n"
+"Not a member: the user does not have this group at all."
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "B"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_copy_form
+msgid "Cancel"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "Choose the two users to compare."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "Choose the user the groups should be copied to."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "Choose two different users first."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"Choose two different users: comparing a user with themselves always yields "
+"an empty difference."
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Choose two users and press Compare."
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Close"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_model_line__rights_code
+msgid ""
+"Compact form of the four permissions this side has and the other side has "
+"not, for example R-C-."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__compare_mode
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Compare"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+#: model:ir.actions.act_window,name:user_permission_diff.action_user_permission_diff
+#: model:ir.model,name:user_permission_diff.model_user_permission_diff
+#: model:ir.ui.menu,name:user_permission_diff.menu_user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Compare User Permissions"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model,name:user_permission_diff.model_user_permission_diff_line
+msgid "Compared Group"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"Comparing or copying user permissions is reserved to users with Settings / "
+"Administration access."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__diff_id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__diff_id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__diff_id
+msgid "Comparison"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__computed
+msgid "Comparison Done"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model,name:user_permission_diff.model_user_permission_diff_copy
+msgid "Confirm Copying Groups Between Users"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Copied"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__source_user_id
+msgid "Copy From"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_copy_form
+msgid "Copy Groups"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__target_user_id
+msgid "Copy To"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Copy missing groups from A to B"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"Copying A to B would ADD %(count)s group(s) to %(b)s and remove nothing. "
+"Only the groups %(a)s is assigned directly are written; the implied ones "
+"follow from them."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__perm_create
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Create"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__create_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__create_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__create_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__create_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__create_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__create_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__perm_unlink
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Delete"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__display_name
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__display_name
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__display_name
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff__compare_mode__effective
+msgid "Effective groups (implied groups expanded)"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff__compare_mode
+msgid ""
+"Effective: every group the user is assigned plus every group those imply, transitively - this is what Odoo actually checks.\n"
+"Assigned: only the groups ticked on the user form."
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Extra Rights"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_copy_form
+msgid "Grant these groups"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"Granted %(count)s group(s) to %(target)s, copied from %(source)s. Nothing "
+"was removed.\n"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__group_id
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Group"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__group_name
+msgid "Group Name"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__group_count
+msgid "Groups"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__group_ids
+msgid "Groups To Grant"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__copy_count
+msgid "Groups a copy would grant"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_copy_form
+msgid "Groups that will be added"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "How A has it"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "How B has it"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff__copy_count
+msgid ""
+"How many groups would really be written on User B: the groups User A is "
+"directly assigned and User B does not have."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__confirmed
+msgid "I have read the list and want to grant these groups"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__id
+msgid "ID"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_a__implied
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_b__implied
+msgid "Implied"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__write_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__write_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__write_uid
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__write_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__write_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__write_date
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__model_id
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Model"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model,name:user_permission_diff.model_user_permission_diff_model_line
+msgid "Model Permission Granted by the Difference"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__model_line_ids
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Model Permissions"
+msgstr ""
+
+#. module: user_permission_diff
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Model permissions this difference grants"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "No difference: %(a)s and %(b)s have exactly the same groups."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"No group is ever removed: %(target)s keeps every group they already have."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid "No group was removed."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_a__none
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__source_b__none
+msgid "Not a member"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"Odoo refused the change and nothing was granted: %(error)s\n"
+"This usually means the two users are not of the same type (internal, portal or public), which Odoo does not allow to mix."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "Only %(user)s: %(count)s %(mode)s group(s)"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_a_count
+msgid "Only A"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_a_title
+msgid "Only A Title"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_b_count
+msgid "Only B"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_b_title
+msgid "Only B Title"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_a_line_ids
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__side__only_a
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_model_line__side__only_a
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Only User A"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__only_b_line_ids
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__side__only_b
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_model_line__side__only_b
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Only User B"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid "Permissions copied from %s"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__perm_read
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Read"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__rights_code
+msgid "Rights"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__shared_line_ids
+#: model:ir.model.fields.selection,name:user_permission_diff.selection__user_permission_diff_line__side__shared
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Shared"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__shared_count
+msgid "Shared Groups"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__shared_title
+msgid "Shared Title"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "Shared by both: %(count)s %(mode)s group(s)"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__side
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__side
+msgid "Side"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__notice
+msgid "Summary"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__model_name
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Technical Model"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"The default administrator account is never modified by this module. If it "
+"really has to change, edit it from Settings / Users."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_copy__group_ids
+msgid ""
+"The groups that will be added to the target user. This list is recomputed "
+"from the two users when Grant is pressed."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"The model table below is computed on effective groups and on access control "
+"lines only - record rules are not taken into account."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"The model table is capped at %s rows per side; the difference covers more "
+"models than that."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff__user_a_id
+msgid "The reference user - the one whose rights are being copied from."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_copy__confirmed
+msgid "The server refuses to grant anything while this box is unticked."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"The three columns show ASSIGNED groups only: the groups ticked on the user "
+"form. Groups that come from an implied group are not listed - switch Compare"
+" to \"Effective\" to see them."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"The three columns show EFFECTIVE groups: every group the user is assigned, "
+"plus every group those imply, transitively. A group the user is not assigned"
+" directly is marked \"Implied\"."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff__user_b_id
+msgid "The user being compared with, and the one a copy would write to."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"The write would have removed %s group(s) from the target user, which this "
+"module never does. Nothing was changed."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"This grants access rights. The change is written in the chatter of "
+"%(target)s and cannot be undone from here - to reverse it, untick the groups"
+" on the user form."
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff_copy.py:0
+msgid ""
+"Tick \"I have read the list and want to grant these groups\" before granting"
+" anything."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff__computed
+msgid "Ticked once the two users have been compared."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,help:user_permission_diff.field_user_permission_diff_line__to_copy
+msgid ""
+"Ticked when a copy from User A to User B would write this very group on User"
+" B. Groups User A only holds through implication are not written: they "
+"follow from the assigned ones."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__user_a_id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__source_a
+msgid "User A"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff__user_b_id
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__source_b
+msgid "User B"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid ""
+"User id 1 is the superuser: it already bypasses every access right and this "
+"module never writes to it."
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_copy__warning
+msgid "What Will Happen"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__side_label
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Who"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_line__to_copy
+msgid "Would Be Copied"
+msgstr ""
+
+#. module: user_permission_diff
+#: model:ir.model.fields,field_description:user_permission_diff.field_user_permission_diff_model_line__perm_write
+#: model_terms:ir.ui.view,arch_db:user_permission_diff.view_user_permission_diff_form
+msgid "Write"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "assigned"
+msgstr ""
+
+#. module: user_permission_diff
+#. odoo-python
+#: code:addons/user_permission_diff/wizard/user_permission_diff.py:0
+msgid "effective"
+msgstr ""
