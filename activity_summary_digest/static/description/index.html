@@ -1,0 +1,93 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #12304d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Daily Activity Digest Email</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Every morning, the activities you must deal with today — in your inbox.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo activities only nag you inside Odoo. Close the tab and the reminder is gone: calls, follow-ups and to-dos quietly slide past their due date because nothing reaches people where they actually look.
+        This module sends every user who opted in one email each morning listing the activities <strong>assigned to them</strong> that are <strong>due today or already overdue</strong>, grouped by document type, overdue lines in red, each line linking straight to the record in Odoo.
+        Users with nothing due are not emailed at all. <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Due today and overdue only</strong> — the digest answers "what must I not forget today", not "what is coming up". Activities with a future deadline are never listed.</li>
+        <li><strong>Grouped by document type</strong> — Contacts in one block, Tasks in another, using the model names of your own database.</li>
+        <li><strong>Overdue clearly marked</strong> — past-deadline lines are red and labelled <em>Overdue</em>, with the date they were due.</li>
+        <li><strong>One click to the record</strong> — every line is a link that opens the document in Odoo (the modern <code>/odoo/&hellip;</code> URL on 18.0/19.0, the classic <code>/web#&hellip;</code> hash before that).</li>
+        <li><strong>No empty emails</strong> — a user with nothing due gets nothing. You will never receive a "you have 0 activities" message.</li>
+        <li><strong>Opt-in, per user</strong> — the checkbox lives in each user's own Preferences, so nobody needs an administrator to subscribe or unsubscribe. One admin button opts every internal user in at once.</li>
+        <li><strong>Right day, right language</strong> — "due today" is evaluated in the recipient's own timezone, and the whole email is built in the recipient's language with their date format.</li>
+        <li><strong>Respects access rights</strong> — activities are read as the recipient, so a document they may not read never reaches their inbox.</li>
+        <li><strong>Robust</strong> — an activity whose record was deleted in the meantime is skipped instead of breaking the digest, and one failing recipient never costs the others theirs.</li>
+        <li><strong>Global kill switch</strong> — one toggle in General Settings stops every digest, whatever each user asked for.</li>
+    </ul>
+
+    <div style="font-size: 15px; background: #fff8e8; border-left: 4px solid #f0a830; padding: 14px 18px; margin: 20px 0;">
+        <strong>What this module never does.</strong> The digest is strictly read-only: it never creates, modifies, reschedules, completes or deletes an activity, and it never touches the documents behind them. It never subscribes anyone: the per-user checkbox starts at <em>off</em>, so installing the module sends nobody anything until someone opts in (or an administrator clicks <em>Turn on for all internal users</em>, which is behind a confirmation dialog and only touches active internal users). Portal and public users are never emailed, and neither are users without an email address.
+    </div>
+
+    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;"><strong>Honest limitations.</strong>
+        <strong>It needs a working outgoing mail server.</strong> The digest is sent through Odoo's standard mail queue and is force-sent so it cannot sit in the queue all day — but if no outgoing mail server is configured, or SMTP refuses it, nothing arrives: the failure is written to the Odoo log and that day's digest is <em>not</em> retried later.
+        <strong>It covers Odoo activities (<code>mail.activity</code>) and nothing else</strong> — not calendar events as such, not project deadlines, not overdue invoices, not unread messages. Only activities whose assignee is the recipient are listed; activities you scheduled for somebody else appear in <em>their</em> digest, not yours.
+        <strong>One email per user per run</strong>, and the scheduled action runs once a day: a user who opts in at noon starts with the next morning's digest.
+        <strong>Volume is capped</strong> at the 100 oldest lines, taken from at most 500 activities; when that happens the email says so and points you back to Odoo — it will not mail somebody a thousand-line table.
+        <strong>The layout is fixed.</strong> The email body is generated in Python, not from a <code>mail.template</code>, so restyling it means overriding a method rather than editing a template in the UI. Sent digests are auto-deleted like other Odoo notification mails, so there is no permanent archive of them.
+        <strong>On Odoo 15.0 and 16.0 only</strong>, Odoo core hides an activity even from its own assignee when that user does not hold write access on the underlying document; such activities are invisible in Odoo's own activity views too, and they are therefore also absent from the digest. Odoo 14.0 and 17.0&ndash;19.0 do not have that restriction.
+        Finally, "due today" is computed from the recipient's <strong>Timezone</strong> in Preferences — a user who left it empty is treated as UTC.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-digest-email.png" alt="The digest email: activities grouped by document type with overdue lines in red" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The digest itself: the activities due today or overdue, grouped by document type, overdue lines in red, every line linking straight to its record.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-settings.png" alt="The Daily Activity Digest switch in General Settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The global switch in General Settings, with a one-click button to opt every internal user in.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-user-optin.png" alt="The per-user Daily Activity Digest checkbox" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Each user decides for themselves — the same checkbox is on their own Preferences screen, so no administrator is needed to opt in or out.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-scheduled-action.png" alt="The scheduled action that sends the digests" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The scheduled action that sends the digests — move its next execution time to change the hour they go out.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>activity_summary_digest</code> folder into your addons path (or install it from the Apps store).</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Daily Activity Digest Email</em> and click <strong>Install</strong>.</li>
+        <li>No external Python library is needed. The module depends only on <code>mail</code> and <code>base_setup</code>, which every Odoo database already has.</li>
+        <li>Installing changes nothing on its own: the per-user preference starts switched off, so no email is sent until somebody opts in.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Make sure Odoo can send email: <strong>Settings &rarr; Technical &rarr; Outgoing Mail Servers</strong>. Without one, no digest can leave the system.</li>
+        <li>Go to <strong>Settings &rarr; General Settings &rarr; Activities</strong>. <strong>Daily Activity Digest</strong> is the master switch and is on after installation; turning it off silences every digest at once.</li>
+        <li>Opt users in. Either each user ticks <strong>Daily Activity Digest</strong> themselves in their <strong>Preferences</strong> (avatar menu &rarr; My Profile), or an administrator opens <strong>Settings &rarr; Users &amp; Companies &rarr; Users &rarr;</strong> a user <strong>&rarr; Activity Digest</strong>, or clicks <strong>Turn on for all internal users</strong> under the settings switch to subscribe everybody in one go.</li>
+        <li>Check each user's <strong>Timezone</strong> and <strong>Language</strong> in Preferences: they decide which calendar day counts as "today" and which language and date format the email uses.</li>
+        <li>Choose the sending time. Enable developer mode, open <strong>Settings &rarr; Technical &rarr; Scheduled Actions &rarr; Send daily activity digest emails</strong> and set <strong>Next Execution Date</strong> to the moment of the first run — it repeats every 24 hours from there. The value is stored in UTC and displayed in your own timezone.</li>
+        <li>Nothing else to configure: there is no template, no recipient list and no filter to maintain.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Work normally: schedule activities on contacts, tasks, orders or any other document, as you already do.</li>
+        <li>Once a day the scheduled action builds one email per opted-in user who has something due, and sends it. Users with nothing due are skipped entirely.</li>
+        <li>Read the digest: a count at the top, then one block per document type. Red <em>Overdue</em> lines first inside each block, then the ones due today, each with its activity type, its summary and its due date.</li>
+        <li>Click the record name on any line to open that document in Odoo and deal with the activity there.</li>
+        <li>To test it without waiting for the morning, open the scheduled action and press <strong>Run Manually</strong> — every opted-in user with something due receives their digest immediately.</li>
+        <li>To stop receiving it, untick <strong>Daily Activity Digest</strong> in your own Preferences. To stop it for everyone, turn the switch off in General Settings.</li>
+        <li>If nobody receives anything, check in order: the global switch, the user's checkbox, whether the user actually has an activity due today or overdue, whether the user has an email address, and the Odoo log for outgoing-mail errors.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical features on every supported series (14.0 &ndash; 19.0). Record links use the modern <code>/odoo/&lt;model&gt;/&lt;id&gt;</code> URL on 18.0 and 19.0 and the classic <code>/web#id=&hellip;</code> hash before that. On 15.0 and 16.0 Odoo core itself hides activities whose document the assignee cannot write, which narrows the digest on those two series only — see the limitations above.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

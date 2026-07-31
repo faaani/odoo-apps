@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mail_template_usage_report_tree" model="ir.ui.view">
+        <field name="name">mail.template.usage.report.tree</field>
+        <field name="model">mail.template.usage.report</field>
+        <field name="arch" type="xml">
+            <tree string="Email Template Usage" create="false" edit="false" delete="false"
+                  decoration-danger="never_used and not referenced"
+                  decoration-warning="usage_status == 'stale'"
+                  decoration-muted="not template_active">
+                <field name="template_id"/>
+                <field name="model_name"/>
+                <field name="lang" optional="hide"/>
+                <field name="source"/>
+                <field name="module" optional="hide"/>
+                <field name="customized"/>
+                <field name="send_count" sum="Emails Produced"/>
+                <field name="last_used"/>
+                <field name="usage_status"/>
+                <field name="never_used" optional="hide"/>
+                <field name="referenced"/>
+                <field name="in_use" optional="hide"/>
+                <field name="server_action_count" optional="hide" sum="Server Actions"/>
+                <field name="activity_type_count" optional="hide" sum="Activity Types"/>
+                <field name="message_count" optional="hide" sum="Messages Stored"/>
+                <field name="mail_count" optional="hide" sum="Emails Stored"/>
+                <field name="first_used" optional="hide"/>
+                <field name="auto_delete" optional="hide"/>
+                <field name="template_active" optional="hide"/>
+                <field name="template_write_date" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mail_template_usage_report_form" model="ir.ui.view">
+        <field name="name">mail.template.usage.report.form</field>
+        <field name="model">mail.template.usage.report</field>
+        <field name="arch" type="xml">
+            <form string="Email Template Usage" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_view_source_mails" type="object"
+                            string="Stored Emails" class="btn-secondary"/>
+                    <button name="action_view_source_messages" type="object"
+                            string="Stored Messages" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>"Never used" is not a permission to delete.</strong>
+                        Email templates are also called from Python code and from
+                        configuration fields of other apps. This report only detects
+                        sends recorded since it was installed, plus server actions,
+                        automated actions and activity types pointing at the template.
+                        Always check a template before removing it.
+                    </div>
+                    <group>
+                        <group string="Template">
+                            <field name="template_id"/>
+                            <field name="subject"/>
+                            <field name="model_id"/>
+                            <field name="lang"/>
+                            <field name="template_active"/>
+                            <field name="auto_delete"/>
+                        </group>
+                        <group string="Origin">
+                            <field name="source"/>
+                            <field name="module"/>
+                            <field name="customized"/>
+                            <field name="template_create_date"/>
+                            <field name="template_write_date"/>
+                        </group>
+                        <group string="Usage">
+                            <field name="usage_status"/>
+                            <field name="never_used"/>
+                            <field name="in_use"/>
+                            <field name="send_count"/>
+                            <field name="first_used"/>
+                            <field name="last_used"/>
+                        </group>
+                        <group string="Still Stored / Referenced">
+                            <field name="message_count"/>
+                            <field name="mail_count"/>
+                            <field name="server_action_count"/>
+                            <field name="activity_type_count"/>
+                            <field name="reference_count"/>
+                            <field name="referenced"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mail_template_usage_report_search" model="ir.ui.view">
+        <field name="name">mail.template.usage.report.search</field>
+        <field name="model">mail.template.usage.report</field>
+        <field name="arch" type="xml">
+            <search string="Email Template Usage">
+                <field name="template_id" string="Template"
+                       filter_domain="[('template_id', 'ilike', self)]"/>
+                <field name="model_name" string="Model"/>
+                <field name="module"/>
+                <filter string="Never Used" name="never_used"
+                        domain="[('never_used', '=', True)]"/>
+                <filter string="Used in the Last 90 Days" name="used_90"
+                        domain="[('usage_status', '=', 'recent')]"/>
+                <filter string="Not Used in 90+ Days" name="stale_90"
+                        domain="[('usage_status', '=', 'stale')]"/>
+                <separator/>
+                <filter string="Customized" name="customized"
+                        domain="[('customized', '=', True)]"/>
+                <filter string="Standard (As Installed)" name="not_customized"
+                        domain="[('customized', '=', False)]"/>
+                <separator/>
+                <filter string="In Use" name="in_use"
+                        domain="[('in_use', '=', True)]"/>
+                <filter string="Unused and Unreferenced" name="unused_unreferenced"
+                        domain="[('in_use', '=', False)]"/>
+                <filter string="Referenced by an Action" name="referenced"
+                        domain="[('referenced', '=', True)]"/>
+                <separator/>
+                <filter string="Shipped by a Module" name="from_module"
+                        domain="[('source', '=', 'module')]"/>
+                <filter string="Created in this Database" name="from_database"
+                        domain="[('source', '=', 'database')]"/>
+                <separator/>
+                <filter string="Enabled Templates" name="enabled"
+                        domain="[('template_active', '=', True)]"/>
+                <filter string="Archived Templates" name="archived"
+                        domain="[('template_active', '=', False)]"/>
+                <group>
+                    <filter string="Usage" name="group_usage"
+                            context="{'group_by': 'usage_status'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                    <filter string="Source" name="group_source"
+                            context="{'group_by': 'source'}"/>
+                    <filter string="Module" name="group_module"
+                            context="{'group_by': 'module'}"/>
+                    <filter string="Language" name="group_lang"
+                            context="{'group_by': 'lang'}"/>
+                    <filter string="Last Used" name="group_last_used"
+                            context="{'group_by': 'last_used'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mail_template_usage_report" model="ir.actions.act_window">
+        <field name="name">Email Template Usage</field>
+        <field name="res_model">mail.template.usage.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_mail_template_usage_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No email template matches these filters</p>
+            <p>This read-only report lists every email template with its model, its
+               origin, whether it was customized after installation, how often it was
+               used and when it was last used.</p>
+            <p><b>Careful:</b> a template with no recorded use is not automatically
+               safe to delete. Templates are also called from Python code and from the
+               settings of other apps, which this report cannot see. Counting also only
+               starts when this module is installed.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mail_template_usage_report"
+              name="Email Template Usage"
+              parent="base.menu_email"
+              action="action_mail_template_usage_report"
+              groups="base.group_system"
+              sequence="45"/>
+
+</odoo>

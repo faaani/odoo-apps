@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mail_template_usage_report_system,mail.template.usage.report.system,model_mail_template_usage_report,base.group_system,1,0,0,0

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ir_logging_clear_wizard_form" model="ir.ui.view">
+        <field name="name">ir.logging.clear.wizard.form</field>
+        <field name="model">ir.logging.clear.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Clear Server Log Entries">
+                <div class="alert alert-warning" role="alert">
+                    Deleting log entries cannot be undone. Only the log table Odoo
+                    writes server messages to is emptied - no other record, setting
+                    or attachment is touched, and the server log file is left alone.
+                </div>
+                <group>
+                    <field name="mode" widget="radio"/>
+                    <field name="days" attrs="{'invisible': [('mode', '!=', 'older')]}"/>
+                </group>
+                <group>
+                    <field name="total_count"/>
+                    <field name="match_count"/>
+                </group>
+                <group>
+                    <field name="confirm"/>
+                </group>
+                <footer>
+                    <button name="action_clear" type="object" string="Delete Entries"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ir_logging_clear_wizard" model="ir.actions.act_window">
+        <field name="name">Clear Log Entries</field>
+        <field name="res_model">ir.logging.clear.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_ir_logging_clear_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
