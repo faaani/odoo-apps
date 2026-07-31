@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_default_value_root"
+              name="Default Values"
+              parent="base.menu_administration"
+              groups="base.group_system"
+              sequence="106"/>
+
+    <menuitem id="menu_default_value_entry"
+              name="All Default Values"
+              parent="menu_default_value_root"
+              action="action_default_value_entry"
+              groups="base.group_system"
+              sequence="10"/>
+
+    <menuitem id="menu_default_value_entry_attention"
+              name="Obsolete Defaults"
+              parent="menu_default_value_root"
+              action="action_default_value_entry_attention"
+              groups="base.group_system"
+              sequence="20"/>
+
+    <menuitem id="menu_default_value_add_wizard"
+              name="Set a Default Value"
+              parent="menu_default_value_root"
+              action="action_default_value_add_wizard"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>

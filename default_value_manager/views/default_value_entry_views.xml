@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_default_value_entry_list" model="ir.ui.view">
+        <field name="name">default.value.entry.list</field>
+        <field name="model">default.value.entry</field>
+        <field name="arch" type="xml">
+            <list string="Default Values" create="false" edit="false" delete="false"
+                  decoration-danger="is_orphaned"
+                  decoration-warning="entry_status in ('missing_target', 'invalid_value')">
+                <field name="is_orphaned" column_invisible="1"/>
+                <field name="model_name" optional="show"/>
+                <field name="model_id" optional="hide"/>
+                <field name="field_name" optional="show"/>
+                <field name="field_label" optional="show"/>
+                <field name="value_display"/>
+                <field name="user_id" optional="show"/>
+                <field name="company_id" optional="show"/>
+                <field name="user_scope" optional="hide"/>
+                <field name="company_scope" optional="hide"/>
+                <field name="condition" optional="hide"/>
+                <field name="entry_status" widget="badge"
+                       decoration-success="entry_status == 'ok'"
+                       decoration-danger="entry_status in ('orphan_model', 'orphan_field')"
+                       decoration-warning="entry_status in ('missing_target', 'invalid_value')"/>
+                <field name="json_value" optional="hide"/>
+                <field name="create_uid" optional="hide"/>
+                <field name="create_date" optional="hide"/>
+                <button name="action_delete_defaults" type="object" icon="fa-trash"
+                        title="Delete this default value"
+                        groups="base.group_system"
+                        confirm="Delete this default value? The field simply stops pre-filling. No record, no field and no other setting is modified, and records already created keep the value they were given."/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_default_value_entry_form" model="ir.ui.view">
+        <field name="name">default.value.entry.form</field>
+        <field name="model">default.value.entry</field>
+        <field name="arch" type="xml">
+            <form string="Default Value" create="false" edit="false" delete="false">
+                <header>
+                    <button name="action_delete_defaults" type="object"
+                            string="Delete This Default" class="btn-danger"
+                            groups="base.group_system"
+                            confirm="Delete this default value? The field simply stops pre-filling. No record, no field and no other setting is modified, and records already created keep the value they were given."/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="complete_name" readonly="1"/></h1>
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                         invisible="entry_status != 'orphan_model'">
+                        The model this default was set on is not installed in this
+                        database any more, so the default can never apply again.
+                        It is safe to delete.
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                         invisible="entry_status != 'orphan_field'">
+                        The field this default was set on no longer exists on the
+                        model, so the default can never apply again. It is safe to
+                        delete.
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="entry_status != 'missing_target'">
+                        This default points at a record that has been deleted, so
+                        the field is pre-filled with a reference that leads nowhere.
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="entry_status != 'invalid_value'">
+                        The stored value is not readable JSON, so Odoo cannot apply
+                        it. The raw content is shown below.
+                    </div>
+                    <group>
+                        <group string="Applies To">
+                            <field name="model_name"/>
+                            <field name="model_id"/>
+                            <field name="field_name"/>
+                            <field name="field_label"/>
+                            <field name="field_type"/>
+                            <field name="field_relation" invisible="not field_relation"/>
+                            <field name="field_id"/>
+                        </group>
+                        <group string="Value">
+                            <field name="value_display"/>
+                            <field name="json_value"/>
+                            <field name="entry_status"/>
+                            <field name="is_orphaned"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Scope">
+                            <field name="user_scope"/>
+                            <field name="user_id"/>
+                            <field name="company_scope"/>
+                            <field name="company_id"/>
+                            <field name="condition"/>
+                        </group>
+                        <group string="History">
+                            <field name="create_uid"/>
+                            <field name="create_date"/>
+                            <field name="write_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_default_value_entry_search" model="ir.ui.view">
+        <field name="name">default.value.entry.search</field>
+        <field name="model">default.value.entry</field>
+        <field name="arch" type="xml">
+            <search string="Default Values">
+                <field name="complete_name" string="Model / Field"
+                       filter_domain="['|', '|', ('complete_name', 'ilike', self), ('field_label', 'ilike', self), ('model_id', 'ilike', self)]"/>
+                <field name="value_display" string="Value"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+                <field name="model_id"/>
+                <filter string="Needs Attention" name="filter_attention"
+                        domain="[('entry_status', '!=', 'ok')]"/>
+                <filter string="Orphaned (model or field gone)" name="filter_orphaned"
+                        domain="[('is_orphaned', '=', True)]"/>
+                <filter string="Target Record Deleted" name="filter_missing_target"
+                        domain="[('entry_status', '=', 'missing_target')]"/>
+                <filter string="Unreadable Value" name="filter_invalid_value"
+                        domain="[('entry_status', '=', 'invalid_value')]"/>
+                <filter string="Still Applies" name="filter_ok"
+                        domain="[('entry_status', '=', 'ok')]"/>
+                <separator/>
+                <filter string="All Users" name="filter_user_all"
+                        domain="[('user_scope', '=', 'all')]"/>
+                <filter string="One User Only" name="filter_user_one"
+                        domain="[('user_scope', '=', 'user')]"/>
+                <filter string="My Own Defaults" name="filter_user_me"
+                        domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="All Companies" name="filter_company_all"
+                        domain="[('company_scope', '=', 'all')]"/>
+                <filter string="One Company Only" name="filter_company_one"
+                        domain="[('company_scope', '=', 'company')]"/>
+                <separator/>
+                <filter string="With A Condition" name="filter_condition"
+                        domain="[('condition', '!=', False)]"/>
+                <group name="group_by">
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_name'}"/>
+                    <filter string="Field" name="group_field"
+                            context="{'group_by': 'field_name'}"/>
+                    <filter string="User" name="group_user"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"/>
+                    <filter string="User Scope" name="group_user_scope"
+                            context="{'group_by': 'user_scope'}"/>
+                    <filter string="Set On" name="group_create_date"
+                            context="{'group_by': 'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_default_value_entry" model="ir.actions.act_window">
+        <field name="name">Default Values</field>
+        <field name="res_model">default.value.entry</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_default_value_entry_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No default value matches these filters</p>
+            <p>Every value ever saved with "Set Default" is listed here: the model
+               and field it pre-fills, the value in readable form, and its scope.
+               An empty User means the default applies to every user; an empty
+               Company means it applies to every company.</p>
+            <p>Use the ⚙ Action menu on the rows you select to delete obsolete
+               entries. Deleting a default only stops the field from pre-filling:
+               no record and no other setting is changed.</p>
+        </field>
+    </record>
+
+    <record id="action_default_value_entry_attention" model="ir.actions.act_window">
+        <field name="name">Obsolete Defaults</field>
+        <field name="res_model">default.value.entry</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_default_value_entry_search"/>
+        <field name="context">{'search_default_filter_attention': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every default value in this database still applies</p>
+            <p>This list gathers the defaults that cannot do their job any more:
+               their model or field no longer exists (orphaned), the record they
+               point at has been deleted, or their stored value is not readable.</p>
+        </field>
+    </record>
+
+</odoo>
