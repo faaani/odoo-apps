@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_password_expiry" model="ir.ui.view">
+        <field name="name">res.users.form.password.expiry</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Password Expiry" name="password_expiry">
+                    <group>
+                        <group string="Password Age">
+                            <field name="password_write_date"/>
+                            <field name="password_expiry_date"/>
+                        </group>
+                        <group string="Policy">
+                            <field name="password_expiry_exempt"/>
+                        </group>
+                    </group>
+                    <p class="text-muted">
+                        The expiry date is empty while the policy is off, for exempt
+                        users, and for the database administrator and portal users,
+                        who are never expired.
+                    </p>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
