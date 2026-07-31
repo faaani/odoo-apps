@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fhe_customization_tree" model="ir.ui.view">
+        <field name="name">field.help.customization.tree</field>
+        <field name="model">field.help.customization</field>
+        <field name="arch" type="xml">
+            <list string="Customized Labels" create="false" delete="false" edit="false">
+                <field name="model_name"/>
+                <field name="field_name"/>
+                <field name="lang_name"/>
+                <field name="original_description"/>
+                <field name="custom_description"/>
+                <field name="original_help" optional="hide"/>
+                <field name="custom_help" optional="hide"/>
+                <field name="write_date" string="Last Change" optional="show"/>
+                <button name="action_reset" type="object" string="Reset" icon="fa-undo"
+                        confirm="Restore the original label and tooltip of this field?"/>
+                <button name="action_reapply" type="object" string="Re-apply" icon="fa-repeat"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fhe_customization_form" model="ir.ui.view">
+        <field name="name">field.help.customization.form</field>
+        <field name="model">field.help.customization</field>
+        <field name="arch" type="xml">
+            <form string="Customized Label" create="false" edit="false">
+                <header>
+                    <button name="action_reset" type="object" string="Reset to Original"
+                            class="btn-secondary"
+                            confirm="Restore the original label and tooltip of this field?"/>
+                    <button name="action_reapply" type="object" string="Re-apply" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Field">
+                            <field name="model_name"/>
+                            <field name="field_name"/>
+                            <field name="field_id"/>
+                            <field name="lang_name"/>
+                            <field name="lang"/>
+                        </group>
+                        <group string="Currently Applied">
+                            <field name="custom_description"/>
+                            <field name="custom_help"/>
+                        </group>
+                    </group>
+                    <group string="Original Values">
+                        <field name="original_description"/>
+                        <field name="original_help"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fhe_customization_search" model="ir.ui.view">
+        <field name="name">field.help.customization.search</field>
+        <field name="model">field.help.customization</field>
+        <field name="arch" type="xml">
+            <search string="Customized Labels">
+                <field name="model_name" string="Model"/>
+                <field name="field_name" string="Technical Name"/>
+                <field name="custom_description" string="Custom Label"/>
+                <group name="group_by">
+                    <filter name="fhe_group_model" string="Model" context="{'group_by': 'model_name'}"/>
+                    <filter name="fhe_group_lang" string="Language" context="{'group_by': 'lang'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fhe_customizations" model="ir.actions.act_window">
+        <field name="name">Customized Labels</field>
+        <field name="res_model">field.help.customization</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_fhe_customization_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No label has been customized yet</p>
+            <p>Every field whose label or tooltip was changed from this database is
+               listed here with the values Odoo originally shipped. Select rows and use
+               the Actions menu to reset them all, or to apply them again after an
+               upgrade restored the built-in labels.</p>
+        </field>
+    </record>
+
+    <record id="action_server_fhe_reset" model="ir.actions.server">
+        <field name="name">Reset to Original</field>
+        <field name="model_id" ref="model_field_help_customization"/>
+        <field name="binding_model_id" ref="model_field_help_customization"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="group_ids" eval="[(4, ref('base.group_system'))]"/>
+        <field name="state">code</field>
+        <field name="code">records.action_reset()</field>
+    </record>
+
+    <record id="action_server_fhe_reapply" model="ir.actions.server">
+        <field name="name">Re-apply Customization</field>
+        <field name="model_id" ref="model_field_help_customization"/>
+        <field name="binding_model_id" ref="model_field_help_customization"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="group_ids" eval="[(4, ref('base.group_system'))]"/>
+        <field name="state">code</field>
+        <field name="code">records.action_reapply()</field>
+    </record>
+
+</odoo>
