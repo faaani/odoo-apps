@@ -1,0 +1,88 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #12304d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Compare User Permissions</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">What one user has and the other has not &mdash; in one screen.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">&ldquo;Give the new hire the same rights as Maria&rdquo; normally means opening two user forms side by side and comparing tick boxes. The tick boxes lie: a group can be granted by <em>another</em> group that implies it, so a box that looks empty is not.
+        This module puts the two users next to each other and answers the question properly &mdash; the groups only the first user has, the groups only the second has, the groups they share, each line saying whether the user has it because it is ticked on their form or because another group implies it. Then, behind an explicit confirmation, it copies the missing ones one way.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Three columns</strong> &mdash; only User A, only User B, shared. No scrolling between two browser tabs.</li>
+        <li><strong>Effective groups by default</strong> &mdash; every group the user is assigned, plus every group those imply, followed transitively (and a cycle in the implication graph terminates instead of hanging). That is what Odoo really checks when it decides whether a menu is visible or a button is allowed.</li>
+        <li><strong>Assigned or implied, said out loud</strong> &mdash; each line marks, per user, whether the group is <em>Assigned</em> on the form or <em>Implied</em> by another group.</li>
+        <li><strong>Assigned-only mode</strong> &mdash; a second mode that compares just the ticked boxes, for when you are about to edit them. The column headers always say which of the two you are looking at.</li>
+        <li><strong>What the difference actually grants</strong> &mdash; a table of the models one user can read, write, create or delete and the other cannot, computed from the access control lines of both users' effective groups.</li>
+        <li><strong>A one-way copy, behind a confirmation</strong> &mdash; a dialog names the target, lists every group that would be added, and refuses to do anything until you tick the confirmation box.</li>
+        <li><strong>Nothing to configure</strong> &mdash; depends on <code>base</code> and <code>mail</code> only, no external Python library, no settings page.</li>
+    </ul>
+
+    <div style="font-size: 15px; background: #fff8e8; border-left: 4px solid #f0a830; padding: 14px 18px; margin: 20px 0;">
+        <strong>What the copy never does.</strong> It only ever <em>adds</em>. Groups are written with link commands, never with a replace command, so the target keeps every group they already had; if a write were to remove anything, the module aborts and changes nothing. Only the groups the source user is <em>assigned</em> are written &mdash; the implied ones follow from them, which is the smallest write that closes the gap and keeps the target's form readable afterwards. The superuser (id 1) and the default administrator account are refused as targets, at the moment of the write and not only when the dialog is opened. The list of groups is recomputed on the server from the two users when you press Grant, so a payload forged over RPC cannot widen it, and your own administrator rights are re-checked there too. What was granted &mdash; source user, group names, who did it &mdash; is written in the chatter of the target user's contact record.
+    </div>
+
+    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;"><strong>Honest limitations.</strong> <strong>Groups only.</strong> Record rules (<code>ir.rule</code>) and field-level access are not compared, and the model table is built from access control lines alone &mdash; two users with exactly the same groups can still see different <em>records</em>, and this module will report them as identical. Multi-company access, which is not a group, is not part of the comparison either.
+    The model table is capped at 200 rows per side; when the difference covers more models than that (a brand-new user against a full administrator, typically) the wizard says so on screen rather than truncating silently.
+    The copy cannot be undone from the wizard &mdash; to reverse it, untick the groups on the user form; the chatter note tells you exactly which ones were added. Odoo does not allow mixing user types, so copying internal groups onto a portal or public user is refused and nothing is half-written.
+    Access is reserved to users with <em>Settings / Administration</em> rights, in both directions: a user without it can neither compare nor copy. That is deliberate &mdash; the comparison exposes the whole permission map of the database.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-comparison.png" alt="Three columns: only User A, only User B, shared" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The three columns, with every line saying whether each user has the group because it is assigned or because another group implies it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-model-permissions.png" alt="Models one user may act on and the other may not" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">What the difference actually grants: the models one user can read, write, create or delete and the other cannot.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-assigned-only.png" alt="The same users compared on assigned groups only" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The same two users in assigned-only mode &mdash; just the boxes ticked on the form, for when you are about to edit them.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-copy-confirmation.png" alt="Confirmation dialog before groups are granted" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The copy names the target, lists every group that would be added, and grants nothing until the box is ticked.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-no-difference.png" alt="Two users with identical rights" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Two users with the same rights say so plainly, instead of leaving you to compare two long lists by eye.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>user_permission_diff</code> folder into your addons path (or install it from the Apps store).</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Compare User Permissions</em> and click <strong>Install</strong>.</li>
+        <li>No external Python library is required, and the only dependencies are <code>base</code> and <code>mail</code>, which every Odoo database already has.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>There is nothing to configure &mdash; no settings page and no scheduled action. The comparison itself is a transient wizard, so nothing it produces is kept in your database.</li>
+        <li>Access is limited to the <strong>Settings</strong> group (<em>Administration: Settings</em>). Give that group to whoever should be able to compare and copy permissions; nobody else can open the tool or read its results.</li>
+        <li>Decide who may be a copy target: the superuser (id 1) and the default administrator account are refused by the module itself, so they cannot be widened by accident.</li>
+        <li>If you want the granted-groups notes to be easy to find later, make sure the target users have a contact record you follow &mdash; that is where the chatter note is written.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; Compare User Permissions</strong>. Or, from <strong>Settings &rarr; Users</strong>, tick two users in the list and pick <strong>Compare User Permissions</strong> in the <strong>Actions</strong> menu &mdash; the two you ticked are filled in for you.</li>
+        <li>Pick <strong>User A</strong> (the reference &mdash; the one rights would be copied <em>from</em>) and <strong>User B</strong> (the one they would be copied <em>to</em>), then press <strong>Compare</strong>.</li>
+        <li>Read the three columns. <em>Only User A</em> is the gap you are usually looking for; the <em>How A has it</em> column tells you whether the group is ticked on their form or comes from another group.</li>
+        <li>Scroll to <strong>Model permissions this difference grants</strong> to see what the gap means in practice &mdash; which models one user may read, write, create or delete and the other may not.</li>
+        <li>Switch <strong>Compare</strong> to <em>Assigned groups only</em> when you are about to edit the user form and want to see exactly the boxes you would have to tick.</li>
+        <li>To close the gap, press <strong>Copy missing groups from A to B</strong>. Read the list in the dialog, tick <strong>I have read the list and want to grant these groups</strong>, then press <strong>Grant these groups</strong>. Nothing is written until both of those happen.</li>
+        <li>The comparison is rebuilt straight away, so you can see that the <em>Only User A</em> column is now empty, and what only User B has is untouched: the copy goes one way.</li>
+        <li>To reverse a copy, open the target user's contact chatter, read the note listing exactly which groups were added, and untick them on the user form.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical features and identical results on every supported series (14.0 &ndash; 19.0). Series 14.0 to 18.0 store the implied groups on the user record when the user form is saved, while 19.0 stores only the groups that were explicitly assigned; the effective comparison gives the same answer on both, which is exactly why it exists.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

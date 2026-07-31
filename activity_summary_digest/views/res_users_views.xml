@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_simple_modif_activity_digest" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.activity.digest</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group string="Activity Digest">
+                    <field name="activity_digest_optin"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_form_activity_digest" model="ir.ui.view">
+        <field name="name">res.users.form.activity.digest</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Activity Digest" name="activity_digest">
+                    <group>
+                        <field name="activity_digest_optin"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

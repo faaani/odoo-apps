@@ -1,0 +1,96 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Server Log Viewer</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Read the log entries Odoo stores in the database &mdash; without an SSH session</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Odoo can write its log records into the database table <code>ir_logging</code>, but the only screen for them is a bare list buried in the Technical menu: no level filter, no date range, no free-text search, and nothing that stops the table growing forever. This module turns that table into a screen an administrator can actually work with.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <div style="margin: 20px 0; padding: 16px 18px; background: #fff8e1; border-left: 4px solid #f0a830; border-radius: 6px;">
+        <p style="margin: 0; font-size: 15px;"><strong>Read this first &mdash; what this module can and cannot show.</strong>
+        It shows only what Odoo <em>persists to the database</em>. Odoo writes log records into <code>ir_logging</code> when the server runs with the <code>log_db</code> option (<code>--log-db=&lt;database&gt;</code> on the command line, or <code>log_db = &lt;database&gt;</code> in <code>odoo.conf</code>), plus the entries written by &ldquo;Execute Python Code&rdquo; server actions that call <code>log()</code>.
+        It is <strong>not</strong> a viewer for the server log <em>file</em> (<code>--logfile</code>), it cannot show anything logged before <code>log_db</code> was switched on, and on hosting where you cannot change server options the table may simply stay empty. This module never writes log entries itself.</p>
+    </div>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Filter by level</strong> &mdash; one-click Errors, Warnings, Info and Debug filters. They match both the uppercase level names the server writes and the lowercase ones a Python server action writes.</li>
+        <li><strong>Filter by logger</strong> &mdash; type part of a logger name (<code>odoo.sql_db</code>, <code>odoo.addons.mail</code>&hellip;) or of the function name.</li>
+        <li><strong>Filter by date</strong> &mdash; Today, Last 7 Days, Last 30 Days, plus the standard month / quarter / year date picker.</li>
+        <li><strong>Free-text search inside the message</strong> &mdash; find an exception class, a table name or a customer reference anywhere in the message body or traceback.</li>
+        <li><strong>Group by level or logger</strong> &mdash; see at a glance which subsystem is producing the errors. Type and database are groupable too.</li>
+        <li><strong>Short in the list, complete in the form</strong> &mdash; the list shows the first line of the message, shortened; the form shows the entire message and traceback, untouched. Nothing is truncated in storage.</li>
+        <li><strong>Colour-coded rows</strong> &mdash; errors in red, warnings in orange, debug greyed out.</li>
+        <li><strong>Retention window and daily cleanup</strong> &mdash; keep the last N days and let a scheduled action drop the rest, so the table cannot grow without bound.</li>
+        <li><strong>Confirmed clear</strong> &mdash; a wizard that tells you how many entries it will delete and refuses to run until you tick the confirmation box.</li>
+        <li><strong>Administrator only</strong> &mdash; the menus, the viewer and the clear wizard are restricted to the Settings (<code>base.group_system</code>) group.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-log-list.png" alt="Server log list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every log entry Odoo stored in the database, newest first, colour-coded by level with a shortened message column.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-search-filters.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters: errors, warnings, info, debug, server or client, today, last 7 or 30 days &mdash; plus group by level, logger, type, database or date.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-group-by-level.png" alt="Grouped by level" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by level: how many errors, warnings and info entries there are, and which loggers produced them.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-clear-wizard.png" alt="Clear log entries wizard" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Clearing entries is opt-in: the wizard announces how many rows will go and refuses to run until the confirmation box is ticked.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-entry-form.png" alt="Log entry form with full traceback" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The form keeps the message complete &mdash; the whole traceback is readable, together with the file, function and line that produced it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="06-settings.png" alt="Retention setting" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The retention window in Settings drives a daily cleanup. It is off until you switch it on.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Server Log Viewer</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base_setup</code> module is required &mdash; no other dependency.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Make Odoo store logs in the database.</strong> Add <code>log_db = &lt;your database name&gt;</code> to <code>odoo.conf</code> (or start the server with <code>--log-db=&lt;database&gt;</code>) and restart. Without this the table stays empty and the screen has nothing to show &mdash; that is an Odoo server option, not something a module can switch on.</li>
+        <li>Optionally add <code>log_db_level = warning</code> (or <code>error</code>) so only the important records are stored; the default is <code>warning</code>.</li>
+        <li>Go to <strong>Settings &rarr; General Settings &rarr; Server Logs</strong> and tick <strong>Delete Old Log Entries</strong>, then set <strong>Retention (days)</strong> &mdash; 30 is a sensible start. Leave it unticked and nothing is ever deleted.</li>
+        <li>The scheduled action <em>Server Log Viewer: apply log retention</em> runs once a day. It is installed active, but does nothing at all while the retention setting is off.</li>
+        <li>Access is restricted to the <strong>Settings</strong> administration group; no other user can open the screen or clear entries.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Server Logs &rarr; Log Entries</strong>. The list opens on the last 7 days, newest first.</li>
+        <li>Click <em>Errors</em> to see only errors and criticals, or <em>Warnings</em>, <em>Info</em>, <em>Debug</em>. Combine with <em>Today</em>, <em>Last 7 Days</em> or <em>Last 30 Days</em>.</li>
+        <li>Type in the search box: the first suggestion searches the <strong>message</strong> text, the second searches the <strong>logger</strong> and function name.</li>
+        <li>Use <strong>Group By &rarr; Level</strong> or <strong>Logger</strong> to see where the noise comes from, then open a group.</li>
+        <li>Click a row to open it: the form shows the whole message and traceback, plus the file, function and line.</li>
+        <li>To trim the table by hand, go to <strong>Settings &rarr; Server Logs &rarr; Clear Log Entries</strong>, choose &ldquo;older than N days&rdquo; or &ldquo;every entry&rdquo;, check the count, tick the confirmation and confirm.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Notes and limitations</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Odoo already ships a minimal Logging list under <em>Settings &rarr; Technical &rarr; Database Structure</em> (developer mode). This module does not replace or modify it &mdash; it adds its own screen and leaves that one exactly as it was.</li>
+        <li>Grouping by <strong>Level</strong> groups on the raw value stored by the server. A Python server action that calls <code>log(message, level='info')</code> stores a lowercase value, so it forms its own group; the shipped level <em>filters</em> match both spellings.</li>
+        <li>Free-text search on the message body scans the message column; on a very large log table that search is slower than the level or date filters.</li>
+        <li>Deleting log entries is permanent. Nothing else is touched: no other record, no setting, no attachment, and never the server log file.</li>
+        <li>Identical behaviour on every supported series (14.0 &ndash; 19.0).</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
