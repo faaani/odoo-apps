@@ -8,27 +8,27 @@
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Safe by default</strong> — out of the box a group is the same file attached several times to the <em>same record</em>, so removing the extras can never leave a record without its file.</li>
-        <li><strong>Database-wide when you ask for it</strong> — a second, clearly labelled option looks for identical files anywhere, and warns you that only one copy will survive for the whole database.</li>
-        <li><strong>Grouped by checksum</strong> — an aggregate over the checksum column, not a walk through the attachment table, so it stays fast on large databases.</li>
-        <li><strong>You see the cost</strong> — copies per group, redundant space per group and for the whole database.</li>
-        <li><strong>You see where they live</strong> — each group names the record the copies are attached to, or says they are not linked to any record.</li>
-        <li><strong>Nothing is deleted by the scan</strong> — the report is read-only; the clean-up button is separate and asks for an explicit confirmation.</li>
-        <li><strong>One copy always survives</strong> — the oldest copy of every group is kept, and the group is recomputed from the live table at the moment of deletion.</li>
-        <li><strong>Group by group</strong> — untick any group you want to leave alone before cleaning up.</li>
-        <li><strong>Administrators only</strong> — the whole tool, and the clean-up in particular, is limited to Settings administrators, and deletions still go through Odoo's own attachment access rules.</li>
+        <li><strong>Safe by default</strong> &mdash; out of the box a group is the same file attached several times to the <em>same record</em>, so removing the extras can never leave a record without its file.</li>
+        <li><strong>Database-wide when you ask for it</strong> &mdash; a second, clearly labelled option looks for identical files anywhere, and warns you that only one copy will survive for the whole database.</li>
+        <li><strong>Grouped by checksum</strong> &mdash; an aggregate over the checksum column, not a walk through the attachment table, so it stays fast on large databases.</li>
+        <li><strong>You see the cost</strong> &mdash; copies per group, redundant space per group and for the whole database.</li>
+        <li><strong>You see where they live</strong> &mdash; each group names the record the copies are attached to, or says they are not linked to any record.</li>
+        <li><strong>Nothing is deleted by the scan</strong> &mdash; the report is read-only; the clean-up button is separate and asks for an explicit confirmation.</li>
+        <li><strong>One copy always survives</strong> &mdash; the oldest copy of every group is kept, and the group is recomputed from the live table at the moment of deletion.</li>
+        <li><strong>Group by group</strong> &mdash; untick any group you want to leave alone before cleaning up.</li>
+        <li><strong>Administrators only</strong> &mdash; the whole tool, and the clean-up in particular, is limited to Settings administrators, and deletions still go through Odoo's own attachment access rules.</li>
     </ul>
 
     <div style="margin: 24px 0; padding: 18px 20px; background: #fff8e6; border-left: 5px solid #f0a830; border-radius: 6px;">
         <p style="margin: 0 0 8px; font-size: 15px;"><strong>What is never reported and never deleted</strong></p>
         <ul style="font-size: 15px; line-height: 1.7; margin: 0;">
-            <li>Attachments that store a binary field of a record (<code>res_field</code> is set) — deleting one would empty that field on the record.</li>
-            <li>Attachments of the framework models <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and <code>ir.module.module</code> — the asset bundles and the module plumbing Odoo keeps for itself.</li>
+            <li>Attachments that store a binary field of a record (<code>res_field</code> is set) &mdash; deleting one would empty that field on the record.</li>
+            <li>Attachments of the framework models <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and <code>ir.module.module</code> &mdash; the asset bundles and the module plumbing Odoo keeps for itself.</li>
             <li>Empty files: there is nothing to reclaim, and a zero-byte row is usually evidence of a failed upload.</li>
             <li>Unique files. A file is only ever touched when another copy of the exact same bytes exists <em>inside the same group</em>, and only after the oldest copy of that group has been secured.</li>
             <li>Anything you untick, and everything at all until you tick the confirmation box.</li>
         </ul>
-        <p style="margin: 10px 0 0; font-size: 15px;">Two things to know before you delete: a copy that was posted in a chatter message disappears from that message as well, and a link built on an attachment id — an image pasted into an email template, a website page or a description — breaks if that particular copy is the one removed. The default same-record scope is the conservative choice for both.</p>
+        <p style="margin: 10px 0 0; font-size: 15px;">Two things to know before you delete: a copy that was posted in a chatter message disappears from that message as well, and a link built on an attachment id &mdash; an image pasted into an email template, a website page or a description &mdash; breaks if that particular copy is the one removed. The default same-record scope is the conservative choice for both.</p>
     </div>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
@@ -38,7 +38,7 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="02-database-wide.png" alt="Database-wide scope with its warning" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">The database-wide scope merges copies that live on different records — and says plainly what that means before you clean anything up.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The database-wide scope merges copies that live on different records &mdash; and says plainly what that means before you clean anything up.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="03-confirm-cleanup.png" alt="Clean-up confirmation dialog" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
@@ -84,7 +84,7 @@
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

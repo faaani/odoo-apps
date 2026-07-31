@@ -5,7 +5,7 @@
     </div>
 
     <p style="font-size: 16px; margin-top: 24px;">
-        Engraving texts, packing notes, customer references — you write them on the sale order line,
+        Engraving texts, packing notes, customer references &mdash; you write them on the sale order line,
         and then the transfer and the delivery slip show <em>only the product description</em>. Core Odoo
         closed this as "wishlist"; the existing solutions are paid. This module carries the sale line
         description onto the stock moves the moment the order is confirmed.
@@ -13,24 +13,24 @@
     </p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Zero configuration</strong> — install it and every newly confirmed order does the right thing.</li>
-        <li><strong>No duplicated product names</strong> — only the extra text you typed is added; language-aware matching for multi-language databases.</li>
-        <li><strong>Standard behavior preserved</strong> — lines whose description is just the product name are left untouched.</li>
-        <li><strong>Prints on the delivery slip</strong> — uses Odoo's own picking-description field, so every report that shows it benefits.</li>
+        <li><strong>Zero configuration</strong> &mdash; install it and every newly confirmed order does the right thing.</li>
+        <li><strong>No duplicated product names</strong> &mdash; only the extra text you typed is added; language-aware matching for multi-language databases.</li>
+        <li><strong>Standard behavior preserved</strong> &mdash; lines whose description is just the product name are left untouched.</li>
+        <li><strong>Prints on the delivery slip</strong> &mdash; uses Odoo's own picking-description field, so every report that shows it benefits.</li>
     </ul>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
         <div style="margin: 18px 0;">
         <img src="01-sale-order-line.png" alt="01-sale-order-line" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">Type the customer-facing text under the product name on the sale order line — engraving, packing notes, references.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Type the customer-facing text under the product name on the sale order line &mdash; engraving, packing notes, references.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="02-transfer.png" alt="02-transfer" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">Confirming the order creates the transfer as usual — the description travels with its stock moves.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Confirming the order creates the transfer as usual &mdash; the description travels with its stock moves.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="03-delivery-slip.png" alt="03-delivery-slip" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">The delivery slip prints your exact text under the product — no duplicated product name.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The delivery slip prints your exact text under the product &mdash; no duplicated product name.</p>
     </div>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
@@ -41,23 +41,23 @@
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
-        <li>None — the module is active for every sale order confirmed after installation.</li>
+        <li>None &mdash; the module is active for every sale order confirmed after installation.</li>
         <li>Optional kill switch (technical): set System Parameter <code>sale_line_description_delivery.enabled</code> to <code>False</code> (Settings &rarr; Technical &rarr; System Parameters) to restore standard behavior without uninstalling.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
-        <li>On a sale order line, write your text under the product name in the description — engraving text, packing instructions, references.</li>
+        <li>On a sale order line, write your text under the product name in the description &mdash; engraving text, packing instructions, references.</li>
         <li>Confirm the order: the transfer's moves now carry that text as their picking description.</li>
-        <li>Print the <strong>Delivery Slip</strong> — the text appears under the product, exactly as typed.</li>
+        <li>Print the <strong>Delivery Slip</strong> &mdash; the text appears under the product, exactly as typed.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
-    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0). Internally, 19.0 uses the new computed picking-description mechanism; earlier series use the procurement-values hook.</p>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). Internally, 19.0 uses the new computed picking-description mechanism; earlier series use the procurement-values hook.</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

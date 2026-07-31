@@ -3,9 +3,9 @@
   <div style="text-align:center;margin-bottom:36px;">
     <h1 style="font-size:34px;margin:0 0 12px;font-weight:700;">Email Bounce Report</h1>
     <p style="font-size:18px;color:#5a6280;margin:0 auto;max-width:760px;line-height:1.55;">
-      Odoo counts bounces per contact and quietly stops treating a bouncing address as
-      usable &mdash; but it never shows you <em>who</em> is bouncing. This adds the missing
-      screen, and changes nothing at all.
+      Odoo counts bounces per contact, and its own Discuss code drops a contact from a
+      channel once that counter reaches 10 &mdash; but it never shows you <em>who</em> is
+      bouncing. This adds the missing screen, and changes nothing at all.
     </p>
   </div>
 
@@ -14,8 +14,9 @@
     <p style="margin:0 0 10px;line-height:1.6;">
       Every contact in Odoo carries a <strong>Bounce</strong> counter
       (<code>res.partner.message_bounce</code>). Odoo increments it when an address bounces
-      and resets it when that address answers again. Odoo's own mail code treats
-      <strong>10</strong> bounces as the point where an address is dead.
+      and resets it when that address answers again. Odoo's own Discuss code treats
+      <strong>10</strong> bounces as the point where an address is dead and unsubscribes the
+      contact from the channel. Core <code>mail</code> does not otherwise stop sending to it.
     </p>
     <p style="margin:0;line-height:1.6;">
       That counter is buried on the contact form, one contact at a time. There is no list,
@@ -79,11 +80,20 @@
     <li>Contacts with no email address are listed if they carry a bounce counter (an address
         can be cleared after the fact) and are flagged accordingly. They can never match a
         blacklist entry.</li>
-    <li>The report mirrors Odoo's own multi-company rule on contacts: it will never show a
-        contact that the standard Contacts list would hide from that user.</li>
-    <li>The report reads live data every time you open it, so it is always current, but on a
-        database with a very large number of contacts the first page can take a moment.
-        There is no cache and no scheduled job to go stale.</li>
+    <li>The report mirrors Odoo's own record rules on contacts &mdash; the multi-company rule
+        on every series, plus the private-address rules on 14.0&ndash;16.0, where employees'
+        home addresses are walled off from internal users outside the <em>Access to Private
+        Addresses</em> group. It will never show a contact that the standard Contacts list
+        would hide from that user.</li>
+    <li>Only bounces recorded against a <strong>contact record</strong> are counted. On 19.0
+        Odoo can also record a bounce against a bare address with no contact behind it (mass
+        mailing); those are not counted in <em>Bounced Messages</em> or <em>Last Bounced
+        Message</em>. The <em>Bounces</em> counter itself is unaffected, because Odoo maintains
+        it per contact.</li>
+    <li>The report reads live data every time you open it, so it is always current and there is
+        no cache or scheduled job to go stale &mdash; but it aggregates the bounce notifications
+        on every read. On a database with millions of message notifications, opening it can take
+        a few seconds.</li>
   </ul>
 
   <h2 style="font-size:22px;margin:0 0 16px;">Screenshots</h2>
@@ -130,8 +140,8 @@
     <li>Set <strong>Bounce Threshold</strong> to the number of bounces at which you want a
         contact flagged. The test is <strong>inclusive</strong>: a contact with exactly that
         many bounces <em>is</em> flagged.</li>
-    <li>The default is <strong>10</strong>, the same limit Odoo's own mail code uses before it
-        considers an address dead. Leave it alone unless you want to be stricter.</li>
+    <li>The default is <strong>10</strong>, the same limit Odoo's own Discuss code uses before
+        it considers an address dead. Leave it alone unless you want to be stricter.</li>
     <li>Press <em>Save</em>. The report picks the new threshold up immediately &mdash; no
         upgrade, no reload.</li>
     <li>Changing the threshold changes the report only. It never changes a contact and never

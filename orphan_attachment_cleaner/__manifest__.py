@@ -7,7 +7,7 @@
     'description': """
 Deleting a record does not always remove the files attached to it. After data
 imports, module uninstalls and failed jobs, attachments are left pointing at a
-record that is gone — or at a model that no longer exists in the database at
+record that is gone - or at a model that no longer exists in the database at
 all. Nothing ever cleans them up, and they keep consuming filestore space
 forever.
 
