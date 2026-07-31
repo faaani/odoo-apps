@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_private_address" model="res.groups">
+        <field name="name">See Private Addresses</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+        <field name="comment">Members can see and manage contacts whose address type is Private Address. Internal users outside this group cannot read, write or delete them.</field>
+    </record>
+
+    <!-- Administrators must never lose sight of any record. -->
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_private_address'))]"/>
+    </record>
+
+    <data noupdate="1">
+        <!-- Group rules on the same model are OR-ed: regular internal users
+             only match this rule and never see private addresses ... -->
+        <record id="rule_res_partner_hide_private" model="ir.rule">
+            <field name="name">res.partner: hide private addresses from regular internal users</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">['|', ('type', '!=', 'private'), ('type', '=', False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+        <!-- ... while members of the group also match this one, so the union
+             adds the private ones back for them (still subject to global rules
+             such as the multi-company rule). -->
+        <record id="rule_res_partner_see_private" model="ir.rule">
+            <field name="name">res.partner: private address group sees all address types</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[('type', '=', 'private')]</field>
+            <field name="groups" eval="[(4, ref('group_private_address'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>
