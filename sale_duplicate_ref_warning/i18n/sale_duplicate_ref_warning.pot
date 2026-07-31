@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_duplicate_ref_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 17:48+0000\n"
+"PO-Revision-Date: 2026-07-31 17:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_duplicate_ref_warning
+#: code:addons/sale_duplicate_ref_warning/models/sale_order.py:0
+#, python-format
+msgid "%(count)s order(s) you are not allowed to access"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: code:addons/sale_duplicate_ref_warning/models/sale_order.py:0
+#, python-format
+msgid "%(orders)s and more"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:res.groups,name:sale_duplicate_ref_warning.group_allow_duplicate_ref
+msgid "Allow duplicate customer references"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: code:addons/sale_duplicate_ref_warning/models/sale_order.py:0
+#, python-format
+msgid ""
+"Customer reference \"%(ref)s\" is already used on %(orders)s for this "
+"customer. You can still save the quotation, but confirming it will be "
+"blocked."
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: code:addons/sale_duplicate_ref_warning/models/sale_order.py:0
+#, python-format
+msgid ""
+"Customer reference \"%(ref)s\" on %(order)s is already used on %(orders)s for the same customer.\n"
+"Use a different reference, cancel the other order, or ask an administrator for the \"Allow duplicate customer references\" group."
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:ir.model.fields,field_description:sale_duplicate_ref_warning.field_sale_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: code:addons/sale_duplicate_ref_warning/models/sale_order.py:0
+#, python-format
+msgid "Duplicate customer reference"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:ir.model.fields,field_description:sale_duplicate_ref_warning.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:ir.model.fields,field_description:sale_duplicate_ref_warning.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:res.groups,comment:sale_duplicate_ref_warning.group_allow_duplicate_ref
+msgid ""
+"Members can confirm a sale order even when its customer reference is already"
+" used on another non-cancelled order of the same customer."
+msgstr ""
+
+#. module: sale_duplicate_ref_warning
+#: model:ir.model,name:sale_duplicate_ref_warning.model_sale_order
+msgid "Sales Order"
+msgstr ""
