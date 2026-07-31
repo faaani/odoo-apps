@@ -1,0 +1,74 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #26325c; color: #eef1f8; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Duplicate Customer Reference Check on Sale Orders</h1>
+        <p style="margin: 0; font-size: 18px; color: #ffb32e;">Catch the same customer PO before it becomes two orders and two invoices.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">
+        A customer purchase order keyed in twice means duplicate orders, duplicate deliveries and
+        duplicate invoices &mdash; and Odoo accepts any value in the Customer Reference field without
+        a second look. This module checks the reference against every other non-cancelled sale order
+        of the same customer the moment you type it, and blocks confirmation of a duplicate.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong>
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Warning while quoting</strong> &mdash; editing the Customer Reference (or changing the customer) pops a non-blocking warning naming the colliding orders.</li>
+        <li><strong>Hard stop at confirmation</strong> &mdash; confirming a duplicate raises a clear error listing up to 5 colliding orders, so it can be saved as a draft but never shipped by accident.</li>
+        <li><strong>Customer-wide matching</strong> &mdash; child contacts (invoice or delivery addresses) are matched through the commercial partner, so the same company cannot sneak a reference in via another address.</li>
+        <li><strong>Sees past &quot;own documents only&quot;</strong> &mdash; the duplicate check itself runs with elevated rights, so a salesperson restricted to their own orders is still warned about a colleague's order; only order numbers the user is allowed to read are shown (otherwise just a count).</li>
+        <li><strong>Forgiving comparison</strong> &mdash; trimmed and case-insensitive: <code>PO-123</code> and <code>po-123&nbsp;</code> are the same reference. Cancelled orders are ignored.</li>
+        <li><strong>Controlled exceptions</strong> &mdash; users in the <em>Allow duplicate customer references</em> group (administrators by default) can confirm anyway, for blanket orders and genuine re-orders.</li>
+        <li><strong>No new models, no configuration</strong> &mdash; a single lightweight check on <code>sale.order</code>; depends on the standard <code>sale</code> module only.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #ffb32e; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-customer-reference.png" alt="01-customer-reference" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The first order records the customer's PO number in the standard Customer Reference field &mdash; nothing new to learn.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-duplicate-warning.png" alt="02-duplicate-warning" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Typing the same reference on a second order for the same customer pops the warning immediately and names the colliding order.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-bypass-group.png" alt="03-bypass-group" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The <em>Allow duplicate customer references</em> checkbox on the user form (Access Rights, developer mode): add the few users who may confirm genuine re-orders.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #ffb32e; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, remove the default "Apps" filter if needed, and search for <em>Duplicate Customer Reference Check</em>.</li>
+        <li>Click <strong>Install</strong>. Only the standard <code>sale</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffb32e; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None for the check itself &mdash; it is active on every sale order as soon as the module is installed.</li>
+        <li>To let specific users confirm duplicates: enable developer mode (<strong>Settings &rarr; General Settings &rarr; Developer Tools</strong>), then open <strong>Settings &rarr; Users</strong>, pick the user, and in the <strong>Access Rights</strong> tab tick <em>Allow duplicate customer references</em> (listed in the technical/extra-rights section, which Odoo shows only in developer mode). Administrators (Settings access) have the group automatically.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffb32e; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Create a quotation and fill <strong>Customer Reference</strong> (Other Info tab) as usual.</li>
+        <li>If another non-cancelled order of the same customer already uses that reference, a warning pops up right away &mdash; you can still save the draft.</li>
+        <li>On <strong>Confirm</strong>, a duplicate is blocked with an error listing the colliding orders (capped at 5). Change the reference, cancel the other order, or have a user with the bypass group confirm it.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #ffb32e; padding-bottom: 6px;">Limitations (honest ones)</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Checks <strong>sale orders only</strong> &mdash; it does not look at invoice or payment references.</li>
+        <li>Scoped <strong>per company</strong>: all orders of the customer in the order's company are checked, whoever the salesperson or team is; duplicates sitting in another company of a multi-company database are not detected.</li>
+        <li>Matching is exact after trimming and case-folding: <code>PO-123</code> and <code>PO 123</code> are considered different references.</li>
+        <li>Draft and sent quotations count as duplicates too, so two alternative quotations for the same customer PO will block each other at confirmation.</li>
+        <li>Automated confirmations by portal or public users (online quotation acceptance, post-payment confirmation) are <strong>not blocked</strong> &mdash; there is nobody there to resolve the error. Developers can also skip the check with <code>check_duplicate_client_ref=False</code> in the context.</li>
+        <li>Orders confirmed before installation are not re-validated, but they are counted when new orders are checked.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

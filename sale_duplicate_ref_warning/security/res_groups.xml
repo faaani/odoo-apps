@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_allow_duplicate_ref" model="res.groups">
+        <field name="name">Allow duplicate customer references</field>
+        <!-- Deliberately NO privilege_id: a group carrying the Sales privilege
+             becomes a mutually exclusive option of the Sales access-level
+             dropdown, so selecting it would strip the user's Sales role.
+             Without a privilege the group renders as an Extra Rights checkbox
+             (developer mode), leaving the Sales dropdown untouched. -->
+        <field name="comment">Members can confirm a sale order even when its customer reference is already used on another non-cancelled order of the same customer.</field>
+    </record>
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_allow_duplicate_ref'))]"/>
+    </record>
+</odoo>
