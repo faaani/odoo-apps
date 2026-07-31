@@ -8,7 +8,7 @@
 When SMTP credentials expire, a relay starts rejecting recipients or the mail
 server goes down, Odoo does not complain: it simply parks every message in the
 outgoing queue in "Delivery Failed" state. Nobody notices until a customer asks
-why the invoice never arrived — often days later.
+why the invoice never arrived - often days later.
 
 This module adds a watchdog over the outgoing mail queue. When more than a
 configurable number of messages have been stuck for longer than a configurable

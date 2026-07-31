@@ -10,8 +10,8 @@ records from everyone, and Odoo keeps no trace of who did it.
 
 This module posts a short note in the record's chatter every time it is
 archived or restored, naming the user and the moment. It applies to every
-model with a chatter and an active flag — customers, products, employees,
-pricelists — with no configuration.
+model with a chatter and an active flag - customers, products, employees,
+pricelists - with no configuration.
 """,
     'author': 'Farhan Ashraf',
     'website': 'https://github.com/faaani/odoo-apps',

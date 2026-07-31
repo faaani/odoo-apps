@@ -3,12 +3,12 @@
 {
     'name': 'Sale Line Description on Delivery',
     'version': '14.0.1.0.1',
-    'summary': 'Show the description typed on the sale order line on the transfer and the delivery slip — not just the product name.',
+    'summary': 'Show the description typed on the sale order line on the transfer and the delivery slip - not just the product name.',
     'description': """
 The description you type on a sale order line never reaches the warehouse:
 transfers and delivery slips only show the product's own description. This
 module carries the sale order line description onto the stock moves, so
-pickers and customers see exactly what was sold — engraving texts, packing
+pickers and customers see exactly what was sold - engraving texts, packing
 notes, customer references.
 
 No configuration. Install and every new confirmed order does the right thing.

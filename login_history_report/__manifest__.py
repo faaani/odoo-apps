@@ -19,7 +19,7 @@ Ready-made filters: never logged in, dormant for 30/60/90+ days, active in the
 last 30 days, internal vs portal, enabled vs archived accounts. Group by login
 status, user type or company, and export the list to spreadsheet.
 
-The report is a single grouped SQL query (one row per user) — no per-user loop,
+The report is a single grouped SQL query (one row per user) - no per-user loop,
 no writes: nothing in your database is modified. Visible to Settings /
 Administration users only.
 """,
