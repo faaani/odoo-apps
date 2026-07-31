@@ -3,10 +3,10 @@
 {
     'name': 'Cron Watchdog Alerts',
     'version': '19.0.1.0.1',
-    'summary': 'Get an email the moment scheduled actions silently stop running — stale crons are found by a watchdog and on normal page loads.',
+    'summary': 'Get an email the moment scheduled actions silently stop running - stale crons are found by a watchdog and on normal page loads.',
     'description': """
 Scheduled actions fail silently: the queue stalls, a worker dies, an action
-gets disabled — and you find out days later when invoices were never mailed.
+gets disabled - and you find out days later when invoices were never mailed.
 
 This module watches every active scheduled action and emails administrators
 as soon as one is overdue beyond a configurable lag. A lightweight check on

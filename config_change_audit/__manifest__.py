@@ -3,11 +3,11 @@
 {
     'name': 'System Parameter Audit Trail',
     'version': '19.0.1.0.0',
-    'summary': 'Log every system parameter change — old value, new value, who and when — with secret masking and a retention cron.',
+    'summary': 'Log every system parameter change - old value, new value, who and when - with secret masking and a retention cron.',
     'description': """
 System parameters silently control half of Odoo's behaviour: the base URL, mail
 size limits, feature switches, integration endpoints. Nothing in Odoo records
-who changed one, when, or what the value used to be — the row is simply
+who changed one, when, or what the value used to be - the row is simply
 overwritten and the previous value is gone.
 
 This module records every system parameter that is created, changed or deleted:

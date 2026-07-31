@@ -11,7 +11,7 @@ project, means opening ninety chatters.
 
 This module adds "Manage Followers" to the Action menu: select the records,
 pick who to add and who to remove, optionally choose the subscription
-subtypes, and the change is applied to the whole selection at once — with a
+subtypes, and the change is applied to the whole selection at once - with a
 summary of exactly how many follower entries were added and removed.
 """,
     'author': 'Farhan Ashraf',
