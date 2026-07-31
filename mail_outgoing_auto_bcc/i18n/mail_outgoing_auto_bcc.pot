@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mail_outgoing_auto_bcc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 17:38+0000\n"
+"PO-Revision-Date: 2026-07-31 17:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mail_outgoing_auto_bcc
+#: model_terms:ir.ui.view,arch_db:mail_outgoing_auto_bcc.res_config_settings_view_form_auto_bcc
+msgid "<span class=\"o_form_label\">Automatic CC / BCC</span>"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model_terms:ir.ui.view,arch_db:mail_outgoing_auto_bcc.res_config_settings_view_form_auto_bcc
+msgid ""
+"Add these addresses as CC / BCC to every email this company sends through "
+"Odoo. Addresses already among the recipients are never duplicated. Warning: "
+"the copy address receives your company's outgoing mail - treat that mailbox "
+"as privileged. Password reset and invitation emails are never copied."
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_res_config_settings__mail_auto_bcc
+msgid "Auto BCC"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_res_config_settings__mail_auto_cc
+msgid "Auto CC"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,help:mail_outgoing_auto_bcc.field_res_config_settings__mail_auto_bcc
+msgid ""
+"Comma-separated email addresses added as BCC to every outgoing email of this"
+" company. Leave empty to disable. Warning: these mailboxes receive your "
+"outgoing mail - treat them as privileged. Password reset and invitation "
+"emails are never copied."
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,help:mail_outgoing_auto_bcc.field_res_config_settings__mail_auto_cc
+msgid ""
+"Comma-separated email addresses added as CC to every outgoing email of this "
+"company. Leave empty to disable. Warning: these mailboxes receive your "
+"outgoing mail - treat them as privileged. Password reset and invitation "
+"emails are never copied."
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model,name:mail_outgoing_auto_bcc.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_ir_mail_server__display_name
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_mail_mail__display_name
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_ir_mail_server__id
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_mail_mail__id
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_ir_mail_server____last_update
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_mail_mail____last_update
+#: model:ir.model.fields,field_description:mail_outgoing_auto_bcc.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model,name:mail_outgoing_auto_bcc.model_ir_mail_server
+msgid "Mail Server"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model:ir.model,name:mail_outgoing_auto_bcc.model_mail_mail
+msgid "Outgoing Mails"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model_terms:ir.ui.view,arch_db:mail_outgoing_auto_bcc.res_config_settings_view_form_auto_bcc
+msgid "e.g. archive@mycompany.com, sales@mycompany.com"
+msgstr ""
+
+#. module: mail_outgoing_auto_bcc
+#: model_terms:ir.ui.view,arch_db:mail_outgoing_auto_bcc.res_config_settings_view_form_auto_bcc
+msgid "e.g. compliance@mycompany.com"
+msgstr ""

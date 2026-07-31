@@ -1,0 +1,97 @@
+<div style="max-width: 900px; margin: 0 auto; padding: 24px 16px; font-family: 'Segoe UI', Arial, sans-serif; color: #232a2e;">
+
+    <div style="text-align: center; padding: 32px 16px; background: linear-gradient(160deg, #106c7a, #0d4a54); border-radius: 12px; color: #faf7f0;">
+        <h1 style="margin: 0 0 10px 0; font-size: 30px;">Auto CC / BCC on Outgoing Emails</h1>
+        <p style="margin: 0; font-size: 17px; color: #c4dee3;">
+            A silent copy of every email Odoo sends &mdash; archive, compliance, shared mailbox.
+        </p>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <p style="font-size: 15px; line-height: 1.6;">
+            Many companies must keep a copy of every email that leaves the system: a compliance
+            archive, a shared &quot;sent&quot; mailbox, a CRM auto-logger. Odoo has no built-in way
+            to do that. This module adds two fields to General Settings &mdash; <b>Auto CC</b> and
+            <b>Auto BCC</b> &mdash; and every email sent through Odoo's outgoing mail queue is
+            delivered with those addresses added.
+        </p>
+        <ul style="font-size: 15px; line-height: 1.9;">
+            <li><b>Covers everything the mail queue sends</b> &mdash; chatter notifications, mail templates, the composer, scheduled and queued mail.</li>
+            <li><b>Per company</b> &mdash; each company configures its own copy addresses.</li>
+            <li><b>Comma-separated lists</b> &mdash; add one address or several; blanks and invalid tokens are ignored.</li>
+            <li><b>No duplicates</b> &mdash; an address already among the recipients is never added twice (case-insensitive).</li>
+            <li><b>Zero overhead when unused</b> &mdash; empty settings mean the send path is untouched.</li>
+            <li><b>Never blocks your mail</b> &mdash; a bad configuration is logged and the email is sent unchanged.</li>
+            <li><b>Security-aware</b> &mdash; password reset and signup/invitation emails are never copied, so live login tokens cannot leak to the copy mailbox.</li>
+        </ul>
+        <p style="font-size: 14px; line-height: 1.6; background: #fff4e0; border-left: 4px solid #ffb347; padding: 10px 14px; border-radius: 4px;">
+            <b>Treat the copy mailbox as privileged.</b> The Auto CC / BCC addresses receive a copy
+            of your company's outgoing mail &mdash; quotations, invoices, private chatter replies.
+            Only point them at mailboxes with appropriately restricted access.
+        </p>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #ffb347; padding-bottom: 6px;">Screenshots</h2>
+        <div style="margin-top: 16px;">
+            <img src="01-settings.png" alt="Auto CC / BCC fields in General Settings" style="width: 100%; border: 1px solid #d5dbde; border-radius: 8px;"/>
+            <p style="font-size: 13px; color: #5b686e; margin: 6px 0 20px 0;">
+                General Settings &mdash; the Automatic CC / BCC section with per-company address lists.
+            </p>
+            <img src="02-emails-queue.png" alt="Outgoing emails list" style="width: 100%; border: 1px solid #d5dbde; border-radius: 8px;"/>
+            <p style="font-size: 13px; color: #5b686e; margin: 6px 0 0 0;">
+                Every email processed by the outgoing queue is delivered with the configured copy.
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #ffb347; padding-bottom: 6px;">Installation</h2>
+        <ol style="font-size: 15px; line-height: 1.9;">
+            <li>Install the module from the Apps menu (search for &quot;Auto CC / BCC&quot;).</li>
+            <li>No extra dependency is needed beyond Odoo's standard Discuss (mail) app.</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #ffb347; padding-bottom: 6px;">Configuration</h2>
+        <ol style="font-size: 15px; line-height: 1.9;">
+            <li>Open <b>Settings &rarr; General Settings</b> and find the <b>Automatic CC / BCC</b> setting in the email section.</li>
+            <li>Fill <b>Auto CC</b> and/or <b>Auto BCC</b> with comma-separated email addresses.</li>
+            <li>Save. In a multi-company database, switch company and repeat to configure each company.</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #ffb347; padding-bottom: 6px;">Usage</h2>
+        <ol style="font-size: 15px; line-height: 1.9;">
+            <li>Send email as usual: post a chatter message, use a template, or let the queue flush.</li>
+            <li>The configured CC addresses appear in the Cc header of the delivered email.</li>
+            <li>The configured BCC addresses receive the email silently &mdash; the Bcc header is stripped before transmission, so other recipients never see them.</li>
+            <li>To stop copying, simply clear the fields and save.</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #ffb347; padding-bottom: 6px;">Honest limitations</h2>
+        <ul style="font-size: 15px; line-height: 1.9;">
+            <li>Applies to mail sent through Odoo's outgoing mail stack (the mail queue and direct sends). Mail sent by external systems on Odoo's behalf is not covered.</li>
+            <li>BCC visibility depends on the receiving mail server; the copy is delivered as a separate envelope recipient.</li>
+            <li>Emails sent before the module was configured are not retro-copied.</li>
+            <li>The settings of the company of the user who created the email apply, also when the mail is flushed later by the queue cron; only mail sent outside Odoo's mail records falls back to the sending environment's company.</li>
+            <li>Odoo sends one SMTP message per recipient batch, so the copy address receives one copy per outgoing SMTP message &mdash; an email with several recipients can arrive at the copy mailbox more than once.</li>
+            <li>Password reset and signup/invitation emails are deliberately excluded from copying.</li>
+            <li>The added addresses are applied at transmission time and are not stored on the email record in Odoo.</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 32px; text-align: center; padding: 22px; background: #f2f5f6; border-radius: 12px;">
+        <h2 style="font-size: 20px; margin: 0 0 8px 0;">Support</h2>
+        <p style="font-size: 15px; margin: 0;">
+            Questions, issues or ideas? Email
+            <a href="mailto:f.ashraf.dev1@gmail.com" style="color: #106c7a; font-weight: bold;">f.ashraf.dev1@gmail.com</a>
+            &mdash; happy to help.
+        </p>
+    </div>
+
+</div>
