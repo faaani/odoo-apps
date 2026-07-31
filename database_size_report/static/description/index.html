@@ -4,18 +4,18 @@
         <p style="margin: 0; font-size: 18px; color: #2ec4b6;">Which tables are using your database, and how much.</p>
     </div>
 
-    <p style="font-size: 16px; margin-top: 24px;">When an Odoo database starts filling the disk, nothing in the interface says <strong>what is responsible</strong> — answering it means opening <code>psql</code> and knowing the right catalog query. This module adds a read-only report for administrators: the size of the database on disk at the top, then every table with its size, its index size, the total it really costs, an estimated row count and the Odoo model stored in it, biggest first.
+    <p style="font-size: 16px; margin-top: 24px;">When an Odoo database starts filling the disk, nothing in the interface says <strong>what is responsible</strong> &mdash; answering it means opening <code>psql</code> and knowing the right catalog query. This module adds a read-only report for administrators: the size of the database on disk at the top, then every table with its size, its index size, the total it really costs, an estimated row count and the Odoo model stored in it, biggest first.
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Database total at the top</strong> — what PostgreSQL reports for the whole database, next to the total of all its tables.</li>
-        <li><strong>Table, index and total size</strong> — the table itself (with its TOAST overflow storage), all of its indexes, and what the table really costs on disk.</li>
-        <li><strong>The Odoo model behind each table</strong> — resolved from the registry, so <code>ir_act_window</code> is correctly shown as <code>ir.actions.act_window</code> instead of being guessed wrong.</li>
-        <li><strong>Estimated row counts</strong> — taken from PostgreSQL's own statistics (<code>reltuples</code>), so the report is instant even on a database of hundreds of gigabytes. The column is labelled as an estimate, and tables PostgreSQL has never analysed are flagged.</li>
+        <li><strong>Database total at the top</strong> &mdash; what PostgreSQL reports for the whole database, next to the total of all its tables.</li>
+        <li><strong>Table, index and total size</strong> &mdash; the table itself (with its TOAST overflow storage), all of its indexes, and what the table really costs on disk.</li>
+        <li><strong>The Odoo model behind each table</strong> &mdash; resolved from the registry, so <code>ir_act_window</code> is correctly shown as <code>ir.actions.act_window</code> instead of being guessed wrong.</li>
+        <li><strong>Estimated row counts</strong> &mdash; taken from PostgreSQL's own statistics (<code>reltuples</code>), so the report is instant even on a database of hundreds of gigabytes. The column is labelled as an estimate, and tables PostgreSQL has never analysed are flagged.</li>
         <li><strong>Sorted biggest first</strong>, each table with its share of the total.</li>
-        <li><strong>The usual suspects are named</strong> — <code>mail_message</code> and <code>mail_tracking_value</code> (chatter messages and their tracked changes), <code>mail_notification</code> and <code>mail_followers</code>, <code>ir_attachment</code>, <code>ir_logging</code> and the <code>*_log</code> tables each carry a plain-language note explaining what fills them.</li>
-        <li><strong>Tables with no Odoo model are listed too</strong> — the relation tables behind many2many fields, tables left behind by uninstalled modules, non-Odoo tables in the same database.</li>
-        <li><strong>Read-only, administrator-only</strong> — fixed catalog queries that take no user input, none of your tables scanned, no business record read, changed or deleted, and never an offer to delete.</li>
+        <li><strong>The usual suspects are named</strong> &mdash; <code>mail_message</code> and <code>mail_tracking_value</code> (chatter messages and their tracked changes), <code>mail_notification</code> and <code>mail_followers</code>, <code>ir_attachment</code>, <code>ir_logging</code> and the <code>*_log</code> tables each carry a plain-language note explaining what fills them.</li>
+        <li><strong>Tables with no Odoo model are listed too</strong> &mdash; the relation tables behind many2many fields, tables left behind by uninstalled modules, non-Odoo tables in the same database.</li>
+        <li><strong>Read-only, administrator-only</strong> &mdash; fixed catalog queries that take no user input, none of your tables scanned, no business record read, changed or deleted, and never an offer to delete.</li>
     </ul>
 
     <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12223a; padding: 12px 16px;">The sizes cover the whole database, including tables the user has no access to, which is why the report is restricted to the Settings group (Administration: Settings).</p>
@@ -27,7 +27,7 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="02-no-model.png" alt="Tables that belong to no Odoo model" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">Tables that belong to no Odoo model — many2many relation tables here — are listed with an empty model rather than hidden.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Tables that belong to no Odoo model &mdash; many2many relation tables here &mdash; are listed with an empty model rather than hidden.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="03-full-list.png" alt="The same tables in a filterable list view" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
@@ -38,7 +38,7 @@
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Copy the <code>database_size_report</code> folder into your addons path (or install it from the Apps store).</li>
         <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Database Size Report</em> and click <strong>Install</strong>.</li>
-        <li>No external Python library and no other module is required — it only depends on <code>base</code>.</li>
+        <li>No external Python library and no other module is required &mdash; it only depends on <code>base</code>.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #2ec4b6; padding-bottom: 6px;">Configuration</h2>
@@ -59,22 +59,22 @@
 
     <h2 style="border-bottom: 2px solid #2ec4b6; padding-bottom: 6px;">What the figures mean</h2>
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Table Size</strong> — the table itself, including its TOAST overflow storage (<code>pg_table_size</code>).</li>
-        <li><strong>Index Size</strong> — all of the table's indexes (<code>pg_indexes_size</code>).</li>
-        <li><strong>Total Size</strong> — the sum of both (<code>pg_total_relation_size</code>).</li>
-        <li><strong>Rows (estimate)</strong> — PostgreSQL's own estimate (<code>reltuples</code>), maintained by ANALYZE and autovacuum. It is deliberately <em>not</em> an exact count: <code>COUNT(*)</code> on every table would read the whole database. A table that has never been analysed shows 0 and is flagged <em>No Statistics</em> (PostgreSQL 14 and above; older versions cannot tell an unanalysed table from an empty one).</li>
-        <li><strong>Database on Disk</strong> — <code>pg_database_size</code>, larger than the total of the tables because it also holds the PostgreSQL catalogs and the free space left behind by deleted rows.</li>
+        <li><strong>Table Size</strong> &mdash; the table itself, including its TOAST overflow storage (<code>pg_table_size</code>).</li>
+        <li><strong>Index Size</strong> &mdash; all of the table's indexes (<code>pg_indexes_size</code>).</li>
+        <li><strong>Total Size</strong> &mdash; the sum of both (<code>pg_total_relation_size</code>).</li>
+        <li><strong>Rows (estimate)</strong> &mdash; PostgreSQL's own estimate (<code>reltuples</code>), maintained by ANALYZE and autovacuum. It is deliberately <em>not</em> an exact count: <code>COUNT(*)</code> on every table would read the whole database. A table that has never been analysed shows 0 and is flagged <em>No Statistics</em> (PostgreSQL 14 and above; older versions cannot tell an unanalysed table from an empty one).</li>
+        <li><strong>Database on Disk</strong> &mdash; <code>pg_database_size</code>, larger than the total of the tables because it also holds the PostgreSQL catalogs and the free space left behind by deleted rows.</li>
     </ul>
 
     <h2 style="border-bottom: 2px solid #2ec4b6; padding-bottom: 6px;">Limitations, honestly</h2>
-    <p style="font-size: 15px;">Row counts are estimates, not exact counts. Only real tables, partitioned tables and materialized views are listed — SQL views have no storage of their own, so they cannot appear. Sizes reflect what is on disk, which is normally larger than the live data because deleted rows keep their space until VACUUM reuses it. The module reports; it does not clean up, compress or delete anything, and it never offers to. The only thing it writes is the report itself, a temporary record Odoo cleans up on its own.</p>
+    <p style="font-size: 15px;">Row counts are estimates, not exact counts. Only real tables, partitioned tables and materialized views are listed &mdash; SQL views have no storage of their own, so they cannot appear. Sizes reflect what is on disk, which is normally larger than the live data because deleted rows keep their space until VACUUM reuses it. The module reports; it does not clean up, compress or delete anything, and it never offers to. The only thing it writes is the report itself, a temporary record Odoo cleans up on its own.</p>
 
     <h2 style="border-bottom: 2px solid #2ec4b6; padding-bottom: 6px;">Version notes</h2>
     <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0).</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

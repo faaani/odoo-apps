@@ -1,37 +1,37 @@
 <section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
     <div style="background: #12304d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
         <h1 style="margin: 0 0 8px; color: #ffffff;">Email Template Usage Report</h1>
-        <p style="margin: 0; font-size: 18px; color: #f0a830;">See which email templates are actually used — and which ones nobody has touched in years.</p>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">See which email templates are actually used &mdash; and which ones nobody has touched in years.</p>
     </div>
 
-    <p style="font-size: 16px; margin-top: 24px;">A database that has been live for a while ends up with dozens of email templates, and nobody can tell which ones still matter. Odoo cannot tell you either: core keeps <strong>no link at all</strong> between a sent email and the template that produced it — neither <code>mail.mail</code> nor <code>mail.message</code> has a template field, on any version from 14.0 to 19.0.
+    <p style="font-size: 16px; margin-top: 24px;">A database that has been live for a while ends up with dozens of email templates, and nobody can tell which ones still matter. Odoo cannot tell you either: core keeps <strong>no link at all</strong> between a sent email and the template that produced it &mdash; neither <code>mail.mail</code> nor <code>mail.message</code> has a template field, on any version from 14.0 to 19.0.
         This module adds that link, records every send as it happens, and turns it into a read-only report: one line per template, with how many emails it produced, when it was last used, whether it was customised since installation, and whether an automated action points at it.
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Emails produced, first used, last used</strong> — counted when the message is created, so the figures survive <em>Auto Delete</em>, which erases the evidence of the most heavily used templates seconds after sending.</li>
-        <li><strong>Still stored</strong> — how many outgoing mails and chatter messages produced from the template are still in the database, with buttons on the template's form to open them.</li>
-        <li><strong>Where it came from</strong> — shipped by a module (with the module name) or created in this database.</li>
-        <li><strong>Customised since installation</strong> — flagged when the template was edited after the module that ships it was last installed or upgraded. Those are the edits a cleanup would throw away.</li>
-        <li><strong>Referenced by an action</strong> — server actions, automated actions and activity types pointing at the template. That makes it <em>in use</em> even with zero recorded sends.</li>
-        <li><strong>Ready-made filters</strong> — Never Used, Used in the Last 90 Days, Not Used in 90+ Days, Customized, Standard, In Use, Unused and Unreferenced, Referenced by an Action, Shipped by a Module, Created in this Database, Enabled, Archived. Group by usage, model, source, module, language or last used.</li>
-        <li><strong>One query, whatever the size</strong> — the report is a single SQL view with grouped sub-selects, never a query per template.</li>
-        <li><strong>Read only</strong> — see the box below.</li>
+        <li><strong>Emails produced, first used, last used</strong> &mdash; counted when the message is created, so the figures survive <em>Auto Delete</em>, which erases the evidence of the most heavily used templates seconds after sending.</li>
+        <li><strong>Still stored</strong> &mdash; how many outgoing mails and chatter messages produced from the template are still in the database, with buttons on the template's form to open them.</li>
+        <li><strong>Where it came from</strong> &mdash; shipped by a module (with the module name) or created in this database.</li>
+        <li><strong>Customised since installation</strong> &mdash; flagged when the template was edited after the module that ships it was last installed or upgraded. Those are the edits a cleanup would throw away.</li>
+        <li><strong>Referenced by an action</strong> &mdash; server actions, automated actions and activity types pointing at the template. That makes it <em>in use</em> even with zero recorded sends.</li>
+        <li><strong>Ready-made filters</strong> &mdash; Never Used, Used in the Last 90 Days, Not Used in 90+ Days, Customized, Standard, In Use, Unused and Unreferenced, Referenced by an Action, Shipped by a Module, Created in this Database, Enabled, Archived. Group by usage, model, source, module, language or last used.</li>
+        <li><strong>One query, whatever the size</strong> &mdash; the report is a single SQL view with grouped sub-selects, never a query per template.</li>
+        <li><strong>Read only</strong> &mdash; see the box below.</li>
         <li>Depends on <code>mail</code> only. No cron, no scheduled job, no outgoing traffic, nothing to configure.</li>
     </ul>
 
     <div style="font-size: 15px; background: #fff8e8; border-left: 4px solid #f0a830; padding: 14px 18px; margin: 20px 0;">
         <strong>What this module never does.</strong> It never creates, edits, archives or deletes an email template, and it never touches your emails. The report itself is a database view: create, write and delete on it are refused, for administrators too.
-        The usage counters are written in raw SQL inside a savepoint, for two deliberate reasons. First, a failure while recording statistics must never be the reason an email fails to go out — if the update cannot be applied it is logged and the send continues. Second, going through <code>write()</code> would move <code>mail.template.write_date</code> on every single send and destroy the "customised since installation" signal the whole report is built on.
+        The usage counters are written in raw SQL inside a savepoint, for two deliberate reasons. First, a failure while recording statistics must never be the reason an email fails to go out &mdash; if the update cannot be applied it is logged and the send continues. Second, going through <code>write()</code> would move <code>mail.template.write_date</code> on every single send and destroy the "customised since installation" signal the whole report is built on.
         The module adds two fields to your database: a read-only <em>Source Email Template</em> link on <code>mail.mail</code> and on <code>mail.message</code>. Both are set to empty if the template is later deleted; no existing field is modified.
     </div>
 
     <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;"><strong>Honest limitations.</strong>
-    <strong>Counting starts at installation.</strong> Odoo stores nothing that ties an old email back to its template, so sends that happened before you install this module can never be counted — there is no history to recover. The <em>First Used</em> column tells you when tracking actually started to see each template.
-    <strong>"Never used" is not a permission to delete.</strong> Templates are also called straight from Python code, from the Python part of server actions, and from configuration fields of other apps (stage-change emails, event registration, website and portal settings). Of those, only <code>ir.actions.server</code> and activity types are detected here. Always check a template before removing it — the report says so on every form.
+    <strong>Counting starts at installation.</strong> Odoo stores nothing that ties an old email back to its template, so sends that happened before you install this module can never be counted &mdash; there is no history to recover. The <em>First Used</em> column tells you when tracking actually started to see each template.
+    <strong>"Never used" is not a permission to delete.</strong> Templates are also called straight from Python code, from the Python part of server actions, and from configuration fields of other apps (stage-change emails, event registration, website and portal settings). Of those, only <code>ir.actions.server</code> and activity types are detected here. Always check a template before removing it &mdash; the report says so on every form.
     Send detection covers <code>mail.template.send_mail()</code> (and <code>send_mail_batch()</code> on 17.0+), and the <em>Send Message</em> / mass-mail composer when a template is selected in it. A module that renders a template by hand and builds its own email is not detected, and Odoo's Email Marketing app sends from its own mailing records rather than from <code>mail.template</code>, so those campaigns are outside this report.
     The counters live on the template row: delete a template and recreate it and its history starts again from zero. The <em>Customized</em> flag compares the template's write date with the install/upgrade date of the module that ships it, so upgrading that module re-applies its own version of the template and clears the flag again; a template created in this database is custom by definition.
-    Access is restricted to the <strong>Settings</strong> group because the report exposes every template in the database. Its menu sits under <em>Settings → Technical → Email</em>, next to the templates themselves, and Odoo only shows the Technical menu in <strong>developer mode</strong>.
+    Access is restricted to the <strong>Settings</strong> group because the report exposes every template in the database. Its menu sits under <em>Settings &rarr; Technical &rarr; Email</em>, next to the templates themselves, and Odoo only shows the Technical menu in <strong>developer mode</strong>.
     On <strong>14.0 and 15.0</strong> the <em>Enabled</em> column is always ticked: <code>mail.template</code> only gained an <em>active</em> field in 16.0, so no template can be archived on those series.</p>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
@@ -41,7 +41,7 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="02-grouped-by-usage.png" alt="The same report grouped by usage: never used, used in the last 90 days, not used in 90+ days" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by usage — used in the last 90 days, not used for 90+ days, never used — so you can see the shape of the problem before touching anything.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Grouped by usage &mdash; used in the last 90 days, not used for 90+ days, never used &mdash; so you can see the shape of the problem before touching anything.</p>
     </div>
     <div style="margin: 18px 0;">
         <img src="03-unused-and-unreferenced.png" alt="Templates with no recorded send and no action pointing at them" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
@@ -49,7 +49,7 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="04-template-detail.png" alt="One template in detail: origin, customisation, usage and stored mails" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">One template in detail — origin, customisation, usage, stored mails and references — with buttons to open the emails and messages it produced.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One template in detail &mdash; origin, customisation, usage, stored mails and references &mdash; with buttons to open the emails and messages it produced.</p>
     </div>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
@@ -62,10 +62,10 @@
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
-        <li>There is nothing to configure — recording starts with the next email sent from a template.</li>
+        <li>There is nothing to configure &mdash; recording starts with the next email sent from a template.</li>
         <li>Access is limited to the <strong>Settings</strong> group (<em>Administration: Settings</em>). Give that group to anyone who should be able to open the report.</li>
-        <li>Turn on <strong>developer mode</strong> (Settings → General Settings → Developer Tools) so that the <em>Technical</em> menu appears; the report lives under <strong>Settings → Technical → Email</strong>, next to <em>Email Templates</em>.</li>
-        <li>Leave it running for a while before drawing conclusions. A template used once a year looks unused for eleven months — the <em>First Used</em> column tells you how long the report has actually been watching.</li>
+        <li>Turn on <strong>developer mode</strong> (Settings &rarr; General Settings &rarr; Developer Tools) so that the <em>Technical</em> menu appears; the report lives under <strong>Settings &rarr; Technical &rarr; Email</strong>, next to <em>Email Templates</em>.</li>
+        <li>Leave it running for a while before drawing conclusions. A template used once a year looks unused for eleven months &mdash; the <em>First Used</em> column tells you how long the report has actually been watching.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
@@ -75,7 +75,7 @@
         <li>Use <strong>Group By &rarr; Usage</strong> to split the templates into used recently, unused for 90+ days and never used.</li>
         <li>Apply <strong>Unused and Unreferenced</strong> to get the shortlist of templates worth reviewing, and <strong>Customized</strong> to find the local edits that an upgrade of the shipping module would silently replace.</li>
         <li>Open a line to see the full picture, and use <strong>Stored Emails</strong> / <strong>Stored Messages</strong> to read what the template actually produced.</li>
-        <li>Optional columns — language, module, first used, auto delete, archived, server actions, activity types, stored counts — are available from the column picker at the top right of the list.</li>
+        <li>Optional columns &mdash; language, module, first used, auto delete, archived, server actions, activity types, stored counts &mdash; are available from the column picker at the top right of the list.</li>
         <li>Before deleting anything: check the template's name in your own customisations and in the settings of your other apps. This report cannot see a template referenced from Python code.</li>
     </ol>
 
@@ -84,7 +84,7 @@
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

@@ -6,7 +6,7 @@
     'summary': 'Archive stale records automatically: pick a model, a filter and an age, a daily job does the rest.',
     'description': """
 Lost leads from 2019, tasks closed two years ago, contacts nobody has touched
-since the import — Odoo keeps every one of them in every list, every dropdown
+since the import - Odoo keeps every one of them in every list, every dropdown
 and every report, forever. Odoo has no built-in way to archive them on a
 schedule, so lists only ever grow.
 
@@ -17,7 +17,7 @@ it archived.
 
 Because archiving hides records, the module is deliberately cautious:
 
-* every rule is DISABLED when created — nothing happens until you turn it on;
+* every rule is DISABLED when created - nothing happens until you turn it on;
 * a hard minimum age is enforced in code, so a mistyped 0 can never wipe a list;
 * users, companies and technical (ir.*) models are refused outright;
 * models without an Active field are refused when the rule is saved;

@@ -3,7 +3,7 @@
 {
     'name': 'Stop Auto-Following Records',
     'version': '15.0.1.0.1',
-    'summary': 'Let each user opt out of being subscribed automatically to every record they touch — without losing manual Follow.',
+    'summary': 'Let each user opt out of being subscribed automatically to every record they touch - without losing manual Follow.',
     'description': """
 Odoo subscribes you as a follower of every record you comment on or get
 assigned, and your Inbox fills with notifications you never asked for. The
