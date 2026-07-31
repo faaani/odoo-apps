@@ -1,0 +1,88 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Missing Translations Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #4fc3a1;">Where is the translation work still to be done?</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Running Odoo in a second language always leaves gaps &mdash; a menu here, a field label there, a report heading nobody exported. Finding them normally means clicking around the interface in that language until something looks wrong. This module adds an <strong>administrator report</strong> that answers the question directly: pick an installed language and it lists the terms that still have <strong>no translation</strong>, grouped <strong>by module</strong> and <strong>by kind</strong>, with a <strong>count per module</strong> so you know where the work actually is.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Untranslated terms, listed</strong> &mdash; menus, field labels and help, model names, selection values, action and report names, view / QWeb template content, access group labels and translatable record content.</li>
+        <li><strong>Identical-to-source terms, optionally</strong> &mdash; a &ldquo;translation&rdquo; that is character for character the same as the source is usually a term nobody has looked at yet. Off by default, one tick to include it, always counted separately.</li>
+        <li><strong>Counts per module and per kind</strong> &mdash; how many terms are reported, how many were scanned and the share already translated, so you can start with the module that matters.</li>
+        <li><strong>Scope switch</strong> &mdash; audit the user interface only, business record content only, or everything.</li>
+        <li><strong>It handles both Odoo translation storages</strong> &mdash; the <code>ir.translation</code> table on 14.0 / 15.0 and the JSONB columns introduced in 16.0 &mdash; and it tells you on screen which one it used.</li>
+        <li><strong>Strictly read-only</strong> &mdash; the report never creates, changes or deletes a translation, and never touches your records.</li>
+        <li><strong>Built for real databases</strong> &mdash; counts come from grouped SQL queries, never a record-by-record loop; the list of terms is capped by a limit you set and the report says so when it truncated.</li>
+        <li><strong>Administrator only</strong> &mdash; restricted to the Administration / Settings group, and the listed terms are filtered through the standard access rules of each model.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">What differs between Odoo versions &mdash; honestly</h2>
+    <p style="font-size: 15px; line-height: 1.7;">This is not the same job on every series, and the module does not pretend it is:</p>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Odoo 14.0 and 15.0</strong> keep every term as a row of <code>ir.translation</code>. There, the report <em>also</em> lists untranslated <strong>Python / JavaScript source terms</strong>, with their module.</li>
+        <li><strong>Odoo 16.0 and later</strong> removed that model and moved translations into JSONB columns on the records themselves. Source-code terms are no longer stored in the database on those versions &mdash; they are read from the module <code>.po</code> files at runtime &mdash; so <strong>they cannot be listed</strong>. The report says this on screen instead of quietly reporting less.</li>
+        <li><strong>Structured fields</strong> (view architectures, HTML fields) are reported per record and field with a preview of the source, not term by term. On 14.0 / 15.0 such a record counts as translated as soon as one of its terms is translated.</li>
+        <li>Counts are computed database-wide; the listed terms are additionally filtered by access rules, so a record you may not read is counted but never displayed. The report tells you how many.</li>
+        <li>Records that have no external ID (records your users created) have no module and are grouped under <code>(user data)</code>.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-report-options.png" alt="Report options" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick an installed language and a scope. The dialog states which translation storage this Odoo version uses and exactly what can and cannot be reported on it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-per-module.png" alt="Counts per module" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Counts per module and per kind: reported terms, terms not translated, terms identical to the source, terms scanned and the share already translated.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-terms.png" alt="Reported terms" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The terms themselves: module, kind, the source text, why it is reported and where it comes from.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-coverage.png" alt="Coverage on this version" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The report spells out what it can and cannot see on the running version &mdash; including what only 14.0 / 15.0 can offer.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-grouped-terms.png" alt="Terms grouped by module" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The same terms in a full list, grouped by module and filterable by kind or status &mdash; ready to export to a spreadsheet for your translator.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Missing Translations Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the report works as soon as the module is installed.</li>
+        <li>At least one language other than the source language must be <strong>installed</strong> (Settings &rarr; Translations &rarr; Languages). A language that is not installed is refused with a clear message.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group; no other user can open or read the report.</li>
+        <li>Optional: raise the <em>Listed Terms Limit</em> (up to 20&nbsp;000) if you want a longer list in one go. Counts are never capped.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Missing Translations</strong>.</li>
+        <li>Choose the <strong>language</strong> to audit and a <strong>scope</strong>: user interface only, business record content only, or everything.</li>
+        <li>Tick <em>Report terms identical to the source</em> if you also want terms that were &ldquo;translated&rdquo; with the source text.</li>
+        <li>Click <strong>Generate Report</strong>.</li>
+        <li>Read <strong>Per Module</strong> to see where the work is, then <strong>Terms</strong> for the individual terms.</li>
+        <li>Click <strong>Open Terms List</strong> for the full list grouped by module &mdash; filter by kind, then select all and <strong>Export</strong> to hand a spreadsheet to your translator.</li>
+        <li>Translate the terms with Odoo&rsquo;s own tools (Settings &rarr; Translations, or the per-field translate button), then run the report again to see the counts drop.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px; line-height: 1.7;">Same report, same options and same output structure on 14.0, 15.0, 16.0, 17.0, 18.0 and 19.0. The one deliberate difference is coverage: <strong>Python / JavaScript source terms are listed on 14.0 and 15.0 only</strong>, because 16.0 and later do not store them in the database. The report names the storage it used and repeats this limitation on the <em>Coverage</em> tab, so the number you read is never more than the number it can actually stand behind. The report is a wizard: its results are temporary records that Odoo cleans up automatically, and nothing is added to your data.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

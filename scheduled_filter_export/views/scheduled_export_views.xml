@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="scheduled_export_view_tree" model="ir.ui.view">
+        <field name="name">scheduled.export.tree</field>
+        <field name="model">scheduled.export</field>
+        <field name="arch" type="xml">
+            <tree string="Scheduled Exports" decoration-danger="last_run_state == 'error'"
+                  decoration-muted="not enabled">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="interval_type"/>
+                <field name="run_as_user_id"/>
+                <field name="file_format"/>
+                <field name="last_run"/>
+                <field name="last_run_rows"/>
+                <field name="last_run_state"/>
+                <field name="enabled" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="scheduled_export_view_form" model="ir.ui.view">
+        <field name="name">scheduled.export.form</field>
+        <field name="model">scheduled.export</field>
+        <field name="arch" type="xml">
+            <form string="Scheduled Export">
+                <header>
+                    <button name="action_preview" type="object" string="Preview Records"
+                            class="btn-primary"
+                            help="Open the records this export currently matches. Nothing is sent."/>
+                    <button name="action_run_now" type="object" string="Send Now"
+                            confirm="This builds the file and emails it to the recipients right now. Continue?"
+                            help="Run the export immediately instead of waiting for its schedule."/>
+                    <field name="last_run_state" widget="statusbar"
+                           statusbar_visible="never,success,empty,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Monday customer list"/></h1>
+                    </div>
+                    <group>
+                        <group string="What to export">
+                            <field name="model_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="filter_domain" widget="domain"
+                                   options="{'model': 'model_name', 'in_dialog': True}"/>
+                            <field name="row_limit"/>
+                        </group>
+                        <group string="When">
+                            <field name="interval_type"/>
+                            <field name="weekday" attrs="{'invisible': [('interval_type', '!=', 'weekly')]}"/>
+                            <field name="day_of_month" attrs="{'invisible': [('interval_type', '!=', 'monthly')]}"/>
+                            <field name="hour_of_day"/>
+                        </group>
+                        <group string="How">
+                            <field name="run_as_user_id" options="{'no_create': True}"/>
+                            <field name="file_format"/>
+                        </group>
+                        <group string="Status">
+                            <field name="enabled" widget="boolean_toggle"/>
+                            <field name="last_run"/>
+                            <field name="last_run_rows"/>
+                            <field name="last_error" attrs="{'invisible': [('last_run_state', '!=', 'error')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Columns" name="columns">
+                            <field name="line_ids">
+                                <tree editable="bottom" string="Columns">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"
+                                           domain="[('model_id', '=', parent.model_id), ('ttype', '!=', 'binary')]"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="field_name"/>
+                                    <field name="ttype"/>
+                                    <field name="label"/>
+                                </tree>
+                            </field>
+                            <p class="text-muted">
+                                Columns are written in this order. Leave a Column Heading empty
+                                to use the field label. Many2one columns show the record name,
+                                selection columns show the label, and dates use the language and
+                                timezone of the Run As user.
+                            </p>
+                        </page>
+                        <page string="Recipients" name="recipients">
+                            <group>
+                                <field name="recipient_ids" widget="many2many_tags"
+                                       options="{'no_create': True}"/>
+                                <field name="email_extra"
+                                       placeholder="someone@example.com, other@example.com"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <div class="alert alert-info" role="alert">
+                        This export runs with the access rights and record rules of the
+                        <strong>Run As</strong> user: the recipients receive exactly the rows that
+                        person is allowed to see, and nothing more. Only a Settings administrator
+                        may pick a user other than themselves.
+                        New exports are <strong>disabled</strong> until you switch Enabled on;
+                        the scheduled action then checks every hour and sends the file on the days
+                        you chose, at or after the hour you set.
+                        A file holds at most the Row Limit shown above — a truncated file says so
+                        on its last line and in the email. If no record matches the filter,
+                        <strong>no email is sent at all</strong>; the run is still recorded here.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="scheduled_export_view_search" model="ir.ui.view">
+        <field name="name">scheduled.export.search</field>
+        <field name="model">scheduled.export</field>
+        <field name="arch" type="xml">
+            <search string="Scheduled Exports">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="run_as_user_id"/>
+                <filter name="enabled" string="Enabled" domain="[('enabled', '=', True)]"/>
+                <filter name="disabled" string="Disabled" domain="[('enabled', '=', False)]"/>
+                <separator/>
+                <filter name="failed" string="Failed" domain="[('last_run_state', '=', 'error')]"/>
+                <separator/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_frequency" string="Frequency" context="{'group_by': 'interval_type'}"/>
+                    <filter name="group_user" string="Run As" context="{'group_by': 'run_as_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="scheduled_export_action" model="ir.actions.act_window">
+        <field name="name">Scheduled Exports</field>
+        <field name="res_model">scheduled.export</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Schedule your first export</p>
+            <p>
+                Pick a model, a filter and the columns you want, choose a day and the
+                people who should get the file, and Odoo emails it as a CSV or Excel
+                attachment. The export reads the data as the Run As user, so recipients
+                only ever get rows that user may see.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="scheduled_export_menu_root"
+              name="Scheduled Exports"
+              action="scheduled_export_action"
+              web_icon="scheduled_filter_export,static/description/icon.png"
+              sequence="205"
+              groups="base.group_erp_manager"/>
+</odoo>
