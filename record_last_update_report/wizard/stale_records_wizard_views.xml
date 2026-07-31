@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stale_records_line_tree" model="ir.ui.view">
+        <field name="name">stale.records.line.tree</field>
+        <field name="model">stale.records.line</field>
+        <field name="arch" type="xml">
+            <tree string="Oldest Records" create="false" edit="false" delete="false"
+                  decoration-warning="days_since_update &gt;= 365">
+                <field name="record_name"/>
+                <field name="last_update"/>
+                <field name="days_since_update"/>
+                <field name="last_writer_id"/>
+                <field name="res_id" string="ID" optional="hide"/>
+                <field name="res_model" optional="hide"/>
+                <button name="action_open_record" type="object" icon="fa-external-link"
+                        title="Open this record"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_stale_records_wizard_form" model="ir.ui.view">
+        <field name="name">stale.records.wizard.form</field>
+        <field name="model">stale.records.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Stale Records Report">
+                <header>
+                    <button name="action_analyze" type="object" string="Analyse"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_analyze" type="object" string="Refresh"
+                            class="btn-primary" invisible="state != 'done'"/>
+                    <button name="action_reset" type="object" string="Change Criteria"
+                            class="btn-secondary" invisible="state != 'done'"/>
+                    <button name="action_open_records" type="object"
+                            string="Open All Stale Records" class="btn-secondary"
+                            invisible="state != 'done' or stale_count == 0"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <field name="truncated" invisible="1"/>
+                    <div class="oe_title">
+                        <h1>Stale Records Report</h1>
+                    </div>
+                    <div class="alert alert-info" role="status">
+                        This report only reads. It never writes to, archives or deletes
+                        the records it lists. Counts and rows are produced with
+                        <b>your own access rights</b>, so record rules apply: another
+                        user may legitimately get different numbers on the same model.
+                    </div>
+                    <group>
+                        <group string="What to Analyse">
+                            <field name="model_id" options="{'no_create': True}"/>
+                            <field name="model_name"/>
+                            <field name="extra_domain"
+                                   placeholder="[(&quot;customer_rank&quot;, &quot;&gt;&quot;, 0)]"/>
+                        </group>
+                        <group string="How Old, How Many">
+                            <field name="age_days"/>
+                            <field name="include_archived"/>
+                            <field name="sample_limit"/>
+                        </group>
+                    </group>
+                    <group invisible="state != 'done'">
+                        <group string="Not Updated For">
+                            <field name="stale_count"/>
+                            <field name="scope_count"/>
+                            <field name="analyzed_on"/>
+                        </group>
+                        <group string="Age Buckets (Cumulative)">
+                            <field name="count_30"/>
+                            <field name="count_90"/>
+                            <field name="count_180"/>
+                            <field name="count_365"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-secondary" role="status"
+                         invisible="state != 'done'">
+                        <field name="result_note" nolabel="1" readonly="1"/>
+                        A record untouched for 400 days is counted in every bucket:
+                        the buckets say &quot;older than&quot;, they do not slice the
+                        records into disjoint groups.
+                    </div>
+                    <div invisible="state != 'done'">
+                        <separator string="Oldest Records First"/>
+                        <field name="line_ids" nolabel="1" readonly="1"/>
+                        <p class="text-muted" invisible="stale_count != 0">
+                            Nothing is stale: every record in scope has been updated
+                            more recently than that.
+                        </p>
+                        <p class="text-muted" invisible="not truncated">
+                            Only the oldest rows are listed. Use <b>Open All Stale
+                            Records</b> to work through the whole selection.
+                        </p>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stale_records_wizard" model="ir.actions.act_window">
+        <field name="name">Stale Records Report</field>
+        <field name="res_model">stale.records.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_stale_records_wizard_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_stale_records_report"
+              name="Stale Records Report"
+              parent="base.menu_administration"
+              action="action_stale_records_wizard"
+              groups="base.group_system"
+              sequence="95"/>
+
+</odoo>

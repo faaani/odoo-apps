@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_password_expiry" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.password.expiry</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='users_setting_container']" position="inside">
+                <setting string="Password Expiry Policy" id="password_expiry_setting"
+                         help="Ask internal users for a new password once the current one reaches the maximum age. The database administrator, exempt users and portal users are never expired, and API access is never affected.">
+                    <field name="password_expiry_enabled"/>
+                    <div class="content-group" invisible="not password_expiry_enabled">
+                        <div class="row mt16">
+                            <label for="password_expiry_days" class="col-lg-6 o_light_label"/>
+                            <field name="password_expiry_days" class="col-lg-2"/>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

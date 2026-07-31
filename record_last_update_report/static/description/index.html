@@ -1,0 +1,88 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #16233c; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Stale Records Report</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">What has not been touched lately?</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Data quality rots quietly. Leads nobody touched in a year, contacts last edited in 2019, products untouched since the import &mdash; nothing warns you, and Odoo has no screen that answers the question. This module adds a <strong>read-only report</strong> you can point at any model: pick the model, an age in days and (optionally) an extra filter, and get the counts by age together with the oldest records, their last-update date and their last writer.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Any model</strong> &mdash; contacts, leads, products, projects, your own custom models: anything that keeps a last-update date.</li>
+        <li><strong>Counts by age bucket</strong> &mdash; how many records are older than 30, 90, 180 and 365 days, plus the exact count for the age you asked for.</li>
+        <li><strong>The oldest records, listed</strong> &mdash; with the real last-update date, how many days ago that was, and the user who wrote them last.</li>
+        <li><strong>One click to the record</strong> &mdash; open any listed record in its own form, or hand the whole selection over to the ordinary list view of that model.</li>
+        <li><strong>An optional extra filter</strong> &mdash; a plain Odoo domain, e.g. <code>[("customer_rank", "&gt;", 0)]</code>, to narrow the report to the records you care about.</li>
+        <li><strong>Honest about access rights</strong> &mdash; every query runs as you, so record rules apply and the report can never show a record you could not open yourself. The screen says so.</li>
+        <li><strong>Built for big tables</strong> &mdash; the counts are aggregate queries and the list is a single capped search, so the table itself is never read row by row: only the rows you asked to see.</li>
+        <li><strong>Your report is yours</strong> &mdash; the report rows are protected by a record rule, so one user can never read the results another user produced.</li>
+        <li><strong>Strictly read-only</strong> &mdash; it never writes to, archives or deletes the records it reports on. The only rows it stores are your own report parameters, in a temporary table Odoo clears by itself.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-criteria.png" alt="Report criteria" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick the model, the age and how many rows to list, then press <em>Analyse</em>.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-result.png" alt="Report result" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Counts by age bucket, then the oldest records with their last-update date and last writer.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-capped.png" alt="Capped result" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">When more records are stale than the list can show, the result says so instead of hiding them.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-refused.png" alt="Refused model" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A model that keeps no last-update date is refused with a plain explanation &mdash; not a zero, and not a traceback.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-open-records.png" alt="Open all stale records" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;"><em>Open All Stale Records</em> hands the whole selection over to the ordinary list view, where you can filter, group and export it.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Stale Records Report</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; the report works as soon as the module is installed.</li>
+        <li>The menu <strong>Settings &rarr; Stale Records Report</strong> is shown to <strong>Administration / Settings</strong> users.</li>
+        <li>The report itself may be used by any internal user, because it can never show more than that user is already allowed to see. If you want a data-quality team to use it, point a menu or an action of your own at the <code>stale.records.wizard</code> model &mdash; no code change is needed.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Stale Records Report</strong>.</li>
+        <li>Choose the <strong>Model</strong> (Contact, Lead, Product, &hellip;) and the age in days &mdash; 90 by default.</li>
+        <li>Optionally add an <strong>Extra Filter</strong> as a literal Odoo domain, e.g. <code>[("customer_rank", "&gt;", 0)]</code> for customers only, and tick <em>Include Archived Records</em> if archived rows should count too.</li>
+        <li>Set <strong>Rows to List</strong> (50 by default, 500 maximum) and press <strong>Analyse</strong>.</li>
+        <li>Read the counts, then work through the listed records &mdash; the arrow at the end of each row opens it. <strong>Open All Stale Records</strong> opens the complete selection in the normal list view, ready to filter, group or export.</li>
+        <li><strong>Change Criteria</strong> returns to the form; <strong>Refresh</strong> re-runs the same analysis against today's data.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">What it does not do, and why</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>It never changes the records it reports on.</strong> None of them is written, archived or deleted &mdash; not even the ones it lists. (Your own criteria and result rows are stored in a temporary table that Odoo clears by itself.) If you want stale records archived automatically, my companion module <em>Automatic Archiving Rules</em> (<code>auto_archive_stale_records</code>) does that on a schedule. It is a separate, optional install; this module does not depend on it and does not install it.</li>
+        <li><strong>Counts are what <em>you</em> may see.</strong> The queries run with your access rights, so a user restricted by a record rule gets smaller numbers than an administrator on the same model. That is deliberate, and the report says it on screen.</li>
+        <li><strong>Models without a last-update date cannot be reported on.</strong> Abstract models, wizard (transient) models and the few models where Odoo disables log access have no <code>write_date</code>; they are refused with an explanation rather than reported as &ldquo;nothing stale&rdquo;.</li>
+        <li><strong>A model you cannot read is refused</strong> instead of being counted for you.</li>
+        <li><strong>&ldquo;Last updated&rdquo; is Odoo's <code>write_date</code>.</strong> It changes whenever any field of the record is written &mdash; including by an automated job or an import &mdash; so a record touched only by a bulk update looks fresh. The <em>Last Updated By</em> column shows who that was.</li>
+        <li><strong>The age buckets are cumulative.</strong> A record untouched for 400 days is counted in all four ("older than 30", "older than 90", "older than 180" and "older than 365"); they do not slice the records into disjoint groups.</li>
+        <li><strong>The extra filter is a literal domain.</strong> Expressions such as <code>uid</code> or <code>context_today()</code> are not evaluated.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0). No developer mode is required.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
