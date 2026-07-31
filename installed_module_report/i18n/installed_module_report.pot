@@ -1,0 +1,468 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* installed_module_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:21+0000\n"
+"PO-Revision-Date: 2026-07-31 00:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: installed_module_report
+#: code:addons/installed_module_report/models/installed_module_report.py:0
+#, python-format
+msgid "%s, +%s more"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__application
+msgid "Application"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Applications"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__author
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Author"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Author Not Declared"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__author
+msgid ""
+"Author declared in the module manifest. Up to Odoo 18 a module that declares"
+" no author at all is recorded as \"Odoo S.A.\"."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__origin__unknown
+msgid "Author not declared"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__auto_install
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Auto Installed"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__category_id
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Category"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__category_id
+msgid "Category declared in the module manifest."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__reverse_dependency_count
+msgid "Depended On By"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__dependency_count
+msgid "Dependencies"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__dependency_ids
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid "Depends On"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__dependency_names
+msgid "Depends On (summary)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.actions.act_window,help:installed_module_report.action_installed_module_report
+msgid ""
+"Every module installed on this database, with its version, author,\n"
+"               licence, origin and dependencies. The report is read-only: it never\n"
+"               installs, upgrades or uninstalls anything."
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Group By"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__reverse_dependency_count
+msgid ""
+"How many INSTALLED modules declare this module as a direct dependency. "
+"Modules present on disk but not installed are not counted."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__dependency_count
+msgid "How many modules this module declares as a direct dependency."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__id
+msgid "ID"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid "Identity"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__module_state__installed
+msgid "Installed"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Installed But Not Part Of Any App"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid "Installed Module"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_tree
+msgid "Installed Modules"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.actions.act_window,name:installed_module_report.action_installed_module_report
+#: model:ir.model,name:installed_module_report.model_installed_module_report
+#: model:ir.ui.menu,name:installed_module_report.menu_installed_module_report
+msgid "Installed Modules Report"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Installed On"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__install_date
+msgid "Installed On (approx.)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__installed_version
+msgid "Installed Version"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__license
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Licence"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Licence Not Declared"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__license_kind
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Licence Type"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__license
+msgid "Licence declared in the module manifest."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__module_id
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Module"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__module_name
+msgid "Module Name"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__module_state
+msgid ""
+"Modules queued for upgrade or removal are still installed right now, so they"
+" are listed here too."
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.actions.act_window,help:installed_module_report.action_installed_module_report
+msgid "No module matches these filters"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__nonstandard_license
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Non-standard Licence"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__standalone
+msgid "Not Part Of Any App"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__license_kind__undeclared
+msgid "Not declared"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Nothing Depends On It"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "OCA"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__origin__oca
+msgid "Odoo Community Association (OCA)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__origin__enterprise
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Odoo S.A. (Enterprise)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__origin__odoo
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Odoo S.A. (core)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__install_date
+msgid ""
+"Odoo stores no install date. This is the creation date of the oldest "
+"external ID the module wrote, which is stamped the first time the module is "
+"loaded. Empty for modules that create no external ID."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__license_kind__open_source
+msgid "Open source"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__origin
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Origin"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid "Origin & Licence"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid ""
+"Origin is read from the module manifest: an author of\n"
+"                        Odoo S.A. means core (Enterprise when the licence is\n"
+"                        OPL-1 or OEEL-1), an author mentioning the Odoo Community\n"
+"                        Association means OCA, anything else counts as third\n"
+"                        party. Only direct dependencies are listed. This report\n"
+"                        never installs, upgrades or uninstalls anything."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__origin__third
+msgid "Other third party"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Pending Upgrade Or Removal"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__license_kind__proprietary
+msgid "Proprietary"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Proprietary Licence"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__license_kind
+msgid ""
+"Proprietary covers OPL-1, OEEL-1 and \"Other proprietary\"; every other "
+"declared licence is counted as open source."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__reverse_dependency_ids
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_form
+msgid "Required By"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__reverse_dependency_names
+msgid "Required By (summary)"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__module_state
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Status"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__technical_name
+msgid "Technical Name"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__dependency_names
+msgid ""
+"Technical names of the direct dependencies, as declared in the manifest."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__reverse_dependency_names
+msgid "Technical names of the installed modules that depend on this one."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__dependency_ids
+msgid "The direct dependencies of this module that are themselves installed."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__reverse_dependency_ids
+msgid "The installed modules that declare this module as a direct dependency."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__module_id
+msgid "The module list entry this line reports on."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__technical_name
+msgid ""
+"The name of the directory the module lives in, and the name other modules "
+"use to depend on it."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__module_name
+msgid "The title shown in the Apps screen."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,field_description:installed_module_report.field_installed_module_report__is_third_party
+msgid "Third Party"
+msgstr ""
+
+#. module: installed_module_report
+#: model_terms:ir.ui.view,arch_db:installed_module_report.view_installed_module_report_search
+msgid "Third Party Only"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__is_third_party
+msgid ""
+"Ticked for every module not published by Odoo S.A., which includes OCA "
+"modules and modules whose author is missing."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__nonstandard_license
+msgid ""
+"Ticked for every module whose licence is not LGPL-3, the licence Odoo "
+"Community itself ships under: stronger copyleft (GPL, AGPL), proprietary "
+"(OPL-1, OEEL-1, other), or no licence at all. Odoo Enterprise modules are "
+"OEEL-1 and appear here by design."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__auto_install
+msgid ""
+"Ticked for link modules Odoo installs by itself once their dependencies are "
+"present."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__application
+msgid ""
+"Ticked for modules that declare themselves an app, the ones with a tile in "
+"the Apps screen."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__standalone
+msgid ""
+"Ticked when the module is not an application itself, was not auto-installed "
+"as a link module, and no installed module depends on it - so it was "
+"installed on purpose and nothing else needs it. Only DIRECT dependencies are"
+" considered."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__module_state__to_remove
+msgid "To be removed"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields.selection,name:installed_module_report.selection__installed_module_report__module_state__to_upgrade
+msgid "To be upgraded"
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__installed_version
+msgid ""
+"Version currently installed on this database, as recorded when the module "
+"was last loaded."
+msgstr ""
+
+#. module: installed_module_report
+#: model:ir.model.fields,help:installed_module_report.field_installed_module_report__origin
+msgid ""
+"Worked out from the declared author, refined by the licence: an author of "
+"Odoo S.A. with an OPL-1 or OEEL-1 licence is reported as Enterprise, with "
+"any other licence as core. An author mentioning \"Odoo Community "
+"Association\" or \"(OCA)\" is reported as OCA. Anything else - including a "
+"module co-authored by Odoo and a partner - is reported as third party. It "
+"reads the manifest, so a manifest that is wrong makes this line wrong."
+msgstr ""
