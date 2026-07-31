@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_password_expiry" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.password.expiry</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invite_users']//div[@name='users_setting_container']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="password_expiry_setting">
+                    <div class="o_setting_left_pane">
+                        <field name="password_expiry_enabled"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="password_expiry_enabled"/>
+                        <div class="text-muted">
+                            Require users to change their password periodically. Administrators, portal users and exempt users are never affected.
+                        </div>
+                        <div class="content-group" attrs="{'invisible': [('password_expiry_enabled', '=', False)]}">
+                            <div class="row mt16">
+                                <label for="password_expiry_days" class="col-lg-4 o_light_label"/>
+                                <field name="password_expiry_days" class="col-lg-2"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
