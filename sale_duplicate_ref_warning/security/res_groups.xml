@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_allow_duplicate_ref" model="res.groups">
+        <field name="name">Allow duplicate customer references</field>
+        <!-- Deliberately NOT the Sales category: adding a non-implying group to
+             base.module_category_sales_sales breaks the total-implication test in
+             get_groups_by_application() and turns the core Sales access-rights
+             dropdown into dev-mode-only checkboxes. -->
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="comment">Members can confirm a sale order even when its customer reference is already used on another non-cancelled order of the same customer.</field>
+    </record>
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_allow_duplicate_ref'))]"/>
+    </record>
+</odoo>
