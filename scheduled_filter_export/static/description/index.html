@@ -1,0 +1,108 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #1a213a; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Scheduled Export by Email</h1>
+        <p style="margin: 0; font-size: 18px; color: #f5a623;">The list somebody exports and mails every Monday &mdash; sent automatically instead.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Every business has that one person who opens the same list every Monday morning, exports it, and emails it to a colleague. Five minutes of clicking, forgotten the week they are on holiday, and Odoo has no built-in way to automate it.
+        This module adds <strong>Scheduled Exports</strong>: pick a model, an optional filter, the columns you want, a schedule and the recipients. An hourly scheduled action builds the file and mails it as an attachment.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Any model, any filter</strong> &mdash; contacts, sales orders, tasks, your own models. The filter is the standard Odoo domain editor, so anything you can search you can schedule.</li>
+        <li><strong>The columns you choose, in the order you choose</strong> &mdash; drag the lines to reorder, and rename a column heading when the technical field label is not what the recipient expects.</li>
+        <li><strong>Daily, weekly or monthly</strong> &mdash; plus the hour it should not go out before, read in the timezone of the user the export runs as. A "31st of the month" export still goes out in February.</li>
+        <li><strong>CSV always, Excel when the server can</strong> &mdash; XLSX is produced when the <code>xlsxwriter</code> library is installed. When it is not, the file is sent as CSV and the email says so, instead of the export quietly failing.</li>
+        <li><strong>Readable values, not raw ids</strong> &mdash; many2one columns show the record name, selection columns show the label, tags are joined by name, booleans read Yes/No, and dates use the language and timezone of the Run As user.</li>
+    </ul>
+
+    <div style="margin: 20px 0; padding: 16px 18px; background: #eef4ff; border-left: 4px solid #1a213a; border-radius: 6px;">
+        <p style="margin: 0; font-size: 15px;"><strong>It runs as a person, not as the system.</strong> Every export names a <strong>Run As</strong> user and reads the records with that person's access rights and record rules &mdash; there is no <code>sudo()</code> anywhere on that path. The recipients therefore receive <em>exactly</em> the rows that user is allowed to see, and nothing more. An export can never run as the superuser, and only a Settings administrator may point an export at somebody other than themselves.</p>
+    </div>
+
+    <div style="margin: 20px 0; padding: 16px 18px; background: #fff8e8; border-left: 4px solid #f5a623; border-radius: 6px;">
+        <p style="margin: 0; font-size: 15px;"><strong>Built to be predictable.</strong>
+        New exports are <strong>disabled</strong> until you switch them on;
+        a file holds at most <strong>5000 rows</strong>, and a truncated file says so on its last line as well as in the email;
+        an export that matches <strong>no record sends no email at all</strong>, so nobody gets a daily empty file &mdash; the run is still recorded on the export;
+        each export runs in its own savepoint, so one broken export never stops the others, and its error is shown on the record;
+        and text that a spreadsheet would run as a formula is neutralised before it reaches the recipient.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-export-list.png" alt="List of scheduled exports" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">All the scheduled exports in one list: model, frequency, who they run as, the format, and what the last run did.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-export-form.png" alt="A scheduled export" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One export: the model and its filter, the schedule, the user it runs as and the file format.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-columns.png" alt="Choosing the columns of the file" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The columns of the file, in order, with an optional heading of your own.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-email.png" alt="The email that was queued for the recipients" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The email itself: how many rows the file holds, which user it was read as, and in which format.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-email-file.png" alt="The generated file attached to the email" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">And the file itself, attached and on its way &mdash; here the Excel workbook of the Monday customer list.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="06-scheduled-action.png" alt="The hourly scheduled action" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One hourly scheduled action decides which exports are due. Change its frequency, or disable it, like any other cron.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Scheduled Export by Email</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> and <code>mail</code> modules are required.</li>
+        <li>Installing creates one scheduled action, <em>Scheduled Export: send the exports that are due</em>, which runs every hour. It has nothing to do until you create an export and enable it.</li>
+        <li>For Excel files, make sure the Python library <code>xlsxwriter</code> is installed on the server (<code>pip install XlsxWriter</code>). It ships with most Odoo installations. Without it, exports set to Excel are sent as CSV and the email explains why.</li>
+        <li>Check that outgoing email works (<strong>Settings &rarr; Technical &rarr; Outgoing Mail Servers</strong>) &mdash; the module hands the file to Odoo's normal mail queue.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>The menu <strong>Scheduled Exports</strong> is visible to users in the <em>Administration &rarr; Access Rights</em> group. Choosing a model and its columns means reading Odoo's technical field list, which Odoo itself reserves to that group &mdash; so exports are configured by administrators, not by every employee.</li>
+        <li>Click <strong>New</strong> and name the export, for example <em>Monday customer list</em>.</li>
+        <li>Pick the <strong>Model</strong>, then build a <strong>Filter</strong> with the standard domain editor. Leave it empty to export everything the Run As user can see.</li>
+        <li>On the <strong>Columns</strong> tab, add one line per column. Drag the handles to reorder; type a <strong>Column Heading</strong> to override the field label. File (binary) fields cannot be exported.</li>
+        <li>Choose the <strong>Frequency</strong> &mdash; every day, every week on a chosen weekday, or every month on a chosen day &mdash; and the hour the file should not go out before.</li>
+        <li>Set <strong>Run As</strong>. It defaults to you. Only a Settings administrator may choose somebody else; portal, archived and superuser accounts are refused.</li>
+        <li>On the <strong>Recipients</strong> tab, add the contacts who should receive the file, and any extra addresses that are not contacts in Odoo.</li>
+        <li>Pick the <strong>File Format</strong>: CSV or Excel (XLSX).</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Click <strong>Preview Records</strong> to open exactly the records the export currently matches. Nothing is sent and nothing is changed.</li>
+        <li>Click <strong>Send Now</strong> to build the file and email it immediately &mdash; the honest way to check what recipients will actually receive.</li>
+        <li>Happy with it? Switch <strong>Enabled</strong> on. The hourly scheduled action takes over from there.</li>
+        <li>Come back any time: <strong>Last Run</strong>, <strong>Rows in Last File</strong> and <strong>Last Result</strong> tell you what happened. A failed export shows its error on the record and is retried on its next scheduled slot.</li>
+        <li>To pause an export, switch <strong>Enabled</strong> off; to retire it, archive or delete it.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Good to know (limitations)</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>The scheduled action runs <strong>hourly</strong>, so an export goes out at the first check at or after the hour you set &mdash; not to the minute.</li>
+        <li>A file holds at most <strong>5000 rows</strong>. Beyond that the file is truncated and both the last line of the file and the email say how many records matched in total. Narrow the filter to get everything.</li>
+        <li>An export that matches <strong>no record sends no email</strong>. This is deliberate; the run is recorded on the export as <em>No record matched</em>.</li>
+        <li><strong>File (binary) fields cannot be exported</strong> &mdash; they are not offered as columns.</li>
+        <li>The generated file is attached to the outgoing email and removed from Odoo once the email has been sent. It is not archived inside Odoo.</li>
+        <li>In a multi-company database the export sees the companies allowed for the Run As user.</li>
+        <li>Email is not encrypted end to end: anyone with access to a recipient's mailbox can read the file. Choose the Run As user and the recipients accordingly.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behaviour on every supported series (14.0 &ndash; 19.0). The scheduled action is configured per series so it keeps running instead of firing once.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
