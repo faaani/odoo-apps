@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_menu_visibility_preview_form" model="ir.ui.view">
+        <field name="name">menu.visibility.preview.form</field>
+        <field name="model">menu.visibility.preview</field>
+        <field name="arch" type="xml">
+            <form string="Preview A User Menu">
+                <header>
+                    <button name="action_preview" string="Show This User's Menu"
+                            type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Preview A User Menu</h1>
+                        <p class="text-muted">
+                            Pick a user and see exactly which back end menu
+                            items they get - and, for every item they do not
+                            get, the reason. The answer comes from Odoo's own
+                            menu visibility routine evaluated as that user, not
+                            from a re-implementation of it.
+                        </p>
+                    </div>
+                    <group>
+                        <group string="Preview For" name="input">
+                            <field name="user_id" options="{'no_create': True}"/>
+                            <field name="show"/>
+                        </group>
+                        <group string="Counts" name="counts">
+                            <field name="total_count"/>
+                            <field name="tree_count"/>
+                            <field name="allowed_count"/>
+                            <field name="hidden_count"/>
+                            <field name="truncated"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Menu Items" name="items">
+                            <field name="line_ids" nolabel="1">
+                                <list string="Menu Items" create="false"
+                                      edit="false" delete="false"
+                                      decoration-muted="not in_menu_tree">
+                                    <field name="path"/>
+                                    <field name="in_menu_tree"/>
+                                    <field name="reason"/>
+                                    <field name="group_names"/>
+                                    <field name="is_allowed" optional="hide"/>
+                                    <field name="level" optional="hide"/>
+                                    <field name="menu_id" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_menu_visibility_preview" model="ir.actions.act_window">
+        <field name="name">Preview A User Menu</field>
+        <field name="res_model">menu.visibility.preview</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_menu_visibility_preview_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_menu_visibility_preview"
+              name="Preview A User Menu"
+              parent="base.menu_users"
+              action="action_menu_visibility_preview"
+              groups="base.group_system"
+              sequence="46"/>
+
+</odoo>
