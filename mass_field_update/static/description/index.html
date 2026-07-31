@@ -1,0 +1,89 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #123a5e; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Update a Field on Many Records</h1>
+        <p style="margin: 0; font-size: 18px; color: #4fc3a1;">One field, three hundred records, one confirmation.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Changing a single field on three hundred records means three hundred clicks &mdash; or an export/import round trip that touches columns you never meant to touch. This module adds an <strong>Update a Field</strong> action to the list view: select the records, pick the field, enter the value, see how many records will really change, confirm, and apply.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">What it does</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Works on any model</strong> &mdash; the list of fields is built from the model you are looking at, and the input matches the field: a text box, a number, a date picker, a checkbox, a dropdown for selection fields, a record picker for many2one fields.</li>
+        <li><strong>Preview before you commit</strong> &mdash; the wizard counts the records that will actually change, the ones that already carry the value, the ones you cannot see and the ones that have been deleted meanwhile.</li>
+        <li><strong>An explicit confirmation step</strong> &mdash; the model, the field, its technical name, the new value and the record count are shown on their own screen. Nothing is written before you press Apply, and the server refuses to apply a change that was not confirmed.</li>
+        <li><strong>A report you can act on</strong> &mdash; updated / skipped / failed, with the reason for every skip and the error message of every failure, naming the records concerned.</li>
+        <li><strong>Clear a field on purpose</strong> &mdash; emptying a field is a separate tick box, never something you can do by leaving an input blank. Required fields are refused.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">The guards</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Only writable fields are offered</strong> &mdash; read-only fields, computed fields Odoo itself does not let you edit, non-stored fields, related and delegated fields (they would write on another record than the one you selected) and Odoo's own bookkeeping columns (<code>id</code>, <code>create_uid</code>, <code>create_date</code>, <code>write_uid</code>, <code>write_date</code>) never appear in the list.</li>
+        <li><strong>Never the archive flag</strong> &mdash; <code>active</code> is excluded on every model: archiving has its own, reversible tools.</li>
+        <li><strong>Never a credential</strong> &mdash; the user login, and any field whose name looks like a password, a secret, a token or an API key, is refused on every model.</li>
+        <li><strong>The field is validated again at apply time</strong> &mdash; against the model, against the field catalogue and against your own access rights, so a field name forged over RPC is refused rather than written.</li>
+        <li><strong>The target cannot be moved</strong> &mdash; the model and the selected records are captured when the wizard opens and cannot be re-pointed afterwards, so what you confirmed is what gets written. A record chosen as a many2one value must exist and be readable by you.</li>
+        <li><strong>Your access rights are respected</strong> &mdash; the update runs as you, never with elevated privileges. Records you may not see are skipped and counted; records you may not write are skipped, named and counted.</li>
+        <li><strong>One failure does not lose the batch</strong> &mdash; every record is written in its own savepoint, so a validation error on record 7 does not roll back records 1 to 6.</li>
+        <li><strong>Traceable</strong> &mdash; a note is logged in the chatter of each changed record, quoting the old and the new value, on the models that have a chatter.</li>
+        <li><strong>Reserved to Settings users</strong> &mdash; the action is only visible to users with administrative (Settings) access.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-actions-menu.png" alt="Update a Field in the Actions menu" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Tick the records, then choose Actions &rarr; Update a Field.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-choose-field.png" alt="Choosing the field and the value" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Pick the field, enter the value, and read how many records will really change.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-confirm.png" alt="The confirmation step" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Nothing is written before this screen: model, field, technical name, value and count.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-result.png" alt="The result report" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A real run: two records updated, two skipped because the user may not edit them, one refused by a model constraint &mdash; each with its reason.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Update a Field on Many Records</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>mail</code> module is required (it is what the chatter note is written to).</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>None. The action is available immediately on <strong>Contacts</strong>, for users with Settings access.</li>
+        <li>To offer it on another model, a technical user opens <strong>Settings &rarr; Technical &rarr; Actions &rarr; Window Actions</strong>, edits <em>Update a Field</em> and adds that model to the action bindings. The wizard itself already works on any model.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open a list view and tick the records to change.</li>
+        <li>Choose <strong>Actions &rarr; Update a Field</strong>.</li>
+        <li>Pick the field. Only the fields you may write on that model are listed.</li>
+        <li>Enter the new value, or tick <em>Clear the value</em> to empty the field. The counter under the input tells you how many of the selected records will actually change.</li>
+        <li>Press <strong>Preview</strong>, check the confirmation screen, then <strong>Apply</strong>.</li>
+        <li>Read the report: updated, skipped and failed, with the reason for each.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Limits, stated plainly</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>Up to <strong>10 000 records</strong> per run. A bigger change belongs to an import or a scheduled action, and the wizard says so instead of silently truncating.</li>
+        <li>Supported field types: text, multi-line text, HTML, integer, decimal, monetary, checkbox, date, date &amp; time, selection and many2one. <strong>One2many and many2many fields are not offered</strong>, nor are binary and company-dependent fields.</li>
+        <li>Selection values defined by Python code rather than by a fixed list (for instance a language field) are typed in instead of picked from a dropdown; the allowed values are listed in the wizard and validated before anything is written.</li>
+        <li>On Odoo 14.0 and 15.0 the record picker for many2one fields also shows a model selector &mdash; the client of those versions cannot hide it. Pick the model named in the hint under the input; anything else is refused.</li>
+        <li>The chatter note quotes the old and the new value and is visible to everyone who can already read the record, followers included &mdash; untick <em>Log a note in the chatter</em> when the value is sensitive.</li>
+        <li>The update runs in one request, record by record: a batch of several thousand records keeps the dialog open for a while. There is no background job.</li>
+        <li>The update is not undoable from the wizard. What it changed is visible in the chatter of each record, on the models that have one.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
