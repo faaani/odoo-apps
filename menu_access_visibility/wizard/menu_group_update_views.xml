@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_menu_group_update_form" model="ir.ui.view">
+        <field name="name">menu.visibility.group.update.form</field>
+        <field name="model">menu.visibility.group.update</field>
+        <field name="arch" type="xml">
+            <form string="Add Or Remove Groups">
+                <group>
+                    <field name="mode"/>
+                    <field name="group_ids" widget="many2many_tags"
+                           options="{'no_create': True}"/>
+                    <field name="include_children"/>
+                </group>
+                <group string="Menu Items">
+                    <field name="menu_ids" nolabel="1" colspan="2">
+                        <tree string="Menu Items" create="false" edit="false">
+                            <field name="mav_path"/>
+                            <field name="mav_own_groups"/>
+                            <field name="mav_summary"/>
+                        </tree>
+                    </field>
+                </group>
+                <group string="What Will Happen">
+                    <field name="target_count"/>
+                    <field name="public_count"/>
+                    <field name="preview_message" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button name="action_apply" string="Apply" type="object"
+                            class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_menu_group_update_result" model="ir.ui.view">
+        <field name="name">menu.visibility.group.update.result.form</field>
+        <field name="model">menu.visibility.group.update</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Menu Visibility Updated">
+                <group>
+                    <field name="result_message" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button name="action_reload" string="Reload Interface"
+                            type="object" class="oe_highlight"/>
+                    <button string="Close" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_menu_group_update" model="ir.actions.act_window">
+        <field name="name">Add / Remove Groups</field>
+        <field name="res_model">menu.visibility.group.update</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_menu_group_update_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_ir_ui_menu"/>
+        <field name="binding_view_types">list</field>
+        <!-- so the entry is not offered in the Action menu to somebody whose
+             only possible outcome is an access error -->
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+    </record>
+
+</odoo>
