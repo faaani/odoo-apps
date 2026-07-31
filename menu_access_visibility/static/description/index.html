@@ -1,0 +1,99 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182640; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Menu Visibility by Group</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Who sees each menu item &mdash; and how to change it</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Hiding a menu from a group today means turning on developer mode, opening <em>Settings / Technical / User Interface / Menu Items</em>, finding the item and editing a Groups field with no idea who could see it before, or who can see it now. This module replaces that with <strong>one screen</strong>: every back end menu item, the groups on it, a plain sentence answering &ldquo;who sees this menu?&rdquo;, inline editing, a bulk add/remove wizard, and a preview of any user&rsquo;s menu.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>The whole menu tree on one page</strong> &mdash; every item under its own parent, with its full path, so you never have to expand anything to find what you are looking for.</li>
+        <li><strong>Groups editable in the list</strong> &mdash; click the Groups cell, add or remove a group, save. No developer mode, no Technical menu.</li>
+        <li><strong>A plain answer per item</strong> &mdash; &ldquo;Members of Sales / Administrator&rdquo;, &ldquo;Everyone (no group on this item) + the parent menu Reporting needs Sales / Administrator + read access on sale.report&rdquo;. The full reasoning is on the item&rsquo;s form.</li>
+        <li><strong>Inherited restrictions made visible</strong> &mdash; a <em>Restricted By</em> column that says whether the limit comes from the item, from a parent menu, or from both. This is the part the standard Menu Items form does not show at all.</li>
+        <li><strong>Bulk add / remove</strong> &mdash; select several items, <em>Actions &rarr; Add / Remove Groups</em>, optionally down the whole sub-tree. Before you apply, it tells you how many items will really change and how many will be left with no group at all.</li>
+        <li><strong>Preview a user menu</strong> &mdash; pick a user, get the items they really see, and for everything else the reason: &ldquo;limited to Sales / Administrator and the user is in none of them&rdquo;, &ldquo;no read access on account.move&rdquo;, &ldquo;the parent menu Accounting is hidden from this user&rdquo;.</li>
+        <li><strong>The caches are cleared for you</strong> &mdash; menu visibility is answered from a cache keyed on the user&rsquo;s groups. Change the groups without clearing it and the change looks like it did nothing until the server restarts. This module clears it after every change, including the change written from the group side (<code>res.groups</code> &rarr; Access Menu).</li>
+        <li><strong>Filters that answer real questions</strong> &mdash; restricted to groups, no group at all, applications, items that open an action, folders; search by group or by parent menu; group by parent menu.</li>
+        <li><strong>Administrator only</strong> &mdash; every screen, every model and every field this module adds is restricted to <em>Administration / Settings</em> (<code>base.group_system</code>), the group Odoo itself requires to write a menu item. A user outside that group cannot even read back the answers.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">How &ldquo;who sees this menu&rdquo; is worked out</h2>
+    <p style="font-size: 15px; line-height: 1.7;">Odoo hides a back end menu item for three different reasons, and this screen reports all three, because only the first one is visible in the standard form:</p>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li><strong>The groups on the item.</strong> A user in none of them never sees it. An item with no group puts no restriction of its own.</li>
+        <li><strong>The groups on a parent menu.</strong> A menu item is only ever drawn inside its parent, so a user shut out of the parent never reaches the child &mdash; even though nothing on the child says so. The column names the parent and its groups.</li>
+        <li><strong>Read access on the action&rsquo;s model.</strong> When an item carries an action, Odoo hides it from anybody who cannot READ the model that action opens, <em>whatever groups the item carries</em>. The screen names the model and the groups an access control line grants read on it.</li>
+    </ol>
+    <p style="font-size: 15px; line-height: 1.7;">A folder is a fourth case, handled by Odoo itself: a menu with no action is only drawn when at least one item below it is visible, so a folder that is empty for a given user disappears on its own. The preview says so on the line.</p>
+    <p style="font-size: 15px; line-height: 1.7;">The <strong>preview</strong> does not re-implement any of this: it calls <code>ir.ui.menu._visible_menu_ids()</code> evaluated as the chosen user &mdash; Odoo&rsquo;s own routine &mdash; and then applies the parent-chain rule the web client applies when it builds the menu tree. That is why the preview and the real menu agree.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-menu-list.png" alt="The menu visibility list" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every back end menu item in tree order: its full path, the groups on it (editable right there), where the restriction comes from, and a plain answer to who sees it.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-item-form.png" alt="One menu item explained" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">One item in full: it carries no group of its own, but its parent <em>Reporting</em> is limited to Sales / Administrator, and its action opens <code>sale.report</code>, which only Sales / User can read. Three reasons, all named.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-preview.png" alt="Preview a user menu" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Preview a user menu: 39 items drawn out of 377, and a reason on every hidden line. &ldquo;Items that pass their own checks&rdquo; minus &ldquo;items the user sees&rdquo; is exactly the set kept out by a hidden parent.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-bulk-groups.png" alt="Add or remove groups in bulk" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Select several items and add or remove a group across all of them, optionally down the whole sub-tree. The count of what will really change is shown before you apply.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-restricted-filter.png" alt="Filters and group by" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Ready-made filters: restricted to groups, no group at all, applications, items that open an action, folders &mdash; plus group by parent menu.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the module into your addons path, or install it from the Apps list.</li>
+        <li>Open <strong>Apps</strong>, remove the &ldquo;Apps&rdquo; filter, search for <em>Menu Visibility by Group</em> and click <strong>Install</strong>.</li>
+        <li>Only the standard <code>base</code> module is required.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>No configuration is needed &mdash; both screens work as soon as the module is installed.</li>
+        <li>Access is restricted to the <strong>Administration / Settings</strong> group. No other user can open either screen, and Odoo&rsquo;s own access rules already stop anybody else from writing a menu item.</li>
+        <li>Developer mode is <strong>not</strong> required. The two menu entries sit under Settings, not under the Technical menu.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; Menu Visibility</strong>.</li>
+        <li>Find the item &mdash; type part of its name, or filter on <em>Restricted To Groups</em> / <em>No Group (Everyone)</em>, or group by parent menu.</li>
+        <li>Read the <strong>Who Sees This Menu</strong> column. Open the item to get the full reasoning, including the parent menu and the action model.</li>
+        <li>To change it: edit the <strong>Groups</strong> cell in the list, or tick several rows and use <strong>Actions &rarr; Add / Remove Groups</strong>. Tick <em>Also apply to every item below</em> to hit a whole sub-tree.</li>
+        <li>Check the result with <strong>Settings &rarr; Users &amp; Companies &rarr; Preview A User Menu</strong>: pick the user, press <em>Show This User&rsquo;s Menu</em>, and switch <em>Show</em> between what they see, what is hidden, and everything.</li>
+        <li>Your own menu bar is drawn from a cache too. After a change that affects <em>you</em>, use the <strong>Reload Interface</strong> button on the result screen (or press F5).</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Limitations, stated up front</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>It covers <strong>back end menu items</strong> (<code>ir.ui.menu</code>). Website menus, portal pages, buttons inside a form and fields hidden by <code>groups=</code> are different mechanisms and are not touched.</li>
+        <li>The preview is computed with <strong>developer mode off</strong>. An administrator browsing with developer mode on sees the extra technical items on top of what the preview lists, and the Notes tab says so.</li>
+        <li>Groups placed on the <strong>action record itself</strong> are not part of Odoo&rsquo;s menu visibility computation, so they are not part of the answer. What decides an action menu is read access on its model, and that is what is reported.</li>
+        <li>The screen <strong>edits menu visibility only</strong>. It never creates, renames or deletes a menu item, never changes a user&rsquo;s group membership, and never edits an access right or a record rule. Creating and deleting are switched off in the views on purpose.</li>
+        <li>Removing the last group from an item makes it visible to everyone who can reach its parent &mdash; that is what &ldquo;no group&rdquo; means in Odoo. The wizard counts those items and warns before you apply.</li>
+        <li>In a <strong>multi-worker</strong> deployment the other workers pick the cache invalidation up when the transaction commits, through the registry signalling Odoo already uses for it &mdash; not instantly, but without a restart.</li>
+        <li>The preview lists up to 3&nbsp;000 menu items and says so if it had to stop there; the counters stay exact. A full Odoo install is around 700, so this is a safety net rather than a real limit.</li>
+        <li>Items are listed <strong>under their parent</strong>, but sibling items come out in database order rather than in the sequence order the real menu bar uses. Add the optional <em>Sequence</em> column and sort on it if that matters to you.</li>
+        <li>The <strong>Menu Path</strong> column stops at six levels and ends in <code>...</code> beyond that &mdash; it uses Odoo&rsquo;s own path builder, which has that limit. No real menu tree is that deep.</li>
+        <li>If this screen ever cannot read a menu&rsquo;s action, it says so on the line instead of reporting the item as a folder. It never turns &ldquo;I could not check&rdquo; into &ldquo;there is nothing to check&rdquo;.</li>
+        <li>On <strong>Odoo 19.0</strong> the field is called <code>group_ids</code> instead of <code>groups_id</code>; the module reads the name from the registry, so it behaves identically on all six series.</li>
+    </ul>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
