@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bulk_tag_wizard_view_form" model="ir.ui.view">
+        <field name="name">bulk.tag.wizard.form</field>
+        <field name="model">bulk.tag.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add / Remove Tags">
+                <field name="res_model" invisible="1"/>
+                <div class="alert alert-info" role="status">
+                    These tags will be applied to <field name="record_count" class="oe_inline"/> selected record(s).
+                    Tags already on a record that are not listed below are kept.
+                </div>
+                <group>
+                    <field name="option_ids" invisible="1"/>
+                    <field name="tag_option_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="tag_model_label"/>
+                </group>
+                <group string="Changes to apply">
+                    <field name="add_tag_names" placeholder="e.g. Newsletter, VIP"/>
+                    <field name="remove_tag_names" placeholder="e.g. Prospect"/>
+                    <field name="create_missing"/>
+                </group>
+                <group string="Tags that already exist">
+                    <field name="existing_tag_hint" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button name="action_apply" string="Apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
