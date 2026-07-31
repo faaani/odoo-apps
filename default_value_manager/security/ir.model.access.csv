@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_default_value_entry_system,default.value.entry.system,model_default_value_entry,base.group_system,1,0,0,0
+access_default_value_add_wizard_system,default.value.add.wizard.system,model_default_value_add_wizard,base.group_system,1,1,1,1
+access_default_value_delete_wizard_system,default.value.delete.wizard.system,model_default_value_delete_wizard,base.group_system,1,1,1,1

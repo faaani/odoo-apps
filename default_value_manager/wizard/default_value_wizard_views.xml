@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_default_value_add_wizard_form" model="ir.ui.view">
+        <field name="name">default.value.add.wizard.form</field>
+        <field name="model">default.value.add.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Set a Default Value">
+                <field name="field_ttype" invisible="1"/>
+                <field name="field_relation" invisible="1"/>
+                <div class="alert alert-warning" role="alert"
+                     invisible="not existing_warning">
+                    <field name="existing_warning" nolabel="1" readonly="1"/>
+                </div>
+                <group>
+                    <group string="Field">
+                        <field name="model_id" options="{'no_create': True}"/>
+                        <field name="field_id" options="{'no_create': True}"
+                               domain="[('model_id', '=', model_id), ('store', '=', True), ('readonly', '=', False), ('ttype', 'in', ['char', 'text', 'html', 'boolean', 'integer', 'float', 'monetary', 'date', 'datetime', 'selection', 'many2one'])]"/>
+                        <field name="value_hint" invisible="not field_id" readonly="1"/>
+                    </group>
+                    <group string="Value">
+                        <field name="value_text" invisible="field_ttype == 'boolean'"
+                               required="field_id and field_ttype != 'boolean'"/>
+                        <field name="value_boolean" invisible="field_ttype != 'boolean'"/>
+                    </group>
+                </group>
+                <group>
+                    <group string="Users">
+                        <field name="scope_user" widget="radio"/>
+                        <field name="user_id" options="{'no_create': True}"
+                               invisible="scope_user != 'user'"
+                               required="scope_user == 'user'"/>
+                    </group>
+                    <group string="Companies">
+                        <field name="scope_company" widget="radio"/>
+                        <field name="company_id" options="{'no_create': True}"
+                               invisible="scope_company != 'company'"
+                               required="scope_company == 'company'"/>
+                    </group>
+                </group>
+                <group string="Advanced">
+                    <field name="condition" placeholder="e.g. type=invoice (leave empty to always apply)"/>
+                </group>
+                <footer>
+                    <button name="action_set_default" string="Set Default" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_default_value_add_wizard" model="ir.actions.act_window">
+        <field name="name">Set a Default Value</field>
+        <field name="res_model">default.value.add.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_default_value_delete_wizard_form" model="ir.ui.view">
+        <field name="name">default.value.delete.wizard.form</field>
+        <field name="model">default.value.delete.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Delete Default Values">
+                <div class="alert alert-warning" role="alert">
+                    <field name="entry_count" class="oe_inline" readonly="1"/> default value(s)
+                    will be deleted permanently. The fields they pre-fill simply stop
+                    pre-filling; no record, no field and no other setting is modified,
+                    and records already created keep the value they were given.
+                </div>
+                <group>
+                    <field name="preview" nolabel="1" readonly="1" widget="text"/>
+                </group>
+                <footer>
+                    <button name="action_delete" string="Delete Permanently" type="object"
+                            class="btn-danger"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_default_value_delete_wizard" model="ir.actions.act_window">
+        <field name="name">Delete Default Values</field>
+        <field name="res_model">default.value.delete.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_default_value_entry"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>
