@@ -1,0 +1,749 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* record_rule_tester
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 10:26+0000\n"
+"PO-Revision-Date: 2026-07-31 10:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%(model)s delegates to %(parents)s through _inherits. Odoo also applies the "
+"record rules of those parent models, and this screen lists only the rules "
+"defined on %(model)s - run the test again on a parent model to see them."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%(user)s can read %(model)s #%(record)s: the record satisfies every record "
+"rule that applies to them."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "%(user)s cannot read %(model)s #%(record)s."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%(user)s has no access control line granting read on %(model)s. The model is"
+" out of reach whatever the record rules say."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%(user)s may read %(model)s and can see %(count)s of its records (cap "
+"%(cap)s)."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "%(user)s on %(model)s"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%s is a wizard (transient) model. Its records are short-lived and deleted by"
+" the vacuum job."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%s is an abstract model. It stores no records, so there is nothing to count "
+"or to test."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"%s is the superuser: it bypasses every access right and every record rule, "
+"so these figures are not a meaningful restriction test. Test a real user "
+"instead."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__access_message
+msgid "Access Summary"
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Applicable Record Rules"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__rule_ids
+msgid "Applicable Rules"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__record_verdict__allowed
+msgid "Can read this record"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__record_verdict__denied
+msgid "Cannot read this record"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__capped
+msgid "Capped"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "Capped: there are %s or more such records."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__company_names
+msgid "Companies Used"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__count_limit
+msgid "Count Cap"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__countable
+msgid "Counted"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__counts_capped
+msgid "Counts Capped"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "Counts stop at %s records, and archived records are included."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__count_limit
+msgid ""
+"Counts stop at this many records so that testing a huge model stays fast. A "
+"count that reached the cap is flagged as capped."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__perm_create
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_op__operation__create
+msgid "Create"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"Create rules are checked against the values of a NEW record, so there is no "
+"set of existing records to count."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__create_uid
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__create_uid
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__create_date
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__create_date
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__perm_unlink
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_op__operation__unlink
+msgid "Delete"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__display_name
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__display_name
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__domain_force
+msgid "Domain"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__state__done
+msgid "Done"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"Excluded by the global rule(s): %s. A global rule is ANDed with every other "
+"rule, so a single one that does not match is enough to hide the record."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "Fill in a Record ID to get a verdict on one specific record."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_rule__kind__global
+msgid "Global"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__global_rule_count
+msgid "Global Rules"
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid ""
+"Global rules carry no group: Odoo ANDs them with\n"
+"                                everything else, so one that does not match is\n"
+"                                enough to hide a record. Group rules are ORed\n"
+"                                with each other. Domains are shown exactly as\n"
+"                                stored - expressions such as\n"
+"                                <code>user.company_id</code> are not expanded\n"
+"                                here; what counts is the evaluated result above."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_rule__kind
+msgid ""
+"Global rules carry no group: Odoo applies them to everybody and ANDs them "
+"together, so no group rule can widen them. Group rules are ORed with each "
+"other."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_rule__kind__group
+msgid "Group"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__group_rule_count
+msgid "Group Rules"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__access_state__ok
+msgid "Has access"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__blocks_record
+msgid "Hides the Record"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_op__record_count
+msgid ""
+"How many existing records the operation may be performed on, obtained by "
+"running the search as the tested user."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_op__rule_count
+msgid ""
+"How many record rules Odoo applies to this user for this operation on this "
+"model."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__reference_count
+msgid ""
+"How many records YOU, the administrator running this test, can read - same "
+"model, same cap, and likewise with every company you are allowed to access "
+"enabled. It is a comparison figure, not a database total: your own record "
+"rules apply to it too."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__readable_count
+msgid ""
+"How many records of this model the user can read, obtained by running the "
+"search as that user."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__id
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__id
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__kind
+msgid "Kind"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester____last_update
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op____last_update
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__write_uid
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__write_uid
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__write_date
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__write_date
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__model_id
+msgid "Model"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__access_state
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__acl_allowed
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Model Access"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__access_state__no_access
+msgid "No access"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"No access control line grants read on %s to this user. Record rules are not "
+"the reason - the model itself is out of reach."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"No access control line grants this operation on %s, so the user cannot "
+"perform it on any record and the record rules below never apply to it."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__record_verdict__no_access
+msgid "No access to this model"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "No access: %s"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__record_verdict__not_tested
+msgid "No record tested"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__record_verdict__missing
+msgid "No such record"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"None of the group rules that apply to this user matched: %s. Group rules are"
+" ORed, so the record stays hidden until at least one of them matches."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__state__draft
+msgid "Not Run"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester__access_state__unknown
+msgid "Not run"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__note
+msgid "Note"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__warning
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Notes"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"Odoo reports no failing rule on %s itself. The record is filtered out for "
+"another reason - most often a rule on a parent model reached through "
+"_inherits, or a company this user is not allowed to access."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__operation
+msgid "Operation"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__op_ids
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Operations"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__record_id
+msgid ""
+"Optional. The database id of one specific record. Leave it at 0 to test the "
+"model only; fill it in to get a verdict on whether this user can read that "
+"exact record, and which rule hides it."
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid ""
+"Pick a user and a model, press Run Test, and see the\n"
+"                            record rules Odoo applies to them, how many records\n"
+"                            they can reach, and - if you give a record id - why\n"
+"                            that one record is or is not visible."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__perm_read
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_op__operation__read
+msgid "Read"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__readable_count
+msgid "Readable Records"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__record_id
+msgid "Record ID"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__rule_id
+msgid "Record Rule"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#: model:ir.actions.act_window,name:record_rule_tester.action_record_rule_tester
+#: model:ir.model,name:record_rule_tester.model_record_rule_tester
+#: model:ir.ui.menu,name:record_rule_tester.menu_record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+#, python-format
+msgid "Record Rule Tester"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model,name:record_rule_tester.model_record_rule_tester_rule
+msgid "Record Rule Tester Applicable Rule"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model,name:record_rule_tester.model_record_rule_tester_op
+msgid "Record Rule Tester Operation Result"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__record_count
+msgid "Records"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "Records the user can both see and %s."
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Result"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__rule_name
+msgid "Rule"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"Rule domains are listed exactly as stored, so expressions such as "
+"user.company_id are not expanded. What matters is the evaluated result: the "
+"counts and the verdict are produced by really running the searches as %s."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__rule_count
+msgid "Rules"
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Run Test"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__sequence
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__state
+msgid "Status"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__model_name
+msgid "Technical Model"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__name
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_op__tester_id
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__tester_id
+msgid "Test"
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "The Record Rule Tester is reserved to Settings administrators."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__company_names
+msgid ""
+"The companies enabled while evaluating, which is every company the tested "
+"user is allowed to access. Multi-company record rules are evaluated against "
+"exactly these."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "The count cap must be between 1 and %s."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"The count could not be taken: %s. This usually means a record rule on this "
+"model has an invalid domain."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_rule__domain_force
+msgid ""
+"The domain exactly as stored on the rule. Expressions such as "
+"user.company_id are NOT expanded here - what the user really ends up seeing "
+"is the evaluated result shown in the counts and in the verdict."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"The model %s is not in this database registry: the module defining it is "
+"probably not installed."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__model_id
+msgid "The model to test, for example Sales Order (sale.order)."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_rule__group_names
+msgid ""
+"The tested user's groups this rule is attached to. Empty for a global rule, "
+"which applies to everybody."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__user_id
+msgid ""
+"The user whose access is being tested. Nothing is ever done in this user "
+"name: the tester only runs read-only searches as them."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid ""
+"There is no %(model)s with id %(record)s in the database, so no record rule "
+"is involved."
+msgstr ""
+
+#. module: record_rule_tester
+#. odoo-python
+#: code:addons/record_rule_tester/wizard/record_rule_tester.py:0
+#, python-format
+msgid "This user is archived and cannot log in."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__group_names
+msgid "Through Groups"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_op__acl_allowed
+msgid ""
+"Ticked when an access control line grants this operation on the model. "
+"Without it the operation is refused before record rules are consulted at "
+"all."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__counts_capped
+msgid ""
+"Ticked when at least one count stopped at the cap, so the real number is "
+"that value or more."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_op__capped
+msgid ""
+"Ticked when the count stopped at the cap: the real number is that value or "
+"more."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_rule__blocks_record
+msgid ""
+"Ticked when this rule is one of those keeping the tested record out of "
+"reach, as reported by Odoo itself."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester_op__countable
+msgid ""
+"Unticked when no count is possible: model access is denied, or the operation"
+" is Create, which validates new values instead of filtering existing "
+"records."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__user_id
+msgid "User"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__record_verdict
+msgid "Verdict"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__record_message
+msgid "Verdict Detail"
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "Verdict On The Record"
+msgstr ""
+
+#. module: record_rule_tester
+#: model_terms:ir.ui.view,arch_db:record_rule_tester.view_record_rule_tester_form
+msgid "What To Test"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,help:record_rule_tester.field_record_rule_tester__access_state
+msgid ""
+"Whether an access control line grants this user read on the model. Without "
+"one, record rules never even get a say."
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester_rule__perm_write
+#: model:ir.model.fields.selection,name:record_rule_tester.selection__record_rule_tester_op__operation__write
+msgid "Write"
+msgstr ""
+
+#. module: record_rule_tester
+#: model:ir.model.fields,field_description:record_rule_tester.field_record_rule_tester__reference_count
+msgid "Your Own Readable Records"
+msgstr ""

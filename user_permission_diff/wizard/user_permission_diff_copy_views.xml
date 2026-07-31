@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_user_permission_diff_copy_form" model="ir.ui.view">
+        <field name="name">user.permission.diff.copy.form</field>
+        <field name="model">user.permission.diff.copy</field>
+        <field name="arch" type="xml">
+            <form string="Copy Groups">
+                <div class="alert alert-warning" role="alert" style="white-space: pre-line;">
+                    <field name="warning" nolabel="1" readonly="1"/>
+                </div>
+                <group>
+                    <group>
+                        <field name="source_user_id"/>
+                        <field name="target_user_id"/>
+                    </group>
+                    <group>
+                        <field name="group_count"/>
+                    </group>
+                </group>
+                <separator string="Groups that will be added"/>
+                <field name="group_ids" nolabel="1" readonly="1" widget="many2many_tags"/>
+                <!-- laid out by hand: inside a <group> the label column is too
+                     narrow for this sentence and it wraps over three lines -->
+                <div class="d-flex align-items-center gap-2 mt-3">
+                    <field name="confirmed" nolabel="1"/>
+                    <label for="confirmed" class="mb-0"/>
+                </div>
+                <footer>
+                    <button name="action_apply" string="Grant these groups" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

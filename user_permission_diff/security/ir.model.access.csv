@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_permission_diff_system,user.permission.diff.system,model_user_permission_diff,base.group_system,1,1,1,1
+access_user_permission_diff_line_system,user.permission.diff.line.system,model_user_permission_diff_line,base.group_system,1,1,1,1
+access_user_permission_diff_model_line_system,user.permission.diff.model.line.system,model_user_permission_diff_model_line,base.group_system,1,1,1,1
+access_user_permission_diff_copy_system,user.permission.diff.copy.system,model_user_permission_diff_copy,base.group_system,1,1,1,1

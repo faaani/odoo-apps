@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_record_rule_tester_system,record.rule.tester.system,model_record_rule_tester,base.group_system,1,1,1,1
+access_record_rule_tester_op_system,record.rule.tester.op.system,model_record_rule_tester_op,base.group_system,1,1,1,1
+access_record_rule_tester_rule_system,record.rule.tester.rule.system,model_record_rule_tester_rule,base.group_system,1,1,1,1
