@@ -1,0 +1,116 @@
+<div style="max-width: 900px; margin: 0 auto; font-family: Arial, Helvetica, sans-serif; color: #222; line-height: 1.55;">
+
+    <div style="text-align: center; padding: 28px 12px 8px 12px;">
+        <h1 style="color: #4C3D9E; font-size: 30px; margin: 0 0 10px 0;">Field Rules by Group</h1>
+        <p style="font-size: 17px; color: #555; margin: 0;">
+            Make any field read-only, invisible or required per user group &mdash; no Studio, no custom code.
+        </p>
+    </div>
+
+    <div style="padding: 12px;">
+        <p>
+            Every Odoo project hits the same requests: "this field must be read-only for regular
+            users", "tidy this form for that team", "make the reference mandatory for accounting".
+            Out of the box that means editing XML views or paying for Studio. This module adds a
+            simple rule table instead: pick a model, pick a field, pick the user groups, tick the
+            restriction. Done.
+        </p>
+        <ul style="padding-left: 22px;">
+            <li><b>Read-only, invisible or required</b> &mdash; per field, per user group.</li>
+            <li><b>Server-enforced read-only</b> &mdash; read-only rules are also enforced
+                server-side on create and write, so a restricted user's direct API writes are
+                refused as well.</li>
+            <li><b>Works on any model</b> &mdash; standard or custom, including models added by
+                other apps.</li>
+            <li><b>Empty groups = everyone</b> &mdash; leave the group list empty to apply a rule
+                to all users.</li>
+            <li><b>Administrators stay safe</b> &mdash; rules never apply to system administrators
+                unless a rule explicitly opts in, so an admin can always repair data.</li>
+            <li><b>Zero setup cost</b> &mdash; depends on <code>base</code> only, no new mandatory
+                workflow, uninstall and every form is back to normal.</li>
+        </ul>
+    </div>
+
+    <div style="padding: 12px;">
+        <h2 style="color: #4C3D9E; font-size: 22px;">Screenshots</h2>
+        <div style="text-align: center; margin-bottom: 22px;">
+            <img src="01-rules-list.png" alt="Rules list" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+            <p style="color: #666; font-size: 14px; margin-top: 6px;">
+                All rules in one list: model, field, user groups and the three restriction flags.
+            </p>
+        </div>
+        <div style="text-align: center; margin-bottom: 22px;">
+            <img src="02-rule-form.png" alt="Rule form" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+            <p style="color: #666; font-size: 14px; margin-top: 6px;">
+                One rule: hide the website link from internal users &mdash; and, because this one
+                opts in, even from administrators.
+            </p>
+        </div>
+        <div style="text-align: center; margin-bottom: 22px;">
+            <img src="03-partner-before.png" alt="Partner form before" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+            <p style="color: #666; font-size: 14px; margin-top: 6px;">
+                Before: the contact form as Odoo ships it &mdash; Website visible, Phone editable.
+            </p>
+        </div>
+        <div style="text-align: center; margin-bottom: 22px;">
+            <img src="04-partner-after.png" alt="Partner form after" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+            <p style="color: #666; font-size: 14px; margin-top: 6px;">
+                After two rules: the Website line is gone and Phone is locked &mdash; the same write
+                is also refused server-side.
+            </p>
+        </div>
+    </div>
+
+    <div style="padding: 12px;">
+        <h2 style="color: #4C3D9E; font-size: 22px;">Installation</h2>
+        <ol style="padding-left: 22px;">
+            <li>Install the module from the Apps menu.</li>
+            <li>No other module is required; it only depends on <code>base</code>.</li>
+        </ol>
+
+        <h2 style="color: #4C3D9E; font-size: 22px;">Configuration</h2>
+        <ol style="padding-left: 22px;">
+            <li>Enable developer mode (Settings &rarr; General Settings &rarr; Developer Tools).</li>
+            <li>Open <b>Settings &rarr; Technical &rarr; Field Rules</b>.</li>
+            <li>Create a rule: choose the model, the field and the user groups, then tick
+                Read-Only, Invisible or Required.</li>
+            <li>Leave User Groups empty to apply the rule to every user.</li>
+            <li>Tick "Apply to System Administrators" only if the rule must cover admins too.</li>
+        </ol>
+
+        <h2 style="color: #4C3D9E; font-size: 22px;">Usage</h2>
+        <ol style="padding-left: 22px;">
+            <li>A user in one of the rule's groups opens the form: the field shows up read-only,
+                hidden or required, exactly as configured.</li>
+            <li>If a restricted user tries to write a read-only field through the API, the server
+                refuses with a clear message naming the field and the rule.</li>
+            <li>Archive a rule to suspend it, delete it to remove it &mdash; the change applies
+                immediately.</li>
+        </ol>
+
+        <h2 style="color: #4C3D9E; font-size: 22px;">Honest limitations</h2>
+        <ul style="padding-left: 22px;">
+            <li>Rules apply to <b>form views only</b> &mdash; list, kanban and other views are not
+                stamped (a read-only rule still blocks list-view edits server-side).</li>
+            <li><b>Invisible hides the field on form views only</b> &mdash; the value remains
+                readable via API calls, exports, list/kanban views and embedded subviews. It is a
+                UI convenience, not an access control.</li>
+            <li><b>Read-only is not enforced on system/sudo flows</b> &mdash; writes performed by
+                Odoo itself or through sudo (for example a user editing their own preferences)
+                are not blocked.</li>
+            <li><b>Required is enforced by the form only</b>, not server-side, in this version.</li>
+            <li>System administrators are exempt by default &mdash; on purpose, so they can always
+                fix data. Each rule can opt in to cover them.</li>
+            <li>No conditional rules (e.g. "only when state is draft") in this version.</li>
+        </ul>
+    </div>
+
+    <div style="background: #4C3D9E; color: #fff; text-align: center; padding: 18px; margin: 18px 12px; border-radius: 8px;">
+        <p style="margin: 0; font-size: 16px;"><b>Questions or suggestions?</b></p>
+        <p style="margin: 6px 0 0 0;">
+            Write to <a href="mailto:f.ashraf.dev1@gmail.com" style="color: #F6B42E;">f.ashraf.dev1@gmail.com</a>
+            &mdash; happy to help.
+        </p>
+    </div>
+
+</div>

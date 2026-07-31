@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_field_group_rule_tree" model="ir.ui.view">
+        <field name="name">field.group.rule.tree</field>
+        <field name="model">field.group.rule</field>
+        <field name="arch" type="xml">
+            <tree string="Field Rules">
+                <field name="model_id"/>
+                <field name="field_id"/>
+                <field name="group_ids" widget="many2many_tags"/>
+                <field name="readonly"/>
+                <field name="invisible"/>
+                <field name="required"/>
+                <field name="apply_to_admin" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_field_group_rule_form" model="ir.ui.view">
+        <field name="name">field.group.rule.form</field>
+        <field name="model">field.group.rule</field>
+        <field name="arch" type="xml">
+            <form string="Field Rule">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Target Field">
+                            <field name="active" invisible="1"/>
+                            <field name="model_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="field_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Applies To">
+                            <field name="group_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"
+                                   placeholder="Every user"/>
+                            <field name="apply_to_admin"/>
+                        </group>
+                    </group>
+                    <group string="Restriction">
+                        <field name="readonly"/>
+                        <field name="invisible"/>
+                        <field name="required"/>
+                    </group>
+                    <div class="text-muted">
+                        Read-only rules are also enforced on the server, so they
+                        cannot be bypassed through RPC. Invisible and required
+                        act on form views only.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_field_group_rule_search" model="ir.ui.view">
+        <field name="name">field.group.rule.search</field>
+        <field name="model">field.group.rule</field>
+        <field name="arch" type="xml">
+            <search string="Field Rules">
+                <field name="model_id"/>
+                <field name="field_id"/>
+                <field name="group_ids"/>
+                <filter string="Read-Only" name="filter_readonly" domain="[('readonly', '=', True)]"/>
+                <filter string="Invisible" name="filter_invisible" domain="[('invisible', '=', True)]"/>
+                <filter string="Required" name="filter_required" domain="[('required', '=', True)]"/>
+                <separator/>
+                <filter string="Archived" name="filter_inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Model" name="group_model" context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_field_group_rule" model="ir.actions.act_window">
+        <field name="name">Field Rules</field>
+        <field name="res_model">field.group.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_field_group_rule_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first field rule</p>
+            <p>Pick a model and a field, choose the user groups, and make the
+               field read-only, invisible or required on its form views.
+               Read-only rules are also enforced server-side.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_field_group_rule"
+              name="Field Rules"
+              parent="base.menu_custom"
+              action="action_field_group_rule"
+              groups="base.group_system"
+              sequence="20"/>
+
+</odoo>
