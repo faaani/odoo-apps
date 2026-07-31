@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Mirror of base.res_partner_rule as it is worded on this series. The
+         report must never show a contact that the standard Contacts list would
+         hide. Global rules are not bypassed by base.group_system, so without
+         this an administrator restricted to one company could read the bouncing
+         portal contacts of the other companies. -->
+    <record id="mail_bounce_report_company_rule" model="ir.rule">
+        <field name="name">Email Bounce Report: contacts of allowed companies only</field>
+        <field name="model_id" ref="model_mail_bounce_report"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|', ('partner_share', '=', False), ('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <!-- Mirror of base.res_partner_rule_private_employee and
+         base.res_partner_rule_private_group, which core ships on 14.0-16.0 only
+         (the "private" address type was removed in 17.0). Private addresses are
+         employees' home addresses: core walls them off from every internal user
+         except members of base.group_private_addresses, a group that
+         base.group_system does NOT imply and that has no members out of the box.
+         Without these two rules a plain Settings administrator would read
+         bouncing private addresses here that the Contacts list refuses to show
+         them. Group rules for one model are OR-ed, so a user in both groups sees
+         everything - exactly the semantics core has. -->
+    <record id="mail_bounce_report_private_employee_rule" model="ir.rule">
+        <field name="name">Email Bounce Report: hide private addresses</field>
+        <field name="model_id" ref="model_mail_bounce_report"/>
+        <field name="domain_force">['|', ('partner_type', '!=', 'private'), ('partner_type', '=', False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="mail_bounce_report_private_group_rule" model="ir.rule">
+        <field name="name">Email Bounce Report: private addresses</field>
+        <field name="model_id" ref="model_mail_bounce_report"/>
+        <field name="domain_force">[('partner_type', '=', 'private')]</field>
+        <field name="groups" eval="[(4, ref('base.group_private_addresses'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>

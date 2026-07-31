@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_bounce_report" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.bounce.report</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Email Bounces</h2>
+                <div class="row mt16 o_settings_container" id="mail_bounce_report_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="mail_bounce_report_setting">
+                        <div class="o_setting_right_pane">
+                            <label for="mail_bounce_report_threshold"/>
+                            <div class="text-muted">
+                                Number of bounces at which a contact is flagged in the Email
+                                Bounce Report. The test is inclusive (bounces &gt;= threshold).
+                                Reporting only: no contact and no mailing is ever changed.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <field name="mail_bounce_report_threshold" class="col-lg-2 o_light_label"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
