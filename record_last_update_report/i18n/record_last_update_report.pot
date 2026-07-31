@@ -1,0 +1,470 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* record_last_update_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:27+0000\n"
+"PO-Revision-Date: 2026-07-31 00:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"\"%s\" does not record when its rows were last written (log access is "
+"disabled on this model), so its records cannot be aged."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"\"%s\" is a wizard (transient) model. Odoo empties it automatically, so a "
+"staleness report on it would be meaningless."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"\"%s\" is an abstract model: it has no table and no records of its own, so "
+"there is nothing to age."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "%(model)s not updated in %(days)s days"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"%(stale)s of the %(scope)s records you are allowed to see have not been "
+"updated in %(days)s days."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__age_days
+msgid ""
+"A record counts as stale when its last-update date is older than this many "
+"days. The four age buckets below are always reported as well, whatever value"
+" you use here."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid ""
+"A record untouched for 400 days is counted in every bucket:\n"
+"                        the buckets say \"older than\", they do not slice the\n"
+"                        records into disjoint groups."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Age Buckets (Cumulative)"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "All of them are listed below."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Analyse"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__analyzed_on
+msgid "Analysed On"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "At least one row must be listed."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Change Criteria"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__create_uid
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__create_date
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields.selection,name:record_last_update_report.selection__stale_records_wizard__state__draft
+msgid "Criteria"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__days_since_update
+msgid "Days Since Update"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__display_name
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__extra_domain
+msgid "Extra Filter"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "How Old, How Many"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__sample_limit
+msgid ""
+"How many of the oldest records to list. Capped at 500 rows; the counts are "
+"never capped."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__id
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__id
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_line_tree
+msgid "ID"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__include_archived
+msgid "Include Archived Records"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line____last_update
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__last_update
+msgid "Last Updated"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__last_writer_id
+msgid "Last Updated By"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__write_uid
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__write_date
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__truncated
+msgid "List Truncated"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__res_model
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__model_id
+msgid "Model"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Not Updated For"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__age_days
+msgid "Not Updated For (Days)"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid ""
+"Nothing is stale: every record in scope has been updated\n"
+"                            more recently than that."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__include_archived
+msgid ""
+"Off by default, so the report covers the same records as the ordinary list "
+"view of that model."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__count_180
+msgid "Older Than 180 Days"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__count_30
+msgid "Older Than 30 Days"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__count_365
+msgid "Older Than 365 Days"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__count_90
+msgid "Older Than 90 Days"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__line_ids
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_line_tree
+msgid "Oldest Records"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Oldest Records First"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid ""
+"Only the oldest rows are listed. Use <b>Open All Stale\n"
+"                            Records</b> to work through the whole selection."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Open All Stale Records"
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_line_tree
+msgid "Open this record"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__extra_domain
+msgid ""
+"Optional Odoo domain narrowing the records to look at, written as a literal "
+"Python list, e.g. [(\"customer_rank\", \">\", 0)]. Only literal values are "
+"accepted: expressions such as uid or context_today() are not evaluated."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__record_name
+msgid "Record"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "Record #%s"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__scope_count
+msgid "Records in Scope"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__scope_count
+msgid "Records matching the extra filter, whatever their age."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__stale_count
+msgid "Records not updated for at least the number of days requested."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "Refresh"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_line__wizard_id
+msgid "Report"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__result_note
+#: model:ir.model.fields.selection,name:record_last_update_report.selection__stale_records_wizard__state__done
+msgid "Result"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__listed_count
+msgid "Rows Listed"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__sample_limit
+msgid "Rows to List"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model,name:record_last_update_report.model_stale_records_line
+msgid "Stale Record"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__stale_count
+msgid "Stale Records"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#: model:ir.actions.act_window,name:record_last_update_report.action_stale_records_wizard
+#: model:ir.model,name:record_last_update_report.model_stale_records_wizard
+#: model:ir.ui.menu,name:record_last_update_report.menu_stale_records_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+#, python-format
+msgid "Stale Records Report"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__state
+msgid "Status"
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,field_description:record_last_update_report.field_stale_records_wizard__model_name
+msgid "Technical Name"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "That record has been deleted since the report was run."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"The %(listed)s oldest are listed below (list capped at %(limit)s rows); the "
+"counts cover all %(stale)s."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "The age cannot exceed %s days."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "The age must be at least one day."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"The extra filter must be a literal Odoo domain, for example "
+"[(\"customer_rank\", \">\", 0)]."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"The list is capped at %s rows: reading more records than that in one page is"
+" what the counts are for."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"The model \"%s\" does not exist in this database. It probably belongs to a "
+"module that has been uninstalled."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid "The model of this line is no longer installed."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_wizard__model_id
+msgid "The model to analyse, for example Contact, Lead or Product."
+msgstr ""
+
+#. module: record_last_update_report
+#: model:ir.model.fields,help:record_last_update_report.field_stale_records_line__last_writer_id
+msgid ""
+"The user stored on the record as its last writer. Empty when the row was "
+"last written outside the ORM."
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"This report could not be run on \"%(model)s\":\n"
+"%(error)s\n"
+"\n"
+"Check the extra filter: every field it names must exist on that model and the values must have the right type."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid ""
+"This report only reads. It never writes to, archives or deletes\n"
+"                        the records it lists. Counts and rows are produced with\n"
+"                        <b>your own access rights</b>, so record rules apply: another\n"
+"                        user may legitimately get different numbers on the same model."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "What to Analyse"
+msgstr ""
+
+#. module: record_last_update_report
+#: code:addons/record_last_update_report/wizard/stale_records_wizard.py:0
+#, python-format
+msgid ""
+"You are not allowed to read \"%s\", so this report cannot be run on it. Ask "
+"an administrator to grant you access to that model, or pick another one."
+msgstr ""
+
+#. module: record_last_update_report
+#: model_terms:ir.ui.view,arch_db:record_last_update_report.view_stale_records_wizard_form
+msgid "[(\"customer_rank\", \">\", 0)]"
+msgstr ""

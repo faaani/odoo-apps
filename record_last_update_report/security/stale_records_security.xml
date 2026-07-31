@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Transient models are NOT isolated per user by the ORM: without these
+         rules any internal user could read the report rows another user
+         produced - including record names, dates and writers of records they
+         are not allowed to read themselves. Each user sees only their own
+         report; nothing else in the module relaxes this. -->
+    <record id="stale_records_wizard_own_rule" model="ir.rule">
+        <field name="name">Stale Records Report: own reports only</field>
+        <field name="model_id" ref="model_stale_records_wizard"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+    <record id="stale_records_line_own_rule" model="ir.rule">
+        <field name="name">Stale Records Report: own report lines only</field>
+        <field name="model_id" ref="model_stale_records_line"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+</odoo>
