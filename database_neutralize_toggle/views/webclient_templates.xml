@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Server-rendered warning banner: pure inline CSS, no JS, no assets.
+         Injected into the body of the backend web client bootstrap page. -->
+    <template id="webclient_bootstrap_sandbox" inherit_id="web.webclient_bootstrap"
+              name="Sandbox Mode Banner">
+        <xpath expr="//t[@t-call='web.layout']" position="inside">
+            <div t-if="request and request.env['ir.config_parameter'].sudo().get_param('database_neutralize_toggle.active') == '1'"
+                 class="o_database_neutralize_banner"
+                 style="position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:1100;background-color:#dc3545;color:#ffffff;font-weight:bold;font-size:12px;line-height:1;padding:5px 16px;border-radius:0 0 6px 6px;pointer-events:none;opacity:0.95;">
+                SANDBOX MODE &#8212; mail &amp; crons disabled
+            </div>
+        </xpath>
+    </template>
+</odoo>

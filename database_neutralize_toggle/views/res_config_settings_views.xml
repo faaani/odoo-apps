@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_sandbox" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.sandbox</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="before">
+                <block title="Sandbox Mode" name="sandbox_mode_block">
+                    <setting string="Sandbox Mode" id="sandbox_mode_setting"
+                             help="Snapshot and deactivate every outgoing mail server, incoming mail server and scheduled action, and show a warning banner. Switching it back off restores the exact previous state.">
+                        <field name="sandbox_mode"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
