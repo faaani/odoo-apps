@@ -4,20 +4,20 @@
         <p style="margin: 0; font-size: 18px; color: #f0a830;">What is really eating your database and filestore.</p>
     </div>
 
-    <p style="font-size: 16px; margin-top: 24px;">When a database or filestore starts filling the disk, Odoo has no screen that answers the only question that matters: <strong>what is actually taking the space?</strong> This module adds a read-only storage report for administrators — attachments grouped by model and by uploading user, split between filestore and database, plus a list of the largest files and a minimum-size filter so the thousands of tiny records stop hiding the real offenders.
+    <p style="font-size: 16px; margin-top: 24px;">When a database or filestore starts filling the disk, Odoo has no screen that answers the only question that matters: <strong>what is actually taking the space?</strong> This module adds a read-only storage report for administrators &mdash; attachments grouped by model and by uploading user, split between filestore and database, plus a list of the largest files and a minimum-size filter so the thousands of tiny records stop hiding the real offenders.
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>By model</strong> — see at a glance whether contacts, products or stored report PDFs own your disk.</li>
-        <li><strong>By user</strong> — find the person whose uploads grew fastest, with each one's share of the total.</li>
-        <li><strong>Largest attachments</strong> — the biggest files, with owner, upload date and where they are stored.</li>
-        <li><strong>Size threshold</strong> — ignore everything under N&nbsp;MB and look only at what matters.</li>
-        <li><strong>Filestore vs database</strong> — totals for both, so you know which one to grow.</li>
-        <li><strong>Fast</strong> — every figure is aggregated by PostgreSQL, never by loading attachments one by one.</li>
-        <li><strong>Safe by default</strong> — the report is read-only and reserved to Settings administrators. Nothing is ever deleted automatically; the optional cleanup removes only the files you tick, after an explicit confirmation, and refuses files that are the value of a binary field so a logo or a photo can never be erased by mistake.</li>
+        <li><strong>By model</strong> &mdash; see at a glance whether contacts, products or stored report PDFs own your disk.</li>
+        <li><strong>By user</strong> &mdash; find the person whose uploads grew fastest, with each one's share of the total.</li>
+        <li><strong>Largest attachments</strong> &mdash; the biggest files, with owner, upload date and where they are stored.</li>
+        <li><strong>Size threshold</strong> &mdash; ignore everything under N&nbsp;MB and look only at what matters.</li>
+        <li><strong>Filestore vs database</strong> &mdash; totals for both, so you know which one to grow.</li>
+        <li><strong>Fast</strong> &mdash; every figure is aggregated by PostgreSQL, never by loading attachments one by one.</li>
+        <li><strong>Safe by default</strong> &mdash; the report is read-only and reserved to Settings administrators. Nothing is ever deleted automatically; the optional cleanup removes only the files you tick, after an explicit confirmation, and refuses files that are the value of a binary field so a logo or a photo can never be erased by mistake.</li>
     </ul>
 
-    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;">The report aggregates the attachment table directly in SQL. It therefore reports on every attachment in the selected companies, including documents the administrator would not be able to open individually — which is why it is restricted to the Settings group. In multi-company databases only the companies selected in the company switcher are counted.</p>
+    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;">The report aggregates the attachment table directly in SQL. It therefore reports on every attachment in the selected companies, including documents the administrator would not be able to open individually &mdash; which is why it is restricted to the Settings group. In multi-company databases only the companies selected in the company switcher are counted.</p>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
     <div style="margin: 18px 0;">
@@ -37,7 +37,7 @@
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Copy the <code>attachment_storage_report</code> folder into your addons path (or install it from the Apps store).</li>
         <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Attachment Storage Report</em> and click <strong>Install</strong>.</li>
-        <li>No external Python library and no other module is required — it only depends on <code>base</code>.</li>
+        <li>No external Python library and no other module is required &mdash; it only depends on <code>base</code>.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
@@ -61,7 +61,7 @@
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>

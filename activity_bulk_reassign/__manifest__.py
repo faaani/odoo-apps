@@ -5,8 +5,8 @@
     'version': '18.0.1.0.0',
     'summary': 'Move all open activities of one user to another in a single step.',
     'description': """
-When someone leaves the company or goes on holiday, their open activities —
-to-dos, calls, meetings — stay assigned to them. Odoo only lets you move them
+When someone leaves the company or goes on holiday, their open activities - 
+to-dos, calls, meetings - stay assigned to them. Odoo only lets you move them
 one record at a time.
 
 This wizard picks up every open activity of a user, optionally narrowed by

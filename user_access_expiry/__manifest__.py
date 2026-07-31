@@ -3,10 +3,10 @@
 {
     'name': 'User Access Expiry Date',
     'version': '18.0.1.0.1',
-    'summary': 'Set an end date on any user — contractors and temporary accounts are archived automatically when it passes.',
+    'summary': 'Set an end date on any user - contractors and temporary accounts are archived automatically when it passes.',
     'description': """
 Give any user an access expiry date. A daily job archives accounts whose date
-has passed — contractors, interns, auditors and temporary staff lose access on
+has passed - contractors, interns, auditors and temporary staff lose access on
 schedule instead of whenever someone remembers to deactivate them.
 
 Full audit trail, administrator email summary, and hard safety guards:

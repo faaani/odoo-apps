@@ -7,7 +7,7 @@
     'description': """
 Odoo activities only nag you inside Odoo. Close the tab and the reminder is
 gone: calls, follow-ups and to-dos quietly go past their due date because
-nothing reaches people where they actually look — their inbox.
+nothing reaches people where they actually look - their inbox.
 
 This module sends every user who opted in one digest email each morning with:
 
@@ -17,7 +17,7 @@ This module sends every user who opted in one digest email each morning with:
   overdue lines clearly marked,
 * a direct link that opens the document in Odoo.
 
-Nothing is sent to a user who has no activity due — you never get an empty
+Nothing is sent to a user who has no activity due - you never get an empty
 "you have 0 activities" email. Each digest is built in the recipient's own
 language and their own timezone, so "due today" means today where they are,
 not where the server is.

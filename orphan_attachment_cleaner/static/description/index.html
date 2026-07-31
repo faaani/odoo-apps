@@ -4,16 +4,16 @@
         <p style="margin: 0; font-size: 18px; color: #f0a830;">Reclaim the filestore space deleted records left behind.</p>
     </div>
 
-    <p style="font-size: 16px; margin-top: 24px;">Deleting a record does not always remove the files attached to it. After data imports, module uninstalls and failed jobs, attachments are left pointing at a record that is gone — or at a model that no longer exists in the database at all. Nothing ever cleans them up, and they keep consuming filestore space forever. This module scans for them, groups them by model, and shows exactly how much space they waste.
+    <p style="font-size: 16px; margin-top: 24px;">Deleting a record does not always remove the files attached to it. After data imports, module uninstalls and failed jobs, attachments are left pointing at a record that is gone &mdash; or at a model that no longer exists in the database at all. Nothing ever cleans them up, and they keep consuming filestore space forever. This module scans for them, groups them by model, and shows exactly how much space they waste.
         <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
 
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Report only</strong> — the scan never changes anything. Opening it is always safe.</li>
-        <li><strong>Two kinds of orphan</strong> — attachments whose model is no longer in the registry (an uninstalled module, a removed model) and attachments whose record was deleted.</li>
-        <li><strong>Reclaimable space</strong> — per model and in total, so you know what a cleanup is worth before running it.</li>
-        <li><strong>Deliberate cleanup</strong> — a confirmation box plus a confirmation dialog, reserved for Settings administrators, deleting exactly what was listed and nothing else.</li>
-        <li><strong>Pick and choose</strong> — untick any model group you would rather keep.</li>
-        <li><strong>Fast on large databases</strong> — one grouped query lists the models, one existence check per model finds the dead records. Attachments are never read one by one.</li>
+        <li><strong>Report only</strong> &mdash; the scan never changes anything. Opening it is always safe.</li>
+        <li><strong>Two kinds of orphan</strong> &mdash; attachments whose model is no longer in the registry (an uninstalled module, a removed model) and attachments whose record was deleted.</li>
+        <li><strong>Reclaimable space</strong> &mdash; per model and in total, so you know what a cleanup is worth before running it.</li>
+        <li><strong>Deliberate cleanup</strong> &mdash; a confirmation box plus a confirmation dialog, reserved for Settings administrators, deleting exactly what was listed and nothing else.</li>
+        <li><strong>Pick and choose</strong> &mdash; untick any model group you would rather keep.</li>
+        <li><strong>Fast on large databases</strong> &mdash; one grouped query lists the models, one existence check per model finds the dead records. Attachments are never read one by one.</li>
     </ul>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
@@ -23,13 +23,13 @@
     </div>
     <div style="margin: 18px 0;">
         <img src="02-clean-scan.png" alt="02-clean-scan" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
-        <p style="font-size: 14px; color: #555; margin-top: 6px;">After the cleanup — and on a healthy database — the scan simply reports that there is nothing to do, and how many attachments it inspected.</p>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">After the cleanup &mdash; and on a healthy database &mdash; the scan simply reports that there is nothing to do, and how many attachments it inspected.</p>
     </div>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
     <ol style="font-size: 15px; line-height: 1.7;">
         <li>Open <strong>Apps</strong>, search for <em>Find Orphaned Attachments</em> and click <strong>Install</strong>.</li>
-        <li>Only the standard <code>base</code> module is required — no dependency on any app.</li>
+        <li>Only the standard <code>base</code> module is required &mdash; no dependency on any app.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
@@ -48,23 +48,23 @@
         <li>Click <strong>Rescan</strong> whenever you want fresh figures.</li>
     </ol>
 
-    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Safety — what is never touched</h2>
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Safety &mdash; what is never touched</h2>
     <p style="font-size: 15px;">A wrong deletion here destroys data, so the scan is deliberately conservative. These attachments are never listed and never deleted:</p>
     <ul style="font-size: 15px; line-height: 1.7;">
-        <li><strong>Files with no model at all</strong> — documents users uploaded on their own, which belong to nobody but them.</li>
-        <li><strong>Web assets and module data</strong> — <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and <code>ir.module.module</code>, which Odoo owns and regenerates by itself.</li>
-        <li><strong>Binary field storage</strong> — any attachment with <code>res_field</code> set holds the value of a field on a live record; deleting it would blank that field.</li>
-        <li><strong>Uploads in progress</strong> — attachments not linked to a record yet.</li>
-        <li><strong>Archived or invisible records</strong> — existence is checked directly against the table, ignoring record rules and the active flag, so a record that is merely hidden from you is never mistaken for a deleted one.</li>
+        <li><strong>Files with no model at all</strong> &mdash; documents users uploaded on their own, which belong to nobody but them.</li>
+        <li><strong>Web assets and module data</strong> &mdash; <code>ir.ui.view</code>, <code>ir.asset</code>, <code>ir.actions.report</code> and <code>ir.module.module</code>, which Odoo owns and regenerates by itself.</li>
+        <li><strong>Binary field storage</strong> &mdash; any attachment with <code>res_field</code> set holds the value of a field on a live record; deleting it would blank that field.</li>
+        <li><strong>Uploads in progress</strong> &mdash; attachments not linked to a record yet.</li>
+        <li><strong>Archived or invisible records</strong> &mdash; existence is checked directly against the table, ignoring record rules and the active flag, so a record that is merely hidden from you is never mistaken for a deleted one.</li>
     </ul>
     <p style="font-size: 15px;">The cleanup re-applies every one of these exclusions to the selected lines immediately before deleting, so nothing outside the reported set can be removed.</p>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
-    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 – 19.0).</p>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0).</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
-        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
     <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
