@@ -1,0 +1,413 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* field_help_editor
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:02+0000\n"
+"PO-Revision-Date: 2026-07-31 00:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: field_help_editor
+#: code:addons/field_help_editor/models/ir_model_fields.py:0
+#, python-format
+msgid ""
+"'%s' is an abstract model: it stores nothing and its labels are never "
+"displayed. Edit the field on the model that uses it."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.constraint,message:field_help_editor.constraint_field_help_customization_field_lang_uniq
+msgid "A field can only be customized once per language."
+msgstr ""
+
+#. module: field_help_editor
+#: code:addons/field_help_editor/models/ir_model_fields.py:0
+#, python-format
+msgid "A field must keep a label; only the tooltip can be emptied."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "A label is shared by every user of this database. You are editing the"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__fhe_is_technical
+msgid "Bookkeeping Field"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+msgid "Currently Applied"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__custom_description
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+msgid "Custom Label"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__custom_help
+msgid "Custom Tooltip"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__fhe_customized
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Customized"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+msgid "Customized Label"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.actions.act_window,name:field_help_editor.action_fhe_customizations
+#: model:ir.ui.menu,name:field_help_editor.menu_fhe_customizations
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_tree
+msgid "Customized Labels"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__display_name
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.actions.act_window,name:field_help_editor.action_fhe_fields
+#: model:ir.ui.menu,name:field_help_editor.menu_fhe_fields
+msgid "Edit Field Labels"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__fhe_lang_name
+msgid "Editing Language"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.actions.act_window,help:field_help_editor.action_fhe_customizations
+msgid ""
+"Every field whose label or tooltip was changed from this database is\n"
+"               listed here with the values Odoo originally shipped. Select rows and use\n"
+"               the Actions menu to reset them all, or to apply them again after an\n"
+"               upgrade restored the built-in labels."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Explain what this field means in your company..."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__field_id
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Field"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Field Label"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model,name:field_help_editor.model_field_help_customization
+msgid "Field Label Customization"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.ui.menu,name:field_help_editor.menu_fhe_root
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Field Labels"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Field Type"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model,name:field_help_editor.model_ir_model_fields
+msgid "Fields"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Group By"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Hide Bookkeeping Fields"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__id
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__id
+msgid "ID"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Label"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields__fhe_customization_ids
+msgid "Label Customizations"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__custom_description
+msgid "Label currently applied by this customization."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__original_description
+msgid "Label this field had before it was customized for the first time."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__lang
+msgid ""
+"Labels and tooltips are translatable: this entry only describes the values "
+"of this language."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__lang_name
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+msgid "Language"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__lang
+msgid "Language Code"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_ir_model_fields__fhe_lang_name
+msgid ""
+"Language the label and the tooltip shown here belong to. It is the language "
+"of your own user session; the other languages keep their own values."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_tree
+msgid "Last Change"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization____last_update
+#: model:ir.model.fields,field_description:field_help_editor.field_ir_model_fields____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__model_name
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Model"
+msgstr ""
+
+#. module: field_help_editor
+#: code:addons/field_help_editor/models/ir_model_fields.py:0
+#, python-format
+msgid ""
+"Model '%s' is not installed in this database, so the labels of its fields "
+"cannot be edited."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.actions.act_window,help:field_help_editor.action_fhe_fields
+msgid "No field matches these filters"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.actions.act_window,help:field_help_editor.action_fhe_customizations
+msgid "No label has been customized yet"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Not Customized"
+msgstr ""
+
+#. module: field_help_editor
+#: code:addons/field_help_editor/models/ir_model_fields.py:0
+#, python-format
+msgid "Only Settings administrators can change field labels and tooltips."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Open this field"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__original_description
+msgid "Original Label"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__original_help
+msgid "Original Tooltip"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Original Values"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_tree
+msgid "Re-apply"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.actions.server,name:field_help_editor.action_server_fhe_reapply
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Re-apply Customization"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Required Fields"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_tree
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Reset"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.actions.server,name:field_help_editor.action_server_fhe_reset
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Reset to Original"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_tree
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Restore the original label and tooltip of this field?"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.actions.act_window,help:field_help_editor.action_fhe_fields
+msgid ""
+"Search a model, then edit the Label and the Tooltip directly in the list.\n"
+"               A label is shared by every user of this database, and you are editing the\n"
+"               language of your own user session - other languages keep their own values."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "Status"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+msgid "Stored Fields"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,field_description:field_help_editor.field_field_help_customization__field_name
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_customization_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_search
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Technical Name"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_ir_model_fields__fhe_is_technical
+msgid ""
+"Technical column kept by Odoo on every model (creation and write stamps, "
+"identifier, display name). Hidden from the editor by default."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_ir_model_fields__fhe_customized
+msgid ""
+"The label or the tooltip of this field was changed from this database, in at"
+" least one language."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__model_name
+msgid "The technical name of the model this field belongs to"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Tooltip"
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__custom_help
+msgid "Tooltip currently applied by this customization."
+msgstr ""
+
+#. module: field_help_editor
+#: model:ir.model.fields,help:field_help_editor.field_field_help_customization__original_help
+msgid "Tooltip this field had before it was customized for the first time."
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_tree
+msgid "Type"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "What Users See"
+msgstr ""
+
+#. module: field_help_editor
+#: model_terms:ir.ui.view,arch_db:field_help_editor.view_fhe_field_form
+msgid "values; the other languages keep their own."
+msgstr ""
