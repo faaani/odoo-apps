@@ -1,0 +1,85 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #12304d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Check Attachment Files</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Find the attachments whose file is gone — before a user does.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">A database restored without its filestore, a half-finished migration, a backup that only covered PostgreSQL: the rows in <code>ir.attachment</code> survive, the files behind them do not. Odoo says nothing about it. The damage surfaces months later, when somebody clicks <strong>Download</strong> and gets an error.
+        This module adds an administrator scan that walks the filestore-backed attachments, checks that each file really exists, and reports what was lost — grouped by model, with the record, the owner, the date and the exact path that could not be read.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Missing files</strong> — every attachment whose file is not on disk any more, with the filestore path it points at.</li>
+        <li><strong>Wrong size</strong> — files whose size on disk no longer matches the size recorded in the database.</li>
+        <li><strong>Wrong checksum</strong> — an opt-in deep check that recomputes each file's SHA1 and catches silent corruption, even when the size did not change.</li>
+        <li><strong>Grouped by model</strong> — see at a glance whether you lost contact documents, company files or stored reports, and how much content each model lost.</li>
+        <li><strong>Who and when</strong> — every broken row shows the record it belonged to, the user who uploaded it, the upload date and the size.</li>
+        <li><strong>Batched</strong> — the attachment table is read a page at a time, so the scan uses the same memory on a database with a thousand attachments and one with a million. The number of pages read is shown on the report.</li>
+        <li><strong>Filters</strong> — restrict to one model, to an upload period, or to user uploads only; stop the scan after N attachments; cap the detailed list (the counts always cover the whole scan, and the page says when the list was truncated).</li>
+        <li><strong>Report only</strong> — nothing is ever deleted automatically. See the box below.</li>
+    </ul>
+
+    <div style="font-size: 15px; background: #fff8e8; border-left: 4px solid #f0a830; padding: 14px 18px; margin: 20px 0;">
+        <strong>What this module never does.</strong> It never deletes an attachment on its own. The scan itself never reads, writes or deletes a file — with checksum verification off it does not open a single one, and with it on it only reads. A missing file is usually recoverable: restoring the filestore brings it straight back, and a scan that had deleted the database rows would have thrown that recovery away.
+        There <em>is</em> an optional cleanup for the case where you know the files are gone for good: you tick individual rows, confirm an explicit dialog, and only those records are removed. It refuses any row whose file is still on disk, it re-checks the disk immediately before deleting so a restore that happened since the report can never be undone, it refuses rows that are the value of a binary field on a record, and it deletes with your own access rights rather than as superuser. Deleting rows makes Odoo enqueue their (already missing) filestore entries for its standard garbage collector — no file content is removed by this module, and core skips any file still referenced by another attachment.
+    </div>
+
+    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;"><strong>Honest limitations.</strong> <strong>The scan only sees what your user is allowed to see.</strong> Odoo removes from every attachment search the attachments whose linked record belongs to a model the current user has no access to, so a Settings administrator who does not also hold the Accounting or HR groups would never be shown a broken invoice PDF. Rather than leave that gap silent, every report counts the attachments it was not allowed to examine and says so, in the summary (<strong>Hidden From You</strong>) and in the result note — run the scan as a user with access to every app to bring that number to zero.
+    Only attachments backed by the filestore can be checked on disk: attachments stored inside the database (<code>db_datas</code>) and link/URL attachments hold no file, so they are counted separately and excluded, and they appear in the summary so the numbers always add up. The scan reads the local filesystem through Odoo's own path resolution, so it follows a custom filestore location; if a third-party module stores attachment content somewhere else entirely (S3 and similar), that content is outside what this module can verify. Checksum verification needs a checksum stored on the attachment; rows that have none are reported as such instead of being silently passed, and size comparison is skipped for rows whose recorded size is zero. With checksums on, the scan reads the whole filestore inside one web request — combine it with <strong>Stop After</strong> on a very large filestore. Access is restricted to the Settings group because the report exposes filestore paths and file names across the whole database.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="02-broken-files.png" alt="Broken attachments with record, owner, date and filestore path" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every attachment whose file is missing, with its record, owner, date and the exact filestore path that could not be read.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="01-summary.png" alt="Summary of a scan: what was examined and what was found" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">What was examined and what was found, the filters used, and the filestore the scan looked in.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-by-model.png" alt="Broken attachments summarised per model" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The same broken attachments summarised per model, with the content each model lost.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-clean-scan.png" alt="A scan that found nothing broken" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A scan that found nothing wrong says so plainly, instead of leaving you guessing.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>attachment_link_checker</code> folder into your addons path (or install it from the Apps store).</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Check Attachment Files</em> and click <strong>Install</strong>.</li>
+        <li>No external Python library and no other module is required — it only depends on <code>base</code>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>There is nothing to configure. The scan works on the attachments already in your database.</li>
+        <li>Access is limited to the <strong>Settings</strong> group (<em>Administration: Settings</em>). Give that group to anyone who should be able to run the scan.</li>
+        <li>Run the scan as a user who has access to every app. Odoo hides attachments whose linked record belongs to a model the user may not read; the report tells you how many were hidden (<strong>Hidden From You</strong>), and that number should be zero.</li>
+        <li>The scan reads the filestore of the machine it runs on. On a multi-server setup, run it on a server that has the filestore mounted, or the files will look missing when they are not.</li>
+        <li>In multi-company databases only the companies currently selected in the company switcher are examined.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Attachment Files &rarr; Check Attachment Files</strong>. The scan runs immediately with the default options.</li>
+        <li>Read the summary: how many attachments were examined, how many were checked on disk, how many are broken, and how much content was lost.</li>
+        <li>Open the <strong>Broken Attachments</strong> tab for the detail — model, record, file name, problem, uploader, date, size and the path the file should be at. Use <strong>Attachment</strong> or <strong>Record</strong> on a row to jump straight to it.</li>
+        <li>Use the <strong>By Model</strong> tab to see which models were hit hardest.</li>
+        <li>To go deeper, tick <strong>Verify Checksums</strong> and click <strong>Check Files</strong> again. This reads every byte of every file, so it is slow on a large filestore — but it is the only way to catch a file that was corrupted without changing size.</li>
+        <li>Narrow the scan with <strong>Limit to Model</strong>, <strong>Uploaded From/Until</strong> or <strong>Include Field Attachments</strong>, and control the cost with <strong>Batch Size</strong>, <strong>Stop After</strong> and <strong>Broken Rows to List</strong>.</li>
+        <li>Restore your filestore and run the scan again — the recovered files disappear from the report by themselves.</li>
+        <li>Only if the files are gone for good: tick <strong>Delete</strong> on the rows you want to drop and click <strong>Delete Ticked Records</strong>. A confirmation dialog appears, the disk is checked once more, and only the ticked dangling records are removed.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical features and identical results on every supported series (14.0 &ndash; 19.0). The number of pages reported is a property of each series' ORM paging and is not comparable between them.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> — I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
