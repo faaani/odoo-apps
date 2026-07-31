@@ -1,0 +1,93 @@
+<div style="max-width: 900px; margin: 0 auto; padding: 16px; font-family: Arial, Helvetica, sans-serif; color: #222;">
+
+    <div style="text-align: center; padding: 24px 12px; background: #303f9f; border-radius: 8px; color: #fff;">
+        <h1 style="margin: 0 0 8px 0; font-size: 30px;">Round-Robin Lead Assignment</h1>
+        <p style="margin: 0; font-size: 16px; color: #c5cae9;">
+            Fair automatic CRM lead distribution &mdash; free, for every sales team.
+        </p>
+    </div>
+
+    <p style="font-size: 15px; line-height: 1.6; margin-top: 24px;">
+        Automatic lead distribution is an Enterprise-only feature in standard Odoo.
+        This module adds a simple, fair alternative: tick a <b>Round Robin</b> checkbox
+        on any sales team and every new lead or opportunity created on that team
+        <i>without</i> a salesperson is assigned to the team members in strict rotation
+        &mdash; first member, second member, third member, then back to the first.
+    </p>
+
+    <ul style="font-size: 15px; line-height: 1.8;">
+        <li><b>Per-team toggle</b> &mdash; enable rotation only on the teams that want it.</li>
+        <li><b>Strict, predictable rotation</b> &mdash; members take turns in a fixed order; 6 leads over 3 members means exactly 2 each.</li>
+        <li><b>Assigns on creation</b> &mdash; for every lead created with a sales team (email gateway to a team alias, imports and API calls that set the team, website forms); leads whose team is only computed afterwards are picked up by the catch-up cron instead.</li>
+        <li><b>Multi-company safe</b> &mdash; rotation only picks members allowed in the lead's company.</li>
+        <li><b>Hourly catch-up cron</b> &mdash; sweeps leads that ended up unassigned anyway (capped at 500 per run, a failure on one team never blocks the others).</li>
+        <li><b>Respects manual choices</b> &mdash; a lead created with a salesperson is never touched, and nothing is ever <i>re</i>assigned.</li>
+        <li><b>Skips archived users</b> &mdash; deactivated members simply drop out of the rotation.</li>
+        <li>No new models, no extra permissions, depends on <code>crm</code> only.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #303f9f; padding-bottom: 6px; font-size: 22px;">Screenshots</h2>
+
+    <div style="text-align: center; margin: 18px 0;">
+        <img src="01-team-round-robin.png" alt="Round Robin checkbox on the sales team form" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+        <p style="color: #555; font-size: 13px;">One checkbox on the sales team form &mdash; the last round-robin assignee is shown next to the team leader.</p>
+    </div>
+    <div style="text-align: center; margin: 18px 0;">
+        <img src="02-leads-before.png" alt="Unassigned leads before the catch-up run" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+        <p style="color: #555; font-size: 13px;">Before: leads arrived with no salesperson.</p>
+    </div>
+    <div style="text-align: center; margin: 18px 0;">
+        <img src="03-leads-after.png" alt="Leads fairly distributed over the team members" style="max-width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
+        <p style="color: #555; font-size: 13px;">After: the same leads, distributed over the team members in strict rotation.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #303f9f; padding-bottom: 6px; font-size: 22px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>Download the module and place it in your addons path.</li>
+        <li>Update the app list (Apps &gt; Update Apps List, developer mode).</li>
+        <li>Install <b>Round-Robin Lead Assignment</b>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #303f9f; padding-bottom: 6px; font-size: 22px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>Open <b>CRM &gt; Configuration &gt; Sales Teams</b> and pick a team.</li>
+        <li>Make sure the team has members.</li>
+        <li>Tick <b>Round Robin</b>. That is all &mdash; the hourly catch-up cron
+            (<i>Round-robin: assign unassigned leads</i>) is installed and activated automatically.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #303f9f; padding-bottom: 6px; font-size: 22px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.8;">
+        <li>Create leads or opportunities on the team without picking a salesperson
+            (email gateway, import, website form, API...).</li>
+        <li>Each new lead is assigned to the next member in the rotation at creation time.</li>
+        <li>Leads that still end up unassigned are picked up by the hourly cron.</li>
+        <li>The team form shows the <b>Last Round-Robin Assignee</b> so you always know whose turn is next.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #303f9f; padding-bottom: 6px; font-size: 22px;">Limitations (honest ones)</h2>
+    <ul style="font-size: 15px; line-height: 1.8;">
+        <li>This is a <b>simple fair rotation</b> &mdash; not the weighted, capacity-based,
+            domain-filtered assignment of Odoo Enterprise or the probabilistic
+            <i>Rule-Based Assignment</i> built into newer Community versions. It is meant to be
+            predictable and zero-config instead.</li>
+        <li>It <b>never reassigns</b> a lead that already has a salesperson &mdash; manual choices always win.</li>
+        <li>Rotation order is fixed (member creation order); it is not configurable.</li>
+        <li>Leads created in the backend form are usually pre-filled with the current user as
+            salesperson by Odoo itself &mdash; the rotation applies to leads that arrive <i>without</i> one.</li>
+        <li>If you also enable Odoo's own opt-in Rule-Based Assignment (Community 15.0+) on a team,
+            the catch-up cron leaves that team to Odoo to avoid competing assignments;
+            creation-time rotation still applies.</li>
+        <li>If the member the pointer references leaves the team, the rotation restarts at the
+            first member.</li>
+        <li>On Odoo 19, email-gateway leads on a round-robin team with <i>no</i> members are
+            assigned to the team leader by Odoo itself, not left unassigned.</li>
+    </ul>
+
+    <div style="text-align: center; margin-top: 28px; padding: 18px; background: #f5f5f5; border-radius: 8px;">
+        <p style="margin: 0; font-size: 15px;">
+            Questions, issues or ideas? Contact
+            <a href="mailto:f.ashraf.dev1@gmail.com" style="color: #303f9f;">f.ashraf.dev1@gmail.com</a>
+        </p>
+    </div>
+</div>
