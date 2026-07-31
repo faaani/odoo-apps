@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_team_view_form_round_robin" model="ir.ui.view">
+        <field name="name">crm.team.form.round.robin</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options_active']" position="inside">
+                <span name="round_robin">
+                    <field name="assignment_round_robin"/>
+                    <label for="assignment_round_robin" string="Round Robin"/>
+                </span>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="rr_last_member_id"
+                       attrs="{'invisible': [('assignment_round_robin', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
