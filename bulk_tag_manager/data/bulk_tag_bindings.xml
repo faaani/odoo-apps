@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Contacts are in every database, so their binding is a plain data
+         record. Every other model is bound by the scan below. -->
+    <record id="action_bulk_tag_res_partner" model="ir.actions.act_window">
+        <field name="name">Add / Remove Tags</field>
+        <field name="res_model">bulk.tag.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <!-- Runs on install AND on every upgrade of this module: that is how a
+         model from an app installed later (CRM, Sales, Project, ...) gets the
+         Action-menu entry. -->
+    <function model="bulk.tag.wizard" name="_sync_action_bindings"/>
+</odoo>
