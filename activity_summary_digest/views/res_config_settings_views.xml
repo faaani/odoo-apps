@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_activity_digest" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.activity.digest</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="before">
+                <block title="Activities" name="activity_digest_block">
+                    <setting string="Daily Activity Digest" id="activity_digest_setting"
+                             help="Email each user who opted in a morning summary of the activities they must deal with. Users with nothing due are not emailed.">
+                        <field name="activity_digest_enabled"/>
+                        <div class="content-group" invisible="not activity_digest_enabled">
+                            <div class="mt16 text-muted">
+                                Each user switches the digest on for themselves under
+                                Preferences &gt; Activity Digest. The sending time lives in
+                                Settings &gt; Technical &gt; Scheduled Actions
+                                ("Send daily activity digest emails").
+                            </div>
+                            <button name="action_activity_digest_enable_all" type="object"
+                                    string="Turn on for all internal users"
+                                    class="btn-link mt8" icon="fa-envelope-o"
+                                    confirm="Every active internal user will start receiving the daily digest. They can switch it off again in their own preferences. Continue?"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

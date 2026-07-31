@@ -1,0 +1,96 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #12304d; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Record Rule Tester</h1>
+        <p style="margin: 0; font-size: 18px; color: #f0a830;">Which record rules apply to this user &mdash; and exactly why that record is hidden.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">&ldquo;Why can&rsquo;t this user see that order?&rdquo; is normally answered by opening <em>Settings &rarr; Technical &rarr; Record Rules</em>, reading a few domains full of <code>user.company_id</code>, and guessing.
+        This module answers it by <strong>asking the server</strong>. Pick a user, pick a model, press <strong>Run Test</strong>: the wizard runs the searches <strong>as that user</strong>, so every number comes out of Odoo&rsquo;s own rule engine rather than a re-implementation of it. When you also give a record id, it tells you whether that user can read that exact record &mdash; and when they cannot, which rules exclude it, taken from <code>ir.rule._get_failing()</code>, the very routine Odoo uses to name rules in its own error messages.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Applicable record rules</strong> &mdash; global ones and group ones listed separately, with the operations each covers, the tested user&rsquo;s groups the rule comes through, and its domain. Global rules are ANDed with everything else; group rules are ORed with each other, and the screen says so.</li>
+        <li><strong>Per operation</strong> &mdash; for read, write, create and delete: whether an access control line grants it on the model at all, how many record rules apply, and how many records the user can actually reach.</li>
+        <li><strong>A verdict on one record</strong> &mdash; type a record id and get &ldquo;can read&rdquo; or &ldquo;cannot read&rdquo;. On a refusal the blocking rules are named <em>and</em> flagged in red in the rules list. A record that simply does not exist is reported as missing, not blamed on a rule.</li>
+        <li><strong>A comparison figure</strong> &mdash; the same count taken for you, the administrator running the test, so a restricted user&rsquo;s number means something immediately.</li>
+        <li><strong>Multi-company aware</strong> &mdash; the evaluation uses every company the <em>tested</em> user is allowed to access, never your own company switcher, and the companies used are shown on screen.</li>
+        <li><strong>No access is a result, not a crash</strong> &mdash; a model the user has no access control line for is reported plainly instead of raising an error.</li>
+        <li><strong>Nothing to configure</strong> &mdash; depends on <code>base</code> only, no external Python library, no settings.</li>
+    </ul>
+
+    <div style="font-size: 15px; background: #fff8e8; border-left: 4px solid #f0a830; padding: 14px 18px; margin: 20px 0;">
+        <strong>Read-only, and it never widens access.</strong> The tester only ever runs searches. It never creates, edits or deletes a record rule or an access control line, and it never calls <code>sudo()</code> around an access decision &mdash; the evaluation environment is built with superuser mode explicitly off, so what you are shown is what Odoo would really do to that user. It never displays the content of a record either: you get counts, rule names, rule domains and a yes/no verdict, never field values.
+        Both the wizard and its two result models are restricted to <strong>Settings</strong> administrators (<code>base.group_system</code>) in <code>ir.model.access.csv</code>, and the Run Test method checks that group a second time before it does anything.
+    </div>
+
+    <p style="font-size: 14px; color: #555; background: #f6f6f6; border-left: 4px solid #12304d; padding: 12px 16px;"><strong>Honest limitations.</strong>
+    <strong>Domains are shown exactly as stored</strong> &mdash; <code>user.company_id</code> and friends are not expanded into values. What the user really ends up seeing is the evaluated result: the counts and the verdict, which are produced by really running the searches. The screen repeats that where it matters.
+    <strong>Counts stop at a cap</strong> (10&nbsp;000 by default, adjustable from 1 up to 200&nbsp;000). A count that reached the cap is flagged as capped, so it reads as &ldquo;this many or more&rdquo;, never as an exact total.
+    <strong>The Write and Delete counts are records the user can both see <em>and</em> write/delete</strong>: a search always applies the read rules on top of the operation&rsquo;s own rules. <strong>Create has no count at all</strong> &mdash; create rules validate the values of a new record, they do not filter existing ones &mdash; and the screen says so instead of showing a meaningless zero.
+    <strong>Rules inherited through <code>_inherits</code></strong> (say <code>product.product</code> reaching <code>product.template</code>) are applied by the server but are not listed here; a note tells you to run the test again on the parent model.
+    <strong>Field-level access</strong> (<code>groups=</code> on a field), menu visibility and button-level checks are out of scope &mdash; this is about record rules and model access.
+    Counts are taken with archived records included and with every company the tested user may access enabled.
+    <strong>Testing the superuser</strong> reports what an ordinary user with the same groups would see; in real operation the superuser bypasses rules entirely, and a note on the screen says so.
+    Finally, the &ldquo;no such record&rdquo; answer comes from a plain lookup on the table, so the tester can tell an administrator that a record id exists even when their own record rules hide it &mdash; it never shows that record&rsquo;s content, and this is one of the reasons the whole tool is limited to Settings administrators.</p>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-verdict.png" alt="A test result: model access, readable records, and the verdict on one record" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Who was tested, on which model, how many records they can reach compared with you &mdash; and why that one record is hidden.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-rules.png" alt="The record rules Odoo applies to this user, global and group separated" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every record rule Odoo applies to this user on this model, global and group separated, with the one that hides the record flagged in red.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-operations.png" alt="Read, write, create and delete broken down per operation" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Read, write, create and delete: model access, the number of rules that apply, and how many records the user can reach.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="04-no-access.png" alt="A model the user has no access control line for" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A model no access control line grants: the tester says so plainly instead of raising an error.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="05-notes.png" alt="The notes the tester adds about what its figures cover" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">The tester states what its figures do and do not cover instead of leaving you to guess.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Copy the <code>record_rule_tester</code> folder into your addons path (or install it from the Apps store).</li>
+        <li>Open <strong>Apps</strong>, click <strong>Update Apps List</strong>, search for <em>Record Rule Tester</em> and click <strong>Install</strong>.</li>
+        <li>No external Python library and no other module is required &mdash; it only depends on <code>base</code>.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>There is nothing to configure. The tester works on the users, models and record rules already in your database.</li>
+        <li>Access is limited to the <strong>Settings</strong> group (<em>Administration: Settings</em>). Give that group to anyone who should be able to run a test &mdash; nobody else can open the screen or read its results.</li>
+        <li>The tested user needs no preparation of any kind: they are never logged in, never written to, and never notified.</li>
+        <li>To see the technical model names next to the human ones (<code>res.partner</code> rather than <em>Contact</em>), switch on the developer mode &mdash; the tester shows both either way.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; Users &amp; Companies &rarr; Record Rule Tester</strong>.</li>
+        <li>Pick the <strong>User</strong> whose access you are investigating and the <strong>Model</strong> to test, for example <em>Contact</em> (<code>res.partner</code>).</li>
+        <li>Optionally fill in a <strong>Record ID</strong> &mdash; the database id of the one record somebody says they cannot see. Leave it at 0 to test the model only.</li>
+        <li>Optionally lower or raise the <strong>Count Cap</strong> (default 10&nbsp;000, maximum 200&nbsp;000) to control how far the counts are allowed to walk on a very large table.</li>
+        <li>Press <strong>Run Test</strong>.</li>
+        <li>Read the <strong>Result</strong> block: model access, how many records the user can read, how many <em>you</em> can read for comparison, whether a count was capped, how many global and group rules apply, and the companies the evaluation used.</li>
+        <li>Read the <strong>Verdict On The Record</strong>: &ldquo;can read&rdquo;, &ldquo;cannot read&rdquo; with the rules that exclude it named, &ldquo;no such record&rdquo;, or &ldquo;no access to this model&rdquo;.</li>
+        <li>Open the <strong>Operations</strong> tab for the read / write / create / delete breakdown, and the <strong>Applicable Record Rules</strong> tab for the rules themselves &mdash; the ones keeping your record out of reach are flagged and shown in red.</li>
+        <li>Check the <strong>Notes</strong> tab: it states the caveats that apply to this particular run (superuser, archived records, the cap, models that delegate through <code>_inherits</code>).</li>
+        <li>Change the rule in <em>Settings &rarr; Technical &rarr; Record Rules</em>, press <strong>Run Test</strong> again, and watch the numbers move.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical features on every supported series (14.0 &ndash; 19.0). The module adapts to the API each series ships: <code>check_access_rights()</code> on 14.0 &ndash; 17.0 and <code>has_access()</code> on 18.0 / 19.0 for model access, and the user&rsquo;s group set read from <code>groups_id</code> on 14.0 &ndash; 18.0 or <code>all_group_ids</code> on 19.0, so implied groups are always taken into account.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>

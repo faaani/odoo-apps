@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_user_permission_diff"
+              name="Compare User Permissions"
+              parent="base.menu_users"
+              action="action_user_permission_diff"
+              groups="base.group_system"
+              sequence="35"/>
+
+</odoo>

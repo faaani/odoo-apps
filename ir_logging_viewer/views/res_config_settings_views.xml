@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_logging_viewer" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.logging.viewer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="before">
+                <block title="Server Logs" name="ir_logging_viewer_block">
+                    <setting string="Log Retention" id="ir_logging_retention_setting"
+                             help="Delete database log entries older than a chosen number of days, once a day. Off by default: no log entry is deleted until you switch this on.">
+                        <field name="ir_logging_retention_active"/>
+                        <div class="content-group" invisible="not ir_logging_retention_active">
+                            <div class="row mt16">
+                                <label for="ir_logging_retention_days" class="col-lg-6 o_light_label"/>
+                                <field name="ir_logging_retention_days" class="col-lg-3"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Log Entries" id="ir_logging_viewer_open_setting"
+                             help="Browse the log entries Odoo stored in the database. This is the ir_logging table, not the server log file: Odoo fills it only when the server runs with the log_db option.">
+                        <div class="mt8">
+                            <button name="%(ir_logging_viewer.action_ir_logging_viewer)d"
+                                    type="action" string="Open Server Logs" class="btn-link"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
