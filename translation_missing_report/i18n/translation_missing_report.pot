@@ -1,0 +1,602 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* translation_missing_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
+"PO-Revision-Date: 2026-07-31 00:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_report__scope
+msgid ""
+"\"User interface only\" covers menus, field labels and help, model names, "
+"selection values, action and report names, view / QWeb template content and "
+"access group labels. \"Business record content\" covers translatable text "
+"stored on ordinary records (product names, country names, ...)."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"%(total)s term(s) still need attention in %(language)s (%(code)s), spread "
+"over %(modules)s module(s)."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"%s is the source language of this database: its terms are the terms other "
+"languages are translated from, so it can never be \"missing a translation\"."
+" Pick another installed language."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"%s term(s) belong to records your access rules do not let you read: they are"
+" counted but not listed."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_report__include_identical
+msgid ""
+"A translation that is character for character the same as the source term is"
+" usually a term nobody has looked at yet. Tick this to list those terms as "
+"well. Words that are genuinely the same in both languages will show up too."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__group
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__group
+msgid "Access group"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__action
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__action
+msgid "Action name"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid "All of them are listed below."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_report__scope__data
+msgid "Business record content only"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_form
+msgid "Cancel"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"Counts per module are computed database-wide with grouped SQL. The listed "
+"terms are additionally filtered through the standard access rules of each "
+"model, so a record you are not allowed to read is counted but never "
+"displayed. Nothing is ever written: the report never creates, changes or "
+"deletes a translation."
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "Coverage On This Version"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__create_uid
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__create_uid
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__create_date
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__create_date
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_line__res_id
+msgid ""
+"Database ID of the record carrying the term. 0 for source code terms, which "
+"belong to no record."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__display_name
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__display_name
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_report__scope__all
+msgid "Everything"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Field Labels"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__field
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__field
+msgid "Field label / help"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_form
+msgid "Generate Report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.actions.act_window,help:translation_missing_report.action_translation_missing_line
+msgid ""
+"Generate a report from Settings / Missing Translations to fill this list."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__id
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__id
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__id
+msgid "ID"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_report__lang_id
+msgid ""
+"Installed language to audit. Only activated languages can be reported on."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_report__storage_mode__jsonb
+msgid "JSONB columns on the records (Odoo 16.0 and later)"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__kind
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__kind
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Kind"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__lang_id
+msgid "Language"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__write_uid
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__write_uid
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__write_date
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__write_date
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__truncated
+msgid "List Truncated"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__term_listed
+msgid "Listed Terms"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__term_limit
+msgid "Listed Terms Limit"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_report__term_limit
+msgid ""
+"Maximum number of individual terms listed. Counts per module are always "
+"computed over the whole database; only the list of terms is capped, and the "
+"report says so when it is."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__menu
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__menu
+msgid "Menu item"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Menus"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+#: model:ir.ui.menu,name:translation_missing_report.menu_translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "Missing Translations"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+#: model:ir.actions.act_window,name:translation_missing_report.action_translation_missing_report
+#: model:ir.model,name:translation_missing_report.model_translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_form
+msgid "Missing Translations Report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model,name:translation_missing_report.model_translation_missing_summary
+msgid "Missing Translations: Count Per Module"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model,name:translation_missing_report.model_translation_missing_line
+msgid "Missing Translations: Term"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "Missing translations in"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid "Missing translations in %s"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__model
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__model
+msgid "Model name"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__module
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__module
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Module"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__module_count
+msgid "Modules Concerned"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "New Report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.actions.act_window,help:translation_missing_report.action_translation_missing_line
+msgid "No untranslated term in this report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__missing_count
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Not Translated"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__reason__missing
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_summary_list
+msgid "Not translated"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"Nothing to report: every scanned term has a translation in %s (%s) for the "
+"selected scope."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"Only the first %(listed)s of them are listed below (limit: %(limit)s terms)."
+" The per-module counts cover all of them - raise the limit or narrow the "
+"scope to list more."
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "Open Terms List"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__summary_ids
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_summary_list
+msgid "Per Module"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_summary__coverage_rate
+msgid ""
+"Percentage of the scanned terms that have a translation different from the "
+"source term."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__data
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__data
+msgid "Record content"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__report_id
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__name
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__report_id
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__report
+msgid "Report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__include_identical
+msgid "Report terms identical to the source"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_summary_list
+msgid "Reported"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__term_total
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__reported_count
+msgid "Reported Terms"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__result_note
+msgid "Result"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__identical_count
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Same As Source"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__reason__identical
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_summary_list
+msgid "Same as source"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_summary_list
+msgid "Scanned"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"Scanned: every stored translatable column of every installed model - menus, "
+"field labels and help, model names, selection values, action and report "
+"names, view / QWeb template content, access group labels and translatable "
+"record content."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__scope
+msgid "Scope"
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid "Select the language to report on."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__selection
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__selection
+msgid "Selection value"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__source_ref
+msgid "Source"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__source_term
+msgid "Source Term"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__code
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__code
+msgid "Source code term (Python / JavaScript)"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_line__reason
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Status"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_summary__module
+msgid ""
+"Technical name of the module the record belongs to, taken from its external "
+"ID. Records created in this database by users have no module and are grouped"
+" under \"(user data)\"."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__line_ids
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_result
+msgid "Terms"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__scanned_count
+msgid "Terms Scanned"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_summary__reported_count
+msgid ""
+"Terms this report is listing for this module and kind: the untranslated "
+"ones, plus the identical ones when that option is on."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"Terms whose translation is identical to the source are counted in the \"Same"
+" As Source\" column but not listed - tick the option to list them too."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"The language %s (%s) is not installed in this database, so there is nothing "
+"to report on it. Install it first from Settings > Translations > Languages, "
+"then run this report again."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid "The listed terms limit must be between 1 and %s."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_line__source_term
+msgid "The untranslated text, truncated to 250 characters."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"This Odoo version stores translations as rows of the ir.translation table. In addition to the stored record terms, this report also lists untranslated Python / JavaScript source terms (ir.translation rows of type \"code\"), which the 16.0+ jsonb storage cannot offer at all.\n"
+"Structured fields (view architectures, HTML fields) are reported per record and field: such a record counts as translated as soon as one of its terms has been translated."
+msgstr ""
+
+#. module: translation_missing_report
+#. odoo-python
+#: code:addons/translation_missing_report/models/translation_missing_report.py:0
+msgid ""
+"This Odoo version stores translations in jsonb columns on the records themselves; the ir.translation model no longer exists. Two consequences, and they are real limitations:\n"
+"- Terms that live only in Python or JavaScript source code are not stored in the database on this version (they are read from the module .po files at runtime), so this report cannot list them. On 14.0 / 15.0 the same report does list them.\n"
+"- Structured fields (view architectures, HTML fields) are stored as one jsonb value per language, so they are reported per record and field with a preview of the source, not term by term."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_summary__scanned_count
+msgid "Total number of source terms of this kind in this module."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_summary__coverage_rate
+msgid "Translated %"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_summary__identical_count
+msgid ""
+"Translated with a value identical to the source term. Counted here for "
+"information; listed as terms only when the report option \"Report terms "
+"identical to the source\" is ticked."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__storage_mode
+msgid "Translation Storage"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.actions.act_window,name:translation_missing_report.action_translation_missing_line
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_list
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Untranslated Terms"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_report__scope__ui
+msgid "User interface only"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_line__kind__view
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_summary__kind__view
+msgid "View / QWeb template content"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_line_search
+msgid "Views & Templates"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,field_description:translation_missing_report.field_translation_missing_report__coverage_note
+msgid "What This Version Can Report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model_terms:ir.ui.view,arch_db:translation_missing_report.view_translation_missing_report_form
+msgid "What this Odoo version can report"
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_line__source_ref
+msgid ""
+"Where the term comes from: \"model,field\" for a term stored on a record, or"
+" the source file for a Python / JavaScript term."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields,help:translation_missing_report.field_translation_missing_report__storage_mode
+msgid ""
+"Where this Odoo version keeps translations. The report reads whichever "
+"storage the running version uses."
+msgstr ""
+
+#. module: translation_missing_report
+#: model:ir.model.fields.selection,name:translation_missing_report.selection__translation_missing_report__storage_mode__ir_translation
+msgid "ir.translation table (Odoo 14.0 / 15.0)"
+msgstr ""

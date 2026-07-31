@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!-- Terms                                                         -->
+    <!-- ============================================================ -->
+    <record id="view_translation_missing_line_list" model="ir.ui.view">
+        <field name="name">translation.missing.line.list</field>
+        <field name="model">translation.missing.line</field>
+        <field name="arch" type="xml">
+            <list string="Untranslated Terms" create="false" edit="false" delete="false"
+                  decoration-muted="reason == 'identical'">
+                <field name="module"/>
+                <field name="kind"/>
+                <field name="source_term"/>
+                <field name="reason"/>
+                <field name="source_ref" optional="show"/>
+                <field name="res_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_translation_missing_line_search" model="ir.ui.view">
+        <field name="name">translation.missing.line.search</field>
+        <field name="model">translation.missing.line</field>
+        <field name="arch" type="xml">
+            <search string="Untranslated Terms">
+                <field name="source_term"/>
+                <field name="module"/>
+                <field name="source_ref"/>
+                <filter string="Not Translated" name="filter_missing"
+                        domain="[('reason', '=', 'missing')]"/>
+                <filter string="Same As Source" name="filter_identical"
+                        domain="[('reason', '=', 'identical')]"/>
+                <separator/>
+                <filter string="Menus" name="filter_menu" domain="[('kind', '=', 'menu')]"/>
+                <filter string="Field Labels" name="filter_field" domain="[('kind', '=', 'field')]"/>
+                <filter string="Views &amp; Templates" name="filter_view" domain="[('kind', '=', 'view')]"/>
+                <group name="group_by">
+                    <filter string="Module" name="group_module"
+                            context="{'group_by': 'module'}"/>
+                    <filter string="Kind" name="group_kind"
+                            context="{'group_by': 'kind'}"/>
+                    <filter string="Status" name="group_reason"
+                            context="{'group_by': 'reason'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Per module counts                                             -->
+    <!-- ============================================================ -->
+    <record id="view_translation_missing_summary_list" model="ir.ui.view">
+        <field name="name">translation.missing.summary.list</field>
+        <field name="model">translation.missing.summary</field>
+        <field name="arch" type="xml">
+            <list string="Per Module" create="false" edit="false" delete="false">
+                <field name="module"/>
+                <field name="kind"/>
+                <field name="reported_count" sum="Reported"/>
+                <field name="missing_count" sum="Not translated"/>
+                <field name="identical_count" sum="Same as source"/>
+                <field name="scanned_count" sum="Scanned"/>
+                <field name="coverage_rate" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- The report itself                                             -->
+    <!-- ============================================================ -->
+    <record id="view_translation_missing_report_form" model="ir.ui.view">
+        <field name="name">translation.missing.report.form</field>
+        <field name="model">translation.missing.report</field>
+        <field name="arch" type="xml">
+            <form string="Missing Translations Report">
+                <group>
+                    <group>
+                        <field name="lang_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="scope"/>
+                    </group>
+                    <group>
+                        <field name="include_identical"/>
+                        <field name="term_limit"/>
+                        <field name="storage_mode"/>
+                    </group>
+                </group>
+                <group string="What this Odoo version can report">
+                    <field name="coverage_note" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button name="action_generate" string="Generate Report"
+                            type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_translation_missing_report_result" model="ir.ui.view">
+        <field name="name">translation.missing.report.result</field>
+        <field name="model">translation.missing.report</field>
+        <field name="arch" type="xml">
+            <form string="Missing Translations" create="false" edit="false">
+                <header>
+                    <button name="action_open_terms" string="Open Terms List"
+                            type="object" class="btn-primary"/>
+                    <button name="action_new_report" string="New Report"
+                            type="object" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="lang_id" string="Missing translations in"/>
+                        <h1><field name="lang_id" readonly="1" options="{'no_open': True}"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="scope" readonly="1"/>
+                            <field name="include_identical" readonly="1"/>
+                            <field name="storage_mode" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="term_total" readonly="1"/>
+                            <field name="term_listed" readonly="1"/>
+                            <field name="module_count" readonly="1"/>
+                            <field name="truncated" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="result_note" nolabel="1" colspan="2" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Per Module" name="per_module">
+                            <field name="summary_ids" nolabel="1" readonly="1"/>
+                        </page>
+                        <page string="Terms" name="terms">
+                            <field name="line_ids" nolabel="1" readonly="1"/>
+                        </page>
+                        <page string="Coverage On This Version" name="coverage">
+                            <field name="coverage_note" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_translation_missing_report" model="ir.actions.act_window">
+        <field name="name">Missing Translations Report</field>
+        <field name="res_model">translation.missing.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_translation_missing_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_translation_missing_line" model="ir.actions.act_window">
+        <field name="name">Untranslated Terms</field>
+        <field name="res_model">translation.missing.line</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_translation_missing_line_list"/>
+        <field name="search_view_id" ref="view_translation_missing_line_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No untranslated term in this report</p>
+            <p>Generate a report from Settings / Missing Translations to fill this list.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_translation_missing_report"
+              name="Missing Translations"
+              parent="base.menu_administration"
+              action="action_translation_missing_report"
+              groups="base.group_system"
+              sequence="4"/>
+
+</odoo>
