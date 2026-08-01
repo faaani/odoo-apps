@@ -1,0 +1,89 @@
+<div style="max-width: 900px; margin: 0 auto; padding: 24px; font-family: Arial, Helvetica, sans-serif; color: #262f38;">
+
+    <div style="text-align: center; padding: 28px 16px; background: #3f51b5; border-radius: 10px; color: #ffffff;">
+        <h1 style="margin: 0 0 8px 0; font-size: 30px;">Warn or Block Selling Below Cost</h1>
+        <p style="margin: 0; font-size: 16px; color: #d6dcf4;">
+            Catch loss-making sale order lines before they are confirmed &mdash; with currency and unit-of-measure conversion.
+        </p>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <p style="font-size: 15px; line-height: 1.6;">
+            A discounted line, a mistyped price or a stale pricelist can quietly sell a product
+            below what it costs you. Odoo accepts any unit price without a second look.
+            This module compares every sale order line's unit price (after discount) against the
+            product's standard cost and warns the salesperson &mdash; or blocks the confirmation &mdash;
+            depending on one simple setting.
+        </p>
+        <ul style="font-size: 15px; line-height: 1.8;">
+            <li><b>Three modes:</b> Off, Warn while quoting (default), or Warn and block confirmation.</li>
+            <li><b>Edit-time warning:</b> a non-blocking popup names the line, its effective price and its cost the moment the price, discount, product or unit of measure changes.</li>
+            <li><b>Confirm-time block:</b> in Block mode, confirming raises an error listing the offending lines (capped at 5).</li>
+            <li><b>Bypass group:</b> members of "Allow selling below cost" (administrators by default) can always confirm.</li>
+            <li><b>Currency aware:</b> the cost is converted from the company currency to the order currency at the order date.</li>
+            <li><b>Unit-of-measure aware:</b> a cost per Unit is compared per Dozen when the line sells dozens.</li>
+            <li><b>Optional zero-price flagging:</b> also flag lines with a zero unit price on products that have no cost configured.</li>
+            <li>Section and note lines are always ignored. Automated portal/online confirmations are never blocked.</li>
+            <li>No new models, no extra menus &mdash; one settings block in Sales settings.</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #3f51b5; padding-bottom: 6px;">Screenshots</h2>
+        <p style="font-size: 15px; margin: 14px 0 6px 0;"><b>1.</b> Editing a line below cost pops a clear warning naming price and cost:</p>
+        <img src="01-below-cost-warning.png" alt="Below-cost warning while quoting" style="width: 100%; border: 1px solid #d8dce6; border-radius: 6px;"/>
+        <p style="font-size: 15px; margin: 18px 0 6px 0;"><b>2.</b> In Block mode, confirmation stops with the offending lines listed:</p>
+        <img src="02-block-error.png" alt="Blocked confirmation on a below-cost order" style="width: 100%; border: 1px solid #d8dce6; border-radius: 6px;"/>
+        <p style="font-size: 15px; margin: 18px 0 6px 0;"><b>3.</b> One settings block in Sales settings: mode selector and zero-price flagging:</p>
+        <img src="03-settings.png" alt="Below-cost check settings" style="width: 100%; border: 1px solid #d8dce6; border-radius: 6px;"/>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #3f51b5; padding-bottom: 6px;">Installation</h2>
+        <ol style="font-size: 15px; line-height: 1.8;">
+            <li>Download the module into your addons directory.</li>
+            <li>Update the apps list (developer mode: Apps, then Update Apps List).</li>
+            <li>Install <i>Warn or Block Selling Below Cost</i>.</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #3f51b5; padding-bottom: 6px;">Configuration</h2>
+        <ol style="font-size: 15px; line-height: 1.8;">
+            <li>Open Settings, then Sales, and find the <b>Below-Cost Sales Check</b> block under Quotations &amp; Orders.</li>
+            <li>Pick a mode: <b>Off</b>, <b>Warn while quoting</b> (default) or <b>Warn and block confirmation</b>.</li>
+            <li>Optionally enable <b>Also Flag Zero-Price Lines</b> to catch zero-price lines on products without a configured cost.</li>
+            <li>To exempt specific users in Block mode, add them to the <b>Allow selling below cost</b> group (visible in developer mode; administrators are members by default).</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #3f51b5; padding-bottom: 6px;">Usage</h2>
+        <ol style="font-size: 15px; line-height: 1.8;">
+            <li>Quote as usual. When a line's unit price after discount falls below the product's standard cost, a warning popup names the line, its price and its cost in the order currency.</li>
+            <li>In Warn mode the popup is advisory: the order can still be saved and confirmed.</li>
+            <li>In Block mode, confirming an order with below-cost lines raises an error listing up to 5 offending lines; raise the price, reduce the discount, or ask a member of the bypass group to confirm.</li>
+            <li>Integrations can skip the block explicitly by confirming with the context key <code>check_sale_below_cost=False</code>.</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 26px;">
+        <h2 style="font-size: 22px; border-bottom: 2px solid #3f51b5; padding-bottom: 6px;">Limitations (honest ones)</h2>
+        <ul style="font-size: 15px; line-height: 1.8;">
+            <li>The comparison uses the product's <b>standard cost</b> field (which follows your costing method), not landed or actual procurement cost.</li>
+            <li>Products with a zero standard cost are skipped by default &mdash; a zero cost usually means "not configured". Enable zero-price flagging to catch free lines on such products.</li>
+            <li>The edit-time warning is advisory and appears while editing; only Block mode enforces anything at confirmation.</li>
+            <li>Automated confirmations by portal or public users (online quote acceptance, post-payment flows) are deliberately never blocked.</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 26px; padding: 18px; background: #f5f7fc; border-radius: 8px; text-align: center;">
+        <h2 style="font-size: 20px; margin: 0 0 8px 0;">Support</h2>
+        <p style="font-size: 15px; margin: 0;">
+            Questions, issues or ideas? Write to
+            <a href="mailto:f.ashraf.dev1@gmail.com" style="color: #3f51b5;">f.ashraf.dev1@gmail.com</a>
+            &mdash; happy to help.
+        </p>
+    </div>
+
+</div>

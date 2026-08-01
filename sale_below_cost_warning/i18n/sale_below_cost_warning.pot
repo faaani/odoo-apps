@@ -1,0 +1,203 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_below_cost_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 09:41+0000\n"
+"PO-Revision-Date: 2026-08-01 09:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid ""
+" Confirming this order will be blocked unless you belong to the \"Allow "
+"selling below cost\" group."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid " You can still save and confirm the order."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid "\"%(line)s\" has a zero or negative unit price."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid ""
+"\"%(line)s\" sells at %(price)s %(currency)s per %(uom)s after discount, "
+"below its cost of %(cost)s %(currency)s."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#, python-format
+msgid "- ... and %(count)s more line(s)"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model_terms:ir.ui.view,arch_db:sale_below_cost_warning.res_config_settings_view_form_below_cost
+msgid "<span class=\"o_form_label\">Below-Cost Sales Check</span>"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:res.groups,name:sale_below_cost_warning.group_sell_below_cost
+msgid "Allow selling below cost"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_res_config_settings__below_cost_flag_zero_price
+msgid "Also Flag Zero-Price Lines"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,help:sale_below_cost_warning.field_res_config_settings__below_cost_flag_zero_price
+msgid ""
+"Also flag lines with a zero (or negative) unit price on products that have "
+"no cost configured."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_res_config_settings__below_cost_mode
+msgid "Below-Cost Sales Check"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#, python-format
+msgid ""
+"Cannot confirm %(order)s: some lines sell below the product cost.\n"
+"%(lines)s\n"
+"Raise the price, reduce the discount, or ask an administrator for the \"Allow selling below cost\" group."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model,name:sale_below_cost_warning.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#, python-format
+msgid ""
+"Confirming this order will be blocked unless you belong to the \"Allow "
+"selling below cost\" group."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sale_below_cost_warning.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:res.groups,comment:sale_below_cost_warning.group_sell_below_cost
+msgid ""
+"Members can confirm a sale order even when block mode is enabled and a "
+"line's unit price after discount is below the product cost."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model_terms:ir.ui.view,arch_db:sale_below_cost_warning.res_config_settings_view_form_below_cost
+msgid "Mode"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields.selection,name:sale_below_cost_warning.selection__res_config_settings__below_cost_mode__off
+msgid "Off"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model,name:sale_below_cost_warning.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model,name:sale_below_cost_warning.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid "Selling below cost"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#, python-format
+msgid "Some lines now sell below the product cost:"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields.selection,name:sale_below_cost_warning.selection__res_config_settings__below_cost_mode__block
+msgid "Warn and block confirmation"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields,help:sale_below_cost_warning.field_res_config_settings__below_cost_mode
+msgid ""
+"Warn while editing a quotation when a line sells below the product cost, and"
+" optionally block order confirmation."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model:ir.model.fields.selection,name:sale_below_cost_warning.selection__res_config_settings__below_cost_mode__warn
+msgid "Warn while quoting"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: model_terms:ir.ui.view,arch_db:sale_below_cost_warning.res_config_settings_view_form_below_cost
+msgid ""
+"Warn while quoting, and optionally block confirmation, when a line's unit "
+"price after discount falls below the product cost."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order.py:0
+#, python-format
+msgid "You can still save and confirm the order."
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid "this line"
+msgstr ""
+
+#. module: sale_below_cost_warning
+#: code:addons/sale_below_cost_warning/models/sale_order_line.py:0
+#, python-format
+msgid "unit"
+msgstr ""
