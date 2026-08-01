@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_bank_alert" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.bank.alert</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Partner Bank Accounts</h2>
+                <div class="row mt16 o_settings_container" id="bank_alert_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="bank_alert_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="bank_alert_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="bank_alert_enabled"/>
+                            <div class="text-muted">
+                                Audit every added, modified or removed bank account on the partner chatter and notify the alert group. Account numbers are always masked to the last 4 characters.
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('bank_alert_enabled', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="bank_alert_group_id" class="col-lg-4 o_light_label"/>
+                                    <field name="bank_alert_group_id" class="col-lg-6"
+                                           placeholder="Default: accounting managers / Settings admins"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

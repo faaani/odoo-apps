@@ -1,0 +1,152 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_bank_change_alert
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 09:33+0000\n"
+"PO-Revision-Date: 2026-08-01 09:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "(none)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model.fields,field_description:partner_bank_change_alert.field_res_config_settings__bank_alert_group_id
+msgid "Alert Group"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model_terms:ir.ui.view,arch_db:partner_bank_change_alert.res_config_settings_view_form_bank_alert
+msgid ""
+"Audit every added, modified or removed bank account on the partner chatter "
+"and notify the alert group. Account numbers are always masked to the last 4 "
+"characters."
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model.fields,field_description:partner_bank_change_alert.field_res_config_settings__bank_alert_enabled
+msgid "Bank Account Change Alerts"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model,name:partner_bank_change_alert.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "Bank account added: %(details)s (%(stamp)s)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "Bank account modified (%(masked)s): %(changes)s (%(stamp)s)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "Bank account removed: %(details)s (%(stamp)s)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model,name:partner_bank_change_alert.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model_terms:ir.ui.view,arch_db:partner_bank_change_alert.res_config_settings_view_form_bank_alert
+msgid "Default: accounting managers / Settings admins"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model.fields,help:partner_bank_change_alert.field_res_config_settings__bank_alert_group_id
+msgid ""
+"Members of this group are notified of every partner bank account change. "
+"Empty means the default: the accounting managers when accounting is "
+"installed, otherwise the Settings administrators."
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model_terms:ir.ui.view,arch_db:partner_bank_change_alert.res_config_settings_view_form_bank_alert
+msgid "Partner Bank Accounts"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: model:ir.model.fields,help:partner_bank_change_alert.field_res_config_settings__bank_alert_enabled
+msgid ""
+"Post an audit message on the partner chatter and notify the alert group "
+"whenever a bank account is added, modified or removed. Account numbers are "
+"always masked to the last 4 characters."
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "account holder %(old)s -> %(new)s"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "account number %(old)s -> %(new)s"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "bank %(old)s -> %(new)s"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "bank: %s"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "by %(user)s on %(when)s UTC"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "holder: %s"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "marked trusted for outgoing payments (Send Money)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "marked untrusted for outgoing payments (Send Money)"
+msgstr ""
+
+#. module: partner_bank_change_alert
+#: code:addons/partner_bank_change_alert/models/res_partner_bank.py:0
+#, python-format
+msgid "moved from partner %(old)s to %(new)s"
+msgstr ""

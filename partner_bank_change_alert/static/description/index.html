@@ -1,0 +1,72 @@
+<section style="max-width: 900px; margin: 0 auto; font-family: sans-serif; color: #2d2d2d;">
+    <div style="background: #182a42; color: #ffffff; border-radius: 12px; padding: 40px 32px; text-align: center;">
+        <h1 style="margin: 0 0 8px; color: #ffffff;">Partner Bank Change Alert</h1>
+        <p style="margin: 0; font-size: 18px; color: #f5a623;">Every bank detail change: audited, masked, notified.</p>
+    </div>
+
+    <p style="font-size: 16px; margin-top: 24px;">Changed-bank-detail invoice fraud is the classic accounts-payable scam: someone edits a vendor's bank account and the next payment quietly goes to the wrong hands. Out of the box, Odoo keeps no visible trail of that edit and warns nobody. This module posts an audit message on the partner's chatter for every added, modified or removed bank account and notifies the people who should know &mdash; the moment it happens.
+        <strong>Free and open source (LGPL-3), Odoo 14.0 through 19.0.</strong></p>
+
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li><strong>Full audit trail on the chatter</strong> &mdash; who changed what, and when, for every create, edit and deletion of a bank account.</li>
+        <li><strong>Account numbers always masked</strong> &mdash; only the last 4 characters are ever shown (<code>****1234</code>), old and new value alike.</li>
+        <li><strong>Instant notification</strong> &mdash; a configurable alert group (accounting managers by default) is notified on every change, without spamming the partner's followers.</li>
+        <li><strong>Repointing is a red flag</strong> &mdash; moving a bank account to another partner alerts BOTH the old and the new partner's chatter.</li>
+        <li><strong>Trust switch audited</strong> &mdash; flipping the "Send Money" flag (trusted / untrusted for outgoing payments, Odoo 16.0+) is alerted too.</li>
+        <li><strong>Never blocks business</strong> &mdash; alerts are best-effort: a failure to post is logged loudly but the bank operation always goes through.</li>
+        <li><strong>Multi-company aware</strong> &mdash; group members are only notified about bank accounts of companies they belong to; company-less accounts notify the whole group.</li>
+        <li><strong>Lightweight</strong> &mdash; depends only on standard modules (<code>mail</code>, <code>base_setup</code>); works with or without the accounting app.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Screenshots</h2>
+    <div style="margin: 18px 0;">
+        <img src="01-chatter-alert.png" alt="01-chatter-alert" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Every bank account change lands on the partner chatter: added, modified (old and new masked numbers), and moved to another partner &mdash; with author and timestamp.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="02-bank-account.png" alt="02-bank-account" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">A normal partner bank account: the module watches the account number, holder, bank and partner on every create, write and unlink.</p>
+    </div>
+    <div style="margin: 18px 0;">
+        <img src="03-settings.png" alt="03-settings" style="max-width: 100%; border: 1px solid #d8d8d8; border-radius: 6px;"/>
+        <p style="font-size: 14px; color: #555; margin-top: 6px;">Settings &rarr; General Settings &rarr; Partner Bank Accounts: one switch and one alert group.</p>
+    </div>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Open <strong>Apps</strong>, search for <em>Partner Bank Change Alert</em> and click <strong>Install</strong>.</li>
+        <li>Only standard modules (<code>mail</code>, <code>base_setup</code>) are required. Alerts are active immediately with sensible defaults.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Go to <strong>Settings &rarr; General Settings</strong> and find the <strong>Partner Bank Accounts</strong> block.</li>
+        <li>Toggle <strong>Bank Account Change Alerts</strong> on or off (on by default).</li>
+        <li>Pick the <strong>Alert Group</strong> to notify. Empty means the default: the accounting managers when the accounting app is installed, otherwise the Settings administrators.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.7;">
+        <li>Add, edit, move or delete any partner bank account, from any screen.</li>
+        <li>An internal note appears on the affected partner's chatter with the action, the masked number(s), the author and the timestamp.</li>
+        <li>Members of the alert group are notified (inbox or email, per their own notification preference) without the partner's other followers being spammed.</li>
+        <li>Only meaningful fields trigger an alert: account number, holder name, bank and partner. Cosmetic edits stay silent.</li>
+    </ol>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Honest limitations</h2>
+    <ul style="font-size: 15px; line-height: 1.7;">
+        <li>The audit trail lives in Odoo's chatter &mdash; someone with direct database access can still edit data below Odoo's radar.</li>
+        <li>Notifications are best-effort by design and never block the underlying operation; a failed alert is logged at ERROR level in the server log.</li>
+        <li>This complements &mdash; it does not replace &mdash; the untrusted-account payment flagging that Odoo 16+ accounting applies at payment time. Odoo 14 and 15 have no such flagging, which is exactly where this module helps most.</li>
+    </ul>
+
+    <h2 style="border-bottom: 2px solid #f5a623; padding-bottom: 6px;">Version notes</h2>
+    <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). The "Send Money" trust switch only exists from Odoo 16.0, so its audit applies on 16.0 and later.</p>
+
+    <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
+        Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+</section>
