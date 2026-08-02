@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-30 19:17+0000\n"
-"PO-Revision-Date: 2026-07-30 19:17+0000\n"
+"POT-Creation-Date: 2026-08-02 11:39+0000\n"
+"PO-Revision-Date: 2026-08-02 11:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -136,8 +136,28 @@ msgid "Log a note on every reassigned record, so the change stays traceable."
 msgstr ""
 
 #. module: record_owner_bulk_reassign
+#: model:ir.model.fields,help:record_owner_bulk_reassign.field_record_owner_reassign_wizard__remaining_count
+msgid ""
+"Matching records left untouched by this run because of the batch limit; run "
+"the action again to continue."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
 #: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__res_model
 msgid "Model"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,help:record_owner_bulk_reassign.field_record_owner_reassign_wizard__capped
+msgid "More records match than one run may process (10000)."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model_terms:ir.ui.view,arch_db:record_owner_bulk_reassign.record_owner_reassign_wizard_view_form
+msgid ""
+"More records match than one run may process: only the first\n"
+"                    10000 are reassigned per run. Run the action again to\n"
+"                    continue with the rest."
 msgstr ""
 
 #. module: record_owner_bulk_reassign
@@ -149,8 +169,21 @@ msgstr ""
 #. odoo-python
 #: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
 msgid ""
+"Only the first %(max)s matching records were processed in this run; "
+"%(remaining)s record(s) are left. Run the action again to continue."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#. odoo-python
+#: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
+msgid ""
 "Open this action from the list or form view of the records you want to "
 "reassign."
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__capped
+msgid "Over the Batch Limit"
 msgstr ""
 
 #. module: record_owner_bulk_reassign
@@ -183,6 +216,11 @@ msgstr ""
 #. odoo-python
 #: code:addons/record_owner_bulk_reassign/wizard/record_owner_reassign_wizard.py:0
 msgid "Records reassigned"
+msgstr ""
+
+#. module: record_owner_bulk_reassign
+#: model:ir.model.fields,field_description:record_owner_bulk_reassign.field_record_owner_reassign_wizard__remaining_count
+msgid "Remaining"
 msgstr ""
 
 #. module: record_owner_bulk_reassign
