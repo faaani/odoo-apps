@@ -38,9 +38,15 @@ class MailThread(models.AbstractModel):
                     else _('Record archived.'))
             for record in changed:
                 try:
-                    record.message_post(body=body)
-                except Exception:  # noqa: BLE001 — logging must never break archiving
-                    _logger.exception(
-                        'archive_audit_trail: could not log archive change on %s,%s.',
-                        record._name, record.id)
+                    # savepoint: a DB-level failure inside message_post (e.g. a
+                    # mail_followers unique-constraint race) would otherwise
+                    # abort the whole transaction and take the archive write
+                    # down with it at commit — the try/except alone cannot
+                    # un-poison the cursor.
+                    with self.env.cr.savepoint():
+                        record.message_post(body=body)
+                except Exception as err:  # noqa: BLE001 — logging must never break archiving
+                    _logger.warning(
+                        'archive_audit_trail: could not log archive change on %s,%s: %s',
+                        record._name, record.id, err)
         return res

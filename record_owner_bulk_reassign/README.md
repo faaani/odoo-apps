@@ -6,6 +6,7 @@ When a salesperson or a project member leaves, every record they own has to be r
 - "All records of a user" includes the leaver's archived records, so nothing is left behind.
 - Access rights are respected: the reassignment runs as the current user, never with elevated privileges. Records you may not write are reported as skipped.
 - A failure on one record never aborts the batch — each record is written in its own savepoint.
+- Runs are capped at 10000 records: a bigger job processes the first 10000, reports exactly how many records are left, and a repeat run continues where it stopped. The cap keeps one run inside the worker time limit, so partial progress is never rolled back.
 - A note is logged in the chatter of every record that changed.
 - A summary tells you how many records were reassigned, how many were already assigned, skipped or failed.
 
@@ -24,6 +25,8 @@ When a salesperson or a project member leaves, every record they own has to be r
 
 ## Notes
 On a many2many responsible field the new owner is added and the previous owner removed, so the other collaborators are kept. Identical behavior on every supported series (14.0 – 19.0).
+
+At most 10000 records are reassigned per run. When more records match, the summary says how many are left; simply run the action again until it reports nothing remaining.
 
 Free, LGPL-3, Odoo 14.0 – 19.0.
 

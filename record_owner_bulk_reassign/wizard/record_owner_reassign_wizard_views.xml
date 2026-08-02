@@ -12,6 +12,12 @@
                     <field name="field_label" class="oe_inline"/> will be set on
                     <field name="record_count" class="oe_inline"/> record(s).
                 </div>
+                <div class="alert alert-warning" role="status" attrs="{'invisible': [('capped', '=', False)]}">
+                    <field name="capped" invisible="1"/>
+                    More records match than one run may process: only the first
+                    10000 are reassigned per run. Run the action again to
+                    continue with the rest.
+                </div>
                 <group>
                     <group>
                         <field name="scope" widget="radio"/>
