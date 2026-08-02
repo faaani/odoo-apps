@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_export_audit_log" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.export.audit.log</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Export Audit</h2>
+                <div class="row mt16 o_settings_container" id="export_audit_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="export_log_retention_setting">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Export Log Retention</span>
+                            <div class="text-muted">
+                                Exports made through the export dialog are logged under Settings / Export Audit Log. Entries older than the retention period are purged daily; 0 keeps them forever.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="export_log_retention_days" class="col-lg-4 o_light_label"/>
+                                    <field name="export_log_retention_days" class="col-lg-2"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
