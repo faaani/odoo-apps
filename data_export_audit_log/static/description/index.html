@@ -1,0 +1,89 @@
+<div style="max-width: 900px; margin: 0 auto; padding: 24px 16px; font-family: Arial, Helvetica, sans-serif; color: #344054;">
+
+    <div style="text-align: center; padding: 32px 16px; background: linear-gradient(160deg, #303f78, #1e2952); border-radius: 12px; color: #f7f9fc;">
+        <h1 style="margin: 0 0 12px 0; font-size: 34px;">Export Audit Log</h1>
+        <p style="margin: 0; font-size: 17px; color: #c4d0e4;">
+            Who exported what, when &mdash; a complete trail of data exports.
+        </p>
+    </div>
+
+    <div style="margin-top: 28px; font-size: 15px; line-height: 1.6;">
+        <p>
+            Export rights in Odoo are all-or-nothing: a user either has the
+            &quot;Allow Export&quot; group or not, and once they have it there is
+            <b>zero trace</b> of what left the database. This module records every
+            export made through Odoo&#39;s standard export path &mdash; the list-view
+            export dialog and its CSV / XLSX downloads &mdash; in a read-only audit log.
+        </p>
+        <ul style="line-height: 1.9;">
+            <li><b>One log entry per export:</b> user, model (technical name and label), record count, the exact exported field list, timestamp. Odoo internally exports grouped lists group by group and very large lists in batches; those chunks are coalesced into a single entry, so the record count is the real total.</li>
+            <li><b>Read-only list</b> under Settings &gt; Export Audit Log, visible to Settings / Administration users only.</li>
+            <li><b>Tamper-resistant:</b> nobody can create or edit log rows from the UI or the ORM &mdash; they are written exclusively by the export hook. Administrators may delete rows. The exporting user&#39;s login is stored on the row itself, so the trail survives even if the user record is later deleted.</li>
+            <li><b>Retention:</b> a daily scheduled action purges entries older than a configurable number of days (default 180; 0 keeps logs forever).</li>
+            <li><b>Fail-safe:</b> if writing the audit row ever fails, the export still succeeds and a warning goes to the server log. Logging never breaks exports.</li>
+            <li><b>Superuser exports are logged too</b> &mdash; that is the point of an audit trail.</li>
+            <li>Filters (today, last 7 / 30 days, large exports) and group-by user, model or date.</li>
+        </ul>
+    </div>
+
+    <h2 style="margin-top: 36px; font-size: 24px; color: #1e2952;">Screenshots</h2>
+
+    <div style="margin-top: 16px;">
+        <img src="01-export-dialog.png" alt="The standard export dialog" style="width: 100%; border: 1px solid #d6deeb; border-radius: 8px;"/>
+        <p style="font-size: 13px; color: #667085; margin: 8px 0 24px 0;">
+            Any export made through the standard dialog is recorded the moment it runs.
+        </p>
+        <img src="02-audit-list.png" alt="Export audit log list" style="width: 100%; border: 1px solid #d6deeb; border-radius: 8px;"/>
+        <p style="font-size: 13px; color: #667085; margin: 8px 0 24px 0;">
+            The audit trail: who exported, which model, how many records, which fields, when.
+        </p>
+        <img src="03-group-by-user.png" alt="Filters and group-by" style="width: 100%; border: 1px solid #d6deeb; border-radius: 8px;"/>
+        <p style="font-size: 13px; color: #667085; margin: 8px 0 24px 0;">
+            Ready-made filters (today, last 7/30 days, large exports) and group-by user, model or date.
+        </p>
+        <img src="04-entry-form.png" alt="Log entry detail" style="width: 100%; border: 1px solid #d6deeb; border-radius: 8px;"/>
+        <p style="font-size: 13px; color: #667085; margin: 8px 0 24px 0;">
+            Each entry keeps the full exported field list. Entries are read-only: nobody can create or edit them.
+        </p>
+        <img src="05-settings.png" alt="Retention setting" style="width: 100%; border: 1px solid #d6deeb; border-radius: 8px;"/>
+        <p style="font-size: 13px; color: #667085; margin: 8px 0 24px 0;">
+            One setting: how long to keep the log. A daily scheduled action purges older entries; 0 keeps them forever.
+        </p>
+    </div>
+
+    <h2 style="margin-top: 36px; font-size: 24px; color: #1e2952;">Installation</h2>
+    <ol style="font-size: 15px; line-height: 1.9;">
+        <li>Copy <code>data_export_audit_log</code> into your addons path.</li>
+        <li>Update the app list (developer mode: Apps &gt; Update Apps List).</li>
+        <li>Install <b>Export Audit Log</b>.</li>
+    </ol>
+
+    <h2 style="margin-top: 36px; font-size: 24px; color: #1e2952;">Configuration</h2>
+    <ol style="font-size: 15px; line-height: 1.9;">
+        <li>Open <b>Settings &gt; General Settings</b>, section <b>Export Audit</b>.</li>
+        <li>Set <b>Export Log Retention (days)</b> &mdash; default 180, 0 keeps logs forever.</li>
+        <li>Save.</li>
+    </ol>
+
+    <h2 style="margin-top: 36px; font-size: 24px; color: #1e2952;">Usage</h2>
+    <ol style="font-size: 15px; line-height: 1.9;">
+        <li>Any user exports records from a list view (Export button in the action menu).</li>
+        <li>Open <b>Settings &gt; Export Audit Log</b> (Administration / Settings group required) to review who exported what.</li>
+        <li>Filter by user or model, group by date, or delete entries you no longer need.</li>
+    </ol>
+
+    <h2 style="margin-top: 36px; font-size: 24px; color: #1e2952;">Limitations (honest ones)</h2>
+    <ul style="font-size: 15px; line-height: 1.9;">
+        <li>Only exports going through the standard export path (<code>export_data</code>) are logged: the list-view export dialog and its CSV / XLSX downloads.</li>
+        <li>Report PDF downloads, raw RPC / API reads (<code>search_read</code> and friends) and database-level dumps are <b>not</b> captured.</li>
+        <li>Combine it with a restrictive &quot;Allow Export&quot; group policy for real coverage of data leaving your system.</li>
+    </ul>
+
+    <div style="margin-top: 36px; padding: 20px; background: #f2f5fa; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; font-size: 15px;">
+            Questions, ideas, bug reports? &mdash;
+            <a href="mailto:f.ashraf.dev1@gmail.com" style="color: #20b2aa; font-weight: bold;">f.ashraf.dev1@gmail.com</a>
+        </p>
+    </div>
+
+</div>
