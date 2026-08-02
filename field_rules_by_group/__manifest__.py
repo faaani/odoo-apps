@@ -23,7 +23,7 @@ explicitly opts in, so an administrator can always repair data. Works with
 any model, including custom ones.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

@@ -16,7 +16,7 @@ other channels (email gateway, imports, website forms).
 Leads that already have a salesperson are never touched.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Sales/CRM',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

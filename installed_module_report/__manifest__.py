@@ -38,7 +38,7 @@ report itself and on the store listing - it reads the manifest, and a manifest
 can lie.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Tools',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

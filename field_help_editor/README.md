@@ -95,4 +95,4 @@ uninstalling.
 * Email: f.ashraf.dev1@gmail.com
 * Author: Farhan Ashraf
 * License: LGPL-3
-* https://github.com/faaani/odoo-apps
+* https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf

@@ -24,7 +24,7 @@ no writes: nothing in your database is modified. Visible to Settings /
 Administration users only.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Tools',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
