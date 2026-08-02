@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_export_audit_log_list" model="ir.ui.view">
+        <field name="name">export.audit.log.list</field>
+        <field name="model">export.audit.log</field>
+        <field name="arch" type="xml">
+            <list string="Export Audit Log" create="false" edit="false" delete="true">
+                <field name="create_date" string="Exported On"/>
+                <field name="user_id"/>
+                <field name="user_login" optional="hide"/>
+                <field name="model_description"/>
+                <field name="model_name" optional="hide"/>
+                <field name="record_count" sum="Total Records"/>
+                <field name="field_list" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_export_audit_log_form" model="ir.ui.view">
+        <field name="name">export.audit.log.form</field>
+        <field name="model">export.audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Export Log Entry" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group string="Who / When">
+                            <field name="user_id"/>
+                            <field name="user_login"/>
+                            <field name="create_date" string="Exported On"/>
+                        </group>
+                        <group string="What">
+                            <field name="model_description"/>
+                            <field name="model_name"/>
+                            <field name="record_count"/>
+                        </group>
+                    </group>
+                    <group string="Exported Fields">
+                        <field name="field_list" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_export_audit_log_search" model="ir.ui.view">
+        <field name="name">export.audit.log.search</field>
+        <field name="model">export.audit.log</field>
+        <field name="arch" type="xml">
+            <search string="Export Audit Log">
+                <field name="user_id" string="User"
+                       filter_domain="['|', ('user_id', 'ilike', self), ('user_login', 'ilike', self)]"/>
+                <field name="model_name" string="Model"
+                       filter_domain="['|', ('model_name', 'ilike', self), ('model_description', 'ilike', self)]"/>
+                <field name="field_list"/>
+                <filter string="Today" name="filter_today"
+                        domain="[('create_date', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)))]"/>
+                <filter string="Last 7 Days" name="filter_week"
+                        domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 30 Days" name="filter_month"
+                        domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Large Exports (100+ records)" name="filter_large"
+                        domain="[('record_count', '&gt;=', 100)]"/>
+                <group name="group_by">
+                    <filter string="User" name="group_user"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_name'}"/>
+                    <filter string="Export Date" name="group_date"
+                            context="{'group_by': 'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_export_audit_log" model="ir.actions.act_window">
+        <field name="name">Export Audit Log</field>
+        <field name="res_model">export.audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_export_audit_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No exports logged yet</p>
+            <p>Every export made through the standard export dialog (CSV / XLSX)
+               is recorded here: who exported, which model, how many records and
+               which fields. Entries are written by the system and cannot be
+               created or edited manually.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_export_audit_log"
+              name="Export Audit Log"
+              parent="base.menu_administration"
+              action="action_export_audit_log"
+              groups="base.group_system"
+              sequence="50"/>
+
+</odoo>
