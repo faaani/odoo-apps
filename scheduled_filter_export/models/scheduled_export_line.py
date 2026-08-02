@@ -50,6 +50,30 @@ class ScheduledExportLine(models.Model):
              'the field label as translated for the user the export runs as.',
     )
 
+    # ------------------------------------------------------------------
+    # Who may touch the columns
+    # ------------------------------------------------------------------
+    # The same rule as on scheduled.export itself: only a Settings
+    # administrator may touch an export that runs as somebody else. Columns
+    # decide what ends up in the file, and lines can be written directly
+    # over RPC without ever calling scheduled.export.write(), so the check
+    # is repeated here rather than trusted to the parent.
+    @api.model_create_multi
+    def create(self, vals_list):
+        lines = super().create(vals_list)
+        lines.export_id._check_run_as_permission()
+        return lines
+
+    def write(self, vals):
+        self.export_id._check_run_as_permission()
+        result = super().write(vals)
+        self.export_id._check_run_as_permission()
+        return result
+
+    def unlink(self):
+        self.export_id._check_run_as_permission()
+        return super().unlink()
+
     @api.constrains('field_id', 'export_id')
     def _check_field_belongs_to_model(self):
         for line in self:

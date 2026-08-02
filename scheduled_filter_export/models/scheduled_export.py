@@ -209,9 +209,17 @@ class ScheduledExport(models.Model):
         return exports
 
     def write(self, vals):
+        # Any edit to an export that runs as somebody else is reserved to
+        # Settings administrators. The "own exports" record rule keeps the
+        # creator writable on an export an administrator re-pointed at a
+        # third user; if only run_as_user_id changes were checked, that
+        # creator could still re-point the recipients, filter, columns or
+        # model and receive records only the "Run As" user may read. So the
+        # permission is re-checked on EVERY write: before it for the stored
+        # state, after it for the values just written.
+        self._check_run_as_permission()
         result = super().write(vals)
-        if 'run_as_user_id' in vals:
-            self._check_run_as_permission()
+        self._check_run_as_permission()
         return result
 
     def _check_run_as_permission(self):

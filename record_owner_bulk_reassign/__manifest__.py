@@ -2,7 +2,7 @@
 # Part of record_owner_bulk_reassign. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Reassign Records in Bulk',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'summary': 'Hand over every record of a leaving salesperson or team member in one step.',
     'description': """
 When a salesperson or a project member leaves, every record they own has to be
