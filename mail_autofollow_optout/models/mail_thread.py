@@ -24,8 +24,11 @@ class MailThread(models.AbstractModel):
 
     def _autofollow_is_manual(self, partner_ids):
         """A deliberate follow is the user subscribing themselves (the Follow
-        button). Anything else — assignment, creation, tracked-field
-        subscription — is automatic and honours the preference."""
+        button). The other deliberate path — the Add Followers invite wizard —
+        sets mail_manual_subscribe in the context itself (see
+        mail_wizard_invite.py). Anything else — assignment, creation,
+        tracked-field subscription — is automatic and honours the
+        preference."""
         own = self.env.user.partner_id.id
         return bool(partner_ids) and set(partner_ids) == {own}
 

@@ -2,7 +2,7 @@
 # Part of mail_autofollow_optout. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Stop Auto-Following Records',
-    'version': '17.0.1.0.1',
+    'version': '17.0.1.0.2',
     'summary': 'Let each user opt out of being subscribed automatically to every record they touch - without losing manual Follow.',
     'description': """
 Odoo subscribes you as a follower of every record you comment on or get
@@ -12,6 +12,10 @@ only escape is unfollowing records one by one, forever.
 This module adds a single preference: "Do not follow records automatically".
 Users who tick it stop being auto-subscribed, while the Follow button keeps
 working normally whenever they do want updates.
+
+Only AUTOMATIC following is suppressed. Clicking Follow, and being added
+deliberately by a colleague through Add Followers, still subscribe the user -
+the invitation email is sent either way, so the follower is real.
 """,
     'author': 'Farhan Ashraf',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
