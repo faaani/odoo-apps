@@ -37,7 +37,7 @@ still counted - it is then shown as "Document #id", flagged as not readable,
 and cannot be opened from the report.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity/Discuss',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
