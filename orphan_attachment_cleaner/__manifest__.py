@@ -24,7 +24,7 @@ Free-standing user files (no model at all), web assets and module data, and
 binary-field storage are never reported and never deleted.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

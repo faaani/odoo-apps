@@ -112,6 +112,6 @@ an administrator cannot write through it.
 ## Support
 
 * Email: f.ashraf.dev1@gmail.com
-* Source and issues: https://github.com/faaani/odoo-apps
+* Source and issues: https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf
 
 Author: Farhan Ashraf · Licence: LGPL-3 · Supported: Odoo 14.0, 15.0, 16.0, 17.0, 18.0, 19.0

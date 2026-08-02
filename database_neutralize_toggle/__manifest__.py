@@ -22,7 +22,7 @@ no outgoing server record is used; it does not touch payment providers,
 webhooks or any other outbound integration.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

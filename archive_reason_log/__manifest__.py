@@ -25,7 +25,7 @@ contact selection, so a company can never lose its own contact. Every record is
 archived in its own savepoint: one failure never aborts the batch.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

@@ -14,7 +14,7 @@ notes, customer references.
 No configuration. Install and every new confirmed order does the right thing.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Inventory/Inventory',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

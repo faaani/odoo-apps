@@ -14,7 +14,7 @@ Users who tick it stop being auto-subscribed, while the Follow button keeps
 working normally whenever they do want updates.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity/Discuss',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

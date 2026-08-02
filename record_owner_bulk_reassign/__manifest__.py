@@ -19,7 +19,7 @@ Access rights are always respected: the reassignment runs as the current user,
 never with elevated privileges.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

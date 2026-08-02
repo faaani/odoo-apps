@@ -91,4 +91,4 @@ Odoo 14.0, 15.0, 16.0, 17.0, 18.0 and 19.0 &mdash; Community and Enterprise.
 
 Questions, bug reports and feature requests: f.ashraf.dev1@gmail.com
 
-Author: Farhan Ashraf &middot; https://github.com/faaani/odoo-apps &middot; Licence: LGPL-3
+Author: Farhan Ashraf &middot; https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf &middot; Licence: LGPL-3

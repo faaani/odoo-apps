@@ -81,5 +81,5 @@ Odoo 14.0, 15.0, 16.0, 17.0, 18.0 and 19.0 — Community and Enterprise. Depends
 ## Support
 
 - Email: f.ashraf.dev1@gmail.com
-- Author: Farhan Ashraf — https://github.com/faaani/odoo-apps
+- Author: Farhan Ashraf — https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf
 - License: LGPL-3

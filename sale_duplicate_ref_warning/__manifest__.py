@@ -19,7 +19,7 @@ order of the same commercial partner (trimmed, case-insensitive):
 Checks sale orders only (not invoices). No new models, no configuration.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Sales/Sales',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
