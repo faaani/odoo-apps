@@ -1,0 +1,276 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* auth_login_lockout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-02 21:42+0000\n"
+"PO-Revision-Date: 2026-08-02 21:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: auth_login_lockout
+#. odoo-python
+#: code:addons/auth_login_lockout/models/auth_login_attempt.py:0
+#, python-format
+msgid ""
+"<p>The login <strong>%(login)s</strong> has been locked out after repeated "
+"failed password attempts.</p><ul><li>Last attempt from IP: "
+"%(ip)s</li><li>Locked until (UTC): %(until)s</li></ul><p>The lockout expires"
+" on its own. To let the account back in immediately, open Settings / Users "
+"and Companies / Login Attempts, select the failed attempts for this login "
+"and use the \"Release lockout\" action.</p>"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_auth_login_attempt__released
+msgid ""
+"A released failure no longer counts towards a lockout. Releasing is how an "
+"administrator lets a locked-out colleague back in without waiting for the "
+"lockout to expire."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_res_config_settings__lockout_retention_days
+msgid "A scheduled action deletes recorded login attempts older than this."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields.selection,name:auth_login_lockout.selection__auth_login_attempt__result__blocked
+msgid "Blocked - locked out"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Blocked By Lockout"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model,name:auth_login_lockout.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Date"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_res_config_settings__lockout_alert
+msgid "E-mail Administrators On Lockout"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.actions.act_window,help:auth_login_lockout.action_auth_login_attempt
+msgid ""
+"Every attempt to log in is listed here with the login used, the\n"
+"               source IP address and the outcome. Select the failed attempts of\n"
+"               a locked-out colleague and use the \"Release lockout\" action to\n"
+"               let them back in without waiting for the lockout to expire."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields.selection,name:auth_login_lockout.selection__auth_login_attempt__result__failed
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Failed"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_res_config_settings__lockout_max_attempts
+msgid "Failed Attempts Allowed"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Group By"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_res_config_settings__lockout_minutes
+msgid ""
+"How long the login stays refused. The lockout always expires by itself."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__id
+msgid "ID"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__ip
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "IP Address"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_res_config_settings__lockout_retention_days
+msgid "Keep Attempts For (days)"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Last 7 Days"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_res_config_settings__lockout_enabled
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.res_config_settings_view_form_login_lockout
+msgid "Lock Out Repeated Failed Logins"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_res_config_settings__lockout_minutes
+msgid "Lockout Duration (minutes)"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__login
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Login"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model,name:auth_login_lockout.model_auth_login_attempt
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_form
+msgid "Login Attempt"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.actions.act_window,name:auth_login_lockout.action_auth_login_attempt
+#: model:ir.ui.menu,name:auth_login_lockout.menu_auth_login_attempt
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_tree
+msgid "Login Attempts"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.actions.server,name:auth_login_lockout.ir_cron_gc_login_attempts_ir_actions_server
+msgid "Login Lockout: purge old login attempts"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.res_config_settings_view_form_login_lockout
+msgid "Login Security"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.actions.act_window,help:auth_login_lockout.action_auth_login_attempt
+msgid "No login attempt recorded yet"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_res_config_settings__lockout_max_attempts
+msgid "Number of failed attempts for the same login before it is locked out."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.res_config_settings_view_form_login_lockout
+msgid ""
+"Refuse a login for a few minutes once it has failed too many times. The "
+"lockout always expires on its own - nobody can be locked out permanently."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_res_config_settings__lockout_enabled
+msgid ""
+"Refuse further login attempts for a login that has failed too many times."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.actions.server,name:auth_login_lockout.action_release_lockout
+msgid "Release lockout"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__released
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Released"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,field_description:auth_login_lockout.field_auth_login_attempt__result
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Result"
+msgstr ""
+
+#. module: auth_login_lockout
+#. odoo-python
+#: code:addons/auth_login_lockout/models/auth_login_attempt.py:0
+#, python-format
+msgid "Security alert: login \"%s\" locked out"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_res_config_settings__lockout_alert
+msgid "Send a message to every Settings administrator when a lockout starts."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Still Counting"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields.selection,name:auth_login_lockout.selection__auth_login_attempt__result__success
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Successful"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model.fields,help:auth_login_lockout.field_auth_login_attempt__login
+msgid "The login exactly as it was typed, lower-cased."
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_search
+msgid "Today"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model:ir.model,name:auth_login_lockout.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: auth_login_lockout
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_form
+#: model_terms:ir.ui.view,arch_db:auth_login_lockout.view_auth_login_attempt_tree
+msgid "When"
+msgstr ""
+
+#. module: auth_login_lockout
+#. odoo-python
+#: code:addons/auth_login_lockout/models/auth_login_attempt.py:0
+#, python-format
+msgid "unknown"
+msgstr ""
