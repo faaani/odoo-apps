@@ -11,6 +11,13 @@ PARAM_ENABLED = 'keep_sent_email_history.enabled'
 PARAM_RETENTION_DAYS = 'keep_sent_email_history.retention_days'
 DEFAULT_RETENTION_DAYS = 365
 
+# Mail bound to these models carries credentials (password reset, signup and
+# portal invitations with live login-token URLs) and must never be retained.
+CREDENTIAL_MODELS = ('res.users', 'portal.wizard.user')
+# Defensive net: any body containing a signup/reset token URL is credential
+# mail regardless of which model it was rendered for.
+TOKEN_URL_MARKERS = ('/web/signup', '/web/reset_password')
+
 
 class MailMail(models.Model):
     _inherit = 'mail.mail'
@@ -39,10 +46,16 @@ class MailMail(models.Model):
 
     @api.model
     def _keep_history_skip(self, vals):
-        """Never keep credential-bearing emails (signup invites, password
-        resets): their bodies contain one-time login-token URLs that core Odoo
-        deliberately deletes after sending."""
-        return vals.get('model') == 'res.users'
+        """Never keep credential-bearing emails: password resets and signup
+        invitations (model res.users) and portal invitations (model
+        portal.wizard.user) contain login-token URLs — portal signup tokens
+        never expire — that core Odoo deliberately deletes after sending.
+        As a defensive net, any mail whose body carries a signup/reset URL
+        is skipped too, whatever model it was rendered for."""
+        if vals.get('model') in CREDENTIAL_MODELS:
+            return True
+        body = '%s %s' % (vals.get('body_html') or '', vals.get('body') or '')
+        return any(marker in body for marker in TOKEN_URL_MARKERS)
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -57,7 +70,11 @@ class MailMail(models.Model):
     def write(self, vals):
         # some flows flip auto_delete on after creation (e.g. template resend)
         if vals.get('auto_delete') and self._keep_history_config()['enabled']:
-            keep = self.filtered(lambda m: m.model != 'res.users')
+            keep = self.filtered(lambda m: not self._keep_history_skip({
+                'model': m.model,
+                'body_html': m.body_html,
+                'body': m.body,
+            }))
             if keep:
                 super(MailMail, keep).write(
                     dict(vals, auto_delete=False, kept_by_history=True))

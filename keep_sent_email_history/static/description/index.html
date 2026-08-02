@@ -53,7 +53,7 @@
         <li>Apply the <strong>Kept by Email History</strong> filter to see what this module preserved.</li>
         <li>The daily scheduled action <em>"Emails: purge kept history past retention"</em> enforces your retention window automatically.</li>
         <li>Switching the feature off stops keeping new emails; already-kept emails remain until retention removes them.</li>
-        <li><strong>Password reset and signup invitation emails are never kept</strong> &mdash; they contain one-time login links, so Odoo deletes them as usual.</li>
+        <li><strong>Credential emails are never kept</strong> &mdash; password reset, signup invitation and portal invitation emails contain live login-token links, so Odoo deletes them as usual. As a defensive net, any email whose body contains a <code>/web/signup</code> or <code>/web/reset_password</code> link is excluded from retention too.</li>
     </ol>
 
     <h2 style="border-bottom: 2px solid #f0a830; padding-bottom: 6px;">Version notes</h2>

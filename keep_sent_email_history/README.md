@@ -28,8 +28,12 @@ the database does not grow forever. Free, LGPL-3, Odoo 14.0 – 19.0.
   retention period; emails you keep manually (auto-delete off) are never touched.
 - Switching the feature off stops keeping new emails; already-kept emails remain
   until retention removes them.
-- **Password reset and signup invitation emails are never kept** — their bodies
-  contain one-time login links, so the module lets Odoo delete them as usual.
+- **Credential emails are never kept.** Password reset and signup invitation
+  emails (user records) and portal invitation emails (portal access wizard)
+  contain live login-token links, so the module always lets Odoo delete them
+  as usual. As a defensive net, any email whose body contains a
+  `/web/signup` or `/web/reset_password` link is excluded from retention too,
+  whatever document it belongs to.
 - The cleanup also removes kept emails that ended in a failed/cancelled state,
   so bounced mass emails cannot grow the database forever.
 
