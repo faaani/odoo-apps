@@ -1,0 +1,98 @@
+<section style="font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1f2937;line-height:1.6;max-width:1000px;margin:0 auto;padding:0 12px;">
+
+  <div style="background:#1f294a;background-image:linear-gradient(160deg,#394a85 0%,#1f294a 100%);color:#ffffff;border-radius:12px;padding:36px 32px;text-align:center;">
+    <h1 style="margin:0 0 10px;font-size:34px;color:#ffffff;">Login Attempt Throttling and Account Lockout</h1>
+    <p style="margin:0;font-size:18px;color:#dbe2f4;">Stop password guessing on the Odoo login screen. Every attempt recorded, repeat failures locked out, nobody locked out for good.</p>
+    <p style="margin:18px 0 0;font-size:15px;color:#f5b731;">Odoo 14.0 &middot; 15.0 &middot; 16.0 &middot; 17.0 &middot; 18.0 &middot; 19.0 &nbsp;|&nbsp; Free and open source (LGPL-3)</p>
+  </div>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">The problem</h2>
+  <p style="margin:0 0 14px;">Out of the box, Odoo accepts an unlimited number of wrong passwords on the login screen. Somebody who knows one of your users' e-mail addresses can run a dictionary against it all night: nothing slows them down, nothing is written down, and nobody is told. Odoo does have a small built-in cooldown, but it counts per IP address, lives in memory only, and is not shared between workers &mdash; so it is lost on every restart.</p>
+  <p style="margin:0;">This module adds the missing brake, and the paper trail that goes with it.</p>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">What it does</h2>
+  <ul style="margin:0;padding-left:22px;">
+    <li style="margin-bottom:8px;"><strong>Records every login attempt</strong> &mdash; the login that was used, the source IP address, and the outcome: successful, failed, or blocked while locked out.</li>
+    <li style="margin-bottom:8px;"><strong>Locks out repeat failures.</strong> After a configurable number of failures for the same login (5 by default), that login is refused for a configurable number of minutes (15 by default) &mdash; even if the correct password is supplied.</li>
+    <li style="margin-bottom:8px;"><strong>Every lockout expires by itself.</strong> There is no permanent lock, and continuing to knock at a locked login does not extend the lockout already running. An attacker who keeps trying can still trigger a fresh lockout each time one lapses, which is why any administrator can release a lockout instantly.</li>
+    <li style="margin-bottom:8px;"><strong>A successful login clears the counter</strong>, so an honest user who mistypes a few times and then gets it right starts from a clean slate.</li>
+    <li style="margin-bottom:8px;"><strong>Unknown logins are throttled identically</strong>, so the login screen cannot be used to work out which e-mail addresses are real accounts on your database.</li>
+    <li style="margin-bottom:8px;"><strong>Upper case and lower case share one counter</strong> &mdash; changing the capitalisation of a login does not buy an attacker a fresh allowance.</li>
+    <li style="margin-bottom:8px;"><strong>Optional e-mail alert</strong> to every Settings administrator the moment a lockout starts.</li>
+    <li style="margin-bottom:8px;"><strong>Release a lockout in one click</strong> when a colleague is locked out and cannot wait.</li>
+    <li style="margin-bottom:0;"><strong>A scheduled action purges old attempts</strong> (after 30 days by default), so the log cannot grow without bound.</li>
+  </ul>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Screenshots</h2>
+
+  <p style="margin:0 0 8px;"><img src="01-settings.png" style="max-width:100%;border:1px solid #d9dee9;border-radius:8px;" alt="The Login Security block in General Settings"/></p>
+  <p style="margin:0 0 26px;color:#56627f;font-size:14px;">The whole policy lives in one block of General Settings: how many failures are allowed, how long the lockout lasts, how long attempts are kept, and whether administrators are e-mailed.</p>
+
+  <p style="margin:0 0 8px;"><img src="02-attempts.png" style="max-width:100%;border:1px solid #d9dee9;border-radius:8px;" alt="The Login Attempts list"/></p>
+  <p style="margin:0 0 26px;color:#56627f;font-size:14px;">Every attempt with its login, source IP and outcome. Here the demo account signed in, then failed five times and was blocked on the sixth try &mdash; and a login that does not exist on this database is throttled in exactly the same way.</p>
+
+  <p style="margin:0 0 8px;"><img src="03-release.png" style="max-width:100%;border:1px solid #d9dee9;border-radius:8px;" alt="The Release lockout action"/></p>
+  <p style="margin:0 0 26px;color:#56627f;font-size:14px;">A locked-out colleague does not have to wait: select their failed attempts and use Release lockout. The rows are kept and flagged as released, so the audit trail survives.</p>
+
+  <p style="margin:0 0 8px;"><img src="04-cron.png" style="max-width:100%;border:1px solid #d9dee9;border-radius:8px;" alt="The purge scheduled action"/></p>
+  <p style="margin:0 0 0;color:#56627f;font-size:14px;">A scheduled action purges attempts older than the retention period.</p>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Installation</h2>
+  <ol style="margin:0;padding-left:22px;">
+    <li style="margin-bottom:6px;">Copy the <code>auth_login_lockout</code> folder into your Odoo add-ons directory.</li>
+    <li style="margin-bottom:6px;">Restart the Odoo service.</li>
+    <li style="margin-bottom:6px;">Log in as an administrator and go to <strong>Apps</strong>.</li>
+    <li style="margin-bottom:6px;">Click <strong>Update Apps List</strong> (you may need to switch on developer mode first).</li>
+    <li style="margin-bottom:0;">Search for <strong>Login Attempt Throttling and Account Lockout</strong> and press <strong>Install</strong>. Protection is active immediately, with the default policy below.</li>
+  </ol>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Configuration</h2>
+  <ol style="margin:0;padding-left:22px;">
+    <li style="margin-bottom:6px;">Go to <strong>Settings &rarr; General Settings</strong> and scroll to the <strong>Login Security</strong> block.</li>
+    <li style="margin-bottom:6px;"><strong>Lock Out Repeated Failed Logins</strong> turns the whole feature on and off. It is on after installation. Switching it off stops both the lockouts and the recording.</li>
+    <li style="margin-bottom:6px;"><strong>Failed Attempts Allowed</strong> &mdash; how many failures for the same login are tolerated before it is locked. Default 5.</li>
+    <li style="margin-bottom:6px;"><strong>Lockout Duration (minutes)</strong> &mdash; how long the login stays refused. Default 15.</li>
+    <li style="margin-bottom:6px;"><strong>Keep Attempts For (days)</strong> &mdash; how long recorded attempts are kept before the scheduled action deletes them. Default 30.</li>
+    <li style="margin-bottom:6px;"><strong>E-mail Administrators On Lockout</strong> &mdash; when ticked, every user in the Settings group receives a message as soon as a lockout starts. Off by default.</li>
+    <li style="margin-bottom:0;">Press <strong>Save</strong>. Changes apply to the very next login attempt; no restart is needed.</li>
+  </ol>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Usage</h2>
+  <ol style="margin:0;padding-left:22px;">
+    <li style="margin-bottom:6px;">There is nothing to do day to day. Once installed, the module counts failures and locks logins out on its own.</li>
+    <li style="margin-bottom:6px;">To review activity, go to <strong>Settings &rarr; Users and Companies &rarr; Login Attempts</strong>. The list is available to Settings administrators only.</li>
+    <li style="margin-bottom:6px;">Use the ready-made filters to narrow the list: <em>Failed</em>, <em>Blocked By Lockout</em>, <em>Successful</em>, <em>Still Counting</em>, <em>Released</em>, <em>Today</em> and <em>Last 7 Days</em>. Group by login, result, IP address or date to see who is being targeted.</li>
+    <li style="margin-bottom:6px;">A locked-out user simply sees the ordinary "wrong login or password" message. That is deliberate: telling the visitor that a lockout is running, or how long it lasts, would hand an attacker your policy. The real reason is written to the server log.</li>
+    <li style="margin-bottom:6px;">To let a locked-out colleague straight back in, open <strong>Login Attempts</strong>, filter on <em>Still Counting</em>, select their failed rows, and choose <strong>Release lockout</strong> from the <strong>Actions</strong> menu. The rows stay in the list, flagged as released, and stop counting towards the lockout.</li>
+    <li style="margin-bottom:0;">Otherwise just wait: the lockout lifts on its own once the configured number of minutes has passed.</li>
+  </ol>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">What this module does not do</h2>
+  <div style="background:#f7f8fc;border:1px solid #e2e6f0;border-left:4px solid #f5b731;border-radius:8px;padding:16px 20px;">
+    <ul style="margin:0;padding-left:20px;">
+      <li style="margin-bottom:8px;">It guards the <strong>login endpoint</strong> &mdash; the web login form and the <code>authenticate</code> call used by XML-RPC and JSON-RPC clients. It is not a network-level rate limiter: a flood of requests still reaches your server, so put a reverse proxy in front of Odoo if you need to absorb volumetric attacks.</li>
+      <li style="margin-bottom:8px;">Re-validating an <strong>already known user id</strong> (the internal password check used by some API paths and session checks) is not throttled, because reaching it requires knowing a valid user id in the first place.</li>
+      <li style="margin-bottom:8px;">The lockout is <strong>per login, not per IP address</strong>. That is on purpose: locking per IP would punish everybody behind a shared office connection, and would be trivial to evade from a botnet. The trade-off is that an attacker can cause a real user to be temporarily locked out &mdash; which is why blocked attempts never extend a lockout, and why any administrator can release one immediately.</li>
+      <li style="margin-bottom:8px;"><strong>An attacker can keep a login locked out</strong> by triggering a new lockout each time the previous one lapses. Nothing can prevent that while the policy is keyed on the login rather than the source address. Practical answers: release the lockout from the attempt list, block the source at your reverse proxy, or switch the policy off while you deal with it.</li>
+      <li style="margin-bottom:8px;"><strong>The log stores what was typed in the login box, verbatim.</strong> If somebody types their password into the login field by mistake, it will appear in the attempt list, so treat the log as sensitive. It is restricted to Settings administrators, and the retention period bounds how long it is kept. Odoo's own server log already records the login of every failed attempt in the same way.</li>
+      <li style="margin-bottom:8px;">It does not add two-factor authentication, password strength rules or CAPTCHA.</li>
+      <li style="margin-bottom:0;">The optional alert uses Odoo's outgoing mail queue, so an outgoing mail server must be configured for it to be delivered.</li>
+    </ul>
+  </div>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Version notes</h2>
+  <ul style="margin:0;padding-left:22px;">
+    <li style="margin-bottom:8px;">The behaviour is identical on every supported series. Only the screens differ slightly.</li>
+    <li style="margin-bottom:8px;">On <strong>14.0, 15.0 and 16.0</strong> the Login Security options appear in the older General Settings layout; the settings themselves are exactly the same.</li>
+    <li style="margin-bottom:8px;">On <strong>18.0 and 19.0</strong> the purge scheduled action has no "Number of Calls" field, because Odoo removed it. The purge still runs once a day.</li>
+    <li style="margin-bottom:0;">The screenshots on this page were taken on Odoo 17.0.</li>
+  </ul>
+
+  <h2 style="font-size:24px;margin:34px 0 12px;color:#1f294a;">Support</h2>
+  <div style="background:#1f294a;color:#ffffff;border-radius:10px;padding:22px 26px;">
+    <p style="margin:0 0 8px;font-size:16px;">Questions, bug reports and suggestions are welcome.</p>
+    <p style="margin:0;font-size:16px;">Write to <a href="mailto:f.ashraf.dev1@gmail.com" style="color:#f5b731;text-decoration:none;"><strong>f.ashraf.dev1@gmail.com</strong></a> &mdash; please mention your Odoo version.</p>
+    <p style="margin:14px 0 0;font-size:14px;color:#dbe2f4;">Published by Farhan Ashraf. Licensed under LGPL-3: free to use, free to modify.</p>
+  </div>
+
+</section>
