@@ -141,11 +141,16 @@ class ResUsers(models.Model):
                 '%(days)s days without login:'
             ) % {'count': len(archived_logins), 'days': days}
             items = ''.join('<li>%s</li>' % html_escape(login) for login in archived_logins)
-            self.env['mail.mail'].sudo().create({
-                'subject': _('Dormant users deactivated'),
-                'email_to': ','.join(admins.mapped('email')),
-                'auto_delete': True,
-                'body_html': '<p>%s</p><ul>%s</ul>' % (body, items),
-            }).send(raise_exception=False)
+            # savepoint: the archiving writes above must survive a DB-level
+            # failure here — without it a failed mail INSERT poisons the
+            # transaction and the whole run rolls back at commit, which the
+            # try/except alone cannot prevent.
+            with self.env.cr.savepoint():
+                self.env['mail.mail'].sudo().create({
+                    'subject': _('Dormant users deactivated'),
+                    'email_to': ','.join(admins.mapped('email')),
+                    'auto_delete': True,
+                    'body_html': '<p>%s</p><ul>%s</ul>' % (body, items),
+                }).send(raise_exception=False)
         except Exception:  # noqa: BLE001 — notification failure must not fail the cron
             _logger.exception('Dormancy admin notification failed.')

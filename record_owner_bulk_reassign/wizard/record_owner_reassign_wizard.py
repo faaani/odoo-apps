@@ -13,6 +13,13 @@ _logger = logging.getLogger(__name__)
 # A candidate is only used when the model stores it and lets the user write it.
 RESPONSIBLE_FIELDS = ('user_id', 'user_ids', 'activity_user_id')
 
+# Hard cap on the number of records handled in one run (same figure as the
+# sibling mass_field_update module). "All records of a user" can match tens of
+# thousands of records; one unbounded run would exceed the worker time limit
+# and roll back entirely. A capped run finishes, reports how many records are
+# left, and a repeat run continues where it stopped.
+MAX_RECORDS = 10000
+
 # Fields that look like a responsible field but grant access instead of ownership:
 # reassigning them would change who may log in where, not who is in charge.
 ACCESS_CONTROL_FIELDS = frozenset([
@@ -41,10 +48,17 @@ class RecordOwnerReassignWizard(models.TransientModel):
         help='Log a note on every reassigned record, so the change stays traceable.')
     selected_count = fields.Integer(string='Selected', readonly=True)
     record_count = fields.Integer(string='Records', compute='_compute_record_count')
+    capped = fields.Boolean(
+        string='Over the Batch Limit', compute='_compute_record_count',
+        help='More records match than one run may process (%s).' % MAX_RECORDS)
     reassigned_count = fields.Integer(string='Reassigned', readonly=True)
     unchanged_count = fields.Integer(string='Already Assigned', readonly=True)
     skipped_count = fields.Integer(string='Skipped', readonly=True)
     failed_count = fields.Integer(string='Failed', readonly=True)
+    remaining_count = fields.Integer(
+        string='Remaining', readonly=True,
+        help='Matching records left untouched by this run because of the '
+             'batch limit; run the action again to continue.')
 
     # ------------------------------------------------------------------
     # Responsible-field detection
@@ -127,19 +141,28 @@ class RecordOwnerReassignWizard(models.TransientModel):
                     count = self.env[wizard.res_model].with_context(
                         active_test=False).search_count(wizard._owner_domain(field_name))
             wizard.record_count = count
+            wizard.capped = count > MAX_RECORDS
 
     def _target_records(self, field_name):
+        """Return ``(records, remaining)``: the records this run handles,
+        capped at MAX_RECORDS, and how many matching records are left over
+        for a repeat run. One unbounded run over a big owner would blow the
+        worker time limit and roll back entirely; a capped run finishes and
+        says exactly how much is left."""
         self.ensure_one()
         # active_test=False: a leaver's archived records must be handed over too
         model = self.env[self._reassign_model()].with_context(active_test=False)
         if self.scope == 'user':
             if not self.old_user_id:
                 raise UserError(_('Choose the user whose records must be reassigned.'))
-            return model.search(self._owner_domain(field_name))
+            domain = self._owner_domain(field_name)
+            total = model.search_count(domain)
+            records = model.search(domain, limit=MAX_RECORDS)
+            return records, max(total - len(records), 0)
         ids = self._context_record_ids()
         if not ids:
             raise UserError(_('Select the records to reassign first.'))
-        return model.browse(ids).exists()
+        return model.browse(ids[:MAX_RECORDS]).exists(), max(len(ids) - MAX_RECORDS, 0)
 
     # ------------------------------------------------------------------
     # Reassignment
@@ -192,7 +215,7 @@ class RecordOwnerReassignWizard(models.TransientModel):
         if self.field_name and self.field_name != field_name:
             raise UserError(_('The responsible field cannot be changed.'))
         field = self.env[model_name]._fields[field_name]
-        records = self._target_records(field_name)
+        records, remaining = self._target_records(field_name)
         if not records:
             raise UserError(_('There is no record to reassign.'))
 
@@ -229,10 +252,13 @@ class RecordOwnerReassignWizard(models.TransientModel):
             'unchanged_count': unchanged,
             'skipped_count': skipped,
             'failed_count': failed,
+            'remaining_count': remaining,
         })
-        return self._notification(reassigned, unchanged, skipped, failed, first_error)
+        return self._notification(reassigned, unchanged, skipped, failed,
+                                  first_error, remaining)
 
-    def _notification(self, reassigned, unchanged, skipped, failed, first_error=''):
+    def _notification(self, reassigned, unchanged, skipped, failed,
+                      first_error='', remaining=0):
         self.ensure_one()
         # str(): the notification payload is JSON-serialized, and from 18.0 _() is lazy
         message = str(_(
@@ -249,11 +275,17 @@ class RecordOwnerReassignWizard(models.TransientModel):
             message = '%s %s' % (message, str(_('Unchanged: %s.', ', '.join(details))))
         if first_error:
             message = '%s %s' % (message, str(_('First error: %s', first_error)))
+        if remaining:
+            message = '%s %s' % (message, str(_(
+                'Only the first %(max)s matching records were processed in '
+                'this run; %(remaining)s record(s) are left. Run the action '
+                'again to continue.',
+                max=MAX_RECORDS, remaining=remaining)))
         return {
             'type': 'ir.actions.client',
             'tag': 'display_notification',
             'params': {
-                'type': 'warning' if (skipped or failed) else 'success',
+                'type': 'warning' if (skipped or failed or remaining) else 'success',
                 'title': str(_('Records reassigned')),
                 'message': message,
                 'next': {'type': 'ir.actions.act_window_close'},
