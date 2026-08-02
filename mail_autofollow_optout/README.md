@@ -16,6 +16,11 @@ Odoo subscribes you as a follower of every record you comment on or get assigned
 4. Use the Follow button on any record you do want to hear about.
 
 ## Notes
+The preference suppresses **automatic** following only. If a colleague adds you
+explicitly through **Add Followers**, you really are added as a follower — that
+invitation email reaches you either way, so silently dropping the follow would
+be misleading. Clicking **Follow** yourself always works too.
+
 Identical behavior on every supported series (14.0 – 19.0).
 
 Free, LGPL-3, Odoo 14.0 – 19.0.
