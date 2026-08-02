@@ -13,7 +13,7 @@ This module keeps every sent email, with a configurable retention period and a
 daily cleanup job so your database does not grow forever.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Discuss',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

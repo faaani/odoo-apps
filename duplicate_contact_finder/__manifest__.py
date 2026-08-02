@@ -38,7 +38,7 @@ never read record by record - and the number of reported groups is capped, with
 a clear warning when the result was truncated.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

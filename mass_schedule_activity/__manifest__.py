@@ -14,7 +14,7 @@ activities: select the records, fill the activity once, and it is created on
 all of them - with a summary of what was scheduled.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

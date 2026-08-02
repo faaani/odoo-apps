@@ -19,7 +19,7 @@ it is rate limited to at most one message per 24 hours so a broken relay cannot
 turn into an inbox flood.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

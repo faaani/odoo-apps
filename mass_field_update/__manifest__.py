@@ -30,7 +30,7 @@ The guards are the point.
 Reserved to users with Settings access. Up to 10 000 records per run.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
