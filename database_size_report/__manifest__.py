@@ -33,7 +33,7 @@ on its own. It never deletes anything else and never offers to. Access is
 restricted to Settings administrators, because the sizes cover the whole database.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
