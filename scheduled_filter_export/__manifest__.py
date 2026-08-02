@@ -2,7 +2,7 @@
 # Part of scheduled_filter_export. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Scheduled Export by Email',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     'summary': 'Send a filtered list of any model by email on a schedule: pick the model, the filter, the columns, the day - a CSV or Excel file is mailed automatically.',
     'description': """
 Every business has someone who opens the same list every Monday morning,

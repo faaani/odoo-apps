@@ -12,6 +12,7 @@
         <li><strong>Two ways to select</strong> &mdash; the records you ticked, or every record still owned by the person who is leaving, archived records included, with a live counter.</li>
         <li><strong>Respects access rights</strong> &mdash; the reassignment runs as you, never with elevated privileges; records you may not write are reported as skipped, not silently ignored.</li>
         <li><strong>Never aborts halfway</strong> &mdash; every record is written in its own savepoint, so one failure does not roll back the rest.</li>
+        <li><strong>Capped at 10000 records per run</strong> &mdash; a bigger job processes the first 10000 inside the worker time limit, reports exactly how many records are left, and a repeat run continues where it stopped.</li>
         <li><strong>Traceable</strong> &mdash; a note is logged in the chatter of each record that changed, and a summary reports reassigned / already assigned / skipped / failed.</li>
     </ul>
 
@@ -52,11 +53,12 @@
 
     <h2 style="border-bottom: 2px solid #4fc3a1; padding-bottom: 6px;">Version notes</h2>
     <p style="font-size: 15px;">Identical behavior on every supported series (14.0 &ndash; 19.0). On a many2many responsible field the new owner is added and the previous owner removed, so the remaining collaborators are kept.</p>
+    <p style="font-size: 15px;">At most 10000 records are reassigned per run. When more records match, the wizard warns before you apply and the summary says how many records are left &mdash; run the action again until nothing remains.</p>
 
     <div style="margin-top: 28px; padding: 18px; background: #f6f6f6; border-radius: 8px; text-align: center;">
         <p style="margin: 0; font-size: 15px;"><strong>Questions, bugs or feature requests?</strong><br/>
         Email <a href="mailto:f.ashraf.dev1@gmail.com">f.ashraf.dev1@gmail.com</a> &mdash; I read and answer every message.</p>
     </div>
 
-    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Source on GitHub &middot; Issues and contributions welcome.</p>
+    <p style="margin-top: 28px; font-size: 13px; color: #777;">License: LGPL-3 &middot; Issues and contributions welcome.</p>
 </section>

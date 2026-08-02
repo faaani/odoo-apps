@@ -2,7 +2,7 @@
 # Part of archive_audit_trail. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Archive Audit Trail',
-    'version': '14.0.1.0.1',
+    'version': '14.0.1.0.2',
     'summary': 'Log who archived or unarchived a record, and when, right in its chatter.',
     'description': """
 "Where did that customer go?" Archiving is a one-click action that hides

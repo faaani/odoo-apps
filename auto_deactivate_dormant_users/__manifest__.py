@@ -2,7 +2,7 @@
 # Part of auto_deactivate_dormant_users. License: LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>.
 {
     'name': 'Auto Deactivate Dormant Users',
-    'version': '14.0.1.0.2',
+    'version': '14.0.1.0.3',
     'summary': 'Automatically archive users who have not logged in for N days - free seats, satisfy dormant-account security controls.',
     'description': """
 Automatically deactivate (archive) internal users who have not logged in for a
