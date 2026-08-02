@@ -13,7 +13,7 @@ Safe by default: disabled until you turn it on, never touches administrators,
 OdooBot, portal users, or users you mark as exempt.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/farhanashraf/odoo-gap-modules',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Tools',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',
