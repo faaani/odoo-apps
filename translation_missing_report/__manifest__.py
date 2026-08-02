@@ -36,7 +36,7 @@ terms is capped by a limit you set and the report says when it truncated.
 Available to Settings / Administration users only.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Tools',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

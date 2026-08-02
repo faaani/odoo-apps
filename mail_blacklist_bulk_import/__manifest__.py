@@ -29,7 +29,7 @@ entry is logged on each blacklist record. One bad line can never abort the run:
 each address is processed in its own savepoint.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Marketing/Email Marketing',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

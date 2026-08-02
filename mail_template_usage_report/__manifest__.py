@@ -49,7 +49,7 @@ Settings > Technical > Email, next to the templates themselves, so developer
 mode has to be on for the menu to appear.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Productivity/Discuss',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

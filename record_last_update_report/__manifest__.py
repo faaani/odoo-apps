@@ -28,7 +28,7 @@ want to act on what it finds, the companion module "Automatic Archiving Rules"
 optional install and this module does not depend on it.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Tools',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

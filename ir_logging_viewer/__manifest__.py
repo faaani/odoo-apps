@@ -24,7 +24,7 @@ that when the server runs with the ``log_db`` option; it is not a viewer for the
 server log file.
 """,
     'author': 'Farhan Ashraf',
-    'website': 'https://github.com/faaani/odoo-apps',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf',
     'category': 'Technical',
     'license': 'LGPL-3',
     'support': 'f.ashraf.dev1@gmail.com',

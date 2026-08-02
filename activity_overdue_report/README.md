@@ -106,5 +106,5 @@ applying on top of whatever you choose.
 
 Questions, bug reports and feature requests: **f.ashraf.dev1@gmail.com**
 
-Author: Farhan Ashraf — <https://github.com/faaani/odoo-apps>
+Author: Farhan Ashraf — <https://apps.odoo.com/apps/modules/browse?author=Farhan+Ashraf
 License: LGPL-3
