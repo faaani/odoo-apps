@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_auth_login_attempt_tree" model="ir.ui.view">
+        <field name="name">auth.login.attempt.list</field>
+        <field name="model">auth.login.attempt</field>
+        <field name="arch" type="xml">
+            <list string="Login Attempts" create="false" edit="false"
+                  decoration-danger="result == 'blocked'"
+                  decoration-warning="result == 'failed' and not released"
+                  decoration-muted="released">
+                <field name="create_date" string="When"/>
+                <field name="login"/>
+                <field name="ip"/>
+                <field name="result"/>
+                <field name="released" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_auth_login_attempt_form" model="ir.ui.view">
+        <field name="name">auth.login.attempt.form</field>
+        <field name="model">auth.login.attempt</field>
+        <field name="arch" type="xml">
+            <form string="Login Attempt" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="login"/>
+                            <field name="ip"/>
+                        </group>
+                        <group>
+                            <field name="create_date" string="When"/>
+                            <field name="result"/>
+                            <field name="released"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_auth_login_attempt_search" model="ir.ui.view">
+        <field name="name">auth.login.attempt.search</field>
+        <field name="model">auth.login.attempt</field>
+        <field name="arch" type="xml">
+            <search string="Login Attempts">
+                <field name="login"/>
+                <field name="ip"/>
+                <filter string="Failed" name="filter_failed"
+                        domain="[('result', '=', 'failed')]"/>
+                <filter string="Blocked By Lockout" name="filter_blocked"
+                        domain="[('result', '=', 'blocked')]"/>
+                <filter string="Successful" name="filter_success"
+                        domain="[('result', '=', 'success')]"/>
+                <separator/>
+                <filter string="Still Counting" name="filter_counting"
+                        domain="[('result', '=', 'failed'), ('released', '=', False)]"/>
+                <filter string="Released" name="filter_released"
+                        domain="[('released', '=', True)]"/>
+                <separator/>
+                <filter string="Today" name="filter_today"
+                        domain="[('create_date', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)))]"/>
+                <filter string="Last 7 Days" name="filter_week"
+                        domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Login" name="group_login"
+                            context="{'group_by': 'login'}"/>
+                    <filter string="Result" name="group_result"
+                            context="{'group_by': 'result'}"/>
+                    <filter string="IP Address" name="group_ip"
+                            context="{'group_by': 'ip'}"/>
+                    <filter string="Date" name="group_date"
+                            context="{'group_by': 'create_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_release_lockout" model="ir.actions.server">
+        <field name="name">Release lockout</field>
+        <field name="model_id" ref="model_auth_login_attempt"/>
+        <field name="binding_model_id" ref="model_auth_login_attempt"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">model.browse(env.context.get('active_ids', [])).action_release_lockout()</field>
+    </record>
+
+    <record id="action_auth_login_attempt" model="ir.actions.act_window">
+        <field name="name">Login Attempts</field>
+        <field name="res_model">auth.login.attempt</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_auth_login_attempt_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No login attempt recorded yet</p>
+            <p>Every attempt to log in is listed here with the login used, the
+               source IP address and the outcome. Select the failed attempts of
+               a locked-out colleague and use the "Release lockout" action to
+               let them back in without waiting for the lockout to expire.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_auth_login_attempt"
+              name="Login Attempts"
+              parent="base.menu_users"
+              action="action_auth_login_attempt"
+              groups="base.group_system"
+              sequence="30"/>
+
+</odoo>
