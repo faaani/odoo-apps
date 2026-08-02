@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_login_lockout" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.login.lockout</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='emails']" position="after">
+                <h2>Login Security</h2>
+                <div class="row mt16 o_settings_container" id="login_lockout_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="login_lockout_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="lockout_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="lockout_enabled"/>
+                            <div class="text-muted">
+                                Refuse a login for a few minutes once it has failed too many times. The lockout always expires on its own - nobody can be locked out permanently.
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('lockout_enabled', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="lockout_max_attempts" class="col-lg-6 o_light_label"/>
+                                    <field name="lockout_max_attempts" class="col-lg-2"/>
+                                </div>
+                                <div class="row">
+                                    <label for="lockout_minutes" class="col-lg-6 o_light_label"/>
+                                    <field name="lockout_minutes" class="col-lg-2"/>
+                                </div>
+                                <div class="row">
+                                    <label for="lockout_retention_days" class="col-lg-6 o_light_label"/>
+                                    <field name="lockout_retention_days" class="col-lg-2"/>
+                                </div>
+                                <div class="row mt16">
+                                    <field name="lockout_alert" class="col-lg-1"/>
+                                    <label for="lockout_alert" class="col-lg-8 o_light_label"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
